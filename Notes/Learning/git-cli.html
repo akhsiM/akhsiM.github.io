@@ -1,0 +1,672 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-08-11 Sun 01:07 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>git-cli</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mishka Nguyen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">git-cli</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgd44e807">1. Distributed Version Control System</a></li>
+<li><a href="#org529cb6a">2. Installing &amp; Setup</a></li>
+<li><a href="#org207d9c3">3. Getting Started</a>
+<ul>
+<li><a href="#orgb4c890c">3.1. 1. Initialize a Repo from existing code</a>
+<ul>
+<li><a href="#orgbc2a736">3.1.1. Preparation</a></li>
+<li><a href="#org055d1cd">3.1.2. .gitignore</a></li>
+<li><a href="#orge64542a">3.1.3. Add files to staging area</a></li>
+<li><a href="#orgb5c10e2">3.1.4. Commit</a></li>
+</ul>
+</li>
+<li><a href="#orgd15f14d">3.2. 2. Tracking an existing remote project</a>
+<ul>
+<li><a href="#org7f6cd03">3.2.1. Cloning a remote repo</a></li>
+<li><a href="#org5073de9">3.2.2. Pushing changes</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org66fbe59">4. Common workflow</a></li>
+<li><a href="#org8e40500">5. Merging a branch to master</a></li>
+<li><a href="#orgf9df4a1">6. Questions</a></li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orgd44e807" class="outline-2">
+<h2 id="orgd44e807"><span class="section-number-2">1</span> Distributed Version Control System</h2>
+<div class="outline-text-2" id="text-1">
+<p>
+Git is a distributed version control system, which is different from central version control system.
+</p>
+
+<p>
+Central VCS refers to a <b>single</b> remote central database. Problem is if something wrong happens to the central database then none of the remote device would be able to connect to it. If the database is corrupted then we'd better hope it's backed up somehow. 
+</p>
+
+<p>
+For distributed VCS, <b>everybody</b> has a local copy of the repository. You can connect to the remote repo, however the local has everything that the remote had based on the last time they are synced. 
+</p>
+
+<p>
+Basically in a Distributed VCS, every developer has a back-up of the central repository. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org529cb6a" class="outline-2">
+<h2 id="org529cb6a"><span class="section-number-2">2</span> Installing &amp; Setup</h2>
+<div class="outline-text-2" id="text-2">
+<p>
+After installation, do this to check if everything is OK. 
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git --version  
+</pre>
+</div>
+
+<p>
+This indicates that git is installed OK:
+</p>
+<pre class="example">
+git version 2.17.1
+</pre>
+
+
+<p>
+Seting up global configuration variables:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">git config --global user.name <span style="font-style: italic;">"Kenny Nguyen"</span>
+git config --global user.email <span style="font-style: italic;">"kkenny.nguyen@gmail.com"</span>
+
+</pre>
+</div>
+
+<p>
+After this we can do
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">git config --list
+
+</pre>
+</div>
+
+<p>
+which will check all global config variables.
+</p>
+
+<p>
+If you <b>need help</b>:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">
+git help config
+git config --help
+
+</pre>
+</div>
+
+<p>
+The format for help is either <code>git help &lt;verb&gt;</code> or <code>git &lt;verb&gt; --help</code>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org207d9c3" class="outline-2">
+<h2 id="org207d9c3"><span class="section-number-2">3</span> Getting Started</h2>
+<div class="outline-text-2" id="text-3">
+<p>
+Two common scenarios:
+</p>
+</div>
+
+<div id="outline-container-orgb4c890c" class="outline-3">
+<h3 id="orgb4c890c"><span class="section-number-3">3.1</span> 1. Initialize a Repo from existing code</h3>
+<div class="outline-text-3" id="text-3-1">
+<p>
+<i>We have an existing project on our local machine and we want to start gitting.</i>
+</p>
+</div>
+
+<div id="outline-container-orgbc2a736" class="outline-4">
+<h4 id="orgbc2a736"><span class="section-number-4">3.1.1</span> Preparation</h4>
+<div class="outline-text-4" id="text-3-1-1">
+<p>
+We need to do:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git init
+</pre>
+</div>
+
+<p>
+after we cd to the local repo. What it would do is iniatializing an empty Git repo in the directory with the address <code>local-repo/.git/</code>.
+</p>
+
+<p>
+<code>.git</code> is a directory that contains everything that's related to our repository.
+</p>
+
+<p>
+<b>Before first commit</b>:
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">git status
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org055d1cd" class="outline-4">
+<h4 id="org055d1cd"><span class="section-number-4">3.1.2</span> .gitignore</h4>
+<div class="outline-text-4" id="text-3-1-2">
+<p>
+If we have files that contains personal data or something that is not relevant to our code, we can do
+</p>
+<div class="org-src-container">
+<pre class="src src-shell">touch .gitignore
+</pre>
+</div>
+
+<p>
+<code>.gitignore</code> file is just a simple text file that we can add files that we want git to <b>ignore</b>. We can use <b>wildcards</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge64542a" class="outline-4">
+<h4 id="orge64542a"><span class="section-number-4">3.1.3</span> Add files to staging area</h4>
+<div class="outline-text-4" id="text-3-1-3">
+<p>
+<i>Staging area is the area that we <b>organize</b> what we want to commit to Git</i>.
+</p>
+
+<p>
+[WORKING DIRECTORY] &#x2014;prepare changes&#x2014;&gt; [STAGING AREA] &#x2014;commit&#x2014;&gt; [git]
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">git add -A
+</pre>
+</div>
+<p>
+to add eveyrthing .. or we can just add files individually.
+</p>
+
+<p>
+remove from staging area:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">git reset filename
+</pre>
+</div>
+
+<p>
+or just <code>git reset</code> which would just return everything from <b>staging area</b> to <b>working directory</b>.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgb5c10e2" class="outline-4">
+<h4 id="orgb5c10e2"><span class="section-number-4">3.1.4</span> Commit</h4>
+<div class="outline-text-4" id="text-3-1-4">
+<p>
+After we <code>git add -A</code> to add everything to Staging area, we can do <code>git commit -m "Initial Commit"</code>.
+</p>
+
+<p>
+After this if we do <code>git status</code>, it will show "working directory clean".  This means we've committed the files and we have no modified or untracked files.
+</p>
+
+<p>
+We can also do <code>git log</code> that will give us the Hash number of our commit.
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgd15f14d" class="outline-3">
+<h3 id="orgd15f14d"><span class="section-number-3">3.2</span> 2. Tracking an existing remote project</h3>
+<div class="outline-text-3" id="text-3-2">
+</div>
+<div id="outline-container-org7f6cd03" class="outline-4">
+<h4 id="org7f6cd03"><span class="section-number-4">3.2.1</span> Cloning a remote repo</h4>
+<div class="outline-text-4" id="text-3-2-1">
+<div class="org-src-container">
+<pre class="src src-sh">git clone &lt;url&gt; .
+</pre>
+</div>
+
+<p>
+The <code>.</code> means to clone everything.
+</p>
+
+<p>
+<code>$ git remove -v</code>: List information of the repository.
+<code>$ git branch -a</code>: List all branches of the repository.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5073de9" class="outline-4">
+<h4 id="org5073de9"><span class="section-number-4">3.2.2</span> Pushing changes</h4>
+<div class="outline-text-4" id="text-3-2-2">
+<p>
+<code>$ git diff</code>: show the changes that we've made to the codebase. 
+<code>$ git status</code>: show the modified file
+<code>$ git add -A</code>: add to staging area
+<code>$ git status</code> again: file is ready to be commited
+then..
+</p>
+
+<p>
+<code>$ git commit -m "abcdef"</code>
+</p>
+
+<p>
+then
+</p>
+
+<p>
+<code>$ git pull origin master</code>: pull any changes that have been made <b>while</b> we are working. This is useful for code bases that have a lot of people working on.
+<code>$ git push origin master</code>: push to master branch of remote origin repo.
+</p>
+
+<p>
+<b>origin</b> refers to the name of the remote repository.
+<b>master</b> refers to the branch we want to push/ pull to.
+</p>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org66fbe59" class="outline-2">
+<h2 id="org66fbe59"><span class="section-number-2">4</span> Common workflow</h2>
+<div class="outline-text-2" id="text-4">
+<p>
+Instead of working on the master branch, we shouldn't be doing that. We should be <b>creating a branch for the desired feature</b> by:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">git branch abc-def
+</pre>
+</div>
+
+<p>
+and then if we do <code>git branch</code> without the branch name, it will list all the branches. The one with asterisk (*)next to it is the one we are currently working on.
+</p>
+
+<p>
+To start working on the branch we just created <b>abc-def</b>, we need to do: 
+</p>
+
+<div class="org-src-container">
+<pre class="src src-shell">git checkout abc-def
+</pre>
+</div>
+
+<p>
+Then if we rerun <code>$ git branch</code> again, abc-def will have an asterisk next to it.
+</p>
+
+<p>
+Steps to undertake are:
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">STEPS</th>
+<th scope="col" class="org-left">EFFECTS</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><code>$ git branch abc-def</code></td>
+<td class="org-left">Creating a local branch</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$ git checkout abc-def</code></td>
+<td class="org-left">Start working on the branch</td>
+</tr>
+
+<tr>
+<td class="org-left">Make changes</td>
+<td class="org-left">Changes are made to the Working Dir</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$ git add -A</code></td>
+<td class="org-left">Add changes to Staging Area.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$ git commit -m "I am making a change.</code></td>
+<td class="org-left">Changes are commited to local branch. No effect on master branch and/or remote repo.</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>$ git push -u origin abc-def</code></td>
+<td class="org-left">The -u option associates local abc-def branch to remote abc-def branch. After that we don't need to do that anymore</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org8e40500" class="outline-2">
+<h2 id="org8e40500"><span class="section-number-2">5</span> Merging a branch to master</h2>
+<div class="outline-text-2" id="text-5">
+<p>
+<code>$ git checkout master</code>
+</p>
+
+<p>
+to start working on master branch.
+then..
+<code>$ git pull origin master</code>
+</p>
+
+<p>
+then we can do <code>$ git branch --merged</code> to see which branch has been merged with master.
+then..
+<code>$ git merge branch-name</code>
+</p>
+
+<p>
+then..
+<code>$ git push origin master</code> to push the changes to the master branch to remote repo origin.
+</p>
+
+<p>
+then we can do <code>$ git branch -d branch-name</code> to delete the merged branch by the <code>-d</code> option.
+This would delete the local branch.
+</p>
+
+<p>
+To delete a remote branch do this <code>$git push --delete branch-name</code>. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf9df4a1" class="outline-2">
+<h2 id="orgf9df4a1"><span class="section-number-2">6</span> Questions</h2>
+<div class="outline-text-2" id="text-6">
+<p>
+<b>- What is <code>origin</code> and <code>master</code>?</b>
+You may wonder what the hell 'origin' and 'master' mean in <code>git push origin master</code>. <b>master</b> is the default local branch in git. This is the prod branch basically. <b>origin</b> refers to the source/ remote repository from where the local repo was cloned from.  
+</p>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="date">Date: 2019-05-25 Sat 00:00</p>
+<p class="author">Author: Mishka Nguyen</p>
+<p class="date">Created: 2019-08-11 Sun 01:07</p>
+<p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
+</div>
+</body>
+</html>

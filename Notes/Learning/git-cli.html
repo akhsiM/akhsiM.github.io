@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-11 Sun 11:51 -->
+<!-- 2019-08-11 Sun 22:01 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>git-cli</title>
@@ -275,7 +275,12 @@ for the JavaScript code in this tag.
 </li>
 <li><a href="#org66fbe59">4. Common workflow</a></li>
 <li><a href="#org8e40500">5. Merging a branch to master</a></li>
-<li><a href="#orgf9df4a1">6. Questions</a></li>
+<li><a href="#orga5ad046">6. Further research</a>
+<ul>
+<li><a href="#orgadbdc5c">6.1. Differences between <code>git remote add</code> vs <code>git clone</code>:</a></li>
+<li><a href="#org7c53023">6.2. Differences between <code>git pull</code> and <code>git fetch</code></a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -652,20 +657,147 @@ To delete a remote branch do this <code>$git push --delete branch-name</code>.
 </div>
 </div>
 
-<div id="outline-container-orgf9df4a1" class="outline-2">
-<h2 id="orgf9df4a1"><span class="section-number-2">6</span> Questions</h2>
+
+<div id="outline-container-orga5ad046" class="outline-2">
+<h2 id="orga5ad046"><span class="section-number-2">6</span> Further research</h2>
 <div class="outline-text-2" id="text-6">
+</div>
+<div id="outline-container-orgadbdc5c" class="outline-3">
+<h3 id="orgadbdc5c"><span class="section-number-3">6.1</span> Differences between <code>git remote add</code> vs <code>git clone</code>:</h3>
+<div class="outline-text-3" id="text-6-1">
 <p>
-<b>- What is <code>origin</code> and <code>master</code>?</b>
-You may wonder what the hell 'origin' and 'master' mean in <code>git push origin master</code>. <b>master</b> is the default local branch in git. This is the prod branch basically. <b>origin</b> refers to the source/ remote repository from where the local repo was cloned from.  
+Example 1:
 </p>
+<div class="org-src-container">
+<pre class="src src-sh">git clone https://github.com/abc
+</pre>
+</div>
+<p>
+The above creates a new git local repository by copying an existing remote one located at the URL.
+</p>
+
+<p>
+Example 2:
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">git remote add test https://github.com/abc
+</pre>
+</div>
+<p>
+The above does <b>not</b> create any local git copy. It only creates a pointer for the name of <code>https://github.com/abc</code>, which in the above equal <code>test</code>.
+</p>
+
+<p>
+Both the below return the same results:               
+</p>
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>git clone URL foo</code></td>
+<td class="org-left"><code>mkdir foo</code></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>cd foo</code></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>git init</code></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>git remote add origin URL</code></td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>git pull origin master</code></td>
+</tr>
+</tbody>
+</table>
+
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left"><code>git clone</code></th>
+<th scope="col" class="org-left"><code>git remote add</code></th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Physically download the files</td>
+<td class="org-left">Does not take space.</td>
+</tr>
+
+<tr>
+<td class="org-left">into local directory.</td>
+<td class="org-left">Pretty much like a pointer.</td>
+</tr>
+
+<tr>
+<td class="org-left">Automatically name remote git <b>origin.</b></td>
+<td class="org-left">Just contain a snapshot of branches and git,</td>
+</tr>
+
+<tr>
+<td class="org-left">No need for preparation</td>
+<td class="org-left">not the actual files/ folders.</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">An <b>existing</b> local repository is needed, and you</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">have to be currently in it.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+<div id="outline-container-org7c53023" class="outline-3">
+<h3 id="org7c53023"><span class="section-number-3">6.2</span> Differences between <code>git pull</code> and <code>git fetch</code></h3>
+<div class="outline-text-3" id="text-6-2">
+<p>
+A <code>git pull</code> is basically a <code>git fetch + merge</code>.
+</p>
+
+<ul class="org-ul">
+<li><code>git fetch</code>: connects to remote repo (origin) and fetches new commits.</li>
+<li><code>git merge</code>: incoporates new commits into local branch.</li>
+</ul>
+
+<pre class="example">
+git pull == git fetch origin &amp;&amp; git merge origin
+</pre>
+</div>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2019-05-25 Sat 00:00</p>
 <p class="author">Author: Mishka Nguyen</p>
-<p class="date">Created: 2019-08-11 Sun 11:51</p>
+<p class="date">Created: 2019-08-11 Sun 22:01</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

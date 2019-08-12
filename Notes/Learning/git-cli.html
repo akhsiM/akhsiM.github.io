@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-13 Tue 08:11 -->
+<!-- 2019-08-13 Tue 08:15 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>git-cli</title>
@@ -11827,26 +11827,26 @@ RnV5LCl1XpU4umQgp8NNpTBLnP4TdW9U10LMJGkvG3h05+hLreHoC2osrYuw5JuFKV0kkpttrvhh
 hasqObrIAYSMghwQYWXFszNnV7Hgbj4BGtBLV6iLsSDT9JKOjdG8fOD1y8EhHZ2Twwv8g55JHCbO
 rWHQBl1c0pnTtLBvVoFkGLIjSI25YWNIzpqno3ZL1WU/tbbvJb5VuMhgaly20cWYSqDtOM1nH3yW
 6steeu9CTjR96Gs+IA1HYE/fcAonOfzleVihf8nX90F8RwrmTGodtD1+3wxbmLGcgIR72TmxDx8M
-Yg7LAJ0b0AnCL7ifL6ZR1Fpu+ef/fwAAAP//H8rqiwxSdSMAAAAASUVORK5CYII="git.png />
+Yg7LAJ0b0AnCL7ifL6ZR1Fpu+ef/fwAAAP//H8rqiwxSdSMAAAAASUVORK5CYII="git.png /><br />
 </p>
 </div>
 <div id="outline-container-orgd44e807" class="outline-2">
 <h2 id="orgd44e807">Distributed Version Control System</h2>
 <div class="outline-text-2" id="text-orgd44e807">
 <p>
-Git is a distributed version control system, which is different from central version control system.
+Git is a distributed version control system, which is different from central version control system.<br />
 </p>
 
 <p>
-Central VCS refers to a <b>single</b> remote central database. Problem is if something wrong happens to the central database then none of the remote device would be able to connect to it. If the database is corrupted then we'd better hope it's backed up somehow. 
+Central VCS refers to a <b>single</b> remote central database. Problem is if something wrong happens to the central database then none of the remote device would be able to connect to it. If the database is corrupted then we'd better hope it's backed up somehow.<br />
 </p>
 
 <p>
-For distributed VCS, <b>everybody</b> has a local copy of the repository. You can connect to the remote repo, however the local has everything that the remote had based on the last time they are synced. 
+For distributed VCS, <b>everybody</b> has a local copy of the repository. You can connect to the remote repo, however the local has everything that the remote had based on the last time they are synced.<br />
 </p>
 
 <p>
-Basically in a Distributed VCS, every developer has a back-up of the central repository. 
+Basically in a Distributed VCS, every developer has a back-up of the central repository.<br />
 </p>
 </div>
 </div>
@@ -11855,7 +11855,7 @@ Basically in a Distributed VCS, every developer has a back-up of the central rep
 <h2 id="org529cb6a">Installing &amp; Setup</h2>
 <div class="outline-text-2" id="text-org529cb6a">
 <p>
-After installation, do this to check if everything is OK. 
+After installation, do this to check if everything is OK.<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-shell">git --version  
@@ -11863,7 +11863,7 @@ After installation, do this to check if everything is OK.
 </div>
 
 <p>
-This indicates that git is installed OK:
+This indicates that git is installed OK:<br />
 </p>
 <pre class="example">
 git version 2.17.1
@@ -11871,7 +11871,7 @@ git version 2.17.1
 
 
 <p>
-Seting up global configuration variables:
+Seting up global configuration variables:<br />
 </p>
 
 <div class="org-src-container">
@@ -11882,7 +11882,7 @@ git config --global user.email <span style="font-style: italic;">"kkenny.nguyen@
 </div>
 
 <p>
-After this we can do
+After this we can do<br />
 </p>
 
 <div class="org-src-container">
@@ -11892,11 +11892,11 @@ After this we can do
 </div>
 
 <p>
-which will check all global config variables.
+which will check all global config variables.<br />
 </p>
 
 <p>
-If you <b>need help</b>:
+If you <b>need help</b>:<br />
 </p>
 
 <div class="org-src-container">
@@ -11908,7 +11908,7 @@ git config --help
 </div>
 
 <p>
-The format for help is either <code>git help &lt;verb&gt;</code> or <code>git &lt;verb&gt; --help</code>.
+The format for help is either <code>git help &lt;verb&gt;</code> or <code>git &lt;verb&gt; --help</code>.<br />
 </p>
 </div>
 </div>
@@ -11917,7 +11917,7 @@ The format for help is either <code>git help &lt;verb&gt;</code> or <code>git &l
 <h2 id="org207d9c3">Getting Started</h2>
 <div class="outline-text-2" id="text-org207d9c3">
 <p>
-Two common scenarios:
+Two common scenarios:<br />
 </p>
 </div>
 
@@ -11925,7 +11925,7 @@ Two common scenarios:
 <h3 id="orgb4c890c">1. Initialize a Repo from existing code</h3>
 <div class="outline-text-3" id="text-orgb4c890c">
 <p>
-<i>We have an existing project on our local machine and we want to start gitting.</i>
+<i>We have an existing project on our local machine and we want to start gitting.</i><br />
 </p>
 </div>
 
@@ -11933,7 +11933,7 @@ Two common scenarios:
 <h4 id="orgbc2a736">Preparation</h4>
 <div class="outline-text-4" id="text-orgbc2a736">
 <p>
-We need to do:
+We need to do:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-shell">git init
@@ -11941,15 +11941,15 @@ We need to do:
 </div>
 
 <p>
-after we cd to the local repo. What it would do is iniatializing an empty Git repo in the directory with the address <code>local-repo/.git/</code>.
+after we cd to the local repo. What it would do is iniatializing an empty Git repo in the directory with the address <code>local-repo/.git/</code>.<br />
 </p>
 
 <p>
-<code>.git</code> is a directory that contains everything that's related to our repository.
+<code>.git</code> is a directory that contains everything that's related to our repository.<br />
 </p>
 
 <p>
-<b>Before first commit</b>:
+<b>Before first commit</b>:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-shell">git status
@@ -11962,7 +11962,7 @@ after we cd to the local repo. What it would do is iniatializing an empty Git re
 <h4 id="org055d1cd">.gitignore</h4>
 <div class="outline-text-4" id="text-org055d1cd">
 <p>
-If we have files that contains personal data or something that is not relevant to our code, we can do
+If we have files that contains personal data or something that is not relevant to our code, we can do<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-shell">touch .gitignore
@@ -11970,7 +11970,7 @@ If we have files that contains personal data or something that is not relevant t
 </div>
 
 <p>
-<code>.gitignore</code> file is just a simple text file that we can add files that we want git to <b>ignore</b>. We can use <b>wildcards</b>.
+<code>.gitignore</code> file is just a simple text file that we can add files that we want git to <b>ignore</b>. We can use <b>wildcards</b>.<br />
 </p>
 </div>
 </div>
@@ -11979,11 +11979,11 @@ If we have files that contains personal data or something that is not relevant t
 <h4 id="orge64542a">Add files to staging area</h4>
 <div class="outline-text-4" id="text-orge64542a">
 <p>
-<i>Staging area is the area that we <b>organize</b> what we want to commit to Git</i>.
+<i>Staging area is the area that we <b>organize</b> what we want to commit to Git</i>.<br />
 </p>
 
 <p>
-[WORKING DIRECTORY] &#x2014;prepare changes&#x2014;&gt; [STAGING AREA] &#x2014;commit&#x2014;&gt; [git]
+[WORKING DIRECTORY] &#x2014;prepare changes&#x2014;&gt; [STAGING AREA] &#x2014;commit&#x2014;&gt; [git]<br />
 </p>
 
 <div class="org-src-container">
@@ -11991,11 +11991,11 @@ If we have files that contains personal data or something that is not relevant t
 </pre>
 </div>
 <p>
-to add eveyrthing .. or we can just add files individually.
+to add eveyrthing .. or we can just add files individually.<br />
 </p>
 
 <p>
-remove from staging area:
+remove from staging area:<br />
 </p>
 
 <div class="org-src-container">
@@ -12004,7 +12004,7 @@ remove from staging area:
 </div>
 
 <p>
-or just <code>git reset</code> which would just return everything from <b>staging area</b> to <b>working directory</b>.
+or just <code>git reset</code> which would just return everything from <b>staging area</b> to <b>working directory</b>.<br />
 </p>
 </div>
 </div>
@@ -12013,15 +12013,15 @@ or just <code>git reset</code> which would just return everything from <b>stagin
 <h4 id="orgb5c10e2">Commit</h4>
 <div class="outline-text-4" id="text-orgb5c10e2">
 <p>
-After we <code>git add -A</code> to add everything to Staging area, we can do <code>git commit -m "Initial Commit"</code>.
+After we <code>git add -A</code> to add everything to Staging area, we can do <code>git commit -m "Initial Commit"</code>.<br />
 </p>
 
 <p>
-After this if we do <code>git status</code>, it will show "working directory clean".  This means we've committed the files and we have no modified or untracked files.
+After this if we do <code>git status</code>, it will show "working directory clean".  This means we've committed the files and we have no modified or untracked files.<br />
 </p>
 
 <p>
-We can also do <code>git log</code> that will give us the Hash number of our commit.
+We can also do <code>git log</code> that will give us the Hash number of our commit.<br />
 </p>
 </div>
 </div>
@@ -12041,12 +12041,12 @@ We can also do <code>git log</code> that will give us the Hash number of our com
 </div>
 
 <p>
-The <code>.</code> means to clone everything.
+The <code>.</code> means to clone everything.<br />
 </p>
 
 <p>
-<code>$ git remove -v</code>: List information of the repository.
-<code>$ git branch -a</code>: List all branches of the repository.
+<code>$ git remove -v</code>: List information of the repository.<br />
+<code>$ git branch -a</code>: List all branches of the repository.<br />
 </p>
 </div>
 </div>
@@ -12055,29 +12055,29 @@ The <code>.</code> means to clone everything.
 <h4 id="org5073de9">Pushing changes</h4>
 <div class="outline-text-4" id="text-org5073de9">
 <p>
-<code>$ git diff</code>: show the changes that we've made to the codebase. 
-<code>$ git status</code>: show the modified file
-<code>$ git add -A</code>: add to staging area
-<code>$ git status</code> again: file is ready to be commited
-then..
+<code>$ git diff</code>: show the changes that we've made to the codebase.<br />
+<code>$ git status</code>: show the modified file<br />
+<code>$ git add -A</code>: add to staging area<br />
+<code>$ git status</code> again: file is ready to be commited<br />
+then..<br />
 </p>
 
 <p>
-<code>$ git commit -m "abcdef"</code>
+<code>$ git commit -m "abcdef"</code><br />
 </p>
 
 <p>
-then
+then<br />
 </p>
 
 <p>
-<code>$ git pull origin master</code>: pull any changes that have been made <b>while</b> we are working. This is useful for code bases that have a lot of people working on.
-<code>$ git push origin master</code>: push to master branch of remote origin repo.
+<code>$ git pull origin master</code>: pull any changes that have been made <b>while</b> we are working. This is useful for code bases that have a lot of people working on.<br />
+<code>$ git push origin master</code>: push to master branch of remote origin repo.<br />
 </p>
 
 <p>
-<b>origin</b> refers to the name of the remote repository.
-<b>master</b> refers to the branch we want to push/ pull to.
+<b>origin</b> refers to the name of the remote repository.<br />
+<b>master</b> refers to the branch we want to push/ pull to.<br />
 </p>
 </div>
 </div>
@@ -12088,7 +12088,7 @@ then
 <h2 id="org66fbe59">Common workflow</h2>
 <div class="outline-text-2" id="text-org66fbe59">
 <p>
-Instead of working on the master branch, we shouldn't be doing that. We should be <b>creating a branch for the desired feature</b> by:
+Instead of working on the master branch, we shouldn't be doing that. We should be <b>creating a branch for the desired feature</b> by:<br />
 </p>
 
 <div class="org-src-container">
@@ -12097,11 +12097,11 @@ Instead of working on the master branch, we shouldn't be doing that. We should b
 </div>
 
 <p>
-and then if we do <code>git branch</code> without the branch name, it will list all the branches. The one with asterisk (*)next to it is the one we are currently working on.
+and then if we do <code>git branch</code> without the branch name, it will list all the branches. The one with asterisk (*)next to it is the one we are currently working on.<br />
 </p>
 
 <p>
-To start working on the branch we just created <b>abc-def</b>, we need to do: 
+To start working on the branch we just created <b>abc-def</b>, we need to do:<br />
 </p>
 
 <div class="org-src-container">
@@ -12110,11 +12110,11 @@ To start working on the branch we just created <b>abc-def</b>, we need to do:
 </div>
 
 <p>
-Then if we rerun <code>$ git branch</code> again, abc-def will have an asterisk next to it.
+Then if we rerun <code>$ git branch</code> again, abc-def will have an asterisk next to it.<br />
 </p>
 
 <p>
-Steps to undertake are:
+Steps to undertake are:<br />
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -12751,7 +12751,7 @@ TOfeIWqYJSLSGJnqWXsO7eOzEaNv4UO6RCk7OzuSlZXV9O4d7S+naPsOrO4UkhPVYKq+MjIyomWE
 rKwsk9aGiBzL6nM4unbr6D5GzbeP0bNS1I9arfuqErvwpKYqgEVEJOZQW0cvrfP6MDUtEhERadgQ
 9huHo7sD6bUuV1LPAyIiIg0cwtVW6RaVIiIiRyeEG0olEKfO2+UAZURERCF8uEUikcemTJlyC/D0
 uHHj/qjNJNWmTJnyIHBLJBJ5WmtDRERERETqxaxVICIicnT8fwAAAP//4PJH182D60UAAAAASUVO
-RK5CYII="git_workflow_chart.png />
+RK5CYII="git_workflow_chart.png /><br />
 </p>
 </div>
 </div>
@@ -12759,7 +12759,7 @@ RK5CYII="git_workflow_chart.png />
 <h3 id="orge8920eb">Git's Local workflow simplified</h3>
 <div class="outline-text-3" id="text-orge8920eb">
 <p>
-The local repository consists of three <b>trees</b> maintained and tracked by git.
+The local repository consists of three <b>trees</b> maintained and tracked by git.<br />
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -12805,34 +12805,34 @@ The local repository consists of three <b>trees</b> maintained and tracked by gi
 <h2 id="org8e40500">Merging a branch to master</h2>
 <div class="outline-text-2" id="text-org8e40500">
 <p>
-<b>Branches</b> are used to develop features isolated from each other. The <i>master</i> branch is the default branch when creating a repo. Use other branches for development and merge them back to the master branch upon completion.
+<b>Branches</b> are used to develop features isolated from each other. The <i>master</i> branch is the default branch when creating a repo. Use other branches for development and merge them back to the master branch upon completion.<br />
 </p>
 
 
 
 <p>
-<code>$ git checkout master</code>
+<code>$ git checkout master</code><br />
 </p>
 
 <p>
-to start working on master branch.
-then..
-<code>$ git pull origin master</code>
+to start working on master branch.<br />
+then..<br />
+<code>$ git pull origin master</code><br />
 </p>
 
 <p>
-then we can do <code>$ git branch --merged</code> to see which branch has been merged with master.
-then..
-<code>$ git merge branch-name</code>
+then we can do <code>$ git branch --merged</code> to see which branch has been merged with master.<br />
+then..<br />
+<code>$ git merge branch-name</code><br />
 </p>
 
 <p>
-then..
-<code>$ git push origin master</code> to push the changes to the master branch to remote repo origin.
+then..<br />
+<code>$ git push origin master</code> to push the changes to the master branch to remote repo origin.<br />
 </p>
 
 <p>
-<b>ALTERNATIVELY:</b>  Instead of pushing directly to master branch, we can work on a different branch (let's call it feature_x):
+<b>ALTERNATIVELY:</b>  Instead of pushing directly to master branch, we can work on a different branch (let's call it feature_x):<br />
 </p>
 
 <pre class="example">
@@ -12841,16 +12841,16 @@ git push origin feature_x
 </pre>
 
 <p>
-.. then, to delete the local branch, we can do <code>$ git branch -d branch-name</code> to delete the merged branch by the <code>-d</code> option.
-This would delete the local branch.
+.. then, to delete the local branch, we can do <code>$ git branch -d branch-name</code> to delete the merged branch by the <code>-d</code> option.<br />
+This would delete the local branch.<br />
 </p>
 
 <p>
-To delete a <b>remote</b> branch do this <code>$ git push --delete branch-name</code>. 
+To delete a <b>remote</b> branch do this <code>$ git push --delete branch-name</code>.<br />
 </p>
 
 <p>
-A branch will <b>not</b> be available to other <b>unless</b> it has been pushed to the remote repo using <code>$ git push origin branch-name</code>.
+A branch will <b>not</b> be available to other <b>unless</b> it has been pushed to the remote repo using <code>$ git push origin branch-name</code>.<br />
 </p>
 </div>
 </div>
@@ -12863,29 +12863,29 @@ A branch will <b>not</b> be available to other <b>unless</b> it has been pushed 
 <h3 id="orgadbdc5c">Differences between <code>git remote add</code> vs <code>git clone</code>:</h3>
 <div class="outline-text-3" id="text-orgadbdc5c">
 <p>
-Example 1:
+Example 1:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">git clone https://github.com/abc
 </pre>
 </div>
 <p>
-The above creates a new git local repository by copying an existing remote one located at the URL.
+The above creates a new git local repository by copying an existing remote one located at the URL.<br />
 </p>
 
 <p>
-Example 2:
+Example 2:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">git remote add test https://github.com/abc
 </pre>
 </div>
 <p>
-The above does <b>not</b> create any local git copy. It only creates a pointer for the name of <code>https://github.com/abc</code>, which in the above equal <code>test</code>.
+The above does <b>not</b> create any local git copy. It only creates a pointer for the name of <code>https://github.com/abc</code>, which in the above equal <code>test</code>.<br />
 </p>
 
 <p>
-Both the below return the same results:               
+Both the below return the same results:<br />
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -12976,12 +12976,12 @@ Both the below return the same results:
 <h3 id="org7c53023">Differences between <code>git pull</code> and <code>git fetch</code></h3>
 <div class="outline-text-3" id="text-org7c53023">
 <p>
-A <code>git pull</code> is basically a <code>git fetch + merge</code>.
+A <code>git pull</code> is basically a <code>git fetch + merge</code>.<br />
 </p>
 
 <ul class="org-ul">
-<li><code>git fetch</code>: connects to remote repo (origin) and fetches new commits.</li>
-<li><code>git merge</code>: incoporates new commits into local branch.</li>
+<li><code>git fetch</code>: connects to remote repo (origin) and fetches new commits.<br /></li>
+<li><code>git merge</code>: incoporates new commits into local branch.<br /></li>
 </ul>
 
 <pre class="example">
@@ -12994,19 +12994,19 @@ git pull == git fetch origin &amp;&amp; git merge origin
 <h2 id="org0032de7">Git Workflow</h2>
 <div class="outline-text-2" id="text-org0032de7">
 <p>
-A Git workflow is a recipe or a recommendation, or a "standard process" for how to use Git to accomplish work in a consistent, productive manner. It encourages users to leverage Git effectively and consistently.
+A Git workflow is a recipe or a recommendation, or a "standard process" for how to use Git to accomplish work in a consistent, productive manner. It encourages users to leverage Git effectively and consistently.<br />
 </p>
 
 <p>
-Git offers a lot of flexibility in how users manage changes. Give its focus on flexibility, there is no "standardized process" on how to interact with Git.
+Git offers a lot of flexibility in how users manage changes. Give its focus on flexibility, there is no "standardized process" on how to interact with Git.<br />
 </p>
 
 <p>
-When working with a team on a Git managed project, it is important to make sure that <b>everyone is in agreement</b> on how the flow of changes will be applied.
+When working with a team on a Git managed project, it is important to make sure that <b>everyone is in agreement</b> on how the flow of changes will be applied.<br />
 </p>
 
 <p>
-There are several publicized Git workflows that can be a good fit for a team. Read more in here: <a href="https://www.atlassian.com/git/tutorials/comparing-workflows">Comparing Workflows</a>.
+There are several publicized Git workflows that can be a good fit for a team. Read more in here: <a href="https://www.atlassian.com/git/tutorials/comparing-workflows">Comparing Workflows</a>.<br />
 </p>
 </div>
 </div>
@@ -13014,7 +13014,7 @@ There are several publicized Git workflows that can be a good fit for a team. Re
 <div id="postamble" class="status">
 <p class="date">Date: 2019-05-25 Sat 00:00</p>
 <p class="author">Author: Mishka Nguyen</p>
-<p class="date">Created: 2019-08-13 Tue 08:11</p>
+<p class="date">Created: 2019-08-13 Tue 08:15</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

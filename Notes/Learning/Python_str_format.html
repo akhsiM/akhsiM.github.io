@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-12 Mon 22:39 -->
+<!-- 2019-08-13 Tue 00:08 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python <code>str.format()</code></title>
@@ -253,43 +253,43 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org45e18b8">1. Basic</a>
+<li><a href="#org45e18b8">Basic</a>
 <ul>
-<li><a href="#org119fea6">1.1. Formatting Format</a></li>
+<li><a href="#org119fea6">Formatting Format</a></li>
 </ul>
 </li>
-<li><a href="#org3e729d4">2. Using placeholders with numbers</a></li>
-<li><a href="#org2538339">3. Accessing values from within placeholder</a></li>
-<li><a href="#orge4d2367">4. Accessing attribute in a class</a></li>
-<li><a href="#org84d448e">5. Using key word arguments with format()</a></li>
-<li><a href="#orgb766057">6. Working with numbers - zeropadding</a></li>
-<li><a href="#org55bb0ac">7. Working with numbers - decimal places &amp; comma separator</a>
+<li><a href="#org3e729d4">Using placeholders with numbers</a></li>
+<li><a href="#org2538339">Accessing values from within placeholder</a></li>
+<li><a href="#orge4d2367">Accessing attribute in a class</a></li>
+<li><a href="#org84d448e">Using key word arguments with format()</a></li>
+<li><a href="#orgb766057">Working with numbers - zeropadding</a></li>
+<li><a href="#org55bb0ac">Working with numbers - decimal places &amp; comma separator</a>
 <ul>
-<li><a href="#orgb5836ff">7.1. decimal places</a></li>
-<li><a href="#org23e29ca">7.2. comma separator</a></li>
-<li><a href="#org7a32323">7.3. combination of decimal places and csv</a></li>
+<li><a href="#orgb5836ff">decimal places</a></li>
+<li><a href="#org23e29ca">comma separator</a></li>
+<li><a href="#org7a32323">combination of decimal places and csv</a></li>
 </ul>
 </li>
-<li><a href="#org623dcfa">8. Working with Dates</a></li>
+<li><a href="#org623dcfa">Working with Dates</a></li>
 </ul>
 </div>
 </div>
 
 <div id="outline-container-org45e18b8" class="outline-2">
-<h2 id="org45e18b8"><span class="section-number-2">1</span> Basic</h2>
-<div class="outline-text-2" id="text-1">
+<h2 id="org45e18b8">Basic</h2>
+<div class="outline-text-2" id="text-org45e18b8">
 <p>
-Formatting strings allow us to display information in exactly the way we would like it to be .
+Formatting strings allow us to display information in exactly the way we would like it to be .<br />
 </p>
 
 <p>
-Without formatting:
+Without formatting:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">person</span> = {<span style="font-style: italic;">'name'</span>: <span style="font-style: italic;">'Kenny'</span>, <span style="font-style: italic;">'age'</span>: 26}
+<pre class="src src-python"><span style="color: #f8f8f2;">person</span> = {<span style="color: #f1fa8c;">'name'</span>: <span style="color: #f1fa8c;">'Kenny'</span>, <span style="color: #f1fa8c;">'age'</span>: 26}
 
-<span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'My name is '</span> + person[<span style="font-style: italic;">'name'</span>] + <span style="font-style: italic;">' and I am '</span> + <span style="font-weight: bold;">str</span>(person[<span style="font-style: italic;">'age'</span>]) + <span style="font-style: italic;">' years old.'</span>
-<span style="font-weight: bold;">print</span>(sentence)
+<span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'My name is '</span> + person[<span style="color: #f1fa8c;">'name'</span>] + <span style="color: #f1fa8c;">' and I am '</span> + <span style="color: #ffb86c;">str</span>(person[<span style="color: #f1fa8c;">'age'</span>]) + <span style="color: #f1fa8c;">' years old.'</span>
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -299,17 +299,17 @@ My name is Kenny and I am 26 years old.
 
 
 <p>
-Note how you have to concatenate a bunch of string.. It's harder to write and to read. We have to account for correct spaces, <code>str(int)</code>..etc..
+Note how you have to concatenate a bunch of string.. It's harder to write and to read. We have to account for correct spaces, <code>str(int)</code>..etc..<br />
 </p>
 
 <p>
-With formatting: 
+With formatting:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">person</span> = {<span style="font-style: italic;">'name'</span>: <span style="font-style: italic;">'Kenny'</span>, <span style="font-style: italic;">'age'</span>: 26}
+<pre class="src src-python"><span style="color: #f8f8f2;">person</span> = {<span style="color: #f1fa8c;">'name'</span>: <span style="color: #f1fa8c;">'Kenny'</span>, <span style="color: #f1fa8c;">'age'</span>: 26}
 
-<span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'My name is {} and I am {} years old'</span>.<span style="font-weight: bold;">format</span>(person[<span style="font-style: italic;">'name'</span>], person[<span style="font-style: italic;">'age'</span>])
-<span style="font-weight: bold;">print</span>(sentence)
+<span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'My name is {} and I am {} years old'</span>.<span style="color: #ffb86c;">format</span>(person[<span style="color: #f1fa8c;">'name'</span>], person[<span style="color: #f1fa8c;">'age'</span>])
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -319,27 +319,27 @@ My name is Kenny and I am 26 years old
 
 
 <p>
-With formatting, it's easier to write and easier to read. 
+With formatting, it's easier to write and easier to read.<br />
 </p>
 </div>
 <div id="outline-container-org119fea6" class="outline-3">
-<h3 id="org119fea6"><span class="section-number-3">1.1</span> Formatting Format</h3>
-<div class="outline-text-3" id="text-1-1">
+<h3 id="org119fea6">Formatting Format</h3>
+<div class="outline-text-3" id="text-org119fea6">
 <p>
-<code>{}</code> is called a <b>placeholder</b>. A placeholder is replaced by the argument passed in the string method <code>format().</code> 
+<code>{}</code> is called a <b>placeholder</b>. A placeholder is replaced by the argument passed in the string method <code>format().</code> <br />
 </p>
 </div>
 </div>
 </div>
 
 <div id="outline-container-org3e729d4" class="outline-2">
-<h2 id="org3e729d4"><span class="section-number-2">2</span> Using placeholders with numbers</h2>
-<div class="outline-text-2" id="text-2">
+<h2 id="org3e729d4">Using placeholders with numbers</h2>
+<div class="outline-text-2" id="text-org3e729d4">
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">person</span> = {<span style="font-style: italic;">'name'</span>: <span style="font-style: italic;">'Kenny'</span>, <span style="font-style: italic;">'age'</span>: 26}
+<pre class="src src-python"><span style="color: #f8f8f2;">person</span> = {<span style="color: #f1fa8c;">'name'</span>: <span style="color: #f1fa8c;">'Kenny'</span>, <span style="color: #f1fa8c;">'age'</span>: 26}
 
-<span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'My name is {0} and I am {1} years old.'</span>.<span style="font-weight: bold;">format</span>(person[<span style="font-style: italic;">'name'</span>], person[<span style="font-style: italic;">'age'</span>])
-<span style="font-weight: bold;">print</span>(sentence)
+<span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'My name is {0} and I am {1} years old.'</span>.<span style="color: #ffb86c;">format</span>(person[<span style="color: #f1fa8c;">'name'</span>], person[<span style="color: #f1fa8c;">'age'</span>])
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -349,15 +349,15 @@ My name is Kenny and I am 26 years old.
 
 
 <p>
-Using numbered placeholders can be even more useful when you have string with repeated pattern.
+Using numbered placeholders can be even more useful when you have string with repeated pattern.<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">text</span> = <span style="font-style: italic;">'Hello World!'</span>
-<span style="font-weight: bold; font-style: italic;">tag</span> = <span style="font-style: italic;">'h1'</span>
+<pre class="src src-python"><span style="color: #f8f8f2;">text</span> = <span style="color: #f1fa8c;">'Hello World!'</span>
+<span style="color: #f8f8f2;">tag</span> = <span style="color: #f1fa8c;">'h1'</span>
 
-<span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'&lt;{0}&gt;{1}&lt;/{0}&gt;'</span>.<span style="font-weight: bold;">format</span>(tag,text)
-<span style="font-weight: bold;">print</span>(sentence)
+<span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'&lt;{0}&gt;{1}&lt;/{0}&gt;'</span>.<span style="color: #ffb86c;">format</span>(tag,text)
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -368,13 +368,13 @@ Using numbered placeholders can be even more useful when you have string with re
 </div>
 
 <div id="outline-container-org2538339" class="outline-2">
-<h2 id="org2538339"><span class="section-number-2">3</span> Accessing values from within placeholder</h2>
-<div class="outline-text-2" id="text-3">
+<h2 id="org2538339">Accessing values from within placeholder</h2>
+<div class="outline-text-2" id="text-org2538339">
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">person</span> = {<span style="font-style: italic;">'name'</span>: <span style="font-style: italic;">'Kenny'</span>, <span style="font-style: italic;">'age'</span>: 26}
+<pre class="src src-python"><span style="color: #f8f8f2;">person</span> = {<span style="color: #f1fa8c;">'name'</span>: <span style="color: #f1fa8c;">'Kenny'</span>, <span style="color: #f1fa8c;">'age'</span>: 26}
 
-<span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'My name is {0[name]} and I am {0[age]} years old'</span>.<span style="font-weight: bold;">format</span>(person)
-<span style="font-weight: bold;">print</span>(sentence)
+<span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'My name is {0[name]} and I am {0[age]} years old'</span>.<span style="color: #ffb86c;">format</span>(person)
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -384,27 +384,27 @@ My name is Kenny and I am 26 years old
 
 
 <p>
-Note in the above example, we only needed to pass one argument to the method <code>format()</code>. However this argument was a dict that contains different keys and values.
+Note in the above example, we only needed to pass one argument to the method <code>format()</code>. However this argument was a dict that contains different keys and values.<br />
 </p>
 
 <p>
-You can also perform the same action for list, except that you'd have to use the index in square bracket.
+You can also perform the same action for list, except that you'd have to use the index in square bracket.<br />
 </p>
 </div>
 </div>
 <div id="outline-container-orge4d2367" class="outline-2">
-<h2 id="orge4d2367"><span class="section-number-2">4</span> Accessing attribute in a class</h2>
-<div class="outline-text-2" id="text-4">
+<h2 id="orge4d2367">Accessing attribute in a class</h2>
+<div class="outline-text-2" id="text-orge4d2367">
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold;">class</span> <span style="font-weight: bold; text-decoration: underline;">Person</span>():
-    <span style="font-weight: bold;">def</span> <span style="font-weight: bold;">__init__</span>(<span style="font-weight: bold;">self</span>, name, age):
-        <span style="font-weight: bold;">self</span>.name = name
-        <span style="font-weight: bold;">self</span>.age = age
+<pre class="src src-python"><span style="color: #ff79c6; font-weight: bold;">class</span> <span style="color: #bd93f9;">Person</span>():
+    <span style="color: #ff79c6; font-weight: bold;">def</span> <span style="color: #50fa7b; font-weight: bold;">__init__</span>(<span style="color: #ff79c6; font-weight: bold;">self</span>, name, age):
+        <span style="color: #ff79c6; font-weight: bold;">self</span>.name = name
+        <span style="color: #ff79c6; font-weight: bold;">self</span>.age = age
 
-<span style="font-weight: bold; font-style: italic;">p1</span> = Person(<span style="font-style: italic;">'Kenny'</span>,26)
+<span style="color: #f8f8f2;">p1</span> = Person(<span style="color: #f1fa8c;">'Kenny'</span>,26)
 
-<span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'My name is {0.name} and I am {0.age} years old.'</span>.<span style="font-weight: bold;">format</span>(p1)
-<span style="font-weight: bold;">print</span>(sentence)
+<span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'My name is {0.name} and I am {0.age} years old.'</span>.<span style="color: #ffb86c;">format</span>(p1)
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -415,11 +415,11 @@ My name is Kenny and I am 26 years old.
 </div>
 
 <div id="outline-container-org84d448e" class="outline-2">
-<h2 id="org84d448e"><span class="section-number-2">5</span> Using key word arguments with format()</h2>
-<div class="outline-text-2" id="text-5">
+<h2 id="org84d448e">Using key word arguments with format()</h2>
+<div class="outline-text-2" id="text-org84d448e">
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'My name is {name} and I am {age} years old.'</span>.<span style="font-weight: bold;">format</span>(name = <span style="font-style: italic;">'Kenny'</span>, age = 26)
-<span style="font-weight: bold;">print</span>(sentence)
+<pre class="src src-python"><span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'My name is {name} and I am {age} years old.'</span>.<span style="color: #ffb86c;">format</span>(name = <span style="color: #f1fa8c;">'Kenny'</span>, age = 26)
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -429,15 +429,15 @@ My name is Kenny and I am 26 years old.
 
 
 <p>
-Combining with the use of unpacking a  <code>dict</code>, this can be used very nicely.
-<i>(a dict can be unpckaed by <code>**</code>)</i>
+Combining with the use of unpacking a  <code>dict</code>, this can be used very nicely.<br />
+<i>(a dict can be unpckaed by <code>**</code>)</i><br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">roku</span> = {<span style="font-style: italic;">'name'</span>:<span style="font-style: italic;">'Roku'</span>, <span style="font-style: italic;">'breed'</span>:<span style="font-style: italic;">'Shiba Inu'</span>}
+<pre class="src src-python"><span style="color: #f8f8f2;">roku</span> = {<span style="color: #f1fa8c;">'name'</span>:<span style="color: #f1fa8c;">'Roku'</span>, <span style="color: #f1fa8c;">'breed'</span>:<span style="color: #f1fa8c;">'Shiba Inu'</span>}
 
-<span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'Hello My name is {name} and I am a {breed}.'</span>.<span style="font-weight: bold;">format</span>(**roku)  <span style="font-weight: bold; font-style: italic;">## </span><span style="font-weight: bold; font-style: italic;">dict roku unpacked</span>
-<span style="font-weight: bold;">print</span>(sentence) 
+<span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'Hello My name is {name} and I am a {breed}.'</span>.<span style="color: #ffb86c;">format</span>(**roku)  <span style="color: #6272a4;">## </span><span style="color: #6272a4;">dict roku unpacked</span>
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence) 
 </pre>
 </div>
 
@@ -447,12 +447,12 @@ Hello My name is Roku and I am a Shiba Inu.
 </div>
 </div>
 <div id="outline-container-orgb766057" class="outline-2">
-<h2 id="orgb766057"><span class="section-number-2">6</span> Working with numbers - zeropadding</h2>
-<div class="outline-text-2" id="text-6">
+<h2 id="orgb766057">Working with numbers - zeropadding</h2>
+<div class="outline-text-2" id="text-orgb766057">
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold;">for</span> i <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(1,11):
-    <span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'The current value is {}.'</span>.<span style="font-weight: bold;">format</span>(i)
-    <span style="font-weight: bold;">print</span>(sentence)
+<pre class="src src-python"><span style="color: #ff79c6; font-weight: bold;">for</span> i <span style="color: #ff79c6; font-weight: bold;">in</span> <span style="color: #ffb86c;">range</span>(1,11):
+    <span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'The current value is {}.'</span>.<span style="color: #ffb86c;">format</span>(i)
+    <span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -470,13 +470,13 @@ The current value is 10.
 </pre>
 
 <p>
-zero padding
+zero padding<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold;">for</span> i <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(1,11):
-    <span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'The current value is {:03}.'</span>.<span style="font-weight: bold;">format</span>(i)
-    <span style="font-weight: bold;">print</span>(sentence)
+<pre class="src src-python"><span style="color: #ff79c6; font-weight: bold;">for</span> i <span style="color: #ff79c6; font-weight: bold;">in</span> <span style="color: #ffb86c;">range</span>(1,11):
+    <span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'The current value is {:03}.'</span>.<span style="color: #ffb86c;">format</span>(i)
+    <span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 
 </pre>
 </div>
@@ -496,17 +496,17 @@ The current value is 010.
 </div>
 </div>
 <div id="outline-container-org55bb0ac" class="outline-2">
-<h2 id="org55bb0ac"><span class="section-number-2">7</span> Working with numbers - decimal places &amp; comma separator</h2>
-<div class="outline-text-2" id="text-7">
+<h2 id="org55bb0ac">Working with numbers - decimal places &amp; comma separator</h2>
+<div class="outline-text-2" id="text-org55bb0ac">
 </div>
 <div id="outline-container-orgb5836ff" class="outline-3">
-<h3 id="orgb5836ff"><span class="section-number-3">7.1</span> decimal places</h3>
-<div class="outline-text-3" id="text-7-1">
+<h3 id="orgb5836ff">decimal places</h3>
+<div class="outline-text-3" id="text-orgb5836ff">
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">pi</span> = 3.14159265
+<pre class="src src-python"><span style="color: #f8f8f2;">pi</span> = 3.14159265
 
-<span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'Pi is equal to {:.3f}.'</span>.<span style="font-weight: bold;">format</span>(pi)
-<span style="font-weight: bold;">print</span>(sentence)
+<span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'Pi is equal to {:.3f}.'</span>.<span style="color: #ffb86c;">format</span>(pi)
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -517,11 +517,11 @@ Pi is equal to 3.142.
 </div>
 
 <div id="outline-container-org23e29ca" class="outline-3">
-<h3 id="org23e29ca"><span class="section-number-3">7.2</span> comma separator</h3>
-<div class="outline-text-3" id="text-7-2">
+<h3 id="org23e29ca">comma separator</h3>
+<div class="outline-text-3" id="text-org23e29ca">
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'1MB is equal to {:,} bytes.'</span>.<span style="font-weight: bold;">format</span>(1000**2)
-<span style="font-weight: bold;">print</span>(sentence)
+<pre class="src src-python"><span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'1MB is equal to {:,} bytes.'</span>.<span style="color: #ffb86c;">format</span>(1000**2)
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -531,11 +531,11 @@ Pi is equal to 3.142.
 </div>
 </div>
 <div id="outline-container-org7a32323" class="outline-3">
-<h3 id="org7a32323"><span class="section-number-3">7.3</span> combination of decimal places and csv</h3>
-<div class="outline-text-3" id="text-7-3">
+<h3 id="org7a32323">combination of decimal places and csv</h3>
+<div class="outline-text-3" id="text-org7a32323">
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">sentence</span> = <span style="font-style: italic;">'1MB is equal to {:,.2f} bytes.'</span>.<span style="font-weight: bold;">format</span>(1000**2)
-<span style="font-weight: bold;">print</span>(sentence)
+<pre class="src src-python"><span style="color: #f8f8f2;">sentence</span> = <span style="color: #f1fa8c;">'1MB is equal to {:,.2f} bytes.'</span>.<span style="color: #ffb86c;">format</span>(1000**2)
+<span style="color: #ff79c6; font-weight: bold;">print</span>(sentence)
 </pre>
 </div>
 
@@ -546,16 +546,16 @@ Pi is equal to 3.142.
 </div>
 </div>
 <div id="outline-container-org623dcfa" class="outline-2">
-<h2 id="org623dcfa"><span class="section-number-2">8</span> Working with Dates</h2>
-<div class="outline-text-2" id="text-8">
+<h2 id="org623dcfa">Working with Dates</h2>
+<div class="outline-text-2" id="text-org623dcfa">
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold;">import</span> datetime <span style="font-weight: bold;">as</span> dt
-<span style="font-weight: bold; font-style: italic;">my_date</span> = dt.datetime(1900, 1, 1, 12, 34, 56)
-<span style="font-weight: bold;">print</span>(<span style="font-style: italic;">'Default format for datetime object:'</span>)
-<span style="font-weight: bold;">print</span>(my_date)
-<span style="font-weight: bold;">print</span>()
-<span style="font-weight: bold;">print</span>(<span style="font-style: italic;">'Custom format:'</span>)
-<span style="font-weight: bold;">print</span>(<span style="font-style: italic;">'{:%d %B %Y}'</span>.<span style="font-weight: bold;">format</span>( my_date))
+<pre class="src src-python"><span style="color: #ff79c6; font-weight: bold;">import</span> datetime <span style="color: #ff79c6; font-weight: bold;">as</span> dt
+<span style="color: #f8f8f2;">my_date</span> = dt.datetime(1900, 1, 1, 12, 34, 56)
+<span style="color: #ff79c6; font-weight: bold;">print</span>(<span style="color: #f1fa8c;">'Default format for datetime object:'</span>)
+<span style="color: #ff79c6; font-weight: bold;">print</span>(my_date)
+<span style="color: #ff79c6; font-weight: bold;">print</span>()
+<span style="color: #ff79c6; font-weight: bold;">print</span>(<span style="color: #f1fa8c;">'Custom format:'</span>)
+<span style="color: #ff79c6; font-weight: bold;">print</span>(<span style="color: #f1fa8c;">'{:%d %B %Y}'</span>.<span style="color: #ffb86c;">format</span>( my_date))
 </pre>
 </div>
 
@@ -571,7 +571,7 @@ Custom format:
 <div id="postamble" class="status">
 <p class="date">Date: 2019-08-07 Wed 00:00</p>
 <p class="author">Author: Mishka Nguyen</p>
-<p class="date">Created: 2019-08-12 Mon 22:39</p>
+<p class="date">Created: 2019-08-13 Tue 00:08</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-13 Tue 07:24 -->
+<!-- 2019-08-13 Tue 08:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Linux Journey</title>
@@ -386,10 +386,10 @@ for the JavaScript code in this tag.
 <li><a href="#org99c7e0a">ping</a></li>
 <li><a href="#orga6dfe7d">traceroute</a></li>
 <li><a href="#org5661828"><b>Well Known Ports</b></a></li>
-<li><a href="#orgabf6714">netstat</a>
+<li><a href="#org54bcd97">netstat</a>
 <ul>
 <li><a href="#org02e2560">socket</a></li>
-<li><a href="#orge135ddb">netstat</a></li>
+<li><a href="#orgabf6714">netstat</a></li>
 </ul>
 </li>
 <li><a href="#org7ab343b">Basic of Packet Analysis</a></li>
@@ -408,10 +408,10 @@ for the JavaScript code in this tag.
 <h3 id="orgc582fb8">top</h3>
 <div class="outline-text-3" id="text-orgc582fb8">
 <p>
-<b>1st line:</b> <i>(uptime)</i> Current time | How long the system been running | How many logged-on users | System load avg.<br />
-<b>2nd line:</b> Tasks that are running, sleeping, stopped and zombied.<br />
-<b>3rd line</b>: CPU Information - us = user CPU time that aren't niced | sy = system CPU time (kernel &amp; kernel processes) | ni = %CPU running niced processes | id = CPU idle time | wa = CPU wait time (waiting for I/O) | hi = hardware interrupts, %CPU serving hardware interrupts | si = software interrupts | st = steal time (virtual machine)<br />
-<b>4th and 5th lines</b> are for Memory and Swap Usage<br />
+<b>1st line:</b> <i>(uptime)</i> Current time | How long the system been running | How many logged-on users | System load avg.
+<b>2nd line:</b> Tasks that are running, sleeping, stopped and zombied.
+<b>3rd line</b>: CPU Information - us = user CPU time that aren't niced | sy = system CPU time (kernel &amp; kernel processes) | ni = %CPU running niced processes | id = CPU idle time | wa = CPU wait time (waiting for I/O) | hi = hardware interrupts, %CPU serving hardware interrupts | si = software interrupts | st = steal time (virtual machine)
+<b>4th and 5th lines</b> are for Memory and Swap Usage
 </p>
 </div>
 </div>
@@ -420,16 +420,16 @@ for the JavaScript code in this tag.
 <h3 id="org44ca197">lsof</h3>
 <div class="outline-text-3" id="text-org44ca197">
 <p>
-<i>list open files</i><br />
+<i>list open files</i>
 </p>
 
 <p>
-List of open files and the associated processes that is using the file(s).<br />
+List of open files and the associated processes that is using the file(s).
 </p>
 
 <p>
-<code>lsof &lt;filename&gt;</code><br />
-<code>lsof &lt;directory&gt;</code><br />
+<code>lsof &lt;filename&gt;</code>
+<code>lsof &lt;directory&gt;</code>
 </p>
 </div>
 </div>
@@ -438,16 +438,16 @@ List of open files and the associated processes that is using the file(s).<br />
 <h3 id="orge575cd5">fuser</h3>
 <div class="outline-text-3" id="text-orge575cd5">
 <p>
-<i>file user</i><br />
+<i>file user</i>
 </p>
 
 <p>
-This shows information about the process that is using file or "the file user".<br />
-Use <code>fuser -v</code>.<br />
+This shows information about the process that is using file or "the file user".
+Use <code>fuser -v</code>.
 </p>
 
 <p>
-Example of lsof and fuser below:<br />
+Example of lsof and fuser below:
 </p>
 
 <div class="org-src-container">
@@ -474,15 +474,15 @@ lsof: WARNING: can<span style="font-style: italic;">'t stat() tracefs file syste
 <h3 id="orgad250d0">Process threads</h3>
 <div class="outline-text-3" id="text-orgad250d0">
 <p>
-Threads are very similar to <b>Processes</b> in that they are both used to execute programs. They are often referred to as <code>lightweight</code> processes. If a process has one thread it would be called a single threaded process (versus multithreaded process). All processes have <span class="underline">at least one thread</span>.<br />
+Threads are very similar to <b>Processes</b> in that they are both used to execute programs. They are often referred to as <code>lightweight</code> processes. If a process has one thread it would be called a single threaded process (versus multithreaded process). All processes have <span class="underline">at least one thread</span>. 
 </p>
 
 <p>
-Processes, however, operate with their own isolated system resources, whereas <b>threads can share resources amongst each other easily</b>. Therefore it is more efficient to have multi-threaded application than a multi-process application.<br />
+Processes, however, operate with their own isolated system resources, whereas <b>threads can share resources amongst each other easily</b>. Therefore it is more efficient to have multi-threaded application than a multi-process application.
 </p>
 
 <p>
-To see threads use <code>ps m</code> which shows PID and their respective threads underneath, denoted by a <code>--</code>.<br />
+To see threads use <code>ps m</code> which shows PID and their respective threads underneath, denoted by a <code>--</code>.
 </p>
 </div>
 </div>
@@ -491,19 +491,19 @@ To see threads use <code>ps m</code> which shows PID and their respective thread
 <h3 id="org08e2991">uptime</h3>
 <div class="outline-text-3" id="text-org08e2991">
 <p>
-Used for <b>CPU monitoring</b>. This shows similar stdout to first line of <b>top</b><br />
+Used for <b>CPU monitoring</b>. This shows similar stdout to first line of <b>top</b>
 </p>
 
 <p>
-<b>Load Average</b> represents the average number of CPU load in 1, 5, 15 minutes intervals. CPU load is the average number of processes waiting to be processed by CPU. E.g: 100% CPU = CPU Load of 1, 200% = 2..etc..<br />
+<b>Load Average</b> represents the average number of CPU load in 1, 5, 15 minutes intervals. CPU load is the average number of processes waiting to be processed by CPU. E.g: 100% CPU = CPU Load of 1, 200% = 2..etc..
 </p>
 
 <p>
-When observing CPU Load, we <b>have to</b> account the number of CPU cores, e.g if we have a load average of 1, and we have a quad-core processor, the CPU Load is only just affecting 25% of the CPU. We should think of each core as a single lane on a freeway that is the processor.<br />
+When observing CPU Load, we <b>have to</b> account the number of CPU cores, e.g if we have a load average of 1, and we have a quad-core processor, the CPU Load is only just affecting 25% of the CPU. We should think of each core as a single lane on a freeway that is the processor. 
 </p>
 
 <p>
-We can view the amount of cores by <code>cat /proc/cpuinfo</code> or <code>inxi</code>.<br />
+We can view the amount of cores by <code>cat /proc/cpuinfo</code> or <code>inxi</code>.
 </p>
 </div>
 </div>
@@ -512,12 +512,12 @@ We can view the amount of cores by <code>cat /proc/cpuinfo</code> or <code>inxi<
 <h3 id="orgdf4111a">iostat (I/O monitong)</h3>
 <div class="outline-text-3" id="text-orgdf4111a">
 <p>
-Used for monitoring CPU usage as well as <b>disk usage</b>.<br />
-<i>N/A on default but can be installed by <code>sudo apt install sysstat</code>.</i><br />
+Used for monitoring CPU usage as well as <b>disk usage</b>. 
+<i>N/A on default but can be installed by <code>sudo apt install sysstat</code>.</i>
 </p>
 
 <ul class="org-ul">
-<li>First part is CPU information:<br /></li>
+<li>First part is CPU information:</li>
 </ul>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -557,7 +557,7 @@ Used for monitoring CPU usage as well as <b>disk usage</b>.<br />
 </table>
 
 <ul class="org-ul">
-<li>Second part is Disk Utilization:<br /></li>
+<li>Second part is Disk Utilization:</li>
 </ul>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -598,42 +598,42 @@ Used for monitoring CPU usage as well as <b>disk usage</b>.<br />
 <h3 id="orga5c8551">vmstat</h3>
 <div class="outline-text-3" id="text-orga5c8551">
 <p>
-Used for monitoring memory usage.<br />
+Used for monitoring memory usage.
 </p>
 
 <p>
-The Fields are as follow:<br />
+The Fields are as follow:
 </p>
 
 <ul class="org-ul">
-<li><b>procs</b><br />
+<li><b>procs</b>
 <ul class="org-ul">
-<li>Number of processes for run time<br /></li>
-<li>Number of processes in uninterruptible sleep<br /></li>
+<li>Number of processes for run time</li>
+<li>Number of processes in uninterruptible sleep</li>
 </ul></li>
-<li><b>memory</b><br />
+<li><b>memory</b>
 <ul class="org-ul">
-<li>swpd: Amount of virtual memory used<br /></li>
-<li>free: Amount of free memory<br /></li>
-<li>buff: Amount of memory used as buffers<br /></li>
-<li>cache: Amount of memory used as cache<br /></li>
+<li>swpd: Amount of virtual memory used</li>
+<li>free: Amount of free memory</li>
+<li>buff: Amount of memory used as buffers</li>
+<li>cache: Amount of memory used as cache</li>
 </ul></li>
-<li><b>io</b><br />
+<li><b>io</b>
 <ul class="org-ul">
-<li>bi: Amount of blocks in (received from block device)<br /></li>
-<li>bo: &#x2026;&#x2026;&#x2026;&#x2026;&#x2026;.out&#x2026; sent out&#x2026;&#x2026;<br /></li>
+<li>bi: Amount of blocks in (received from block device)</li>
+<li>bo: &#x2026;&#x2026;&#x2026;&#x2026;&#x2026;.out&#x2026; sent out&#x2026;&#x2026;</li>
 </ul></li>
-<li><b>system</b><br />
+<li><b>system</b>
 <ul class="org-ul">
-<li>in: Number of interrupts per sec<br /></li>
-<li>cs: Number of context switches per sec<br /></li>
+<li>in: Number of interrupts per sec</li>
+<li>cs: Number of context switches per sec</li>
 </ul></li>
-<li><b>cpu</b> - similar to 2nd line of <b>top</b> <br />
+<li><b>cpu</b> - similar to 2nd line of <b>top</b> 
 <ul class="org-ul">
-<li>us: Time spent in user time<br /></li>
-<li>sy: Time spent in kernel time<br /></li>
-<li>id: Time spent idle<br /></li>
-<li>wa: Time spent waiting for IO<br /></li>
+<li>us: Time spent in user time</li>
+<li>sy: Time spent in kernel time</li>
+<li>id: Time spent idle</li>
+<li>wa: Time spent waiting for IO</li>
 </ul></li>
 </ul>
 </div>
@@ -643,26 +643,26 @@ The Fields are as follow:<br />
 <h3 id="org68f06c8">sar (Continuous Monitoring)</h3>
 <div class="outline-text-3" id="text-org68f06c8">
 <p>
-<code>sudo apt install sysstat</code> is needed.<br />
-Then, modify the ENABLE field in /etc/default/sysstat<br />
+<code>sudo apt install sysstat</code> is needed.
+Then, modify the ENABLE field in /etc/default/sysstat
 </p>
 
 <p>
-Once set-up, sysstat will automatically collect data. Logs are stored in /var/log/sysstat/saXX where XX is the day<br />
+Once set-up, sysstat will automatically collect data. Logs are stored in /var/log/sysstat/saXX where XX is the day
 </p>
 
 <p>
-Then you can do:<br />
+Then you can do:
 </p>
 
 <p>
-<code>sudo sar -q</code>: List details from start of the day<br />
-<code>sudo sar -r</code>: list details of memory usage from start of day<br />
-<code>sudo sar -P</code>: list details of CPU usage<br />
+<code>sudo sar -q</code>: List details from start of the day
+<code>sudo sar -r</code>: list details of memory usage from start of day
+<code>sudo sar -P</code>: list details of CPU usage
 </p>
 
 <p>
-or <code>sar -q /var/log/sysstat/sa02</code><br />
+or <code>sar -q /var/log/sysstat/sa02</code>
 </p>
 </div>
 </div>
@@ -671,23 +671,23 @@ or <code>sar -q /var/log/sysstat/sa02</code><br />
 <h3 id="org8709eac">cron jobs (Job scheduler)</h3>
 <div class="outline-text-3" id="text-org8709eac">
 <p>
-Time-based job scheduler in Unix-like computer OS. Suitable for scheduling <b>repetitive tasks</b>.<br />
+Time-based job scheduler in Unix-like computer OS. Suitable for scheduling <b>repetitive tasks</b>.
 </p>
 
 <p>
-<b>Format</b>:<br />
-<code>MM(0-59) HH(0-23) DD(1-31) MM(1-12) DD(0-7) /path/to/script</code><br />
+<b>Format</b>:
+<code>MM(0-59) HH(0-23) DD(1-31) MM(1-12) DD(0-7) /path/to/script</code>
 </p>
 
 <p>
-<b>Example</b>:<br />
-<code>30 08 /home/kkennynguyen/scripts/test</code><br />
-Run "test" every day at 08.30am.<br />
+<b>Example</b>:
+<code>30 08 /home/kkennynguyen/scripts/test</code>
+Run "test" every day at 08.30am.
 </p>
 
 <p>
-<b>How-to</b>:<br />
-To create a cron job, just edit the crontab file by <code>crontab -e</code>. Cron is driven by a crontab file.<br />
+<b>How-to</b>:
+To create a cron job, just edit the crontab file by <code>crontab -e</code>. Cron is driven by a crontab file.
 </p>
 </div>
 </div>
@@ -701,27 +701,27 @@ To create a cron job, just edit the crontab file by <code>crontab -e</code>. Cro
 <h3 id="org66d9751">syslog - General</h3>
 <div class="outline-text-3" id="text-org66d9751">
 <p>
-In order to allow us to have a human-readable journal of all events that are happening on the system, data about what the system/kernel/daemons, etc on our system is doing is always saved in the form of logs. This data is kept in the /var directory.<br />
+In order to allow us to have a human-readable journal of all events that are happening on the system, data about what the system/kernel/daemons, etc on our system is doing is always saved in the form of logs. This data is kept in the /var directory.
 </p>
 
 <p>
-<code>*Logs are kept in /var, which stands for variables*</code><br />
+<code>*Logs are kept in /var, which stands for variables*</code>
 </p>
 
 <p>
-This is done by a service called <b>syslogs</b> that sends the information as messages to the system logger.<br />
+This is done by a service called <b>syslogs</b> that sends the information as messages to the system logger.
 </p>
 
 <p>
-Syslogs contain many components, one being an important daemon running called syslogd (or rsyslogd) that waits for event message, do some filtering and send to a file or do nothing.<br />
+Syslogs contain many components, one being an important daemon running called syslogd (or rsyslogd) that waits for event message, do some filtering and send to a file or do nothing.
 </p>
 
 <p>
-Syslog isn't the only thing that manage logs. Many applicaations write their own logging rules and generate different log files in differnt directories.<br />
+Syslog isn't the only thing that manage logs. Many applicaations write their own logging rules and generate different log files in differnt directories. 
 </p>
 
 <p>
-Generally the format of logs should include a timestamp and event details.<br />
+Generally the format of logs should include a timestamp and event details.
 </p>
 </div>
 </div>
@@ -739,7 +739,7 @@ May  2 15:11:39 Kennys-ThinkPad-X1C wpa_supplicant[870]: wlp4s0: Trying to assoc
 </div>
 
 <p>
-Right now syslog is running:<br />
+Right now syslog is running:
 </p>
 
 <div class="org-src-container">
@@ -751,11 +751,11 @@ Right now syslog is running:<br />
 
 
 <p>
-<b>syslog</b> service manages and reports to the <b>System Logger</b>. To find out what files are maintained by the System Logger, inspect the config files in /etc/rsyslogd. In this file, rules are denoted on the left colum and actions are denoted on the right column. <code>Not every application uses rsyslogd</code>.<br />
+<b>syslog</b> service manages and reports to the <b>System Logger</b>. To find out what files are maintained by the System Logger, inspect the config files in /etc/rsyslogd. In this file, rules are denoted on the left colum and actions are denoted on the right column. <code>Not every application uses rsyslogd</code>.
 </p>
 
 <p>
-To manually send a log, use <code>logger</code>.<br />
+To manually send a log, use <code>logger</code>.
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">
@@ -777,20 +777,20 @@ May  3 06:58:55 Kennys-ThinkPad-X1C kkennynguyen: hello
 <h3 id="org5041326">Kernel logging</h3>
 <div class="outline-text-3" id="text-org5041326">
 <p>
-legacy: /var/log/dmesg<br />
+legacy: /var/log/dmesg
 </p>
 
 <p>
-present:<br />
+present:
 </p>
 
 <p>
-logs are stored in /var/log/kern.log<br />
-dmesg is nicer<br />
+logs are stored in /var/log/kern.log
+dmesg is nicer
 </p>
 
 <p>
-<b>Example</b>:<br />
+<b>Example</b>:
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">
@@ -813,11 +813,11 @@ May  3 07:00:33 Kennys-ThinkPad-X1C kernel: [31651.952554] perf: interrupt took 
 <h3 id="orgf7d2c8f">Authentication logging</h3>
 <div class="outline-text-3" id="text-orgf7d2c8f">
 <p>
-stored in <b>/var/log/auth.log</b>. Contains system authorization logs, such as user login and authentication method used.<br />
+stored in <b>/var/log/auth.log</b>. Contains system authorization logs, such as user login and authentication method used.
 </p>
 
 <p>
-<b>Sample snippet</b> <br />
+<b>Sample snippet</b> 
 </p>
 <div class="org-src-container">
 <pre class="src src-bash">
@@ -831,15 +831,15 @@ May  3 06:47:49 Kennys-ThinkPad-X1C sudo: kkennynguyen : <span style="font-weigh
 <h3 id="orgfd4eb73">Log files management</h3>
 <div class="outline-text-3" id="text-orgfd4eb73">
 <p>
-Answer: <b>logrotate</b><br />
+Answer: <b>logrotate</b>
 </p>
 <ul class="org-ul">
-<li>Does log management<br /></li>
-<li>Has a config file that allows specifying how many and what logs to keep, etc.<br /></li>
-<li>ran out of <b>cron</b> once a day.<br /></li>
+<li>Does log management</li>
+<li>Has a config file that allows specifying how many and what logs to keep, etc.</li>
+<li>ran out of <b>cron</b> once a day.</li>
 </ul>
 <p>
-Location: <code>/etc/logrotate.d</code><br />
+Location: <code>/etc/logrotate.d</code>
 </p>
 </div>
 </div>
@@ -857,20 +857,20 @@ Location: <code>/etc/logrotate.d</code><br />
 <h4 id="orgd3718e9">scp</h4>
 <div class="outline-text-4" id="text-orgd3718e9">
 <p>
-<i>secure copy</i><br />
+<i>secure copy</i>
 </p>
 
 <p>
-Works exactly the same way cp works but allows copy from hosts on same network.<br />
+Works exactly the same way cp works but allows copy from hosts on same network.
 </p>
 
 <p>
-Use these formats:<br />
+Use these formats:
 </p>
 <ul class="org-ul">
-<li><b>Copy a file from localhost to remote host</b>: <code>$ scp path/to/file username@remotehost.com:/path/to/directory</code><br /></li>
-<li><b>Copy a file from remote host to localhost</b>: <code>$scp username@remotehost.com:/path/to/file /local/directory</code><br /></li>
-<li><b>For directory, use</b> <code>$scp -r</code><br /></li>
+<li><b>Copy a file from localhost to remote host</b>: <code>$ scp path/to/file username@remotehost.com:/path/to/directory</code></li>
+<li><b>Copy a file from remote host to localhost</b>: <code>$scp username@remotehost.com:/path/to/file /local/directory</code></li>
+<li><b>For directory, use</b> <code>$scp -r</code></li>
 </ul>
 </div>
 </div>
@@ -879,24 +879,24 @@ Use these formats:<br />
 <h4 id="org7bd7b5b">rsync</h4>
 <div class="outline-text-4" id="text-org7bd7b5b">
 <p>
-remote synchronization<br />
+remote synchronization
 </p>
 
 <p>
-Similar to scp but rsync uses an algorithm that <b>checks data and only copy the differences</b>.<br />
-This makes rsync ideal for file transfer flexibility and <b>directory synchronization</b> remotely, locally, data backups, large data transfer, etc.<br />
+Similar to scp but rsync uses an algorithm that <b>checks data and only copy the differences</b>.
+This makes rsync ideal for file transfer flexibility and <b>directory synchronization</b> remotely, locally, data backups, large data transfer, etc.
 </p>
 
 <p>
-Format: <code>$ rsync -[options] /src/dir /dest/dir</code><br />
+Format: <code>$ rsync -[options] /src/dir /dest/dir</code>
 </p>
 <ul class="org-ul">
-<li>options:<br />
+<li>options:
 <ul class="org-ul">
-<li>v - verbose<br /></li>
-<li>r - recursive (must use for directories)<br /></li>
-<li>z - compressed for easier transfer<br /></li>
-<li>h - human readable<br /></li>
+<li>v - verbose</li>
+<li>r - recursive (must use for directories)</li>
+<li>z - compressed for easier transfer</li>
+<li>h - human readable</li>
 </ul></li>
 </ul>
 </div>
@@ -908,16 +908,16 @@ Format: <code>$ rsync -[options] /src/dir /dest/dir</code><br />
 <h3 id="org8f4f445"><b>HTTP Server</b></h3>
 <div class="outline-text-3" id="text-org8f4f445">
 <p>
-Python has a <b>SimpleHTTPServer</b> module. It sets up a Simple HTTP with std Get and Head request handlers. The HTTP server can be accessed via <code>http://IPADDRESS:8000</code><br />
+Python has a <b>SimpleHTTPServer</b> module. It sets up a Simple HTTP with std Get and Head request handlers. The HTTP server can be accessed via <code>http://IPADDRESS:8000</code>
 </p>
 
 <p>
-Default port: <code>8000</code><br />
+Default port: <code>8000</code>
 </p>
 
 <p>
-Format: <code>$python -m SimpleHTTPServer</code><br />
-The <b>-m</b> is to run a module as a script.<br />
+Format: <code>$python -m SimpleHTTPServer</code>
+The <b>-m</b> is to run a module as a script.
 </p>
 </div>
 </div>
@@ -926,16 +926,16 @@ The <b>-m</b> is to run a module as a script.<br />
 <h3 id="org6fdad6e">NFS</h3>
 <div class="outline-text-3" id="text-org6fdad6e">
 <p>
-<i>Network File System</i><br />
+<i>Network File System</i>
 </p>
 
 <p>
-NFS is a service that allows a server to share directories and files with one or more clients over network.<br />
+NFS is a service that allows a server to share directories and files with one or more clients over network.
 </p>
 
 <p>
-Setting up:<br />
-<code>$ sudo service nfsclient start</code><br />
+Setting up:
+<code>$ sudo service nfsclient start</code>
 </p>
 </div>
 </div>
@@ -944,26 +944,26 @@ Setting up:<br />
 <h3 id="orgcd713c0">Samba</h3>
 <div class="outline-text-3" id="text-orgcd713c0">
 <p>
-<i>Server Message Block</i><br />
+<i>Server Message Block</i>
 </p>
 
 <p>
-SMB is a protocol that was created to share files between Linux and Windows OS (Mac also has SMB).<br />
+SMB is a protocol that was created to share files between Linux and Windows OS (Mac also has SMB).
 </p>
 
 <p>
-Later it was cleaned up and optimized in the form of Common Internet File Share <b>(CIFS)</b> protocol.<br />
+Later it was cleaned up and optimized in the form of Common Internet File Share <b>(CIFS)</b> protocol.
 </p>
 
 <p>
-samba needs to be installed <code>$ sudo apt install samba</code><br />
-Configuration file for sambe is at <code>/etc/samba/smb.conf</code>. The default conf file comes with a lot of commented out code. Good place to start.<br />
+samba needs to be installed <code>$ sudo apt install samba</code>
+Configuration file for sambe is at <code>/etc/samba/smb.conf</code>. The default conf file comes with a lot of commented out code. Good place to start.
 </p>
 
 <ul class="org-ul">
-<li>set up a user for samba <code>$ sudo smbpasswd -a [username]</code> <br /></li>
-<li>accesing a samba share on Linux <code>$ smbclient /path/to/directory -u [username]</code><br /></li>
-<li>mount a samba share: <code>$ sudo mount -t cifs servername:/directory /mount/point -o -u user=domain\username</code><br /></li>
+<li>set up a user for samba <code>$ sudo smbpasswd -a [username]</code></li>
+<li>accesing a samba share on Linux <code>$ smbclient /path/to/directory -u [username]</code></li>
+<li>mount a samba share: <code>$ sudo mount -t cifs servername:/directory /mount/point -o -u user=domain\username</code></li>
 </ul>
 </div>
 </div>
@@ -1028,9 +1028,9 @@ Configuration file for sambe is at <code>/etc/samba/smb.conf</code>. The default
 <h3 id="org71c1a44">OSI Model</h3>
 <div class="outline-text-3" id="text-org71c1a44">
 <p>
-<b>Theoretical</b> model of networking<br />
-This model shows how a <a href="#org3788ae6">packet</a> traverses through a network in <b>seven</b> different layers.<br />
-Gave birth to TCP/IP model.<br />
+<b>Theoretical</b> model of networking
+This model shows how a <a href="#org18ff971">packet</a> traverses through a network in <b>seven</b> different layers. 
+Gave birth to TCP/IP model.
 </p>
 </div>
 </div>
@@ -1039,12 +1039,12 @@ Gave birth to TCP/IP model.<br />
 <h3 id="org805f2f9"><b>TCP/IP Model</b></h3>
 <div class="outline-text-3" id="text-org805f2f9">
 <p>
-This model is what the Internet is based off of.<br />
-<b>Actual/ Practical</b> of networking<br />
+This model is what the Internet is based off of.
+<b>Actual/ Practical</b> of networking
 </p>
 
 <p>
-The TCP/IP model uses <a href="#org9e6fdb4">TCP/IP Protocol suite</a>.<br />
+The TCP/IP model uses <a href="#org9e6fdb4">TCP/IP Protocol suite</a>.
 </p>
 </div>
 
@@ -1052,13 +1052,13 @@ The TCP/IP model uses <a href="#org9e6fdb4">TCP/IP Protocol suite</a>.<br />
 <h4 id="orgf48f582"><b>Packets:</b></h4>
 <div class="outline-text-4" id="text-orgf48f582">
 <p>
-#<a id="org3788ae6">Packet</a> <br />
+#<a id="org18ff971">Packet</a> 
 </p>
 
 <ul class="org-ul">
-<li>Packets are used to transmit data across networks.<br /></li>
-<li>Consists of a <b>header</b> and <b>payload</b>.<br /></li>
-<li>Header contains 'sent from' and 'to' info. Headers is appended as a <a href="#org3788ae6">packet</a> moves across networks.<br /></li>
+<li>Packets are used to transmit data across networks.</li>
+<li>Consists of a <b>header</b> and <b>payload</b>.</li>
+<li>Header contains 'sent from' and 'to' info. Headers is appended as a <a href="#org18ff971">packet</a> moves across networks.</li>
 </ul>
 </div>
 </div>
@@ -1067,9 +1067,9 @@ The TCP/IP model uses <a href="#org9e6fdb4">TCP/IP Protocol suite</a>.<br />
 <h4 id="org4fdf500">Ports</h4>
 <div class="outline-text-4" id="text-org4fdf500">
 <p>
-<a id="orgeab7519"></a> <br />
-IP Addresses aren't specific enough to send data to a certain process or service.<br />
-So they have to use a communication channel via <b>Ports</b>.<br />
+<a id="orgeab7519"></a> 
+IP Addresses aren't specific enough to send data to a certain process or service. 
+So they have to use a communication channel via <b>Ports</b>. 
 </p>
 
 <pre class="example">
@@ -1083,13 +1083,13 @@ So webpage data is sent over Port 80.
 <h4 id="org7caa574">Network Addressing</h4>
 <div class="outline-text-4" id="text-org7caa574">
 <p>
-<i>Packets need information where they are going to.</i><br />
+<i>Packets need information where they are going to.</i>
 </p>
 
 <ul class="org-ul">
-<li><b>MAC Address:</b> Unique Identifer as a <b>hardware</b> address | Never changes | Given when network card was manufactured | Denoted with OUI from manufacturer<br /></li>
-<li><b>IP Address:</b> Used to identify a devic eover network | hardware dependent | <b>Software</b> | Changes with Network<br /></li>
-<li><b>Hostnames:</b> Hostnames take the IP address and mask it with a human readable name, e.g instead of 192.124.243.123, myhost.com<br /></li>
+<li><b>MAC Address:</b> Unique Identifer as a <b>hardware</b> address | Never changes | Given when network card was manufactured | Denoted with OUI from manufacturer</li>
+<li><b>IP Address:</b> Used to identify a devic eover network | hardware dependent | <b>Software</b> | Changes with Network</li>
+<li><b>Hostnames:</b> Hostnames take the IP address and mask it with a human readable name, e.g instead of 192.124.243.123, myhost.com</li>
 </ul>
 </div>
 </div>
@@ -1100,135 +1100,135 @@ So webpage data is sent over Port 80.
 <div class="outline-text-3" id="text-org9e6fdb4">
 </div>
 <div id="outline-container-orgc75ca9c" class="outline-4">
-<h4 id="orgc75ca9c"><b><a href="#orgebb3049">Application Layer</a></b></h4>
+<h4 id="orgc75ca9c"><b><a href="#org7894f71">Application Layer</a></b></h4>
 <div class="outline-text-4" id="text-orgc75ca9c">
 <p>
-#<a id="orgebb3049">Application layer</a><br />
+#<a id="org7894f71">Application layer</a>
 </p>
 <ul class="org-ul">
-<li>Presents data in a user-friendly format.<br /></li>
-<li>Top layer of TCP/IP model<br /></li>
-<li>Determines how computer program (e.g web browser) interfaces with the <a href="#org06e1dd4">transport layer</a> services<br /></li>
-<li>It uses:<br />
+<li>Presents data in a user-friendly format.</li>
+<li>Top layer of TCP/IP model</li>
+<li>Determines how computer program (e.g web browser) interfaces with the <a href="#org03d008d">transport layer</a> services</li>
+<li>It uses: 
 <ul class="org-ul">
-<li>HTTP - Hypertext Transfer Protocol: used for webpages<br /></li>
-<li>SMTP - Simle Mail Transfer Protocol: used for email transmission<br /></li>
+<li>HTTP - Hypertext Transfer Protocol: used for webpages</li>
+<li>SMTP - Simle Mail Transfer Protocol: used for email transmission</li>
 </ul></li>
-<li>Communicates with <a href="#org06e1dd4">Transport Layer</a> through a specified Port, e.g SMTP uses Port 25.<br /></li>
+<li>Communicates with <a href="#org03d008d">Transport Layer</a> through a specified Port, e.g SMTP uses Port 25.</li>
 </ul>
 
 <p>
-Data: User-friendly format<br />
+Data: User-friendly format 
 </p>
 </div>
 </div>
 <div id="outline-container-orgb564f6e" class="outline-4">
-<h4 id="orgb564f6e"><b><a href="#org06e1dd4">Transport Layer</a></b></h4>
+<h4 id="orgb564f6e"><b><a href="#org03d008d">Transport Layer</a></b></h4>
 <div class="outline-text-4" id="text-orgb564f6e">
 <p>
-#<a id="org06e1dd4">Transport Layer</a><br />
+#<a id="org03d008d">Transport Layer</a>
 </p>
 
 <ul class="org-ul">
-<li>Determine how data will be transmitted i.e checking ports, data integrity and delivery of packets<br /></li>
-<li>Helps transfer data in a way that networks can read it. It breaks data up into chunks (<code>segments</code>) that will be transported and put back together.<br /></li>
-<li>It includes <b>two</b> protocols:<br />
+<li>Determine how data will be transmitted i.e checking ports, data integrity and delivery of packets</li>
+<li>Helps transfer data in a way that networks can read it. It breaks data up into chunks (<code>segments</code>) that will be transported and put back together.</li>
+<li>It includes <b>two</b> protocols:
 <ul class="org-ul">
-<li><b>TCP</b> - Transmission Control Protocol:<br />
+<li><b>TCP</b> - Transmission Control Protocol: 
 <ul class="org-ul">
-<li>Reliable | Actually check if data is received or not.<br /></li>
-<li>Uses port and <b>Three-way handshake</b> to establish connection between client and server.<br />
+<li>Reliable | Actually check if data is received or not.</li>
+<li>Uses port and <b>Three-way handshake</b> to establish connection between client and server.
 <ol class="org-ol">
-<li>Host A send <code>SYNchronize</code> <a href="#org3788ae6">packet</a> to Host B.<br /></li>
-<li>Host B receives Host A's SYN.<br /></li>
-<li>Host B sends a <code>SYNchronize-ACKnowledgement</code>.<br /></li>
-<li>Host A receceives SYN-ACK.<br /></li>
-<li>Host A sends ACK.<br /></li>
-<li>Host B receives ACK.<br /></li>
-<li>TCP Socket connection is now <code>Established</code>.<br /></li>
+<li>Host A send <code>SYNchronize</code> <a href="#org18ff971">packet</a> to Host B.</li>
+<li>Host B receives Host A's SYN.</li>
+<li>Host B sends a <code>SYNchronize-ACKnowledgement</code>.</li>
+<li>Host A receceives SYN-ACK.</li>
+<li>Host A sends ACK.</li>
+<li>Host B receives ACK.</li>
+<li>TCP Socket connection is now <code>Established</code>.</li>
 </ol></li>
-<li>Once TCP connection is established, data is sent over in different segments and are tracked with TCP sequence number for re-assembling purpose.<br /></li>
+<li>Once TCP connection is established, data is sent over in different segments and are tracked with TCP sequence number for re-assembling purpose.</li>
 </ul></li>
-<li><b>UDP</b> - User Data Protocol:<br />
+<li><b>UDP</b> - User Data Protocol:
 <ul class="org-ul">
-<li>Unreliable | Does not care if data is received or not.<br /></li>
-<li>Good option for application where speed is more important than 100% data delivery. E.g: Media Streaming.<br /></li>
+<li>Unreliable | Does not care if data is received or not.</li>
+<li>Good option for application where speed is more important than 100% data delivery. E.g: Media Streaming.</li>
 </ul></li>
 </ul></li>
-<li><a href="#org06e1dd4">Transport Layer</a> sends segments to <a href="#org53f4032">Network Layer</a>.<br /></li>
+<li><a href="#org03d008d">Transport Layer</a> sends segments to <a href="#org2bd962a">Network Layer</a>.</li>
 </ul>
 
 <p>
-Data: broken up into segments<br />
+Data: broken up into segments
 </p>
 </div>
 </div>
 <div id="outline-container-orgaa6f208" class="outline-4">
-<h4 id="orgaa6f208"><b><a href="#org53f4032">Network Layer</a></b></h4>
+<h4 id="orgaa6f208"><b><a href="#org2bd962a">Network Layer</a></b></h4>
 <div class="outline-text-4" id="text-orgaa6f208">
 <p>
-#<a id="org53f4032">Network Layer</a><br />
+#<a id="org2bd962a">Network Layer</a>
 </p>
 
 <ul class="org-ul">
-<li>Receives the segment from <a href="#org06e1dd4">Transport Layer</a> then encapsulate it into an IP <a href="#org3788ae6">packet</a>, adding these to the <a href="#org3788ae6">Packet</a> Header:<br />
+<li>Receives the segment from <a href="#org03d008d">Transport Layer</a> then encapsulate it into an IP <a href="#org18ff971">packet</a>, adding these to the <a href="#org18ff971">Packet</a> Header:
 <ul class="org-ul">
-<li>The IP address of source host (Sent-From)<br /></li>
-<li>The IP address of destination host (Sent-To)<br /></li>
+<li>The IP address of source host (Sent-From)</li>
+<li>The IP address of destination host (Sent-To)</li>
 </ul></li>
-<li>Specifies how to move packets between hosts and across networks, from source to destination.<br /></li>
-<li>For the Internet, it is made up of many smaller networks which are called <b>subnets</b>. All subnets on the Internet are connected together in some way. IP addresses define the rules to travel to different subnets.<br /></li>
-<li>It uses:<br />
+<li>Specifies how to move packets between hosts and across networks, from source to destination.</li>
+<li>For the Internet, it is made up of many smaller networks which are called <b>subnets</b>. All subnets on the Internet are connected together in some way. IP addresses define the rules to travel to different subnets.</li>
+<li>It uses:
 <ul class="org-ul">
-<li>IP - Internet Protocol: Help route packets from one machine to another<br /></li>
-<li>ICMP - Internet Control Message: Helps tell us what is going on, such as error messages and debugging information.<br /></li>
+<li>IP - Internet Protocol: Help route packets from one machine to another</li>
+<li>ICMP - Internet Control Message: Helps tell us what is going on, such as error messages and debugging information.</li>
 </ul></li>
-<li>With the <a href="#org3788ae6">packet</a> containing info about Sent-From and Sent-To, it is sent to the physical layer.<br /></li>
+<li>With the <a href="#org18ff971">packet</a> containing info about Sent-From and Sent-To, it is sent to the physical layer.</li>
 </ul>
 
 <p>
-Data: Segments are encapsulated into IP Packets.<br />
+Data: Segments are encapsulated into IP Packets.
 </p>
 </div>
 </div>
 <div id="outline-container-org3dd4fde" class="outline-4">
-<h4 id="org3dd4fde"><b><a href="#org01fda5d">Link Layer</a></b></h4>
+<h4 id="org3dd4fde"><b><a href="#org0a41f3c">Link Layer</a></b></h4>
 <div class="outline-text-4" id="text-org3dd4fde">
 <p>
-#<a id="org01fda5d">Link layer</a><br />
+#<a id="org0a41f3c">Link layer</a>
 </p>
 
 <ul class="org-ul">
-<li>Bottom of the TCP/IP model | is hardware specific.<br />
+<li>Bottom of the TCP/IP model | is hardware specific.
 <ul class="org-ul">
-<li>Specifies how to send data across a physical piece of hardware i.e data travelling physically through ethernet, fibre, etc.<br /></li>
-<li><a href="#org3788ae6">Packet</a> is encapsulated once more into a <b>frame</b>. The frame header attaches the source and destination MAC addresses of hosts, checksums and <a href="#org3788ae6">packet</a> separators so that receiver can tell when a <a href="#org3788ae6">packet</a> end.<br /></li>
-<li><a href="#org01fda5d">Link layer</a> first attaches source MAC address to the frame header, then to find destination's MAC address, it uses <b>Address Resolution Protocol</b> (#<a id="org55c34df">ARP</a>)<br />
+<li>Specifies how to send data across a physical piece of hardware i.e data travelling physically through ethernet, fibre, etc.</li>
+<li><a href="#org18ff971">Packet</a> is encapsulated once more into a <b>frame</b>. The frame header attaches the source and destination MAC addresses of hosts, checksums and <a href="#org18ff971">packet</a> separators so that receiver can tell when a <a href="#org18ff971">packet</a> end.</li>
+<li><a href="#org0a41f3c">Link layer</a> first attaches source MAC address to the frame header, then to find destination's MAC address, it uses <b>Address Resolution Protocol</b> (#<a id="org4743e70">ARP</a>)
 <ul class="org-ul">
-<li><a href="#org55c34df">ARP</a> is used within the <b>same</b> network.<br /></li>
-<li>If Dest is not on the same network, the <a href="#org3788ae6">packet</a> would then be sent to the next router until it's on the same network.<br /></li>
-<li>On the same network, systems would then use the <a href="#org55c34df">ARP</a> look-up table which stores info about what IP addresses are associated with what MAC address. If the value is not on the look-up table, the system would then send a <b>broadcast</b> message to to all hosts, asking which host has the destination IP Address. The machine with the requested IP address will then reply with an <a href="#org55c34df">ARP</a> <a href="#org3788ae6">packet</a> containing the IP address, as well as its MAC address.<br /></li>
+<li><a href="#org4743e70">ARP</a> is used within the <b>same</b> network.</li>
+<li>If Dest is not on the same network, the <a href="#org18ff971">packet</a> would then be sent to the next router until it's on the same network.</li>
+<li>On the same network, systems would then use the <a href="#org4743e70">ARP</a> look-up table which stores info about what IP addresses are associated with what MAC address. If the value is not on the look-up table, the system would then send a <b>broadcast</b> message to to all hosts, asking which host has the destination IP Address. The machine with the requested IP address will then reply with an <a href="#org4743e70">ARP</a> <a href="#org18ff971">packet</a> containing the IP address, as well as its MAC address.</li>
 </ul></li>
 </ul></li>
 </ul>
 
 <p>
-Data: <a href="#org3788ae6">Packet</a> is encapsulated into frame.<br />
+Data: <a href="#org18ff971">Packet</a> is encapsulated into frame. 
 </p>
 </div>
 </div>
 <div id="outline-container-orgafe4329" class="outline-4">
-<h4 id="orgafe4329">Example of a <a href="#org3788ae6">Packet</a> Traversal down TCP/IP layer</h4>
+<h4 id="orgafe4329">Example of a <a href="#org18ff971">Packet</a> Traversal down TCP/IP layer</h4>
 <div class="outline-text-4" id="text-orgafe4329">
 <ol class="org-ol">
-<li>A sends B an email: This data originates from the <a href="#orgebb3049">Application Layer</a> then get sent to the <a href="#org06e1dd4">Transport Layer</a>.<br /></li>
-<li>The <a href="#org06e1dd4">Transport Layer</a> then encapsulates the data into TCP (or UDP) header to form a segment, which also contains information about source and destination's TCP (or UDP) Port. The segment is then sent to <a href="#org53f4032">Network Layer</a>.<br /></li>
-<li>The <a href="#org53f4032">Network Layer</a> encapsulates the TCP segment inside an IP <a href="#org3788ae6">packet</a>, as well as adding header information about source and destination's IP Address. This <a href="#org3788ae6">packet</a> is then routed to the <a href="#org01fda5d">Link Layer</a>.<br /></li>
-<li>The <a href="#org3788ae6">packet</a> then reaches A's physical hardware and gets encapsulated in a frame. The source and destination MAC gets added to the frame.<br /></li>
-<li>B receives this data frame through physical layer, checks each frame for data integrity, then de-encapsulates the frame contents and sends the IP <a href="#org3788ae6">packet</a> to the <a href="#org53f4032">Network layer</a>.<br /></li>
-<li>The <a href="#org53f4032">network layer</a> then reads the <a href="#org3788ae6">packet</a> to find source and destination IP that was attached in 3.. It checks if its IP address is the same as destination IP address, which it is. It de-encapsulates the <a href="#org3788ae6">packet</a> and send the segment to the <a href="#org06e1dd4">transport layer</a>.<br /></li>
-<li>The <a href="#org06e1dd4">transport layer</a> de-enscapsulates the segments, check TCP (or UDP) port numbers, that was attached in step 2., then makes a connection with the <a href="#orgebb3049">application layer</a> based on the Port number.<br /></li>
-<li>The <a href="#orgebb3049">application layer</a> receives data from <a href="#org06e1dd4">transport layer</a> on the specified port and presents it to B in the form of human readdable format.<br /></li>
+<li>A sends B an email: This data originates from the <a href="#org7894f71">Application Layer</a> then get sent to the <a href="#org03d008d">Transport Layer</a>.</li>
+<li>The <a href="#org03d008d">Transport Layer</a> then encapsulates the data into TCP (or UDP) header to form a segment, which also contains information about source and destination's TCP (or UDP) Port. The segment is then sent to <a href="#org2bd962a">Network Layer</a>.</li>
+<li>The <a href="#org2bd962a">Network Layer</a> encapsulates the TCP segment inside an IP <a href="#org18ff971">packet</a>, as well as adding header information about source and destination's IP Address. This <a href="#org18ff971">packet</a> is then routed to the <a href="#org0a41f3c">Link Layer</a>.</li>
+<li>The <a href="#org18ff971">packet</a> then reaches A's physical hardware and gets encapsulated in a frame. The source and destination MAC gets added to the frame.</li>
+<li>B receives this data frame through physical layer, checks each frame for data integrity, then de-encapsulates the frame contents and sends the IP <a href="#org18ff971">packet</a> to the <a href="#org2bd962a">Network layer</a>.</li>
+<li>The <a href="#org2bd962a">network layer</a> then reads the <a href="#org18ff971">packet</a> to find source and destination IP that was attached in 3.. It checks if its IP address is the same as destination IP address, which it is. It de-encapsulates the <a href="#org18ff971">packet</a> and send the segment to the <a href="#org03d008d">transport layer</a>.</li>
+<li>The <a href="#org03d008d">transport layer</a> de-enscapsulates the segments, check TCP (or UDP) port numbers, that was attached in step 2., then makes a connection with the <a href="#org7894f71">application layer</a> based on the Port number.</li>
+<li>The <a href="#org7894f71">application layer</a> receives data from <a href="#org03d008d">transport layer</a> on the specified port and presents it to B in the form of human readdable format.</li>
 </ol>
 </div>
 </div>
@@ -1238,15 +1238,15 @@ Data: <a href="#org3788ae6">Packet</a> is encapsulated into frame.<br />
 <h3 id="orgdb48f90">DHCP Overview</h3>
 <div class="outline-text-3" id="text-orgdb48f90">
 <p>
-<i>Dynamic Host Configuration Protocol</i><br />
+<i>Dynamic Host Configuration Protocol</i>
 </p>
 
 <ul class="org-ul">
-<li>Assigns IP addresses, subnet masks and gateway to machines.<br />
-E.g Similarly to how a phone carrier assigns a number to our Cell Phone.<br /></li>
-<li>However IP addresses are <b>leased</b> for a certain amount of time, depending on the lease settings.<br /></li>
-<li>Prevents from IP addresses duplicacy.<br /></li>
-<li>In a regular home settings, router acts as DHCP server.<br /></li>
+<li>Assigns IP addresses, subnet masks and gateway to machines.
+E.g Similarly to how a phone carrier assigns a number to our Cell Phone.</li>
+<li>However IP addresses are <b>leased</b> for a certain amount of time, depending on the lease settings.</li>
+<li>Prevents from IP addresses duplicacy.</li>
+<li>In a regular home settings, router acts as DHCP server.</li>
 </ul>
 </div>
 
@@ -1254,10 +1254,10 @@ E.g Similarly to how a phone carrier assigns a number to our Cell Phone.<br /></
 <h4 id="org980cc7a">How it works</h4>
 <div class="outline-text-4" id="text-org980cc7a">
 <ol class="org-ol">
-<li><b>DHCP DISCOVER</b> message is broadcasted to search for a DHCP server by the client.<br /></li>
-<li><b>DHCP OFFER</b> is replied by DHCP server after it receives the broadcast message. The offer contains a <a href="#org3788ae6">packet</a> with DHCP lease time, subnet mask, IP address, etc.<br /></li>
-<li><b>DHCP REQUEST</b> is broadcasted by the client one more time to let all DHCP servers know which offer was accepted.<br /></li>
-<li><b>DHCP ACK</b> is sent by the server as acknowledgement.<br /></li>
+<li><b>DHCP DISCOVER</b> message is broadcasted to search for a DHCP server by the client.</li>
+<li><b>DHCP OFFER</b> is replied by DHCP server after it receives the broadcast message. The offer contains a <a href="#org18ff971">packet</a> with DHCP lease time, subnet mask, IP address, etc.</li>
+<li><b>DHCP REQUEST</b> is broadcasted by the client one more time to let all DHCP servers know which offer was accepted.</li>
+<li><b>DHCP ACK</b> is sent by the server as acknowledgement.</li>
 </ol>
 </div>
 </div>
@@ -1272,19 +1272,19 @@ E.g Similarly to how a phone carrier assigns a number to our Cell Phone.<br /></
 <h3 id="orgb0290b6">IPv4</h3>
 <div class="outline-text-3" id="text-orgb0290b6">
 <p>
-<b>IPv4</b> is a unique address. An IPv4 address actually consists of <b>two</b> parts.<br />
+<b>IPv4</b> is a unique address. An IPv4 address actually consists of <b>two</b> parts. 
 </p>
 <ul class="org-ul">
-<li><b>Network Portion</b>: tells which network the host is on<br /></li>
-<li><b>Host Portion</b>: tells which host on the network it is<br /></li>
+<li><b>Network Portion</b>: tells which network the host is on</li>
+<li><b>Host Portion</b>: tells which host on the network it is</li>
 </ul>
 
 <p>
-An IPv4 address is seperated into four <b>octets</b> by periods. Each octet = 8 bits = 1 byte. So an IPv4 Address = 4 bytes.<br />
+An IPv4 address is seperated into four <b>octets</b> by periods. Each octet = 8 bits = 1 byte. So an IPv4 Address = 4 bytes.
 </p>
 
 <p>
-In the below example, IP address = 172.20.10.10<br />
+In the below example, IP address = 172.20.10.10
 </p>
 <pre class="example">
 $ ifconfig
@@ -1304,7 +1304,7 @@ wlp4s0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
 <h3 id="org7285b75">Subnet</h3>
 <div class="outline-text-3" id="text-org7285b75">
 <p>
-<b>Subnet definition</b>: Group of hosts with IP Addresses that are similar in a certain way. Usually these hosts are in proximate location to each other and it's easier to send data between. This is similar to properties having the same <b>Postcode</b>.<br />
+<b>Subnet definition</b>: Group of hosts with IP Addresses that are similar in a certain way. Usually these hosts are in proximate location to each other and it's easier to send data between. This is similar to properties having the same <b>Postcode</b>.
 </p>
 
 <pre class="example">
@@ -1317,58 +1317,58 @@ wlp4s0: flags=4163&lt;UP,BROADCAST,RUNNING,MULTICAST&gt;  mtu 1500
 <h3 id="orgec7fdff">Subnet Masks</h3>
 <div class="outline-text-3" id="text-orgec7fdff">
 <p>
-<b>Subnet masks determine what part of IP Address is the network portion and what part is the host portion.</b><br />
-Typically it looks like <code>255.255.255.0</code>.<br />
+<b>Subnet masks determine what part of IP Address is the network portion and what part is the host portion.</b>
+Typically it looks like <code>255.255.255.0</code>.
 </p>
 
 <p>
-The 255 portion is the <b>mask</b>.<br />
+The 255 portion is the <b>mask</b>. 
 </p>
 
 <p>
-<i>Explanation: Each octet has 1 byte, or 8 bits. Each bit is denoted by a 0 or 1 in binary form. When binary numbers are used, 1 means <b>ON</b> and 0 means <b>OFF</b>. '11111111' means 255.</i><br />
+<i>Explanation: Each octet has 1 byte, or 8 bits. Each bit is denoted by a 0 or 1 in binary form. When binary numbers are used, 1 means <b>ON</b> and 0 means <b>OFF</b>. '11111111' means 255.</i>
 </p>
 
 <p>
-Subnets are commonly denoted by the network prefix followed by the subnet mask e.g <code>123.234.0.0/ 255.255.0.0</code>.<br />
+Subnets are commonly denoted by the network prefix followed by the subnet mask e.g <code>123.234.0.0/ 255.255.0.0</code>.
 </p>
 
 <p>
-<b>Why?</b> Subnetting is used to segment networks and control the traffic within network. Host on one subnet can't interact with hosts on another subnet. To connect to a public address, we need to connect subnets together.<br />
-E.g If my host 192.168.1.129 is connected to a local network of 192.168.1.129/25, it can reach to any host on that network. However to reach hosts on the rest of the Internet, it needs to communicate through the <b>router</b>. Traditionally on most networks with a subnet of <code>255.255.255.0</code>, the router is at address 1 of the subnet which is <code>192.168.1.1</code> <br />
+<b>Why?</b> Subnetting is used to segment networks and control the traffic within network. Host on one subnet can't interact with hosts on another subnet. To connect to a public address, we need to connect subnets together. 
+E.g If my host 192.168.1.129 is connected to a local network of 192.168.1.129/25, it can reach to any host on that network. However to reach hosts on the rest of the Internet, it needs to communicate through the <b>router</b>. Traditionally on most networks with a subnet of <code>255.255.255.0</code>, the router is at address 1 of the subnet which is <code>192.168.1.1</code> 
 </p>
 </div>
 </div>
 
 <div id="outline-container-org0a6a4ad" class="outline-3">
-<h3 id="org0a6a4ad"><a href="#org4557743">Subnet Math</a></h3>
+<h3 id="org0a6a4ad"><a href="#orgced1221">Subnet Math</a></h3>
 <div class="outline-text-3" id="text-org0a6a4ad">
 <p>
-#<a id="org4557743">Subnet Math</a> can be used to figure <b>how many hosts</b> we can have on one subnet./<br />
+#<a id="orgced1221">Subnet Math</a> can be used to figure <b>how many hosts</b> we can have on one subnet./
 </p>
 
 <p>
-Let's say we have an IP Address of 192.168.1.0 and a subnet mask of 255.255.255.0, let's line up these numbers in binary form:<br />
+Let's say we have an IP Address of 192.168.1.0 and a subnet mask of 255.255.255.0, let's line up these numbers in binary form:
 </p>
 
 <p>
-<code>192.168.1.0    = 11000000.10101000.00000001.00000001</code><br />
-<code>255.255.255.0  = 11111111.11111111.11111111.00000000</code> <br />
+<code>192.168.1.0    = 11000000.10101000.00000001.00000001</code>
+<code>255.255.255.0  = 11111111.11111111.11111111.00000000</code> 
 </p>
 
 <p>
-The IP Address is masked by the subnet mask. When we see a <b>1</b>, it is masked and we pretend we don't see it.<br />
-Therefore, the only possible hosts are from the 00000000 region.<br />
+The IP Address is masked by the subnet mask. When we see a <b>1</b>, it is masked and we pretend we don't see it.
+Therefore, the only possible hosts are from the 00000000 region. 
 </p>
 
 <p>
-Total number: 256<br />
-Minus one for host number (192.168.1.0): 255<br />
-Minus one for broadcast address (192.268.1.255): 254<br />
+Total number: 256
+Minus one for host number (192.168.1.0): 255
+Minus one for broadcast address (192.268.1.255): 254 
 </p>
 
 <p>
-<b>Conclusion</b>: We have 254 addresses ranging with IP address from 192.168.1.1 to 192.168.1.254<br />
+<b>Conclusion</b>: We have 254 addresses ranging with IP address from 192.168.1.1 to 192.168.1.254
 </p>
 </div>
 </div>
@@ -1377,19 +1377,19 @@ Minus one for broadcast address (192.268.1.255): 254<br />
 <h3 id="org4376012">CIDR</h3>
 <div class="outline-text-3" id="text-org4376012">
 <p>
-<i>Classless inter-domain routing</i><br />
+<i>Classless inter-domain routing</i>
 </p>
 
 <p>
-Used to represent a subnet mask in a more compact way.<br />
-CIDR notation of <code>10.42.3.0/24</code> is similar to <code>10.42.3.0/255.255.255.0</code>. It includes both the subnet prefix and the subnet mask.<br />
-CIDR indicates the amount of <span class="underline">bits</span> used as the network prefix, i.e 24 bits means three octets (out of total four).<br />
+Used to represent a subnet mask in a more compact way.
+CIDR notation of <code>10.42.3.0/24</code> is similar to <code>10.42.3.0/255.255.255.0</code>. It includes both the subnet prefix and the subnet mask.
+CIDR indicates the amount of <span class="underline">bits</span> used as the network prefix, i.e 24 bits means three octets (out of total four).
 </p>
 
 <p>
-<b>Example</b>: 123.12.24.0/23 means that the first 23 bits are used for subnet mask.<br />
-In this case, 9 bits (32 - 23) are used to represent host.<br />
-I.e number of usable hosts = 2^9 - 2 = 510 (<a href="#org4557743">Subnet Math</a>)<br />
+<b>Example</b>: 123.12.24.0/23 means that the first 23 bits are used for subnet mask. 
+In this case, 9 bits (32 - 23) are used to represent host.
+I.e number of usable hosts = 2^9 - 2 = 510 (<a href="#orgced1221">Subnet Math</a>)
 </p>
 </div>
 </div>
@@ -1397,16 +1397,16 @@ I.e number of usable hosts = 2^9 - 2 = 510 (<a href="#org4557743">Subnet Math</a
 <h3 id="orgc695315">NAT</h3>
 <div class="outline-text-3" id="text-orgc695315">
 <p>
-<i>Network address translation</i><br />
+<i>Network address translation</i>
 </p>
 
 <p>
-The Internet cannot see our IP Address.<br />
-NAT makes a device like our router act as an intermediary between our private network and the Internet. The router represents the entire network of hosts on the Internet. Think of it like a Service Desk of the whole office.<br />
+The Internet cannot see our IP Address. 
+NAT makes a device like our router act as an intermediary between our private network and the Internet. The router represents the entire network of hosts on the Internet. Think of it like a Service Desk of the whole office.
 </p>
 
 <p>
-i.e when we connect to Google, our router is the intermediary between us and Google.com. Google doesn't know about us, all they can see is the router.<br />
+i.e when we connect to Google, our router is the intermediary between us and Google.com. Google doesn't know about us, all they can see is the router.
 </p>
 </div>
 </div>
@@ -1414,7 +1414,7 @@ i.e when we connect to Google, our router is the intermediary between us and Goo
 <h3 id="org7037e40">IPv6</h3>
 <div class="outline-text-3" id="text-org7037e40">
 <p>
-IPv6 protocol was created to allow more hosts to the Internet as there is a <b>finite</b> number of available IP Addresses. However adoption for IPv6 is rather slow. It is not meant to replace IPv4 as they are rather meant to complement each other.<br />
+IPv6 protocol was created to allow more hosts to the Internet as there is a <b>finite</b> number of available IP Addresses. However adoption for IPv6 is rather slow. It is not meant to replace IPv4 as they are rather meant to complement each other. 
 </p>
 </div>
 </div>
@@ -1427,7 +1427,7 @@ IPv6 protocol was created to allow more hosts to the Internet as there is a <b>f
 <h3 id="orgbd04d31">Router</h3>
 <div class="outline-text-3" id="text-orgbd04d31">
 <p>
-<a id="org5a133c0"></a><br />
+<a id="org5a133c0"></a>
 </p>
 </div>
 
@@ -1435,11 +1435,11 @@ IPv6 protocol was created to allow more hosts to the Internet as there is a <b>f
 <h4 id="org5fb4d7c">Definition</h4>
 <div class="outline-text-4" id="text-org5fb4d7c">
 <p>
-A router enables machine on a network to communicate with each other as well as with other networks/ Internet. On a typical router there is a LAN port that allows machines to be connected to the same Local Area Network and there will also be a <b>Internet uplink port</b> that connects the network to the Internet. This is sometimes labelled <b>WAN</b> (Wider Area Network).<br />
+A router enables machine on a network to communicate with each other as well as with other networks/ Internet. On a typical router there is a LAN port that allows machines to be connected to the same Local Area Network and there will also be a <b>Internet uplink port</b> that connects the network to the Internet. This is sometimes labelled <b>WAN</b> (Wider Area Network). 
 </p>
 
 <p>
-All network activities go through the router. The router decides where our network packets go and which one comes in. It routes our packets between multiple networks to get from its source host to destination host.<br />
+All network activities go through the router. The router decides where our network packets go and which one comes in. It routes our packets between multiple networks to get from its source host to destination host.
 </p>
 </div>
 </div>
@@ -1448,7 +1448,7 @@ All network activities go through the router. The router decides where our netwo
 <h4 id="org400503d">How</h4>
 <div class="outline-text-4" id="text-org400503d">
 <p>
-Router works similarly to a <b>local</b> mail deliverer. It knows exactly where the <a href="#org3788ae6">packet</a> (letter) has to go without handing it to a different router (post office).<br />
+Router works similarly to a <b>local</b> mail deliverer. It knows exactly where the <a href="#org18ff971">packet</a> (letter) has to go without handing it to a different router (post office). 
 </p>
 </div>
 </div>
@@ -1458,30 +1458,30 @@ Router works similarly to a <b>local</b> mail deliverer. It knows exactly where 
 <h3 id="orgb6c0752">Hops</h3>
 <div class="outline-text-3" id="text-orgb6c0752">
 <p>
-<a id="orgf452392"></a> <br />
-<a id="org8f957a8"></a><br />
-As packets move across networks they travel in hops. A hop is how we roughly measure the distance that the <a href="#org3788ae6">packet</a> must travel from src to dest.<br />
+<a id="orgf452392"></a> 
+<a id="org8f957a8"></a>
+As packets move across networks they travel in hops. A hop is how we roughly measure the distance that the <a href="#org18ff971">packet</a> must travel from src to dest.
 </p>
 
 <p>
-E.g from Host A to Host B, there are two hops. Each hop is an intermediate device like the router that we must pass through.<br />
+E.g from Host A to Host B, there are two hops. Each hop is an intermediate device like the router that we must pass through.
 </p>
 </div>
 </div>
 
 <div id="outline-container-orgd5891ed" class="outline-3">
-<h3 id="orgd5891ed"><a href="#org3788ae6">Packet</a> SWITCHING/ ROUTING &amp; FLOODING</h3>
+<h3 id="orgd5891ed"><a href="#org18ff971">Packet</a> SWITCHING/ ROUTING &amp; FLOODING</h3>
 <div class="outline-text-3" id="text-orgd5891ed">
 <p>
-<a href="#org3788ae6">Packet</a> Switching is basically receiving, processing and forwarding data to the destination device.<br />
+<a href="#org18ff971">Packet</a> Switching is basically receiving, processing and forwarding data to the destination device.
 </p>
 
 <p>
-<a href="#org3788ae6">Packet</a> Routing is a process of creating routing table so we can Switching later.<br />
+<a href="#org18ff971">Packet</a> Routing is a process of creating routing table so we can Switching later.
 </p>
 
 <p>
-Before routing, flooding was used. If a router doesn't which way to send a <a href="#org3788ae6">packet</a> then every incoming <a href="#org3788ae6">packet</a> is sent through every outgoing link except the one it arrived on.<br />
+Before routing, flooding was used. If a router doesn't which way to send a <a href="#org18ff971">packet</a> then every incoming <a href="#org18ff971">packet</a> is sent through every outgoing link except the one it arrived on.
 </p>
 </div>
 </div>
@@ -1504,11 +1504,11 @@ link-local      0.0.0.0         255.255.0.0     U     1000   0        0 wlp4s0
 <h4 id="org3b57c16">Destination</h4>
 <div class="outline-text-4" id="text-org3b57c16">
 <p>
-In the first field, we have a destination IP address of 192.168.1.0 i.e <b>any <a href="#org3788ae6">packet</a></b> that tries to go to this network, goes out through Wifi card (wlp4s0).<br />
+In the first field, we have a destination IP address of 192.168.1.0 i.e <b>any <a href="#org18ff971">packet</a></b> that tries to go to this network, goes out through Wifi card (wlp4s0).
 </p>
 
 <p>
-0.0.0.0s means unspecified addresses or unknown. i.e if I want to send a <a href="#org3788ae6">packet</a> to a random public IP address, the routing table doesn't know where that goes so it denotes it as 0.0.0.0 and routes the <a href="#org3788ae6">packet</a> to the <b>gateway</b>.<br />
+0.0.0.0s means unspecified addresses or unknown. i.e if I want to send a <a href="#org18ff971">packet</a> to a random public IP address, the routing table doesn't know where that goes so it denotes it as 0.0.0.0 and routes the <a href="#org18ff971">packet</a> to the <b>gateway</b>.
 </p>
 </div>
 </div>
@@ -1516,9 +1516,9 @@ In the first field, we have a destination IP address of 192.168.1.0 i.e <b>any <
 <h4 id="org1c18c9d">Gateway</h4>
 <div class="outline-text-4" id="text-org1c18c9d">
 <p>
-<a id="orgd96ab94"></a><br />
-If we are sending <a href="#org3788ae6">packet</a> that isn't on the same network, it will be sent to this gateway address.<br />
-Gateway is aptly named after being a <b>Gateway to another network</b>.<br />
+<a id="orgd96ab94"></a>
+If we are sending <a href="#org18ff971">packet</a> that isn't on the same network, it will be sent to this gateway address.
+Gateway is aptly named after being a <b>Gateway to another network</b>.
 </p>
 </div>
 </div>
@@ -1526,7 +1526,7 @@ Gateway is aptly named after being a <b>Gateway to another network</b>.<br />
 <h4 id="org262aa93">Genmask</h4>
 <div class="outline-text-4" id="text-org262aa93">
 <p>
-This is the subnet mask. It is used to figure out what IP addresses match what destination.<br />
+This is the subnet mask. It is used to figure out what IP addresses match what destination.
 </p>
 </div>
 </div>
@@ -1534,8 +1534,8 @@ This is the subnet mask. It is used to figure out what IP addresses match what d
 <h4 id="org3e95d1b">Flags</h4>
 <div class="outline-text-4" id="text-org3e95d1b">
 <p>
-<b>UG</b> - Network is up and is a Gateway<br />
-<b>U</b> - Network is up<br />
+<b>UG</b> - Network is up and is a Gateway
+<b>U</b> - Network is up 
 </p>
 </div>
 </div>
@@ -1543,24 +1543,24 @@ This is the subnet mask. It is used to figure out what IP addresses match what d
 <h4 id="org1fc8bed">Iface</h4>
 <div class="outline-text-4" id="text-org1fc8bed">
 <p>
-This is the intereface that our <a href="#org3788ae6">packet</a> will be going out of, eth0 means Ethernet whereas wlp4s0 means Wireless device.<br />
+This is the intereface that our <a href="#org18ff971">packet</a> will be going out of, eth0 means Ethernet whereas wlp4s0 means Wireless device.
 </p>
 </div>
 </div>
 </div>
 
 <div id="outline-container-org8ac55d6" class="outline-3">
-<h3 id="org8ac55d6">Path of a <a href="#org3788ae6">packet</a></h3>
+<h3 id="org8ac55d6">Path of a <a href="#org18ff971">packet</a></h3>
 <div class="outline-text-3" id="text-org8ac55d6">
 </div>
 <div id="outline-container-org9487c7c" class="outline-4">
 <h4 id="org9487c7c">Local</h4>
 <div class="outline-text-4" id="text-org9487c7c">
 <ol class="org-ol">
-<li>First the local host will compare the dest IP to see if it's in the same subnet by looking at the subnet mask.<br /></li>
-<li>When packets are sent they need to have a src MAC address, destination MAC address, src IP and dest IP, at this point we do not know the dest MAC yet.<br /></li>
-<li>To get the dest host, we use <a href="#org55c34df">ARP</a> to broadcast a request on the local network to find out the MAC address.<br /></li>
-<li>Now the <a href="#org3788ae6">packet</a> can be sent.<br /></li>
+<li>First the local host will compare the dest IP to see if it's in the same subnet by looking at the subnet mask.</li>
+<li>When packets are sent they need to have a src MAC address, destination MAC address, src IP and dest IP, at this point we do not know the dest MAC yet.</li>
+<li>To get the dest host, we use <a href="#org4743e70">ARP</a> to broadcast a request on the local network to find out the MAC address.</li>
+<li>Now the <a href="#org18ff971">packet</a> can be sent.</li>
 </ol>
 </div>
 </div>
@@ -1569,11 +1569,11 @@ This is the intereface that our <a href="#org3788ae6">packet</a> will be going o
 <h4 id="orgcbd92e2">Outside of Network</h4>
 <div class="outline-text-4" id="text-orgcbd92e2">
 <ol class="org-ol">
-<li>First the local machine will compare the dest IP address, since it's outside of network it does not see the MAC address of dest host.<br /></li>
-<li>So our <a href="#org3788ae6">packet</a> now looks at the routing table. It doesn't know the address of the dest IP, so it sends it out to the default gateway (another router). At this point the <a href="#org3788ae6">packet</a> contains src IP, dest IP and src MAC (no dest MAC). So it also sends out an <a href="#org55c34df">ARP</a> request to get the MAC address of the default <a href="#orgd96ab94"><b>gateway</b></a>.<br /></li>
-<li>The router looks at the <a href="#org3788ae6">packet</a> and confirm dest MAC. However it's not the final dest IP address so it keeps looking at the routing table to forward th epacket to another IP address that can help the <a href="#org3788ae6">packet</a> move along to its destination. <b>Everytime the <a href="#org3788ae6">packet</a> moves, it strips the old src and dest MAC address and updates the <a href="#org3788ae6">packet</a> with new src and dest MAC address</b>.<br /></li>
-<li>Once the <a href="#org3788ae6">packet</a> gets forwarded to the same network, <a href="#org55c34df">ARP</a> is used to find the final destination MAC.<br /></li>
-<li>During this process, src and dest IP on <a href="#org3788ae6">packet</a> header remain unchanged.<br /></li>
+<li>First the local machine will compare the dest IP address, since it's outside of network it does not see the MAC address of dest host.</li>
+<li>So our <a href="#org18ff971">packet</a> now looks at the routing table. It doesn't know the address of the dest IP, so it sends it out to the default gateway (another router). At this point the <a href="#org18ff971">packet</a> contains src IP, dest IP and src MAC (no dest MAC). So it also sends out an <a href="#org4743e70">ARP</a> request to get the MAC address of the default <a href="#orgd96ab94"><b>gateway</b></a>.</li>
+<li>The router looks at the <a href="#org18ff971">packet</a> and confirm dest MAC. However it's not the final dest IP address so it keeps looking at the routing table to forward th epacket to another IP address that can help the <a href="#org18ff971">packet</a> move along to its destination. <b>Everytime the <a href="#org18ff971">packet</a> moves, it strips the old src and dest MAC address and updates the <a href="#org18ff971">packet</a> with new src and dest MAC address</b>.</li>
+<li>Once the <a href="#org18ff971">packet</a> gets forwarded to the same network, <a href="#org4743e70">ARP</a> is used to find the final destination MAC.</li>
+<li>During this process, src and dest IP on <a href="#org18ff971">packet</a> header remain unchanged.</li>
 </ol>
 </div>
 </div>
@@ -1587,7 +1587,7 @@ This is the intereface that our <a href="#org3788ae6">packet</a> will be going o
 <h3 id="orgbdb3478">Network interfaces</h3>
 <div class="outline-text-3" id="text-orgbdb3478">
 <p>
-A network interface is how the kernel links up the software side of networking to the hardware.<br />
+A network interface is how the kernel links up the software side of networking to the hardware.
 </p>
 </div>
 
@@ -1595,7 +1595,7 @@ A network interface is how the kernel links up the software side of networking t
 <h4 id="org4e6cec6">ifconfig</h4>
 <div class="outline-text-4" id="text-org4e6cec6">
 <p>
-The <code>ifconfig</code> command shows the interface name on the left side and detailed information on the right side. Common interfaces are eth0, wlan0, lo (loopback). The loopback interface is used to represent your computer as it loops you back to yourself. This is good for debugging or connecting to servers running locally.<br />
+The <code>ifconfig</code> command shows the interface name on the left side and detailed information on the right side. Common interfaces are eth0, wlan0, lo (loopback). The loopback interface is used to represent your computer as it loops you back to yourself. This is good for debugging or connecting to servers running locally. 
 </p>
 
 <div class="org-src-container">
@@ -1630,7 +1630,7 @@ wlp4s0: <span style="font-weight: bold; font-style: italic;">flags</span>=4163&l
 </div>
 
 <p>
-The status of interfaces can be UP or DOWN. Thus <code>ifup</code> brings interface up and <code>ifdown</code> brings interface down.<br />
+The status of interfaces can be UP or DOWN. Thus <code>ifup</code> brings interface up and <code>ifdown</code> brings interface down.
 </p>
 </div>
 </div>
@@ -1639,19 +1639,19 @@ The status of interfaces can be UP or DOWN. Thus <code>ifup</code> brings interf
 <h4 id="org14bd500">ip</h4>
 <div class="outline-text-4" id="text-org14bd500">
 <p>
-The <code>ip</code> command allows us to manipulate the networking stack of a system. Depending on the distro you are using it may be the preferred method of manipulating netwokr.<br />
+The <code>ip</code> command allows us to manipulate the networking stack of a system. Depending on the distro you are using it may be the preferred method of manipulating netwokr.
 </p>
 
 <p>
-<code>ip link show</code> shows interface information for all interfaces.<br />
-<code>ip -s link show eth0</code> shows the statistics of an interfaces.<br />
-<code>ip address show</code> shows all IP addresses allocated to interfaces.<br />
-<code>ip link set wlp4s0 up</code> brings interface wlp4s0 up.<br />
-<code>ip link set wlp4s0 down</code> brings interface wlp4s0 down.<br />
+<code>ip link show</code> shows interface information for all interfaces.
+<code>ip -s link show eth0</code> shows the statistics of an interfaces.
+<code>ip address show</code> shows all IP addresses allocated to interfaces.
+<code>ip link set wlp4s0 up</code> brings interface wlp4s0 up.
+<code>ip link set wlp4s0 down</code> brings interface wlp4s0 down.
 </p>
 
 <p>
-You can also add an IP address to an interface by <code>ip address add 192.168.1.1/24</code> dev eth0.<br />
+You can also add an IP address to an interface by <code>ip address add 192.168.1.1/24</code> dev eth0.
 </p>
 </div>
 </div>
@@ -1660,8 +1660,8 @@ You can also add an IP address to an interface by <code>ip address add 192.168.1
 <h3 id="orge176c22">route</h3>
 <div class="outline-text-3" id="text-orge176c22">
 <p>
-Add a new route: <code>$ sudo route add -net 192.168.2.1/23 gw 10.11.12.1</code><br />
-Delete a route : <code>$ sudo route del -net 192.168.2.1/23</code><br />
+Add a new route: <code>$ sudo route add -net 192.168.2.1/23 gw 10.11.12.1</code>
+Delete a route : <code>$ sudo route del -net 192.168.2.1/23</code>
 </p>
 </div>
 </div>
@@ -1670,12 +1670,12 @@ Delete a route : <code>$ sudo route del -net 192.168.2.1/23</code><br />
 <h3 id="orgef91cb0">dhclient</h3>
 <div class="outline-text-3" id="text-orgef91cb0">
 <p>
-dhclient starts up on boot and gets a list of network interfaces from the dhclient.conf file.<br />
+dhclient starts up on boot and gets a list of network interfaces from the dhclient.conf file. 
 </p>
 
 <p>
-<code>$ sudo dhclient -r</code> ends the current DHCP lease<br />
-<code>$ sudo dhclient wlp4s0</code> starts a new DHCP lease on interface wlp4s0.<br />
+<code>$ sudo dhclient -r</code> ends the current DHCP lease
+<code>$ sudo dhclient wlp4s0</code> starts a new DHCP lease on interface wlp4s0.
 </p>
 </div>
 </div>
@@ -1684,12 +1684,12 @@ dhclient starts up on boot and gets a list of network interfaces from the dhclie
 <h3 id="org7796a1f">Network Manager</h3>
 <div class="outline-text-3" id="text-org7796a1f">
 <p>
-Network Manager is a daemon to configure networks automatically.<br />
-It's a GUI applet but we can also interact with it using CLI tools.<br />
+Network Manager is a daemon to configure networks automatically. 
+It's a GUI applet but we can also interact with it using CLI tools.
 </p>
 
 <p>
-<code>nmcli</code> allows utilisation of Network Manager via CLI instead of GUI. It is usefule for servers, headless machines and terminal.<br />
+<code>nmcli</code> allows utilisation of Network Manager via CLI instead of GUI. It is usefule for servers, headless machines and terminal.
 </p>
 
 <div class="org-src-container">
@@ -1722,10 +1722,10 @@ DNS configuration:
 </div>
 </div>
 <div id="outline-container-org9571094" class="outline-3">
-<h3 id="org9571094"><a href="#org55c34df">ARP</a></h3>
+<h3 id="org9571094"><a href="#org4743e70">ARP</a></h3>
 <div class="outline-text-3" id="text-org9571094">
 <p>
-<code>$ arp</code> checks the locally stored <a href="#org55c34df">ARP</a> cache on system.<br />
+<code>$ arp</code> checks the locally stored <a href="#org4743e70">ARP</a> cache on system.
 </p>
 </div>
 </div>
@@ -1734,19 +1734,19 @@ DNS configuration:
 <h2 id="org9a4fb52">DNS</h2>
 <div class="outline-text-2" id="text-org9a4fb52">
 <p>
-IP address is the low-level IP networking way of identifying a host.<br />
+IP address is the low-level IP networking way of identifying a host. 
 </p>
 
 <p>
-DNS allows a high-level, human readdable method of keeping track of websites and hosts by name instead of IP addresses.<br />
+DNS allows a high-level, human readdable method of keeping track of websites and hosts by name instead of IP addresses. 
 </p>
 
 <p>
-It's like a <b>contact list</b> for the Internet.<br />
+It's like a <b>contact list</b> for the Internet.
 </p>
 
 <p>
-DNS is fundamentally a <b>distributed database</b> of hostnames to IP addresses.<br />
+DNS is fundamentally a <b>distributed database</b> of hostnames to IP addresses. 
 </p>
 </div>
 
@@ -1758,11 +1758,11 @@ DNS is fundamentally a <b>distributed database</b> of hostnames to IP addresses.
 <h4 id="orgee51352">Local DNS Server</h4>
 <div class="outline-text-4" id="text-orgee51352">
 <p>
-After go browse to <a href="https://helloworld.com/">https://helloworld.com/</a> with DNS, essentially we funnel our way down until we reach the DNS server that knows of that domain.<br />
+After go browse to <a href="https://helloworld.com/">https://helloworld.com/</a> with DNS, essentially we funnel our way down until we reach the DNS server that knows of that domain.
 </p>
 
 <p>
-First place our host ask is our <b>local DNS server</b> however it doesn't know and starts asking the Root Servers via recursive DNS server provided by ISP.<br />
+First place our host ask is our <b>local DNS server</b> however it doesn't know and starts asking the Root Servers via recursive DNS server provided by ISP.
 </p>
 </div>
 </div>
@@ -1771,11 +1771,11 @@ First place our host ask is our <b>local DNS server</b> however it doesn't know 
 <h4 id="orgbdd3182">Root Servers</h4>
 <div class="outline-text-4" id="text-orgbdd3182">
 <p>
-There are 13 Root Servers on the Internet, they are mirrored and distributed around the world to handle DNS request for the Internet. So really there are hundreds of servers that are working. They control information about Top-Level Domain like .com, .net, .org.<br />
+There are 13 Root Servers on the Internet, they are mirrored and distributed around the world to handle DNS request for the Internet. So really there are hundreds of servers that are working. They control information about Top-Level Domain like .com, .net, .org.
 </p>
 
 <p>
-The Root server doesn't know where helloworld.com is, so it tells us to ask .com Top-Level Domain DNS server.<br />
+The Root server doesn't know where helloworld.com is, so it tells us to ask .com Top-Level Domain DNS server. 
 </p>
 </div>
 </div>
@@ -1784,7 +1784,7 @@ The Root server doesn't know where helloworld.com is, so it tells us to ask .com
 <h4 id="org6be3693">Top-Level Domain</h4>
 <div class="outline-text-4" id="text-org6be3693">
 <p>
-So now we send another request to the name server that knows about '.com. addresses. The TLD doesn't have it in their zone file but it sees a record for the name server for helloworld.com. Then it gives us the IP address of that name server and tells us to look there.<br />
+So now we send another request to the name server that knows about '.com. addresses. The TLD doesn't have it in their zone file but it sees a record for the name server for helloworld.com. Then it gives us the IP address of that name server and tells us to look there.
 </p>
 </div>
 </div>
@@ -1793,7 +1793,7 @@ So now we send another request to the name server that knows about '.com. addres
 <h4 id="org7b94c30">Authoritative DNS Server</h4>
 <div class="outline-text-4" id="text-org7b94c30">
 <p>
-Now we send the final request to the DNS Server that actually has the record we want. The name server sees that it has a zone file for helloworld.com and there is a resource record for www for this host. It then gives us the IP address of this host. Finally we can see <a href="https://www.helloworld.com/">https://www.helloworld.com/</a><br />
+Now we send the final request to the DNS Server that actually has the record we want. The name server sees that it has a zone file for helloworld.com and there is a resource record for www for this host. It then gives us the IP address of this host. Finally we can see <a href="https://www.helloworld.com/">https://www.helloworld.com/</a>
 </p>
 </div>
 </div>
@@ -1802,18 +1802,18 @@ Now we send the final request to the DNS Server that actually has the record we 
 <h3 id="org9871d16">/etc/hosts</h3>
 <div class="outline-text-3" id="text-org9871d16">
 <p>
-<code>/etc/hosts</code> file contains mapping of some hostnames to IP addresses.<br />
-It typically contains localhost address listed as default.<br />
+<code>/etc/hosts</code> file contains mapping of some hostnames to IP addresses. 
+It typically contains localhost address listed as default.
 </p>
 
 <p>
-Fun example:<br />
-<code>$ sudo nano /etc/hosts</code> <br />
-add 123.45.6.7 www.google.com to the file<br />
+Fun example:
+<code>$ sudo nano /etc/hosts</code> 
+add 123.45.6.7 www.google.com to the file
 </p>
 
 <p>
-We can't go to Google anymore because our hosts first look locally for IP address mapping, it never actually reaches DNS to find Google.com.<br />
+We can't go to Google anymore because our hosts first look locally for IP address mapping, it never actually reaches DNS to find Google.com. 
 </p>
 </div>
 </div>
@@ -1826,19 +1826,19 @@ We can't go to Google anymore because our hosts first look locally for IP addres
 <h3 id="org770812b">ICMP</h3>
 <div class="outline-text-3" id="text-org770812b">
 <p>
-The <b>Internet Control Message Protocol</b> (ICMP) is part of the TCP/IP protocol suite. it is used to send updates and error messages for debugging network issues.<br />
+The <b>Internet Control Message Protocol</b> (ICMP) is part of the TCP/IP protocol suite. it is used to send updates and error messages for debugging network issues.
 </p>
 
 <p>
-Each ICMP message contains a type, code and checksum field.<br />
+Each ICMP message contains a type, code and checksum field. 
 </p>
 
 <p>
-The Type field is the type of ICMP message, the code is sub-type and describe more information about the message and the checksum is to detect any issues with the integrity of the message.<br />
+The Type field is the type of ICMP message, the code is sub-type and describe more information about the message and the checksum is to detect any issues with the integrity of the message.
 </p>
 
 <p>
-For example, ICMP Type 3 = Destination Unreachable | Code 0 = Network Unreachable; Code 1 = Host Unreachable.<br />
+For example, ICMP Type 3 = Destination Unreachable | Code 0 = Network Unreachable; Code 1 = Host Unreachable.
 </p>
 </div>
 </div>
@@ -1846,8 +1846,8 @@ For example, ICMP Type 3 = Destination Unreachable | Code 0 = Network Unreachabl
 <h3 id="org99c7e0a">ping</h3>
 <div class="outline-text-3" id="text-org99c7e0a">
 <p>
-This is the simplest networking tool.<br />
-It works by sending ICMP Type 8 request - <b>echo request</b> to the destination host and waits for an ICMP reply (Type 0).<br />
+This is the simplest networking tool.
+It works by sending ICMP Type 8 request - <b>echo request</b> to the destination host and waits for an ICMP reply (Type 0). 
 </p>
 
 <div class="org-src-container">
@@ -1864,16 +1864,16 @@ rtt min/avg/max/mdev = 12.833/14.158/14.873/0.937 ms
 </div>
 
 <p>
-<code>icmp_seq</code> denotes the sequence number of <a href="#org3788ae6">packet</a> sent.<br />
-If we do a <b>ping</b> and see missing sequence number, that indicates connectivity issue and not all packets are getting through. If sequence number is out of wack, connection is probly very slow.<br />
+<code>icmp_seq</code> denotes the sequence number of <a href="#org18ff971">packet</a> sent.
+If we do a <b>ping</b> and see missing sequence number, that indicates connectivity issue and not all packets are getting through. If sequence number is out of wack, connection is probly very slow.
 </p>
 
 <p>
-<code>ttl</code> denotes Time-To-Live, used as a <b>hop counter</b>. Each time the <a href="#org3788ae6">packet</a> make a hop, ttl is decremented by one. TTL gives <a href="#org3788ae6">packet</a> a lifespan.<br />
+<code>ttl</code> denotes Time-To-Live, used as a <b>hop counter</b>. Each time the <a href="#org18ff971">packet</a> make a hop, ttl is decremented by one. TTL gives <a href="#org18ff971">packet</a> a lifespan.
 </p>
 
 <p>
-<code>time</code> denotes roundtrip time, from sending the echo request to getting an echo reply.<br />
+<code>time</code> denotes roundtrip time, from sending the echo request to getting an echo reply.
 </p>
 </div>
 </div>
@@ -1881,8 +1881,8 @@ If we do a <b>ping</b> and see missing sequence number, that indicates connectiv
 <h3 id="orga6dfe7d">traceroute</h3>
 <div class="outline-text-3" id="text-orga6dfe7d">
 <p>
-To see how packets are getting routed.<br />
-It works by sending packets with increasing TTL value, starting with one until it finally reaches the destination IP address with receive an ICMP Echo Reply message.<br />
+To see how packets are getting routed. 
+It works by sending packets with increasing TTL value, starting with one until it finally reaches the destination IP address with receive an ICMP Echo Reply message.
 </p>
 
 <div class="org-src-container">
@@ -1901,19 +1901,19 @@ It works by sending packets with increasing TTL value, starting with one until i
 </div>
 
 <p>
-The above indicates 9 messages with TTL values from 1 to 9 were sent until the last one with TTL=9 reaches google.com.<br />
+The above indicates 9 messages with TTL values from 1 to 9 were sent until the last one with TTL=9 reaches google.com.
 </p>
 
 <p>
-Each line represents a hop, i.e a router or machine that is between myself and target.<br />
+Each line represents a hop, i.e a router or machine that is between myself and target. 
 </p>
 
 <p>
-Last three columns represent the round-trip time of a <a href="#org3788ae6">packet</a> to get to that router. By default we send 3 along the route.<br />
+Last three columns represent the round-trip time of a <a href="#org18ff971">packet</a> to get to that router. By default we send 3 along the route.
 </p>
 
 <p>
-(<code>$ ping google.com</code> retunrs similar round-trip time to last message with TTL=9.<br />
+(<code>$ ping google.com</code> retunrs similar round-trip time to last message with TTL=9.
 </p>
 </div>
 </div>
@@ -1921,7 +1921,7 @@ Last three columns represent the round-trip time of a <a href="#org3788ae6">pack
 <h3 id="org5661828"><b>Well Known Ports</b></h3>
 <div class="outline-text-3" id="text-org5661828">
 <p>
-We can get a list of well-known ports by looking at <code>/etc/services</code>:<br />
+We can get a list of well-known ports by looking at <code>/etc/services</code>:
 </p>
 
 <pre class="example">
@@ -1936,39 +1936,39 @@ http-alt	8080/udp
 </pre>
 
 <p>
-<b>Format</b>: service      port number/<a href="#org06e1dd4">transport layer</a><br />
+<b>Format</b>: service      port number/<a href="#org03d008d">transport layer</a>
 </p>
 </div>
 </div>
-<div id="outline-container-orgabf6714" class="outline-3">
-<h3 id="orgabf6714">netstat</h3>
-<div class="outline-text-3" id="text-orgabf6714">
+<div id="outline-container-org54bcd97" class="outline-3">
+<h3 id="org54bcd97">netstat</h3>
+<div class="outline-text-3" id="text-org54bcd97">
 </div>
 <div id="outline-container-org02e2560" class="outline-4">
 <h4 id="org02e2560">socket</h4>
 <div class="outline-text-4" id="text-org02e2560">
 <p>
-First, what is a <b>socket</b>?<br />
+First, what is a <b>socket</b>? 
 </p>
 
 <p>
-A socket is an <b>interface</b> that allows program to send and receive data while a Port is used to identify which application should send or receive data.<br />
+A socket is an <b>interface</b> that allows program to send and receive data while a Port is used to identify which application should send or receive data. 
 </p>
 
 <p>
-The socket address is the combination of IP address and port.<br />
-Every connection between a host and destination requires a <b>unique socket</b>.<br />
+The socket address is the combination of IP address and port.
+Every connection between a host and destination requires a <b>unique socket</b>. 
 </p>
 
 <p>
-E.g: HTTP is a service that runs on Port 80, however we can have many HTTP connections at once. Each individual connection is maintained by one socket.<br />
+E.g: HTTP is a service that runs on Port 80, however we can have many HTTP connections at once. Each individual connection is maintained by one socket.
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge135ddb" class="outline-4">
-<h4 id="orge135ddb">netstat</h4>
-<div class="outline-text-4" id="text-orge135ddb">
+<div id="outline-container-orgabf6714" class="outline-4">
+<h4 id="orgabf6714">netstat</h4>
+<div class="outline-text-4" id="text-orgabf6714">
 <pre class="example">
 kkennynguyen:OrgNotes&gt; netstat -at
 Active Internet connections (servers and established)
@@ -1996,38 +1996,38 @@ tcp6       0      0 [::]:microsoft-ds       [::]:*                  LISTEN
 </pre>
 
 <p>
-netstat -a command shows all, listening and non-listening sockets included.<br />
--t flag shows ONLY tcp connections.<br />
+netstat -a command shows all, listening and non-listening sockets included. 
+-t flag shows ONLY tcp connections.
 </p>
 
 <p>
-Columns definition (L-R):<br />
+Columns definition (L-R):
 </p>
 <ul class="org-ul">
-<li>Proto: Protocol, TCP or UDP<br /></li>
-<li>Recv-Q: data that is queued to be received<br /></li>
-<li>Send-Q: data that is queued to be sent<br /></li>
-<li>Local Address: Locally connectd host<br /></li>
-<li>Foreign Address: Remotely connected host<br /></li>
-<li>State: State of <b>socket</b>. There are a few, i.e LISTENING, SYN_SENT, ESTABLISHED, CLOSED_WAIT..etc..<br /></li>
+<li>Proto: Protocol, TCP or UDP</li>
+<li>Recv-Q: data that is queued to be received</li>
+<li>Send-Q: data that is queued to be sent</li>
+<li>Local Address: Locally connectd host</li>
+<li>Foreign Address: Remotely connected host</li>
+<li>State: State of <b>socket</b>. There are a few, i.e LISTENING, SYN_SENT, ESTABLISHED, CLOSED_WAIT..etc..</li>
 </ul>
 </div>
 </div>
 </div>
 <div id="outline-container-org7ab343b" class="outline-3">
-<h3 id="org7ab343b">Basic of <a href="#org3788ae6">Packet</a> Analysis</h3>
+<h3 id="org7ab343b">Basic of <a href="#org18ff971">Packet</a> Analysis</h3>
 <div class="outline-text-3" id="text-org7ab343b">
 <p>
-There are two extremely popular <a href="#org3788ae6">packet</a> analyzer - Wireshark and tcpdump.<br />
-They allow low-level analysis of networking by scanning our network interfaces and capture the activity before outputing the information for us to see.<br />
+There are two extremely popular <a href="#org18ff971">packet</a> analyzer - Wireshark and tcpdump.
+They allow low-level analysis of networking by scanning our network interfaces and capture the activity before outputing the information for us to see.
 </p>
 
 <p>
-Between the two, Wireshark is more powerful although tcpdump is simpler.<br />
+Between the two, Wireshark is more powerful although tcpdump is simpler.
 </p>
 
 <p>
-<code>$ sudo tcpdump -i wlp4s0</code> captures <a href="#org3788ae6">packet</a> data on an interface.<br />
+<code>$ sudo tcpdump -i wlp4s0</code> captures <a href="#org18ff971">packet</a> data on an interface.
 </p>
 
 <pre class="example">
@@ -2040,17 +2040,17 @@ listening on wlp4s0, link-type EN10MB (Ethernet), capture size 262144 bytes
 </pre>
 
 <p>
-<b>Understanding the Output</b><br />
+<b>Understanding the Output</b>
 </p>
 
 <ul class="org-ul">
-<li>The first field is a timestamp of the network activity. Format: hh:mm:ss and fractions of seconds till midnight. It follows the kernet's clock.<br /></li>
-<li><b>IP</b> - This contains the protocol information.<br /></li>
-<li>Next is the <b>source</b> and <b>destination</b> address. <code>Kennys-ThinkPad-X1C &gt; _gateway.domain</code>.<br /></li>
+<li>The first field is a timestamp of the network activity. Format: hh:mm:ss and fractions of seconds till midnight. It follows the kernet's clock.</li>
+<li><b>IP</b> - This contains the protocol information.</li>
+<li>Next is the <b>source</b> and <b>destination</b> address. <code>Kennys-ThinkPad-X1C &gt; _gateway.domain</code>.</li>
 </ul>
 
 <p>
-You can also do <code>$ sudo tcpdump -w /some/file</code> to write output to a file for logging informatio/<br />
+You can also do <code>$ sudo tcpdump -w /some/file</code> to write output to a file for logging informatio/
 </p>
 </div>
 </div>
@@ -2059,7 +2059,7 @@ You can also do <code>$ sudo tcpdump -w /some/file</code> to write output to a f
 <div id="postamble" class="status">
 <p class="date">Date: 2019-05-11 Sat 00:00</p>
 <p class="author">Author: Mishka Nguyen</p>
-<p class="date">Created: 2019-08-13 Tue 07:24</p>
+<p class="date">Created: 2019-08-13 Tue 08:05</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

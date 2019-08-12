@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-13 Tue 07:24 -->
+<!-- 2019-08-13 Tue 08:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Automate the Boring Stuff with Python</title>
@@ -488,17 +488,17 @@ for the JavaScript code in this tag.
 <h2 id="org7c03bae">Introduction</h2>
 <div class="outline-text-2" id="text-org7c03bae">
 <p>
-All programs use basic instructions as building blocks. The commons are:<br />
+All programs use basic instructions as building blocks. The commons are:
 </p>
 <ul class="org-ul">
-<li>"Do this; then do that."<br /></li>
-<li>"If this conditin is true, perform this action; otherwise, do that action."<br /></li>
-<li>"Do this action that number of time."<br /></li>
-<li>"Keep doing that until this condition is true."<br /></li>
+<li>"Do this; then do that."</li>
+<li>"If this conditin is true, perform this action; otherwise, do that action."</li>
+<li>"Do this action that number of time."</li>
+<li>"Keep doing that until this condition is true."</li>
 </ul>
 
 <p>
-Example:<br />
+Example:
 </p>
 
 <div class="org-src-container">
@@ -521,9 +521,9 @@ Example:<br />
 <h2 id="org2f65c25"><b>Note</b> Python virtual environment:</h2>
 <div class="outline-text-2" id="text-org2f65c25">
 <ul class="org-ul">
-<li>emacs elpy has been set up to use the interpreter in <b>~/myenv/bin/python3.7</b>, which is a <b>virtual environment</b>.<br /></li>
-<li>This can be shown by running <code>print(sys.executable)</code> after <code>import os, sys</code>.<br /></li>
-<li>In shell, to enter this virtualenv we have to do <code>source ~/myenv/bin/activate</code> which will enter the virtual environment. The <code>source</code> command runs a source file within the <b>current shell</b>.<br /></li>
+<li>emacs elpy has been set up to use the interpreter in <b>~/myenv/bin/python3.7</b>, which is a <b>virtual environment</b>.</li>
+<li>This can be shown by running <code>print(sys.executable)</code> after <code>import os, sys</code>.</li>
+<li>In shell, to enter this virtualenv we have to do <code>source ~/myenv/bin/activate</code> which will enter the virtual environment. The <code>source</code> command runs a source file within the <b>current shell</b>.</li>
 </ul>
 </div>
 </div>
@@ -547,7 +547,7 @@ Example:<br />
 </div>
 
 <p>
-In the above example, <code>2+2</code> is called an <b>expression</b>. An expression is the most basic programming instruction in any programming language. Expressions consists of <span class="underline">values</span> (e.g 2) and operators (e.g '+') . They can always <b>evaluate</b> i.e reduce to a single value.<br />
+In the above example, <code>2+2</code> is called an <b>expression</b>. An expression is the most basic programming instruction in any programming language. Expressions consists of <span class="underline">values</span> (e.g 2) and operators (e.g '+') . They can always <b>evaluate</b> i.e reduce to a single value.
 </p>
 </div>
 </div>
@@ -556,8 +556,8 @@ In the above example, <code>2+2</code> is called an <b>expression</b>. An expres
 <h4 id="orged0eaf0">Operators</h4>
 <div class="outline-text-4" id="text-orged0eaf0">
 <p>
-Python Math Operators from Highest to Lowest Precedence<br />
-<a id="orga6d2b23"></a> <a id="org5e1e563"></a><br />
+Python Math Operators from Highest to Lowest Precedence
+<a id="orga6d2b23"></a> <a id="org5e1e563"></a>
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -632,7 +632,7 @@ Python Math Operators from Highest to Lowest Precedence<br />
 </table>
 
 <p>
-The order of operations (also called <i>precendence</i>) of Python math operators is similar to that of mathematics. The <b>* operators is evaluated first, then % .etc, from *left to right</b>.  To override the usual precedence, use <b>parentheses</b>.<br />
+The order of operations (also called <i>precendence</i>) of Python math operators is similar to that of mathematics. The <b>* operators is evaluated first, then % .etc, from *left to right</b>.  To override the usual precedence, use <b>parentheses</b>. 
 </p>
 </div>
 </div>
@@ -641,8 +641,8 @@ The order of operations (also called <i>precendence</i>) of Python math operator
 <h4 id="org251d77b">Data type</h4>
 <div class="outline-text-4" id="text-org251d77b">
 <p>
-A <b>data type</b> is a category for values. Every value belongs to exactly one data type. The most common data types in Python are listed in the table below.<br />
-<a id="org64a2b63"></a> <a id="org87a3961"></a><br />
+A <b>data type</b> is a category for values. Every value belongs to exactly one data type. The most common data types in Python are listed in the table below.
+<a id="org64a2b63"></a> <a id="org87a3961"></a>
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -677,19 +677,19 @@ A <b>data type</b> is a category for values. Every value belongs to exactly one 
 </table>
 
 <p>
-The meaning of an operator may also be changed based on the data type of the values next to it.<br />
+The meaning of an operator may also be changed based on the data type of the values next to it.
 </p>
 
 <p>
-E.g: '+' is the addition operator when it operates on two integers or floats. However when + is used on two string values, it joins the string as the string <b>concatenation</b>.  If we use + on a string and an integer, Python will not know how to handle it.<br />
+E.g: '+' is the addition operator when it operates on two integers or floats. However when + is used on two string values, it joins the string as the string <b>concatenation</b>.  If we use + on a string and an integer, Python will not know how to handle it.
 </p>
 
 <p>
-Python cannot convert data type automatically. However we can do this.<br />
+Python cannot convert data type automatically. However we can do this.
 </p>
 
 <p>
-The * operator when used between a string and an integer will <b>multiply the string</b>. It cannot be used on two strings.<br />
+The * operator when used between a string and an integer will <b>multiply the string</b>. It cannot be used on two strings.
 </p>
 <pre class="example">
 &gt;&gt;&gt; 4 + 4 
@@ -713,17 +713,17 @@ TypeError: can't multiply sequence by non-int of type 'str'.
 <h4 id="org3ee76bd">Variable</h4>
 <div class="outline-text-4" id="text-org3ee76bd">
 <p>
-<a id="orgae33af2"></a> <a id="orgfaec9c3"></a><br />
-A variable is like a box in computer's memory where a <b>single value</b> can be stored. For reuse of a result that has been evaluated, we can store it in a variable.<br />
+<a id="orgae33af2"></a> <a id="orgfaec9c3"></a>
+A variable is like a box in computer's memory where a <b>single value</b> can be stored. For reuse of a result that has been evaluated, we can store it in a variable.
 </p>
 
 <p>
-A value is stored in a variable with an <b>assignment statement</b>. It is initialized/ created the first time a value is stored in it. When a value is assigned a new variable, the old value is forgotten, or <b>overwritten</b>.<br />
+A value is stored in a variable with an <b>assignment statement</b>. It is initialized/ created the first time a value is stored in it. When a value is assigned a new variable, the old value is forgotten, or <b>overwritten</b>. 
 </p>
 
 
 <p>
-To name a variable, we have to follow <b>three rules</b>:<br />
+To name a variable, we have to follow <b>three rules</b>:
 </p>
 
 <pre class="example">
@@ -740,17 +740,17 @@ To name a variable, we have to follow <b>three rules</b>:<br />
 </pre>
 
 <ol class="org-ol">
-<li>It can be only one word.<br /></li>
-<li>It can use only letters, numbers and the underscore (_) character.<br /></li>
-<li>It can't begin with a number<br /></li>
+<li>It can be only one word.</li>
+<li>It can use only letters, numbers and the underscore (_) character.</li>
+<li>It can't begin with a number</li>
 </ol>
 
 <p>
-<b>Note</b>: To name a variable with two words we can use <b>underscore</b> or <b>capitalization</b>, i.e 'my_student' or 'myStudent'. The official Python code style, PEP 8 says to use underscore. However, the most important thing is to be <b>consistent</b>.<br />
+<b>Note</b>: To name a variable with two words we can use <b>underscore</b> or <b>capitalization</b>, i.e 'my_student' or 'myStudent'. The official Python code style, PEP 8 says to use underscore. However, the most important thing is to be <b>consistent</b>.
 </p>
 
 <p>
-Note that variable names are <b>case sensitive</b>.<br />
+Note that variable names are <b>case sensitive</b>.
 </p>
 </div>
 </div>
@@ -764,24 +764,24 @@ Note that variable names are <b>case sensitive</b>.<br />
 <h3 id="org6f20142">Basic about writing codes</h3>
 <div class="outline-text-3" id="text-org6f20142">
 <p>
-Python <b>ignores</b> blank lines so this can be useful to make code easier to read, like paragraphs in a book.<br />
-"#" starts a comment line.<br />
+Python <b>ignores</b> blank lines so this can be useful to make code easier to read, like paragraphs in a book.
+"#" starts a comment line.
 </p>
 
 <p>
-Looking at the <code>print('Hello World!')</code> line. It means "Print out the text in the string 'Hello World!'. When Python executes this line, we say that Python is calling the print() <b>function</b> and 'Hello World' is being passed to the function call as an <b>argument</b>. The quotes aren't printed as they are just used to mark where the string begins and end.<br />
+Looking at the <code>print('Hello World!')</code> line. It means "Print out the text in the string 'Hello World!'. When Python executes this line, we say that Python is calling the print() <b>function</b> and 'Hello World' is being passed to the function call as an <b>argument</b>. The quotes aren't printed as they are just used to mark where the string begins and end.
 </p>
 
 <p>
-Remember that <b>expressions can always evaluate to a <span class="underline">single</span> value</b>.<br />
+Remember that <b>expressions can always evaluate to a <span class="underline">single</span> value</b>. 
 </p>
 
 <p>
-Example:<br />
+Example:
 </p>
 <ul class="org-ul">
-<li><code>myName = input()</code> is a function call. It evaluates to a string equal to user input. This string is then assigned to the myName variable. We can also think of this as an expression that eventually evaluates to whatever string the user typed in.<br /></li>
-<li>and then if we do <code>print('Hello ' + myName)</code>, this expression evaluates to 'Hello Kenny' if we inputted 'Kenny' for myName.<br /></li>
+<li><code>myName = input()</code> is a function call. It evaluates to a string equal to user input. This string is then assigned to the myName variable. We can also think of this as an expression that eventually evaluates to whatever string the user typed in.</li>
+<li>and then if we do <code>print('Hello ' + myName)</code>, this expression evaluates to 'Hello Kenny' if we inputted 'Kenny' for myName.</li>
 </ul>
 </div>
 </div>
@@ -791,11 +791,11 @@ Example:<br />
 <h3 id="org208df07">The str(), int(), and float() Functions</h3>
 <div class="outline-text-3" id="text-org208df07">
 <p>
-<code>print('hello ' + 29)</code> would return an error because 29 is an integer and 'hello ' is a string and these two data types cannot concatenate.<br />
+<code>print('hello ' + 29)</code> would return an error because 29 is an integer and 'hello ' is a string and these two data types cannot concatenate. 
 </p>
 
 <p>
-To concatenate these two arguments, we need to turn the value <code>29</code> into a string.  This can be done by the <code>str()</code> function, as follow:<br />
+To concatenate these two arguments, we need to turn the value <code>29</code> into a string.  This can be done by the <code>str()</code> function, as follow:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">print</span>(<span style="font-style: italic;">'I am '</span> + <span style="font-weight: bold;">str</span>(26) + <span style="font-style: italic;">' years old.'</span>)
@@ -809,11 +809,11 @@ I am 26 years old.
 
 
 <p>
-The <code>str()</code>, <code>int()</code>, and <code>float()</code> functions evalutes to string, integer and float forms of the passed value respectively.<br />
+The <code>str()</code>, <code>int()</code>, and <code>float()</code> functions evalutes to string, integer and float forms of the passed value respectively.
 </p>
 
 <p>
-<code>int()</code> is handy, for examle <code>input()</code> function always returns a string, even if user enters a number.<br />
+<code>int()</code> is handy, for examle <code>input()</code> function always returns a string, even if user enters a number.
 </p>
 
 <div class="org-src-container">
@@ -838,7 +838,7 @@ The <code>str()</code>, <code>int()</code>, and <code>float()</code> functions e
 
 
 <p>
-If we pass a value to <code>int()</code> that cannot be evaluated  as an integer, Python will display an error message, for example:<br />
+If we pass a value to <code>int()</code> that cannot be evaluated  as an integer, Python will display an error message, for example:
 </p>
 
 <div class="org-src-container">
@@ -859,11 +859,11 @@ ValueError: invalid literal for int() with base 10: '99.99'
 <h2 id="orgb6b0d8c">Chapter 2 - Flow control</h2>
 <div class="outline-text-2" id="text-orgb6b0d8c">
 <p>
-The real strength of programming isn't just executing one instructions after another. Based on how the expressions evaluate, the program can decide to skip instructions, repeat them or choose one of several instructions to run. In fact we should never want our program to start from the first line of code and simply execute every line straight to the end.<br />
+The real strength of programming isn't just executing one instructions after another. Based on how the expressions evaluate, the program can decide to skip instructions, repeat them or choose one of several instructions to run. In fact we should never want our program to start from the first line of code and simply execute every line straight to the end.
 </p>
 
 <p>
-This is what <b>Flow control</b> statements are for. They decide which Python instructions to execute under which conditions.<br />
+This is what <b>Flow control</b> statements are for. They decide which Python instructions to execute under which conditions.
 </p>
 </div>
 
@@ -871,19 +871,19 @@ This is what <b>Flow control</b> statements are for. They decide which Python in
 <h3 id="orgb50ca66">Boolean</h3>
 <div class="outline-text-3" id="text-orgb50ca66">
 <p>
-Before learning about flow control statements, we first need to learn how to represent <i>yes</i> and <i>no</i> options. To that end we need to explore Boolean values, comparison operators and Boolean operators.<br />
+Before learning about flow control statements, we first need to learn how to represent <i>yes</i> and <i>no</i> options. To that end we need to explore Boolean values, comparison operators and Boolean operators.
 </p>
 
 <p>
-While int, floats and string data types have an unlimited number of possible values, the <b>Boolean</b> data type has only two values: <code>True</code> and <code>False</code>.  In Python, follow this syntax for Boolean values:<br />
+While int, floats and string data types have an unlimited number of possible values, the <b>Boolean</b> data type has only two values: <code>True</code> and <code>False</code>.  In Python, follow this syntax for Boolean values:
 </p>
 <ul class="org-ul">
-<li>They always lack the quotes we'd normally put around string.<br /></li>
-<li>They always start with a capital <b>T</b> or <b>F</b>, with the rest of the string in lowercase.<br /></li>
+<li>They always lack the quotes we'd normally put around string.</li>
+<li>They always start with a capital <b>T</b> or <b>F</b>, with the rest of the string in lowercase.</li>
 </ul>
 
 <p>
-<b>Comparison operators</b><br />
+<b>Comparison operators</b>
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -934,25 +934,25 @@ While int, floats and string data types have an unlimited number of possible val
 </table>
 
 <p>
-These operators evaluate to either <code>True</code> or <code>False</code> depending on the values we give them.<br />
+These operators evaluate to either <code>True</code> or <code>False</code> depending on the values we give them.
 </p>
 
 <p>
-Note: An <b>integer</b> or <b>floating-point</b> value will always be unequal to a string value. The other operators work properly <b>only</b> with integer and floating-point values.<br />
+Note: An <b>integer</b> or <b>floating-point</b> value will always be unequal to a string value. The other operators work properly <b>only</b> with integer and floating-point values.
 </p>
 
 <p>
-The three <b>Boolean operators</b> <b>(and, or and not)</b> are used to compare Boolean values. Like comparison operators they also evaluate these expressions down to a Boolean value. The <code>and</code> and <code>or</code> operators always take <b>two</b> Boolean values or expressions. They are considered <b>binary</b> operators.<br />
+The three <b>Boolean operators</b> <b>(and, or and not)</b> are used to compare Boolean values. Like comparison operators they also evaluate these expressions down to a Boolean value. The <code>and</code> and <code>or</code> operators always take <b>two</b> Boolean values or expressions. They are considered <b>binary</b> operators.
 </p>
 
 <ul class="org-ul">
-<li>The <code>and</code> operator evalues an express to <code>True</code> if <b>both</b> Boolean values are <code>True</code>. Otherwise it evaluates to <code>False</code>.<br /></li>
-<li>The <code>or</code> operator evaluates an expression to <code>True</code> if <b>either</b> of the two Boolean values is <code>True</code>. It only evaluates to <code>False</code> if both Boolean values are <code>False</code>.<br /></li>
-<li>The <code>not</code> operators operates on only <b>one</b> Boolean value (or expression). It simply evaluates to the opposite Boolean value. It can be nested.<br /></li>
+<li>The <code>and</code> operator evalues an express to <code>True</code> if <b>both</b> Boolean values are <code>True</code>. Otherwise it evaluates to <code>False</code>.</li>
+<li>The <code>or</code> operator evaluates an expression to <code>True</code> if <b>either</b> of the two Boolean values is <code>True</code>. It only evaluates to <code>False</code> if both Boolean values are <code>False</code>.</li>
+<li>The <code>not</code> operators operates on only <b>one</b> Boolean value (or expression). It simply evaluates to the opposite Boolean value. It can be nested.</li>
 </ul>
 
 <p>
-These three are called <b>Boolean operators</b> because they always operate on the Boolean values <code>True</code> and <code>False</code>.<br />
+These three are called <b>Boolean operators</b> because they always operate on the Boolean values <code>True</code> and <code>False</code>.
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">not</span> <span style="font-weight: bold; text-decoration: underline;">True</span>
@@ -1000,12 +1000,12 @@ False
 </div>
 
 <p>
-Order of evaluation:<br />
+Order of evaluation:
 </p>
 <ul class="org-ul">
-<li>Left first, then right.<br /></li>
-<li>Brackets are prioritized.<br /></li>
-<li>not first, then and then or.<br /></li>
+<li>Left first, then right.</li>
+<li>Brackets are prioritized.</li>
+<li>not first, then and then or.</li>
 </ul>
 </div>
 </div>
@@ -1015,12 +1015,12 @@ Order of evaluation:<br />
 <div class="outline-text-3" id="text-org95ebcb3">
 <div class="org-center">
 <p>
-Flow control statements most often start with a part called <b>condition</b>, and are all followed by a block of code called <b>the clause</b>.<br />
+Flow control statements most often start with a part called <b>condition</b>, and are all followed by a block of code called <b>the clause</b>.
 </p>
 </div>
 
 <p>
-The Boolean expressions could all be considered conditions, which are similar to expression. Condition is just a more specific name in the context of flow control statements. <b>Conditions always evaluate down to a Boolean value</b>, <code>True</code> or <code>False</code>. A flow control statement decides what to do based on whether its condition is <code>True</code> or <code>False</code>. Almost every flow control statement uses a condition.<br />
+The Boolean expressions could all be considered conditions, which are similar to expression. Condition is just a more specific name in the context of flow control statements. <b>Conditions always evaluate down to a Boolean value</b>, <code>True</code> or <code>False</code>. A flow control statement decides what to do based on whether its condition is <code>True</code> or <code>False</code>. Almost every flow control statement uses a condition.
 </p>
 </div>
 </div>
@@ -1029,13 +1029,13 @@ The Boolean expressions could all be considered conditions, which are similar to
 <h3 id="orgd007bc1">Block of code</h3>
 <div class="outline-text-3" id="text-orgd007bc1">
 <p>
-Lines of Python code can be grouped together in blocks. Beginnings and end of blocks can be identified by the indentation of the lines of code. There are three rules for blocks:<br />
+Lines of Python code can be grouped together in blocks. Beginnings and end of blocks can be identified by the indentation of the lines of code. There are three rules for blocks:
 </p>
 
 <ol class="org-ol">
-<li>Blocks begin when indentation increases.<br /></li>
-<li>Blocks can contain other blocks.<br /></li>
-<li>Blocks end when the indentation decreases to zero or to a containing block's indentation.<br /></li>
+<li>Blocks begin when indentation increases.</li>
+<li>Blocks can contain other blocks.</li>
+<li>Blocks end when the indentation decreases to zero or to a containing block's indentation.</li>
 </ol>
 </div>
 </div>
@@ -1044,21 +1044,21 @@ Lines of Python code can be grouped together in blocks. Beginnings and end of bl
 <h3 id="org9f8d7c5">The <code>if</code> and <code>else</code> statements</h3>
 <div class="outline-text-3" id="text-org9f8d7c5">
 <p>
-The statement represents the actual decision that the program will make.<br />
+The statement represents the actual decision that the program will make.
 </p>
 
 <p>
-Most common type of flow control statement: <code>if</code> statement. An <code>if</code> statement will execute if the condition is <code>True</code>. The clause is skipped if the condition is <code>False</code>.<br />
+Most common type of flow control statement: <code>if</code> statement. An <code>if</code> statement will execute if the condition is <code>True</code>. The clause is skipped if the condition is <code>False</code>.
 </p>
 
 <blockquote>
 <p>
-If this condition is true, execute the code in the clause.<br />
+If this condition is true, execute the code in the clause.
 </p>
 </blockquote>
 
 <p>
-<b>Python syntax</b>:<br />
+<b>Python syntax</b>:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">if</span> 4 &lt; 5:
@@ -1072,17 +1072,17 @@ Hello!
 
 
 <p>
-An <code>if</code> statement can be followed by an <code>else</code> statement. The <code>else</code> clause is executed only when the <code>if</code> statement's condition is <code>False</code>.<br />
+An <code>if</code> statement can be followed by an <code>else</code> statement. The <code>else</code> clause is executed only when the <code>if</code> statement's condition is <code>False</code>.
 </p>
 
 <blockquote>
 <p>
-If tis condition is true, execute this code. Or else, execute <b>that</b> code.<br />
+If tis condition is true, execute this code. Or else, execute <b>that</b> code.
 </p>
 </blockquote>
 
 <p>
-An <code>else</code> statement doesn't have a condition.<br />
+An <code>else</code> statement doesn't have a condition.
 </p>
 
 <div class="org-src-container">
@@ -1099,7 +1099,7 @@ Aloha!
 
 
 <p>
-<b>Only one of the <code>if</code> or <code>else</code> statement will execute.</b><br />
+<b>Only one of the <code>if</code> or <code>else</code> statement will execute.</b>
 </p>
 </div>
 </div>
@@ -1108,11 +1108,11 @@ Aloha!
 <h3 id="orgce7833d">The <code>elif</code> statement</h3>
 <div class="outline-text-3" id="text-orgce7833d">
 <p>
-In scenarios where we want one of many possible clauses to execute, the <code>elif</code> statement is used. The <code>elif</code> statement is an "else if" statement that <b>always follows an <code>if</code> or another <code>elif</code> statement</b>.<br />
+In scenarios where we want one of many possible clauses to execute, the <code>elif</code> statement is used. The <code>elif</code> statement is an "else if" statement that <b>always follows an <code>if</code> or another <code>elif</code> statement</b>. 
 </p>
 
 <p>
-<code>elif statement</code> provides another condition that is checked <b>only if all the previous conditions were</b> <code>False</code>.<br />
+<code>elif statement</code> provides another condition that is checked <b>only if all the previous conditions were</b> <code>False</code>.
 </p>
 
 <div class="org-src-container">
@@ -1131,21 +1131,21 @@ Finally!
 
 
 <p>
-When there is a chain of <code>elif</code> statements, only <b>one or none</b> of the clauses will be executed. When one <code>True</code> condition has been found on one <code>elif</code> statement, <b>the rest of the other <code>elif</code> clauses are skipped</b>.<br />
+When there is a chain of <code>elif</code> statements, only <b>one or none</b> of the clauses will be executed. When one <code>True</code> condition has been found on one <code>elif</code> statement, <b>the rest of the other <code>elif</code> clauses are skipped</b>.
 </p>
 
 <p>
-The order of the <code>elif</code> statements does matter.<br />
+The order of the <code>elif</code> statements does matter.
 </p>
 
 <blockquote>
 <p>
-Remember: At most only <b>one</b> of the <code>elif</code> clauses will be executed. Therefore, the order of <code>elif</code> statements matter.<br />
+Remember: At most only <b>one</b> of the <code>elif</code> clauses will be executed. Therefore, the order of <code>elif</code> statements matter.
 </p>
 </blockquote>
 
 <p>
-Optionally, we can also have an <code>else</code> statement after the last <code>elif</code>. In this case, it is <b>guaranteed</b> that at least and only one of the clauses will be executed. The <code>else</code> clause will execute when all <code>if</code> and <code>elif</code> statements are <code>False</code>.<br />
+Optionally, we can also have an <code>else</code> statement after the last <code>elif</code>. In this case, it is <b>guaranteed</b> that at least and only one of the clauses will be executed. The <code>else</code> clause will execute when all <code>if</code> and <code>elif</code> statements are <code>False</code>.
 </p>
 </div>
 
@@ -1173,8 +1173,8 @@ Optionally, we can also have an <code>else</code> statement after the last <code
 </div>
 
 <p>
-In the first code block, <code>elif</code> is part of <code>if</code> and only the <code>if</code> statement is executed. The <code>elif</code> statement was bypassed.<br />
-In the second code block, both <code>if</code> statement's conditions were met and executed in series.<br />
+In the first code block, <code>elif</code> is part of <code>if</code> and only the <code>if</code> statement is executed. The <code>elif</code> statement was bypassed.
+In the second code block, both <code>if</code> statement's conditions were met and executed in series.
 </p>
 </div>
 </div>
@@ -1188,11 +1188,11 @@ In the second code block, both <code>if</code> statement's conditions were met a
 <h4 id="org076cef7">Overview and how to</h4>
 <div class="outline-text-4" id="text-org076cef7">
 <p>
-We can make a block of code execute <b>over and over</b> again with a <code>while</code> statement. The code in a <code>while</code> clause will be executed <b>as long as</b> the <code>while</code> statement's condition is <code>True</code>.<br />
+We can make a block of code execute <b>over and over</b> again with a <code>while</code> statement. The code in a <code>while</code> clause will be executed <b>as long as</b> the <code>while</code> statement's condition is <code>True</code>. 
 </p>
 
 <p>
-Syntax and example:<br />
+Syntax and example:
 </p>
 
 <div class="org-src-container">
@@ -1217,17 +1217,17 @@ Hello my name is Kenny.
 
 
 <p>
-Although the syntax between <code>while</code> and <code>if</code> are the similar, at the end of an <code>if</code> clause the program execution continues whereas at the end of a <code>while</code> clause the program execution <b>jumps back</b> to the start of the <code>while</code> statement. This is why..<br />
+Although the syntax between <code>while</code> and <code>if</code> are the similar, at the end of an <code>if</code> clause the program execution continues whereas at the end of a <code>while</code> clause the program execution <b>jumps back</b> to the start of the <code>while</code> statement. This is why..
 </p>
 
 <blockquote>
 <p>
-The <code>while</code> clause is often called a <b>loop</b>.<br />
+The <code>while</code> clause is often called a <b>loop</b>.
 </p>
 </blockquote>
 
 <p>
-Another example could be:<br />
+Another example could be:
 </p>
 
 <div class="org-src-container">
@@ -1239,7 +1239,7 @@ Another example could be:<br />
 </div>
 
 <p>
-As long as the user input is <b>not</b> "your name", the while loop's condition will remain <code>True</code> and the program would just keep asking forever.<br />
+As long as the user input is <b>not</b> "your name", the while loop's condition will remain <code>True</code> and the program would just keep asking forever. 
 </p>
 </div>
 </div>
@@ -1248,15 +1248,15 @@ As long as the user input is <b>not</b> "your name", the while loop's condition 
 <h4 id="org76ea6b1">break</h4>
 <div class="outline-text-4" id="text-org76ea6b1">
 <p>
-There are some situations where your want the <code>while</code> condition to always remain <code>True</code>. So you need a way to <b>break out</b> of a <code>while</code> loop.<br />
+There are some situations where your want the <code>while</code> condition to always remain <code>True</code>. So you need a way to <b>break out</b> of a <code>while</code> loop.
 </p>
 
 <p>
-There is a shortcut to getting the program execution to break out of a <code>while</code> loop's clause early. If the execution reaches a <code>break</code> statement, it immediately exits the <code>while</code> loop's clause. A break statement simply contains the <code>break</code> keyword.<br />
+There is a shortcut to getting the program execution to break out of a <code>while</code> loop's clause early. If the execution reaches a <code>break</code> statement, it immediately exits the <code>while</code> loop's clause. A break statement simply contains the <code>break</code> keyword.
 </p>
 
 <p>
-Example:<br />
+Example:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">while</span> <span style="font-weight: bold; text-decoration: underline;">True</span>:
@@ -1268,7 +1268,7 @@ Example:<br />
 </div>
 
 <p>
-The first line <code>while True</code> essentially creates an <b>infinite</b> loop because the expression <code>True</code> always evalues down to the value <code>True</code>.  In this scenario, the proram execution will always enter the loop and will only exit it when a <code>break</code> statement is executed. Of course we do still have common programming bug around infinite loop.<br />
+The first line <code>while True</code> essentially creates an <b>infinite</b> loop because the expression <code>True</code> always evalues down to the value <code>True</code>.  In this scenario, the proram execution will always enter the loop and will only exit it when a <code>break</code> statement is executed. Of course we do still have common programming bug around infinite loop.
 </p>
 </div>
 </div>
@@ -1278,15 +1278,15 @@ The first line <code>while True</code> essentially creates an <b>infinite</b> lo
 <div class="outline-text-4" id="text-orgf1730f3">
 <div class="org-center">
 <p>
-Instead of "continue", the <code>continue</code> statements actually jump back to the start of the loop.<br />
+Instead of "continue", the <code>continue</code> statements actually jump back to the start of the loop.
 </p>
 </div>
 <p>
-Similary to the <code>break</code> statements, the <code>continue</code> statements are also used inside loops. Its action is similar to what happens when the execution reaches the end of the loop which is <b>jumping back</b> to the start of the loop.<br />
+Similary to the <code>break</code> statements, the <code>continue</code> statements are also used inside loops. Its action is similar to what happens when the execution reaches the end of the loop which is <b>jumping back</b> to the start of the loop.
 </p>
 
 <p>
-Example:<br />
+Example:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">while</span> <span style="font-weight: bold; text-decoration: underline;">True</span>: 
@@ -1300,7 +1300,7 @@ Example:<br />
 </div>
 
 <p>
-Results:<br />
+Results:
 </p>
 <pre class="example">
 What is your name?: asda
@@ -1322,8 +1322,8 @@ Hello Kenny, who is 26 years old.
 <h4 id="org57c0d93">Trapped in an infinite loop</h4>
 <div class="outline-text-4" id="text-org57c0d93">
 <p>
-Solution: Press <code>CTRL + C</code>.<br />
-Action: Sending a <code>KeyboardInterrupt</code> error to the program and cause it to stop immediately.<br />
+Solution: Press <code>CTRL + C</code>.
+Action: Sending a <code>KeyboardInterrupt</code> error to the program and cause it to stop immediately.
 </p>
 </div>
 </div>
@@ -1332,7 +1332,7 @@ Action: Sending a <code>KeyboardInterrupt</code> error to the program and cause 
 <h4 id="org566deee">"Truthy" and "Falsey" values</h4>
 <div class="outline-text-4" id="text-org566deee">
 <p>
-There are some values in other data types that conditions will consider equivalent to <code>True</code> and <code>False</code>.<br />
+There are some values in other data types that conditions will consider equivalent to <code>True</code> and <code>False</code>.
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -1376,12 +1376,12 @@ There are some values in other data types that conditions will consider equivale
 </div>
 
 <p>
-Explanation:<br />
+Explanation:
 </p>
 
 <ul class="org-ul">
-<li>If <code>name</code> is empty, the value of <code>name</code> would equivalate to <code>False</code>.<br /></li>
-<li><code>while not name</code> becomes <code>while not False</code>, or <code>while True</code>, and the <code>while</code> statement's condtion is <code>True</code>.<br /></li>
+<li>If <code>name</code> is empty, the value of <code>name</code> would equivalate to <code>False</code>.</li>
+<li><code>while not name</code> becomes <code>while not False</code>, or <code>while True</code>, and the <code>while</code> statement's condtion is <code>True</code>.</li>
 </ul>
 
 <div class="org-src-container">
@@ -1394,10 +1394,10 @@ Explanation:<br />
 </div>
 
 <p>
-Explanation:<br />
+Explanation:
 </p>
 <ul class="org-ul">
-<li>If <code>num_of_guests</code> is <b>anything but zero</b>, the if statement's condition is <code>True</code>, and the program will print the reminder for the user.<br /></li>
+<li>If <code>num_of_guests</code> is <b>anything but zero</b>, the if statement's condition is <code>True</code>, and the program will print the reminder for the user.</li>
 </ul>
 </div>
 </div>
@@ -1407,11 +1407,11 @@ Explanation:<br />
 <h3 id="orga22fc26">The <code>for</code> statement and <code>range()</code> function</h3>
 <div class="outline-text-3" id="text-orga22fc26">
 <p>
-The <code>while</code> loop keeps looping while its condition is <code>True</code>. However if we want to execute a block of code a certain <code>n</code> number of time, we can use <code>for</code> loop statement and the <code>range()</code> function.<br />
+The <code>while</code> loop keeps looping while its condition is <code>True</code>. However if we want to execute a block of code a certain <code>n</code> number of time, we can use <code>for</code> loop statement and the <code>range()</code> function.
 </p>
 
 <p>
-Syntax:<br />
+Syntax:
 </p>
 <pre class="example">
 for [variable name] in range([int, where int &lt;= 999]):
@@ -1419,7 +1419,7 @@ for [variable name] in range([int, where int &lt;= 999]):
 </pre>
 
 <p>
-Example:<br />
+Example:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">for</span> i <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(5):
@@ -1437,11 +1437,11 @@ Hello, this is 4 iteration.
 
 
 <p>
-When <code>range(5)</code>, the the loop's clause is run <b>five</b> times. the first time it is run, the variable <code>i</code> is set to <code>0</code>.<br />
+When <code>range(5)</code>, the the loop's clause is run <b>five</b> times. the first time it is run, the variable <code>i</code> is set to <code>0</code>.
 </p>
 
 <p>
-The variable <code>i</code> will go up to, <b>but not inlcude</b> the integer passed to <code>range()</code>.<br />
+The variable <code>i</code> will go up to, <b>but not inlcude</b> the integer passed to <code>range()</code>.
 </p>
 
 <div class="org-src-container">
@@ -1458,7 +1458,7 @@ The variable <code>i</code> will go up to, <b>but not inlcude</b> the integer pa
 
 
 <p>
-a <code>while</code> loop can be used interchangably:<br />
+a <code>while</code> loop can be used interchangably:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">sum</span> = 0
@@ -1476,7 +1476,7 @@ a <code>while</code> loop can be used interchangably:<br />
 
 
 <p>
-or<br />
+or
 </p>
 
 <div class="org-src-container">
@@ -1500,11 +1500,11 @@ Hello, this is 4 iteration.
 <h4 id="orga6e42ed"><code>range()</code> function with starting, stopping and stepping arguments</h4>
 <div class="outline-text-4" id="text-orga6e42ed">
 <p>
-Some functions can be called with multiple arguments separated by a comma. This includes the <code>range()</code> function.<br />
+Some functions can be called with multiple arguments separated by a comma. This includes the <code>range()</code> function.
 </p>
 
 <p>
-Example:<br />
+Example:
 </p>
 
 <div class="org-src-container">
@@ -1523,7 +1523,7 @@ Example:<br />
 
 
 <p>
-The <code>range()</code> function can also be called with <b>three</b> arguments where the third argument will be the <b>step</b> argument.<br />
+The <code>range()</code> function can also be called with <b>three</b> arguments where the third argument will be the <b>step</b> argument.
 </p>
 
 <div class="org-src-container">
@@ -1540,11 +1540,11 @@ The <code>range()</code> function can also be called with <b>three</b> arguments
 
 
 <p>
-You can also use negative arguments to make the <code>for</code> loop counts down instead of up.<br />
+You can also use negative arguments to make the <code>for</code> loop counts down instead of up.
 </p>
 
 <p>
-Syntax:<br />
+Syntax:
 </p>
 <pre class="example">
 range([start],[stop],[step])
@@ -1561,30 +1561,30 @@ range([start],[stop],[step])
 <h4 id="org77c88ca"><code>import</code> a  standard library</h4>
 <div class="outline-text-4" id="text-org77c88ca">
 <p>
-<code>print()</code>, <code>len()</code> functions are so called built-in functions. They belong to a basic set of functions that come with Python.<br />
+<code>print()</code>, <code>len()</code> functions are so called built-in functions. They belong to a basic set of functions that come with Python.
 </p>
 
 <p>
-Python also comes with a set of modules called the <b>standard library</b>. Each module is a Python program that contains a related group of functions that can be <b>embedded</b> in our programs.<br />
+Python also comes with a set of modules called the <b>standard library</b>. Each module is a Python program that contains a related group of functions that can be <b>embedded</b> in our programs.
 </p>
 
 <p>
-Example: the <code>math</code> module has mathematics-related functions, the <code>random</code> module hsa random number-related functions, and so on.<br />
+Example: the <code>math</code> module has mathematics-related functions, the <code>random</code> module hsa random number-related functions, and so on.
 </p>
 
 <p>
-Before we can use the functions in a module, we need to import the module with an <code>import</code> statement.<br />
+Before we can use the functions in a module, we need to import the module with an <code>import</code> statement.
 </p>
 
 <p>
-Syntax:<br />
+Syntax:
 </p>
 <pre class="example">
 import [module 1], [module 2]
 </pre>
 
 <p>
-.. however we should do:<br />
+.. however we should do:
 </p>
 
 <div class="org-src-container">
@@ -1594,7 +1594,7 @@ import [module 1], [module 2]
 </div>
 
 <p>
-Once a module is imported, we can use all the functions of that module.<br />
+Once a module is imported, we can use all the functions of that module.
 </p>
 
 <div class="org-src-container">
@@ -1615,11 +1615,11 @@ Once a module is imported, we can use all the functions of that module.<br />
 
 
 <p>
-<code>random.randint(1,10)</code> calls a random integer value between 1 and 10 when it's executed. The results will be different most times.<br />
+<code>random.randint(1,10)</code> calls a random integer value between 1 and 10 when it's executed. The results will be different most times.
 </p>
 
 <p>
-We need to type <code>random.</code> infront  of <code>randint</code> because the <code>randint</code> is in the <code>random</code> module. Python would then know to look for <code>randint</code> inside <code>random</code> module.<br />
+We need to type <code>random.</code> infront  of <code>randint</code> because the <code>randint</code> is in the <code>random</code> module. Python would then know to look for <code>randint</code> inside <code>random</code> module.
 </p>
 </div>
 </div>
@@ -1628,11 +1628,11 @@ We need to type <code>random.</code> infront  of <code>randint</code> because th
 <h4 id="org3bd3fca"><code>from import</code> statement</h4>
 <div class="outline-text-4" id="text-org3bd3fca">
 <p>
-An alternative form of <code>import</code> is composed of the <code>from</code> keyword followed by the module name, and a star.<br />
+An alternative form of <code>import</code> is composed of the <code>from</code> keyword followed by the module name, and a star.
 </p>
 
 <p>
-For example, instead of<br />
+For example, instead of
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> random
@@ -1645,7 +1645,7 @@ For example, instead of<br />
 
 
 <p>
-we can do<br />
+we can do
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">from</span> random <span style="font-weight: bold;">import</span> randint
@@ -1661,11 +1661,11 @@ we can do<br />
 <h4 id="orgdd56b0c">ending a program early with <code>sys.exit()</code></h4>
 <div class="outline-text-4" id="text-orgdd56b0c">
 <p>
-A program normally terminates when execution reaches the <b>bottom</b> of the insturctions. However we can cause the program to terminate or exit by calling the <code>sys.exit()</code> function.<br />
+A program normally terminates when execution reaches the <b>bottom</b> of the insturctions. However we can cause the program to terminate or exit by calling the <code>sys.exit()</code> function. 
 </p>
 
 <p>
-Example:<br />
+Example:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> sys
@@ -1700,7 +1700,7 @@ SystemExit
 <div class="outline-text-2" id="text-org74efcfa">
 <div class="org-center">
 <p>
-A function is like a mini-program within a program.<br />
+A function is like a mini-program within a program.
 </p>
 </div>
 </div>
@@ -1708,7 +1708,7 @@ A function is like a mini-program within a program.<br />
 <h3 id="org9b7b5ec"><code>def</code> statement</h3>
 <div class="outline-text-3" id="text-org9b7b5ec">
 <p>
-Example:<br />
+Example:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">hello</span>(): <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">a def statement defines a function. In this scenario a function is named hello()</span>
@@ -1720,15 +1720,15 @@ hello() <span style="font-weight: bold; font-style: italic;"># </span><span styl
 </div>
 
 <p>
-A function call is just the function's name followed by parentheses, possibly with some number of arguments within, or just none.<br />
+A function call is just the function's name followed by parentheses, possibly with some number of arguments within, or just none.
 </p>
 
 <p>
-When the program execution reaches a function call, it will jump to the top line in the function and begin executing code there. At the end of the function, the execution returns to the line that called the function and continues moving through the code as before.<br />
+When the program execution reaches a function call, it will jump to the top line in the function and begin executing code there. At the end of the function, the execution returns to the line that called the function and continues moving through the code as before.
 </p>
 
 <p>
-A major purpose of functions is to group code that get executed multiple times. In general, we want to <b>avoid</b> duplicating code. One of the reasons is in the scenario of bug fixing or updating, we dont have to change the same code block everywhere we call it. Another reason is we want our programs to contain less redundancies, more readable, shorter and easier to update,<br />
+A major purpose of functions is to group code that get executed multiple times. In general, we want to <b>avoid</b> duplicating code. One of the reasons is in the scenario of bug fixing or updating, we dont have to change the same code block everywhere we call it. Another reason is we want our programs to contain less redundancies, more readable, shorter and easier to update,
 </p>
 </div>
 </div>
@@ -1747,11 +1747,11 @@ Hello, this is an argument
 
 
 <p>
-When we called the <code>print()</code> function, we passed in values. These are called <b>arguments</b>.<br />
+When we called the <code>print()</code> function, we passed in values. These are called <b>arguments</b>.
 </p>
 
 <p>
-Example:<br />
+Example:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">hello</span>(yourname, myname): <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">define function that take 2 arguments</span>
@@ -1774,7 +1774,7 @@ TypeError: hello() missing 1 required positional argument: 'myname'
 
 
 <p>
-A <b>parameter</b> is a variable that an argument is stored in when a function is called. When the function returns/ end, the value(s) stored in parameter(s) are forgotten. The variable is effectively destroyed after a function call. This is similar behaviour to how a program's variables are forgotten when the program terminates.<br />
+A <b>parameter</b> is a variable that an argument is stored in when a function is called. When the function returns/ end, the value(s) stored in parameter(s) are forgotten. The variable is effectively destroyed after a function call. This is similar behaviour to how a program's variables are forgotten when the program terminates.
 </p>
 </div>
 </div>
@@ -1793,11 +1793,11 @@ A <b>parameter</b> is a variable that an argument is stored in when a function i
 
 
 <p>
-In the above example, when we called the <code>len()</code> function and pass it an argument <i>'Hello'</i>, the function evaluates to an integer value <code>5</code>, which is the length of the string we passed. In general, this is called a <b>return value</b> of the function <code>len()</code>.<br />
+In the above example, when we called the <code>len()</code> function and pass it an argument <i>'Hello'</i>, the function evaluates to an integer value <code>5</code>, which is the length of the string we passed. In general, this is called a <b>return value</b> of the function <code>len()</code>. 
 </p>
 
 <p>
-When we create a function using the <code>def</code> statement, we can specify what the return value should be with a <code>return</code> statement.<br />
+When we create a function using the <code>def</code> statement, we can specify what the return value should be with a <code>return</code> statement.
 </p>
 
 <div class="org-src-container">
@@ -1834,11 +1834,11 @@ It is certain.
 </pre>
 
 <p>
-The <code>get_answer</code> function can return 3 different values depending on the argument that is passed to it. Depending on what <code>answerNumber</code> is, which in that program is a random integer between 1 and 9 inclusive, the function returns one of three possible string values.<br />
+The <code>get_answer</code> function can return 3 different values depending on the argument that is passed to it. Depending on what <code>answerNumber</code> is, which in that program is a random integer between 1 and 9 inclusive, the function returns one of three possible string values.
 </p>
 
 <p>
-We can also do this:<br />
+We can also do this:
 </p>
 
 <div class="org-src-container">
@@ -1871,7 +1871,7 @@ It is certain.
 </pre>
 
 <p>
-As a function evaluates to a return value, it can be used within an expression because expressions are simply composed of <b>values and operator</b>.<br />
+As a function evaluates to a return value, it can be used within an expression because expressions are simply composed of <b>values and operator</b>.
 </p>
 </div>
 </div>
@@ -1880,15 +1880,15 @@ As a function evaluates to a return value, it can be used within an expression b
 <h3 id="orgb6df600">The <code>None</code> value</h3>
 <div class="outline-text-3" id="text-orgb6df600">
 <p>
-There is a value called <code>None</code>, which represents the absence of a value.<br />
+There is a value called <code>None</code>, which represents the absence of a value. 
 </p>
 
 <p>
-<code>None</code> is the <b>only value</b> of the <code>NoneType</code> data type. In other languages the equivalence would be <code>null</code>, <code>nil</code> or <code>undefined</code>. Just like the two Boolean brothers <code>True</code> and <code>False</code>, <code>None</code> is typed witih a <b>Capital <code>N</code></b>.<br />
+<code>None</code> is the <b>only value</b> of the <code>NoneType</code> data type. In other languages the equivalence would be <code>null</code>, <code>nil</code> or <code>undefined</code>. Just like the two Boolean brothers <code>True</code> and <code>False</code>, <code>None</code> is typed witih a <b>Capital <code>N</code></b>.
 </p>
 
 <p>
-This value-without-a-value can be helpful when we need to store something that won't be confused for a real value in a variable. For example we can use this with the <code>print()</code> function which does <b>not</b> return any value but simply display texts on the screen.  Therefore, <code>print()</code> actualy returns a <code>None</code> value. We can see this below:<br />
+This value-without-a-value can be helpful when we need to store something that won't be confused for a real value in a variable. For example we can use this with the <code>print()</code> function which does <b>not</b> return any value but simply display texts on the screen.  Therefore, <code>print()</code> actualy returns a <code>None</code> value. We can see this below:
 </p>
 
 <div class="org-src-container">
@@ -1905,7 +1905,7 @@ See, I told you. 'spam == None' evaluates to True.
 
 
 <p>
-Behind the scene, Python adds <code>return None</code> to the end of any function definition with no <code>return</code> statement. This is similar to how a <code>while</code> or <code>for</code> loop implicitly ends with a <code>continue</code>. Also <code>return None</code> = <code>return</code><br />
+Behind the scene, Python adds <code>return None</code> to the end of any function definition with no <code>return</code> statement. This is similar to how a <code>while</code> or <code>for</code> loop implicitly ends with a <code>continue</code>. Also <code>return None</code> = <code>return</code>
 </p>
 </div>
 </div>
@@ -1913,11 +1913,11 @@ Behind the scene, Python adds <code>return None</code> to the end of any functio
 <h3 id="orgb7db3e2">Local and Global Scope</h3>
 <div class="outline-text-3" id="text-orgb7db3e2">
 <p>
-Parameters and variables that are assigned in a called functions are said to exist in that function's local scope.<br />
+Parameters and variables that are assigned in a called functions are said to exist in that function's local scope.
 </p>
 
 <p>
-For example:<br />
+For example:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">greeting</span>(name):
@@ -1933,23 +1933,23 @@ Hello, Kenny, how are you feeling today?
 
 
 <p>
-In the above example, name is a parameter/ variable and 'Kenny' is a argument that exist in the function <code>greeting()</code>'s local scope.<br />
+In the above example, name is a parameter/ variable and 'Kenny' is a argument that exist in the function <code>greeting()</code>'s local scope.
 </p>
 
 <p>
-A <b>scope</b> is basically a container for variables. When a scope is destroyed, all the values/ arguments stored in the scope's variables are forgotten.<br />
+A <b>scope</b> is basically a container for variables. When a scope is destroyed, all the values/ arguments stored in the scope's variables are forgotten.
 </p>
 
 <p>
-There is only one <b>global scope</b>, it is created <b>when the program begins</b>. When the program terminates, the global scope is destroyed, all its vavariableriables forgotten.<br />
+There is only one <b>global scope</b>, it is created <b>when the program begins</b>. When the program terminates, the global scope is destroyed, all its vavariableriables forgotten.
 </p>
 
 <p>
-A <b>local scope</b> is created whenever a function is called. Any variables assigned in this function exist within the local scope. <b>When the function returns</b>, the local scope is destroyed, and all it svariables are forgotten.<br />
+A <b>local scope</b> is created whenever a function is called. Any variables assigned in this function exist within the local scope. <b>When the function returns</b>, the local scope is destroyed, and all it svariables are forgotten.
 </p>
 
 <ul class="org-ul">
-<li>Code in global scope cannot use local variables.<br /></li>
+<li>Code in global scope cannot use local variables.</li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">spam</span>():
@@ -1969,7 +1969,7 @@ NameError: name 'eggs' is not defined
 
 
 <ul class="org-ul">
-<li>However, a local scope can access global variables.<br /></li>
+<li>However, a local scope can access global variables.</li>
 </ul>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">test</span> = <span style="font-style: italic;">"Hello Test."</span> <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">global scope</span>
@@ -1989,12 +1989,12 @@ Hello Update.
 
 
 <ul class="org-ul">
-<li>Code in a function's local scope cannot use variables in any other local scope.<br /></li>
-<li>You can use the same name for different variable if they are in different scope (i.e global <code>spam</code> and local <code>spam</code>)<br /></li>
+<li>Code in a function's local scope cannot use variables in any other local scope.</li>
+<li>You can use the same name for different variable if they are in different scope (i.e global <code>spam</code> and local <code>spam</code>)</li>
 </ul>
 
 <p>
-It is bad habits to rely on global variables, especially if your programs get larger and larger. When variables are modified by the code in a particular call to a function, the function interacts with the rest of the program only through its parameters and the return value. This is easier in the scenario of debugging. If a program contains nothing but global variables and had a bug because of a global variable being set to bad value, it would be hard to track down where this bad value was set.<br />
+It is bad habits to rely on global variables, especially if your programs get larger and larger. When variables are modified by the code in a particular call to a function, the function interacts with the rest of the program only through its parameters and the return value. This is easier in the scenario of debugging. If a program contains nothing but global variables and had a bug because of a global variable being set to bad value, it would be hard to track down where this bad value was set.
 </p>
 </div>
 </div>
@@ -2003,7 +2003,7 @@ It is bad habits to rely on global variables, especially if your programs get la
 <h3 id="orgf58a42e">The Global Statement</h3>
 <div class="outline-text-3" id="text-orgf58a42e">
 <p>
-To modify a global variable from within a function's local scope, use the <code>global</code> statement. Using this ensure Python does <b>not</b> create a local variable within the local scope.<br />
+To modify a global variable from within a function's local scope, use the <code>global</code> statement. Using this ensure Python does <b>not</b> create a local variable within the local scope.
 </p>
 
 <div class="org-src-container">
@@ -2023,7 +2023,7 @@ spam
 
 
 <p>
-The last line above which is a <code>print(eggs)</code> call outputs <code>spam</code> because <code>eggs</code> is <b>declared global</b> at the top of <code>spam()</code>. When the <code>spam()</code> function is called and <code>eggs</code> is set to 'spam', this assignment is done to the globally scoped <code>eggs</code>. No local eggs variable is created.<br />
+The last line above which is a <code>print(eggs)</code> call outputs <code>spam</code> because <code>eggs</code> is <b>declared global</b> at the top of <code>spam()</code>. When the <code>spam()</code> function is called and <code>eggs</code> is set to 'spam', this assignment is done to the globally scoped <code>eggs</code>. No local eggs variable is created.
 </p>
 
 <div class="org-src-container">
@@ -2050,22 +2050,22 @@ spam
 
 
 <p>
-There are four rules to tell whether a variable is in a local or global scope:<br />
+There are four rules to tell whether a variable is in a local or global scope:
 </p>
 
 <ol class="org-ol">
-<li>If a variable is being used in the global scope, that is outside of all functions, then it is always a global variable.<br /></li>
-<li>If there is a <code>global</code> statement for that variable within a function, it is a global variable.<br /></li>
-<li>Otherwise, if the variable is used in an assignment statement within a function, it is a local variable.<br /></li>
-<li>If the variable is <b>not</b> used in an assignment statement, it is a global variable.<br /></li>
+<li>If a variable is being used in the global scope, that is outside of all functions, then it is always a global variable.</li>
+<li>If there is a <code>global</code> statement for that variable within a function, it is a global variable.</li>
+<li>Otherwise, if the variable is used in an assignment statement within a function, it is a local variable.</li>
+<li>If the variable is <b>not</b> used in an assignment statement, it is a global variable.</li>
 </ol>
 
 <p>
-In a function, a variable will always either be global or always be local.<br />
+In a function, a variable will always either be global or always be local.
 </p>
 
 <p>
-Demonstration of Rule 3:<br />
+Demonstration of Rule 3:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">def</span> <span style="font-weight: bold;">test</span>():
@@ -2090,7 +2090,7 @@ UnboundLocalError: local variable 'spam' referenced before assignment
 
 
 <p>
-<code>test()</code> returns an error because Python sees that there is an assignment statement for <code>spam</code> in the <code>test()</code> function, therefore it considers <code>spam</code> a local variable. However <code>print(spam)</code> is executed before the variable assignment so at this point the variable does not exist. <b>Python does not fall back to using a global variable.</b><br />
+<code>test()</code> returns an error because Python sees that there is an assignment statement for <code>spam</code> in the <code>test()</code> function, therefore it considers <code>spam</code> a local variable. However <code>print(spam)</code> is executed before the variable assignment so at this point the variable does not exist. <b>Python does not fall back to using a global variable.</b>
 </p>
 </div>
 </div>
@@ -2099,7 +2099,7 @@ UnboundLocalError: local variable 'spam' referenced before assignment
 <h3 id="org88b85e3">Exception Handling</h3>
 <div class="outline-text-3" id="text-org88b85e3">
 <p>
-An <b>Exception</b> is an error within a Python program. In real life we don't want this to happen because the program would crash. Instead we want the program to <b>detect error</b>, handle them and continue to run.<br />
+An <b>Exception</b> is an error within a Python program. In real life we don't want this to happen because the program would crash. Instead we want the program to <b>detect error</b>, handle them and continue to run.
 </p>
 
 <div class="org-src-container">
@@ -2128,11 +2128,11 @@ ZeroDivisionError: division by zero
 
 
 <p>
-In the above example, a <code>ZeroDivisionError</code> is an Exception that happens when we try to divide a number by <code>0</code>.  As we can see this crashed the program and the function call <code>print(forty2_divided_by(4))</code> is ignored.<br />
+In the above example, a <code>ZeroDivisionError</code> is an Exception that happens when we try to divide a number by <code>0</code>.  As we can see this crashed the program and the function call <code>print(forty2_divided_by(4))</code> is ignored.
 </p>
 
 <p>
-<b>Errors can be handled</b> with <code>try</code> and <code>except</code> statements.<br />
+<b>Errors can be handled</b> with <code>try</code> and <code>except</code> statements.
 </p>
 <pre class="example">
 
@@ -2162,7 +2162,7 @@ division by zero - However, this isn't terminating.
 
 
 <p>
-In the above example we only had one function call within a <code>try</code> block. However <b>any number of errors that occur in function calls</b> in a <code>try</code> block will also be caught.<br />
+In the above example we only had one function call within a <code>try</code> block. However <b>any number of errors that occur in function calls</b> in a <code>try</code> block will also be caught.
 </p>
 </div>
 </div>
@@ -2206,14 +2206,14 @@ initGame()
 </div>
 
 <p>
-<b>Note for self</b>:  While writing the above code I spent a bit of time on a logic error. I realised this happened because <code>if</code> was used instead of <code>elif</code>  in this line:<br />
+<b>Note for self</b>:  While writing the above code I spent a bit of time on a logic error. I realised this happened because <code>if</code> was used instead of <code>elif</code>  in this line:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">elif</span> guess &gt; secretNumber
 </pre>
 </div>
 <p>
-With another <code>if</code>, the <code>else</code> statement belongs to the second (or last) <code>if</code> statement and the first <code>if</code> becomes obsolet.<br />
+With another <code>if</code>, the <code>else</code> statement belongs to the second (or last) <code>if</code> statement and the first <code>if</code> becomes obsolet.
 </p>
 </div>
 </div>
@@ -2222,28 +2222,28 @@ With another <code>if</code>, the <code>else</code> statement belongs to the sec
 <div class="outline-text-3" id="text-orga988bf6">
 <blockquote>
 <p>
-<br />
-The Collatz Sequence<br />
+   
+The Collatz Sequence
 </p>
 
 <p>
-Write a function named collatz() that has one parameter named number. If number is even, then collatz() should print number // 2 and return this value. If number is odd, then collatz() should print and return 3 * number + 1.<br />
+Write a function named collatz() that has one parameter named number. If number is even, then collatz() should print number // 2 and return this value. If number is odd, then collatz() should print and return 3 * number + 1.
 </p>
 
 <p>
-Then write a program that lets the user type in an integer and that keeps calling collatz() on that number until the function returns the value 1. (Amazingly enough, this sequence actually works for any integer—sooner or later, using this sequence, you’ll arrive at 1! Even mathematicians aren’t sure why. Your program is exploring what’s called the Collatz sequence, sometimes called “the simplest impossible math problem.”)<br />
+Then write a program that lets the user type in an integer and that keeps calling collatz() on that number until the function returns the value 1. (Amazingly enough, this sequence actually works for any integer—sooner or later, using this sequence, you’ll arrive at 1! Even mathematicians aren’t sure why. Your program is exploring what’s called the Collatz sequence, sometimes called “the simplest impossible math problem.”)
 </p>
 
 <p>
-Remember to convert the return value from input() to an integer with the int() function; otherwise, it will be a string value.<br />
+Remember to convert the return value from input() to an integer with the int() function; otherwise, it will be a string value.
 </p>
 
 <p>
-Hint: An integer number is even if number % 2 = 0, and it’s odd if number % 2 1.<br />
+Hint: An integer number is even if number % 2 = 0, and it’s odd if number % 2 1. 
 </p>
 
 <p>
-The output of this program could look something like this:<br />
+The output of this program could look something like this:
 </p>
 
 <pre class="example">
@@ -2260,17 +2260,17 @@ Enter number:
 
 
 <p>
-<b>Input Validation</b><br />
+<b>Input Validation</b>
 </p>
 
 <p>
-Add try and except statements to the previous project to detect whether the user types in a noninteger string. Normally, the int() function will raise a ValueError error if it is passed a noninteger string, as in int('puppy'). In the except clause, print a message to the user saying they must enter an integer.<br />
+Add try and except statements to the previous project to detect whether the user types in a noninteger string. Normally, the int() function will raise a ValueError error if it is passed a noninteger string, as in int('puppy'). In the except clause, print a message to the user saying they must enter an integer.
 </p>
 </blockquote>
 
 <div class="org-center">
 <p>
-The Collatz Program<br />
+The Collatz Program
 </p>
 </div>
 <div class="org-src-container">
@@ -2318,24 +2318,24 @@ The Collatz Program<br />
 <div class="outline-text-2" id="text-org74f6926">
 <div class="org-center">
 <p>
-A list is a value that contains multiple values in an ordered sequence.<br />
+A list is a value that contains multiple values in an ordered sequence.
 </p>
 </div>
 
 <p>
-List and its cousin tuple are important data types that can contain <b>multiple values</b>.<br />
+List and its cousin tuple are important data types that can contain <b>multiple values</b>.
 </p>
 
 <p>
-List can contain other lists. Therefore it can be used to arrange data into hierarchical order.<br />
+List can contain other lists. Therefore it can be used to arrange data into hierarchical order.
 </p>
 
 <p>
-The term <b>list value</b> refers to the list itself, not the values inside the list value.<br />
+The term <b>list value</b> refers to the list itself, not the values inside the list value.
 </p>
 
 <p>
-A list value looks like this <code>['cat', 'dog', 'rat', 'elephant']</code>. A list begins with an opening square bracket <code>[</code> and end with a closing square bracket <code>]</code>. Values inside the list are called <b>items</b> and are separated with commas (i.e being <b>comma=delimited</b>).<br />
+A list value looks like this <code>['cat', 'dog', 'rat', 'elephant']</code>. A list begins with an opening square bracket <code>[</code> and end with a closing square bracket <code>]</code>. Values inside the list are called <b>items</b> and are separated with commas (i.e being <b>comma=delimited</b>). 
 </p>
 
 <div class="org-src-container">
@@ -2356,7 +2356,7 @@ None
 
 
 <p>
-The test variable is assigned only <b>one value - the list value</b>. However the list value itself contains other values.<br />
+The test variable is assigned only <b>one value - the list value</b>. However the list value itself contains other values.
 </p>
 </div>
 
@@ -2364,15 +2364,15 @@ The test variable is assigned only <b>one value - the list value</b>. However th
 <h3 id="orge8cb585">Indexes</h3>
 <div class="outline-text-3" id="text-orge8cb585">
 <p>
-<code>list[i]</code>: list is the name of the list variable and i refers to the index.<br />
+<code>list[i]</code>: list is the name of the list variable and i refers to the index.
 </p>
 
 <ul class="org-ul">
-<li>The first value in the list is at <b>index 0</b>, and so on.<br /></li>
+<li>The first value in the list is at <b>index 0</b>, and so on.</li>
 </ul>
 
 <p>
-Example:<br />
+Example:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">test</span> = [<span style="font-style: italic;">'dog'</span>, <span style="font-style: italic;">'cat'</span>, <span style="font-style: italic;">'elephant'</span>]
@@ -2390,11 +2390,11 @@ The cat ate the elephant.
 
 
 <p>
-<b>Error</b>:<br />
+<b>Error</b>:
 </p>
 <ul class="org-ul">
-<li><code>IndexError</code> is given by Python when we use an index that exceeds the number of values in our list values.<br /></li>
-<li>Indexes can only be integer values, not float. Using a float would cause <code>TypeError</code> error.<br /></li>
+<li><code>IndexError</code> is given by Python when we use an index that exceeds the number of values in our list values.</li>
+<li>Indexes can only be integer values, not float. Using a float would cause <code>TypeError</code> error.</li>
 </ul>
 </div>
 
@@ -2402,7 +2402,7 @@ The cat ate the elephant.
 <h4 id="org90d87e8">Looped lists and multiple indexes</h4>
 <div class="outline-text-4" id="text-org90d87e8">
 <p>
-<b>List can also contains other list values, the values in these lists of lists can be accessed using <span class="underline">multiple indexes</span>, for example:</b><br />
+<b>List can also contains other list values, the values in these lists of lists can be accessed using <span class="underline">multiple indexes</span>, for example:</b>
 </p>
 
 <div class="org-src-container">
@@ -2439,7 +2439,7 @@ True
 
 
 <p>
-While indexes start at <code>0</code> and go up, we can also use negative integers for the index. The last item within the list can be referred to using index <code>-1</code> <br />
+While indexes start at <code>0</code> and go up, we can also use negative integers for the index. The last item within the list can be referred to using index <code>-1</code> 
 </p>
 </div>
 </div>
@@ -2447,11 +2447,11 @@ While indexes start at <code>0</code> and go up, we can also use negative intege
 <h4 id="org5423fd9">Sublists and slices</h4>
 <div class="outline-text-4" id="text-org5423fd9">
 <p>
-An index can get a <b>single value</b> from a list.<br />
+An index can get a <b>single value</b> from a list.
 </p>
 
 <p>
-A slice can get <b>several values</b> from a list in the form of a new list.<br />
+A slice can get <b>several values</b> from a list in the form of a new list.
 </p>
 
 <div class="org-src-container">
@@ -2474,15 +2474,15 @@ A slice can get <b>several values</b> from a list in the form of a new list.<br 
 
 
 <p>
-A slice is typed between square brackets like an index but it has <b>two integers</b> separated by a colon.<br />
+A slice is typed between square brackets like an index but it has <b>two integers</b> separated by a colon.
 </p>
 
 <p>
-In a slice, the <b>first</b> integer is the <b>starting index</b>. The <b>second</b> integer is the <b>ending index</b>. A slice goes up to the <b>ending index</b> <span class="underline">non-inclusive</span>.<br />
+In a slice, the <b>first</b> integer is the <b>starting index</b>. The <b>second</b> integer is the <b>ending index</b>. A slice goes up to the <b>ending index</b> <span class="underline">non-inclusive</span>. 
 </p>
 
 <p>
-As a shortcut, we can leave either index out on either side of the colon. Leaving out the first index is the same as using 0. Leaving out the second index is the same as the length of the list. A list length can be return using <code>len()</code><br />
+As a shortcut, we can leave either index out on either side of the colon. Leaving out the first index is the same as using 0. Leaving out the second index is the same as the length of the list. A list length can be return using <code>len()</code>
 </p>
 
 <div class="org-src-container">
@@ -2574,7 +2574,7 @@ Iron Man
 <h3 id="orgb29a814">Removing list item with <code>del</code></h3>
 <div class="outline-text-3" id="text-orgb29a814">
 <p>
-<a id="org5a5e8f7"></a><br />
+<a id="org5a5e8f7"></a>
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">test</span> = [<span style="font-style: italic;">'dog'</span>, <span style="font-style: italic;">'cat'</span>, <span style="font-style: italic;">'elephant'</span>]
@@ -2589,7 +2589,7 @@ Iron Man
 
 
 <p>
-The <code>del</code> statement also be used to delete or "unassign" simple variable. However it's almost never used for this.<br />
+The <code>del</code> statement also be used to delete or "unassign" simple variable. However it's almost never used for this.
 </p>
 </div>
 </div>
@@ -2597,11 +2597,11 @@ The <code>del</code> statement also be used to delete or "unassign" simple varia
 <h3 id="orgbec1df5">Working with lists</h3>
 <div class="outline-text-3" id="text-orgbec1df5">
 <p>
-Instead of using multiple, repetitive variables, we can use a single list variable that contains multiple similar values.<br />
+Instead of using multiple, repetitive variables, we can use a single list variable that contains multiple similar values.
 </p>
 
 <p>
-Example: Instead of &#x2026;<br />
+Example: Instead of &#x2026;
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">dog1</span> = <span style="font-style: italic;">'Roku'</span>
@@ -2616,7 +2616,7 @@ RokuHachi
 
 
 <p>
-We can do..<br />
+We can do..
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">dog</span> = [<span style="font-style: italic;">'Roku'</span>, <span style="font-style: italic;">'Hachi'</span>]
@@ -2639,11 +2639,11 @@ RokuHachi
 <h3 id="org861a5e0">Using <code>for</code> loops with lists</h3>
 <div class="outline-text-3" id="text-org861a5e0">
 <p>
-Technically, a <code>for</code> loop repeats the code block for each value in a list-like value.<br />
+Technically, a <code>for</code> loop repeats the code block for each value in a list-like value.
 </p>
 
 <p>
-For example if we do<br />
+For example if we do
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">for</span> i <span style="font-weight: bold;">in</span> <span style="font-weight: bold;">range</span>(4):
@@ -2660,7 +2660,7 @@ For example if we do<br />
 
 
 <p>
-The <code>range(4)</code> bit is a list that has value that is similar to <code>[0,1,2,3]</code>. Remember <code>range(x)</code> is from <code>0</code> up to <code>x</code> non-inclusive.<br />
+The <code>range(4)</code> bit is a list that has value that is similar to <code>[0,1,2,3]</code>. Remember <code>range(x)</code> is from <code>0</code> up to <code>x</code> non-inclusive.
 </p>
 
 <div class="org-src-container">
@@ -2678,7 +2678,7 @@ The <code>range(4)</code> bit is a list that has value that is similar to <code>
 
 
 <p>
-A common Python techniques is to use list with <code>range(len(some_list))</code> with a <code>for</code> loop to iterate over the indexes of a list. For example:<br />
+A common Python techniques is to use list with <code>range(len(some_list))</code> with a <code>for</code> loop to iterate over the indexes of a list. For example:
 </p>
 
 <div class="org-src-container">
@@ -2699,7 +2699,7 @@ Index 5 in some_list is Akita
 
 
 <p>
-In the above example the loop access both the index (<code>i</code>) as well as the value at that index (<code>somelist[i]</code>). Best of all, <code>range(len(some_list))</code> will iterate through all the indexes of some_list, no matter how many items it contains.<br />
+In the above example the loop access both the index (<code>i</code>) as well as the value at that index (<code>somelist[i]</code>). Best of all, <code>range(len(some_list))</code> will iterate through all the indexes of some_list, no matter how many items it contains.
 </p>
 </div>
 </div>
@@ -2707,11 +2707,11 @@ In the above example the loop access both the index (<code>i</code>) as well as 
 <h3 id="org0a59c43">the <code>in</code> and <code>not in</code> operators</h3>
 <div class="outline-text-3" id="text-org0a59c43">
 <p>
-These two values can be used in expressions that connect two values to evaluate to a Boolean value. This is good for checking values in a pre-determined set.<br />
+These two values can be used in expressions that connect two values to evaluate to a Boolean value. This is good for checking values in a pre-determined set.
 </p>
 
 <p>
-Example:<br />
+Example:
 </p>
 
 <div class="org-src-container">
@@ -2733,8 +2733,8 @@ False
 <h3 id="org681a1b9">The multiple assignment trick</h3>
 <div class="outline-text-3" id="text-org681a1b9">
 <p>
-<a id="orgf858b5f"></a><br />
-Instead of doing:<br />
+<a id="orgf858b5f"></a>
+Instead of doing:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">cat</span> = [<span style="font-style: italic;">'fat'</span>, <span style="font-style: italic;">'orange'</span>, <span style="font-style: italic;">'loud'</span>]
@@ -2755,7 +2755,7 @@ loud
 
 
 <p>
-We can do use the multiple assignment trick which is..<br />
+We can do use the multiple assignment trick which is..
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">cat</span> = [<span style="font-style: italic;">'fat'</span>, <span style="font-style: italic;">'orange'</span>, <span style="font-style: italic;">'loud'</span>]
@@ -2774,7 +2774,7 @@ loud
 
 
 <p>
-To do this, <b>the number of variables</b> and the <b>length of the list</b> must be <b>exactly equal</b>, otherwise a ValueError would be produced..<br />
+To do this, <b>the number of variables</b> and the <b>length of the list</b> must be <b>exactly equal</b>, otherwise a ValueError would be produced..
 </p>
 
 <div class="org-src-container">
@@ -2792,7 +2792,7 @@ ValueError: not enough values to unpack (expected 4, got 3)
 
 
 <p>
-The multiple assignment trick can actually be used for separate variables..<br />
+The multiple assignment trick can actually be used for separate variables..
 </p>
 
 <div class="org-src-container">
@@ -2817,7 +2817,7 @@ Alice
 <h3 id="orga208f5b">Augmented Assignment Operators</h3>
 <div class="outline-text-3" id="text-orga208f5b">
 <p>
-Instead of doing..<br />
+Instead of doing..
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">test</span> = 45
@@ -2832,7 +2832,7 @@ Instead of doing..<br />
 
 
 <p>
-We could do..<br />
+We could do..
 </p>
 
 <div class="org-src-container">
@@ -2900,11 +2900,11 @@ We could do..<br />
 <h3 id="org0834a26">Methods and List Methods</h3>
 <div class="outline-text-3" id="text-org0834a26">
 <p>
-A <b>method</b> is the same thing as a function, except it is "called on" a value.<br />
+A <b>method</b> is the same thing as a function, except it is "called on" a value. 
 </p>
 
 <p>
-The difference in syntax is displayed below:<br />
+The difference in syntax is displayed below:
 </p>
 <pre class="example">
 function() _object_
@@ -2912,11 +2912,11 @@ _object_.method()
 </pre>
 
 <p>
-<b>Each data type has its own set of methods.</b><br />
+<b>Each data type has its own set of methods.</b>
 </p>
 
 <p>
-The list data type for example has several useful methods..<br />
+The list data type for example has several useful methods..
 </p>
 </div>
 
@@ -2924,7 +2924,7 @@ The list data type for example has several useful methods..<br />
 <h4 id="org2252285"><code>append()</code> and <code>insert()</code></h4>
 <div class="outline-text-4" id="text-org2252285">
 <p>
-These can be used to add items to a list. <code>append()</code> add the item to the <b>end</b> of the list, whereas <code>insert()</code> can add a value at <b>any index</b> in the list.<br />
+These can be used to add items to a list. <code>append()</code> add the item to the <b>end</b> of the list, whereas <code>insert()</code> can add a value at <b>any index</b> in the list.
 </p>
 
 <div class="org-src-container">
@@ -2953,11 +2953,11 @@ animal.insert(1, <span style="font-style: italic;">'mouse'</span>)
 
 
 <p>
-Notice that the code is <code>animal.append(..)</code> not <code>animal = animal.append(..)</code>. This is because neither method gives the new value. Both of them <code>return None</code>. Rather, the list is modified <b>in place</b>.<br />
+Notice that the code is <code>animal.append(..)</code> not <code>animal = animal.append(..)</code>. This is because neither method gives the new value. Both of them <code>return None</code>. Rather, the list is modified <b>in place</b>. 
 </p>
 
 <p>
-These two methods are list methods and can only be called on list values. If we use a method on a data type that doesn't have that method, you'd get <code>AttributeError</code>.<br />
+These two methods are list methods and can only be called on list values. If we use a method on a data type that doesn't have that method, you'd get <code>AttributeError</code>.
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">test</span> = <span style="font-style: italic;">"hello"</span>
@@ -2999,7 +2999,7 @@ ValueError: list.remove(x): x not in list
 
 
 <p>
-The <a href="#org5a5e8f7">del</a> statement is good to be used when we know the index of an item within a list. However the <code>remove()</code> method is good when we know the value we want to remove.<br />
+The <a href="#org5a5e8f7">del</a> statement is good to be used when we know the index of an item within a list. However the <code>remove()</code> method is good when we know the value we want to remove.
 </p>
 </div>
 </div>
@@ -3025,11 +3025,11 @@ animal.sort()
 
 
 <p>
-To sort values in reverse order, we can pass the argument <code>reverse = True</code> to the method.<br />
+To sort values in reverse order, we can pass the argument <code>reverse = True</code> to the method.
 </p>
 
 <p>
-Another thing to note is that <code>sort()</code> sorts the list <b>in place</b>, it cannot be captured.<br />
+Another thing to note is that <code>sort()</code> sorts the list <b>in place</b>, it cannot be captured. 
 </p>
 
 <div class="org-src-container">
@@ -3045,11 +3045,11 @@ number.sort(reverse=<span style="font-weight: bold; text-decoration: underline;"
 
 
 <p>
-There are other rules.. the complete set of rules is:<br />
+There are other rules.. the complete set of rules is:
 </p>
 
 <ol class="org-ol">
-<li>sort() returns None.<br /></li>
+<li>sort() returns None.</li>
 </ol>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">number</span> = [2, 5, 3, 3.14, 1, -1]
@@ -3062,9 +3062,9 @@ None
 
 
 <ol class="org-ol">
-<li>sort() cannot sort both int and str. We'd get <code>TypeError</code>.<br /></li>
+<li>sort() cannot sort both int and str. We'd get <code>TypeError</code>.</li>
 
-<li>sort() uses <b>ASCIIbetical order</b> not alphabetical order. This way the uppercase letters come before lower case letter i.e 'Z' comes before 'a'. We can however pass <code>str.lower</code> for the <code>key</code> parameter in the method call.<br /></li>
+<li>sort() uses <b>ASCIIbetical order</b> not alphabetical order. This way the uppercase letters come before lower case letter i.e 'Z' comes before 'a'. We can however pass <code>str.lower</code> for the <code>key</code> parameter in the method call.</li>
 </ol>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">animal</span> = [<span style="font-style: italic;">'Dog'</span>, <span style="font-style: italic;">'Zebra'</span>, <span style="font-style: italic;">'ant'</span>, <span style="font-style: italic;">'rhinocerous'</span>, <span style="font-style: italic;">'bull'</span>, <span style="font-style: italic;">'cow'</span>]
@@ -3089,7 +3089,7 @@ animal.sort(key=<span style="font-weight: bold;">str</span>.lower)
 <h3 id="orgd8aad91">Exception to indentation rule</h3>
 <div class="outline-text-3" id="text-orgd8aad91">
 <p>
-List is one of the few things that are exceptions to the indentation rule.<br />
+List is one of the few things that are exceptions to the indentation rule.
 </p>
 
 <div class="org-src-container">
@@ -3107,7 +3107,7 @@ List is one of the few things that are exceptions to the indentation rule.<br />
 
 
 <p>
-Another one is <code>print()</code>. It's a good idea to use <code>\</code>. <code>\</code> means "this will continues on next line".<br />
+Another one is <code>print()</code>. It's a good idea to use <code>\</code>. <code>\</code> means "this will continues on next line".
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">print</span>(<span style="font-style: italic;">"Hello, \</span>
@@ -3124,7 +3124,7 @@ Hello, how are you?
 <h3 id="orgc027b15">List-like data type: strings</h3>
 <div class="outline-text-3" id="text-orgc027b15">
 <p>
-Lists aren't the only data types that represent ordered sequences of values.<br />
+Lists aren't the only data types that represent ordered sequences of values.
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">name</span> = <span style="font-style: italic;">'Kenny Nguyen'</span>
@@ -3171,7 +3171,7 @@ K
 <h3 id="org5faaf04">Mutable and Immutable data types</h3>
 <div class="outline-text-3" id="text-org5faaf04">
 <p>
-Although lists and strings are similar in that they both represent an ordered sequence of value, they differ in important way. A list value is a <b>mutable</b> data type however a string is <b>immutable</b>.<br />
+Although lists and strings are similar in that they both represent an ordered sequence of value, they differ in important way. A list value is a <b>mutable</b> data type however a string is <b>immutable</b>. 
 </p>
 
 <div class="org-src-container">
@@ -3197,8 +3197,8 @@ TypeError: 'str' object does not support item assignment
 
 
 <p>
-Instead, the proper way to "mutate" a string is to use clicing and concatenation to build a <b>new</b> string.<br />
-(we can of course also re-use the variable name to essentially modify its value..))<br />
+Instead, the proper way to "mutate" a string is to use clicing and concatenation to build a <b>new</b> string.
+(we can of course also re-use the variable name to essentially modify its value..))
 </p>
 
 <div class="org-src-container">
@@ -3219,13 +3219,13 @@ Kenny the silly
 <h3 id="org0d40a4f">The Tuple Data type</h3>
 <div class="outline-text-3" id="text-org0d40a4f">
 <p>
-Tuples are very similar to lists except in two ways:<br />
+Tuples are very similar to lists except in two ways:
 </p>
 <blockquote>
 <ol class="org-ol">
-<li>Syntax: Tuples are typed with parentheses, <code>(</code> and <code>)</code> instead of square brackets.<br />
-<i>Although, when indexing, we still put the index number in [ ].</i> <br /></li>
-<li>Important: Tuples are <b>immutable</b>.<br /></li>
+<li>Syntax: Tuples are typed with parentheses, <code>(</code> and <code>)</code> instead of square brackets.
+<i>Although, when indexing, we still put the index number in [ ].</i></li>
+<li>Important: Tuples are <b>immutable</b>.</li>
 </ol>
 </blockquote>
 
@@ -3253,11 +3253,11 @@ TypeError: 'tuple' object does not support item assignment
 
 
 <p>
-Tuples can be used to convey to anyone reading the code that we intend for a sequence of value to <b>never</b> change. Also because they are immutable, Python's optimizations allow them to be processed faster than lists.<br />
+Tuples can be used to convey to anyone reading the code that we intend for a sequence of value to <b>never</b> change. Also because they are immutable, Python's optimizations allow them to be processed faster than lists.
 </p>
 
 <p>
-Python is one of the several programming languages where it's OK to use a <b>trailing comma</b>. This can be used to turn a single value into a tuple.<br />
+Python is one of the several programming languages where it's OK to use a <b>trailing comma</b>. This can be used to turn a single value into a tuple.
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">name</span> = (<span style="font-style: italic;">'Kenny'</span>)
@@ -3277,7 +3277,7 @@ Python is one of the several programming languages where it's OK to use a <b>tra
 <h3 id="orga098f44">References</h3>
 <div class="outline-text-3" id="text-orga098f44">
 <p>
-As we have seen, variables can be used to store <code>str</code>, <code>int</code> or <code>float</code>..<br />
+As we have seen, variables can be used to store <code>str</code>, <code>int</code> or <code>float</code>..
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">spam</span> = 42
@@ -3294,15 +3294,15 @@ As we have seen, variables can be used to store <code>str</code>, <code>int</cod
 
 
 <p>
-In the above example, even though we change the variable <code>spam</code> to value <code>100</code>, <code>cheese</code> remains <code>42</code> because <code>cheese</code> and <code>spam</code> are two different variables that store different values, although the value of cheese was copied from spam.<br />
+In the above example, even though we change the variable <code>spam</code> to value <code>100</code>, <code>cheese</code> remains <code>42</code> because <code>cheese</code> and <code>spam</code> are two different variables that store different values, although the value of cheese was copied from spam.
 </p>
 
 <p>
-<b>Lists don't work this way.</b> When we assign a list to a variable, we are actually assigning a <b>list reference</b> to the variable. A reference is a value that points to some bit of data. A list reference is a value that points to a list.<br />
+<b>Lists don't work this way.</b> When we assign a list to a variable, we are actually assigning a <b>list reference</b> to the variable. A reference is a value that points to some bit of data. A list reference is a value that points to a list.
 </p>
 
 <p>
-To make it easier:<br />
+To make it easier:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">spam</span> = [0, 1, 2, 3, 4, 5]
@@ -3320,11 +3320,11 @@ To make it easier:<br />
 
 
 <p>
-It looks a bit odd. <code>cheese[1] = 'Hello'</code> changed the <code>cheese</code> list, however the <code>spam</code> list was also changed.<br />
+It looks a bit odd. <code>cheese[1] = 'Hello'</code> changed the <code>cheese</code> list, however the <code>spam</code> list was also changed.
 </p>
 
 <p>
-This is because:<br />
+This is because:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">spam</span> = [0, 1, 2, 3, 4, 5]  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">When the list was created, its reference was assigned to variable spam.</span>
@@ -3338,11 +3338,11 @@ This is because:<br />
 
 <blockquote>
 <p>
-Assignment of a list works differently in that only the <b>list reference</b> is assigned to the variable(s), which point to the same list.<br />
+Assignment of a list works differently in that only the <b>list reference</b> is assigned to the variable(s), which point to the same list.
 </p>
 
 <p>
-Modification to any reference updates the <b>underlying</b> list.<br />
+Modification to any reference updates the <b>underlying</b> list. 
 </p>
 </blockquote>
 </div>
@@ -3358,15 +3358,15 @@ Modification to any reference updates the <b>underlying</b> list.<br />
 <div class="outline-text-4" id="text-org1fcdba3">
 <blockquote>
 <p>
-Say you have a list value like this:<br />
+Say you have a list value like this:
 </p>
 
 <p>
-spam = ['apples', 'bananas', 'tofu', 'cats']<br />
+spam = ['apples', 'bananas', 'tofu', 'cats']
 </p>
 
 <p>
-Write a function that takes a list value as an argument and returns a string with all the items separated by a comma and a space, with and inserted before the last item. For example, passing the previous spam list to the function would return 'apples, bananas, tofu, and cats'. But your function should be able to work with any list value passed to it.<br />
+Write a function that takes a list value as an argument and returns a string with all the items separated by a comma and a space, with and inserted before the last item. For example, passing the previous spam list to the function would return 'apples, bananas, tofu, and cats'. But your function should be able to work with any list value passed to it.
 </p>
 </blockquote>
 <div class="org-src-container">
@@ -3403,7 +3403,7 @@ apples, bananas, tofu, and cats
 <h4 id="org99e9440">Character Picture Grid</h4>
 <div class="outline-text-4" id="text-org99e9440">
 <p>
-Say you have a list of lists where each value in the inner lists is a one-character string, like this:<br />
+Say you have a list of lists where each value in the inner lists is a one-character string, like this:
 </p>
 
 <pre class="example">
@@ -3420,11 +3420,11 @@ grid = [['.', '.', '.', '.', '.', '.'],
 </pre>
 
 <p>
-You can think of grid[x][y] as being the character at the x- and y-coordinates of a “picture” drawn with text characters. The (0, 0) origin will be in the upper-left corner, the x-coordinates increase going right, and the y-coordinates increase going down.<br />
+You can think of grid[x][y] as being the character at the x- and y-coordinates of a “picture” drawn with text characters. The (0, 0) origin will be in the upper-left corner, the x-coordinates increase going right, and the y-coordinates increase going down.
 </p>
 
 <p>
-Copy the previous grid value, and write code that uses it to print the image.<br />
+Copy the previous grid value, and write code that uses it to print the image.
 </p>
 <pre class="example">
 ..OO.OO..
@@ -3436,11 +3436,11 @@ Copy the previous grid value, and write code that uses it to print the image.<br
 </pre>
 
 <p>
-Hint: You will need to use a loop in a loop in order to print grid[0][0], then grid[1][0], then grid[2][0], and so on, up to grid[8][0]. This will finish the first row, so then print a newline. Then your program should print grid[0][1], then grid[1][1], then grid[2][1], and so on. The last thing your program will print is grid[8][5].<br />
+Hint: You will need to use a loop in a loop in order to print grid[0][0], then grid[1][0], then grid[2][0], and so on, up to grid[8][0]. This will finish the first row, so then print a newline. Then your program should print grid[0][1], then grid[1][1], then grid[2][1], and so on. The last thing your program will print is grid[8][5].
 </p>
 
 <p>
-Also, remember to pass the end keyword argument to print() if you don’t want a newline printed automatically after each print() call.<br />
+Also, remember to pass the end keyword argument to print() if you don’t want a newline printed automatically after each print() call.
 </p>
 </div>
 
@@ -3490,19 +3490,19 @@ Also, remember to pass the end keyword argument to print() if you don’t want a
 <h2 id="org028539b">Chapter 5 - Dictionaries and Structuring Data</h2>
 <div class="outline-text-2" id="text-org028539b">
 <p>
-Dictionary data type provides a flexible way to access and organize data. Dictionaries and lists are closely related.<br />
+Dictionary data type provides a flexible way to access and organize data. Dictionaries and lists are closely related.
 </p>
 
 <p>
-Like a list, a dictionary is a collection of many values. However, unlike a list, indexes for a dictionaries can use many different data types, not just integers, i.e instead of <code>list[1][0]</code> we can have <code>dict[hello][english]</code>.<br />
+Like a list, a dictionary is a collection of many values. However, unlike a list, indexes for a dictionaries can use many different data types, not just integers, i.e instead of <code>list[1][0]</code> we can have <code>dict[hello][english]</code>. 
 </p>
 
 <p>
-Indexes for dictionaries are called <b>keys</b>, and a key with its <b>value</b> is called a <span class="underline"><b>key-value</b></span> pair.<br />
+Indexes for dictionaries are called <b>keys</b>, and a key with its <b>value</b> is called a <span class="underline"><b>key-value</b></span> pair.
 </p>
 
 <p>
-In Python, a dictionary is typed with <b>braces</b> <code>{}</code>.<br />
+In Python, a dictionary is typed with <b>braces</b> <code>{}</code>.
 </p>
 
 <div class="org-src-container">
@@ -3519,7 +3519,7 @@ My cat has a gray coat
 
 
 <p>
-Dictionaries can still use integer value as keys just like lists. But they do not have to start at 0 and can be any number, i.e <code>dictionary = {12345: "Hello world"}</code>.<br />
+Dictionaries can still use integer value as keys just like lists. But they do not have to start at 0 and can be any number, i.e <code>dictionary = {12345: "Hello world"}</code>.
 </p>
 </div>
 
@@ -3574,7 +3574,7 @@ Dictionaries can still use integer value as keys just like lists. But they do no
 <h3 id="org788077f"><code>keys()</code>, <code>values()</code> and <code>items()</code> methods</h3>
 <div class="outline-text-3" id="text-org788077f">
 <p>
-These are the three dictionary methods that will return list-like values of dictionary's keys, values or both keys and values. The returned values aren't true lists as they cannot be modified and lack the <code>append()</code> method. But these data types (<code>dict_keys</code>, <code>dict_values</code> and <code>dict_items()</code> respectively) can be used in <code>for</code> loop.<br />
+These are the three dictionary methods that will return list-like values of dictionary's keys, values or both keys and values. The returned values aren't true lists as they cannot be modified and lack the <code>append()</code> method. But these data types (<code>dict_keys</code>, <code>dict_values</code> and <code>dict_items()</code> respectively) can be used in <code>for</code> loop.
 </p>
 
 <div class="org-src-container">
@@ -3647,11 +3647,11 @@ True
 <h3 id="org216a317">The <code>get()</code> method</h3>
 <div class="outline-text-3" id="text-org216a317">
 <p>
-This method takes two arguments: a key of the value to retrive and a fall back value to return if the key does not exist.<br />
+This method takes two arguments: a key of the value to retrive and a fall back value to return if the key does not exist.
 </p>
 
 <p>
-Fallback value replaces <code>KeyError</code> in the case of no value to retrive.<br />
+Fallback value replaces <code>KeyError</code> in the case of no value to retrive.
 </p>
 
 <div class="org-src-container">
@@ -3677,15 +3677,15 @@ My dog weighs 0.
 <h3 id="org84d95ef">The <code>setdefault()</code> method</h3>
 <div class="outline-text-3" id="text-org84d95ef">
 <p>
-This method offers a way to set default values in one line of code.<br />
+This method offers a way to set default values in one line of code.
 </p>
 
 <p>
-It is a nice shortcut to <b>ensure that a key exists</b>.<br />
+It is a nice shortcut to <b>ensure that a key exists</b>. 
 </p>
 
 <p>
-Instead of ..<br />
+Instead of ..
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">dog</span> = {<span style="font-style: italic;">'name'</span>: <span style="font-style: italic;">'Roku'</span>
@@ -3705,7 +3705,7 @@ Instead of ..<br />
 
 
 <p>
-We can do..<br />
+We can do..
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">dog</span> = {<span style="font-style: italic;">'name'</span>: <span style="font-style: italic;">'Roku'</span>
@@ -3732,7 +3732,7 @@ dog.setdefault(<span style="font-style: italic;">'weight'</span>, <span style="f
 
 
 <p>
-Example: Using Python to count occurences of each letter in a string.<br />
+Example: Using Python to count occurences of each letter in a string.
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">string</span> = <span style="font-style: italic;">'It was a bright cold day in April, and the clocks were striking thirteen.'</span>
@@ -3758,7 +3758,7 @@ Example: Using Python to count occurences of each letter in a string.<br />
 <h3 id="orgb9c4536">Pretty printing <code>pprint()</code> and <code>pformat()</code></h3>
 <div class="outline-text-3" id="text-orgb9c4536">
 <p>
-Pretty print is helpful is helpful when we want a cleaner display of dictionary that what <code>print()</code> normally provides.<br />
+Pretty print is helpful is helpful when we want a cleaner display of dictionary that what <code>print()</code> normally provides.
 </p>
 
 <div class="org-src-container">
@@ -3834,15 +3834,15 @@ pprint.pprint(count_letter(string))
 </pre>
 
 <p>
-From the above we can see that <code>pprint</code> produces an output that looks much cleaner with the keys <b>sorted</b> nicely. it is helpful especially for nested list/ dictionaries.<br />
+From the above we can see that <code>pprint</code> produces an output that looks much cleaner with the keys <b>sorted</b> nicely. it is helpful especially for nested list/ dictionaries.
 </p>
 
 <p>
-What <code>pprint.pformat()</code> does is return the "prettified" text as a string instead of displaying it in stdout. Essentially:<br />
+What <code>pprint.pformat()</code> does is return the "prettified" text as a string instead of displaying it in stdout. Essentially:
 </p>
 <blockquote>
 <p>
-pprint.print(aDictionary) == print(pprint.pformat(aDictionary))<br />
+pprint.print(aDictionary) == print(pprint.pformat(aDictionary))
 </p>
 </blockquote>
 </div>
@@ -3852,11 +3852,11 @@ pprint.print(aDictionary) == print(pprint.pformat(aDictionary))<br />
 <h3 id="orga71d045">Nested dictionaries and lists</h3>
 <div class="outline-text-3" id="text-orga71d045">
 <p>
-As we model more complicated things in life we may need to utilize dictionaries and list that contain other dictionaries and lists.<br />
+As we model more complicated things in life we may need to utilize dictionaries and list that contain other dictionaries and lists.
 </p>
 
 <p>
-Lists are useful to contain a <b>ordered</b> series of values whereas dictionaries are useful for associate keys with values. For example here is a program that uses a dictionary that contains other dictionaries:<br />
+Lists are useful to contain a <b>ordered</b> series of values whereas dictionaries are useful for associate keys with values. For example here is a program that uses a dictionary that contains other dictionaries:
 </p>
 
 <div class="org-src-container">
@@ -3886,21 +3886,21 @@ Alex is bringing 7 biscuits.
 <div class="outline-text-3" id="text-orgc466e02">
 <blockquote>
 <p>
-You are creating a fantasy video game. The data structure to model the player’s inventory will be a dictionary where the keys are string values describing the item in the inventory and the value is an integer value detailing how many of that item the player has. For example, the dictionary value {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12} means the player has 1 rope, 6 torches, 42 gold coins, and so on.<br />
+You are creating a fantasy video game. The data structure to model the player’s inventory will be a dictionary where the keys are string values describing the item in the inventory and the value is an integer value detailing how many of that item the player has. For example, the dictionary value {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12} means the player has 1 rope, 6 torches, 42 gold coins, and so on.
 </p>
 
 <p>
-Write a function named displayInventory() that would take any possible “inventory” and display it like the following:<br />
+Write a function named displayInventory() that would take any possible “inventory” and display it like the following:
 </p>
 
 <p>
-Inventory:<br />
-12 arrow<br />
-42 gold coin<br />
-1 rope<br />
-6 torch<br />
-1 dagger<br />
-Total number of items: 62<br />
+Inventory:
+12 arrow
+42 gold coin
+1 rope
+6 torch
+1 dagger
+Total number of items: 62
 </p>
 </blockquote>
 
@@ -3938,11 +3938,11 @@ Total number of items: 62
 <h2 id="orga4617c6">Chapter 6 - Manipulating Strings</h2>
 <div class="outline-text-2" id="text-orga4617c6">
 <p>
-Text is one of the most common forms of data our programs will handle.<br />
+Text is one of the most common forms of data our programs will handle. 
 </p>
 
 <p>
-Typing string values in Python is fairly straightforward, string data type begin and end with a <b>single quote</b>.<br />
+Typing string values in Python is fairly straightforward, string data type begin and end with a <b>single quote</b>.
 </p>
 </div>
 
@@ -3954,12 +3954,12 @@ Typing string values in Python is fairly straightforward, string data type begin
 <h4 id="org78aa20b">Double Quotes</h4>
 <div class="outline-text-4" id="text-org78aa20b">
 <p>
-<b>How do we use a quote inside a string?</b><br />
-&gt; We use <b>double</b> quote.<br />
+<b>How do we use a quote inside a string?</b>
+&gt; We use <b>double</b> quote.
 </p>
 
 <p>
-Using double quotes allows us to have a single quote character in it.<br />
+Using double quotes allows us to have a single quote character in it.
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">test</span> = <span style="font-style: italic;">"Kenny's dog is pretty naughty."</span>
@@ -3973,7 +3973,7 @@ Kenny's dog is pretty naughty.
 
 
 <p>
-However, if we need <b>both</b> single and double quotes in a string, we need an escape character.<br />
+However, if we need <b>both</b> single and double quotes in a string, we need an escape character.
 </p>
 </div>
 </div>
@@ -3982,12 +3982,12 @@ However, if we need <b>both</b> single and double quotes in a string, we need an
 <h4 id="orgfb76c92">Escape Character</h4>
 <div class="outline-text-4" id="text-orgfb76c92">
 <p>
-<a id="orga2e4d93"></a><br />
- An <b>escape</b> character allows us to use characters that are otherwise impossible to put into a string.<br />
+<a id="orga2e4d93"></a>
+ An <b>escape</b> character allows us to use characters that are otherwise impossible to put into a string.
 </p>
 
 <p>
-It consists of a backslash ( \ ) followed by the special character we want to add into the string.<br />
+It consists of a backslash ( \ ) followed by the special character we want to add into the string. 
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">test</span> = <span style="font-style: italic;">'Kenny\'s dog says \"woof woof\".'</span>
@@ -4001,11 +4001,11 @@ Kenny's dog says "woof woof".
 
 
 <p>
-Despite <code>\"</code> or <code>\'</code> consist of two characters, it is commonly referred to as a singular escape character.<br />
+Despite <code>\"</code> or <code>\'</code> consist of two characters, it is commonly referred to as a singular escape character.
 </p>
 
 <p>
-List of escape characters:<br />
+List of escape characters:
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -4066,11 +4066,11 @@ That is Carol\'s cat
 
 
 <p>
-Putting an <code>r</code> infront of a string turns it into a <b>raw string</b>. A raw string completely ignores all escape characters and prints any backslash that appears in the string.<br />
+Putting an <code>r</code> infront of a string turns it into a <b>raw string</b>. A raw string completely ignores all escape characters and prints any backslash that appears in the string.
 </p>
 
 <p>
-Raw strings are good if we are printing string values that contain many backslashes, such as the strings used for <a href="#org9529f7f">regexp</a> described in next chapter.<br />
+Raw strings are good if we are printing string values that contain many backslashes, such as the strings used for <a href="#org9529f7f">regexp</a> described in next chapter.
 </p>
 </div>
 </div>
@@ -4079,11 +4079,11 @@ Raw strings are good if we are printing string values that contain many backslas
 <h4 id="orgb03a8b6">Multiline strings with Triple Quotes</h4>
 <div class="outline-text-4" id="text-orgb03a8b6">
 <p>
-Although we can use escape character <code>\n</code> to put a newline into a string, it is often easier to use multiline string, which is one that begins and end with either three single quotes <code>'''</code> or three double quotes <code>"""</code>.<br />
+Although we can use escape character <code>\n</code> to put a newline into a string, it is often easier to use multiline string, which is one that begins and end with either three single quotes <code>'''</code> or three double quotes <code>"""</code>. 
 </p>
 
 <p>
-Any quotes, tabs or newlines in a multiline string, that is inbetween the triple quotes, are considered part of the string. Python's indentation rules for blocks <b>do not</b> apply to lines inside a multiline string.<br />
+Any quotes, tabs or newlines in a multiline string, that is inbetween the triple quotes, are considered part of the string. Python's indentation rules for blocks <b>do not</b> apply to lines inside a multiline string.
 </p>
 
 <div class="org-src-container">
@@ -4102,7 +4102,7 @@ WHERE student_name = 'stupid'
 
 
 <p>
-The above is much easier than:<br />
+The above is much easier than:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">query</span> = <span style="font-style: italic;">'SELECT *\nFROM tb_students\nWHERE student_name = \'stupid\''</span>
@@ -4122,7 +4122,7 @@ WHERE student_name = 'stupid'
 <h4 id="orga3a14c1">Multiline Comments</h4>
 <div class="outline-text-4" id="text-orga3a14c1">
 <p>
-While the hash <code>#</code> character can be used to mark the beginning of a comment line, a multiline string is often used for comments that span multiple lines.<br />
+While the hash <code>#</code> character can be used to mark the beginning of a comment line, a multiline string is often used for comments that span multiple lines.
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-style: italic;">''' This program is a random program'''</span>
@@ -4142,7 +4142,7 @@ hello world
 <h3 id="org7751b9d">Indexing and Slicing Strings</h3>
 <div class="outline-text-3" id="text-org7751b9d">
 <p>
-Similar to lists, strings also use indexes and slices. You can think of it this way<br />
+Similar to lists, strings also use indexes and slices. You can think of it this way
 </p>
 <pre class="example">
 '   H   e   l   l   o       w   o   r   l   d    !   '
@@ -4150,7 +4150,7 @@ Similar to lists, strings also use indexes and slices. You can think of it this 
 </pre>
 
 <p>
-In action:<br />
+In action:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">greeting</span> = <span style="font-style: italic;">"Hello world!"</span>
@@ -4212,15 +4212,15 @@ False
 
 
 <p>
-<code>upper()</code> and <code>lower()</code> do not change the string itself because string is <b>immutable</b>. That is why we needed to re-assign the string value after invoking the method.<br />
+<code>upper()</code> and <code>lower()</code> do not change the string itself because string is <b>immutable</b>. That is why we needed to re-assign the string value after invoking the method. 
 </p>
 
 <p>
-These methods are helpful if we need to make case-insensitive comparison/ verification. Although <code>'Hello'</code> and <code>'hellO'</code> aren't equal, <code>'Hello'.lower()</code> is equal to <code>'hellO'.lower()</code>.<br />
+These methods are helpful if we need to make case-insensitive comparison/ verification. Although <code>'Hello'</code> and <code>'hellO'</code> aren't equal, <code>'Hello'.lower()</code> is equal to <code>'hellO'.lower()</code>. 
 </p>
 
 <p>
-<code>isupper()</code> and <code>islower()</code> methods return a Boolean value if the string has <b>at least</b> one letter and all letters are uppercase or lowercase respectively.<br />
+<code>isupper()</code> and <code>islower()</code> methods return a Boolean value if the string has <b>at least</b> one letter and all letters are uppercase or lowercase respectively.
 </p>
 </div>
 </div>
@@ -4228,11 +4228,11 @@ These methods are helpful if we need to make case-insensitive comparison/ verifi
 <h4 id="orgd490db8">The <code>isX</code> methods</h4>
 <div class="outline-text-4" id="text-orgd490db8">
 <p>
-Along with <code>isupper()</code> and <code>islower()</code>, there are other string methods that have names beginning with <code>is</code>, which return a Boolean value that describe the nature of the string.<br />
+Along with <code>isupper()</code> and <code>islower()</code>, there are other string methods that have names beginning with <code>is</code>, which return a Boolean value that describe the nature of the string.
 </p>
 
 <p>
-These are:<br />
+These are:
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -4283,7 +4283,7 @@ These are:<br />
 <h4 id="orge8be2a2">The <code>startswith()</code> and <code>endswith()</code> string methods</h4>
 <div class="outline-text-4" id="text-orge8be2a2">
 <p>
-These return <code>True</code> if the string value they are called on begins or ends respectively with the string passed to the methods. Otherwise they return <code>False</code>.<br />
+These return <code>True</code> if the string value they are called on begins or ends respectively with the string passed to the methods. Otherwise they return <code>False</code>.
 </p>
 
 <div class="org-src-container">
@@ -4301,7 +4301,7 @@ False
 
 
 <p>
-These methods can be used as alternatives to the <code>==</code> operator if we need to check only whether the first or last part (rather than the whole string) of the string is equal to another string.<br />
+These methods can be used as alternatives to the <code>==</code> operator if we need to check only whether the first or last part (rather than the whole string) of the string is equal to another string.
 </p>
 </div>
 </div>
@@ -4310,8 +4310,8 @@ These methods can be used as alternatives to the <code>==</code> operator if we 
 <h4 id="org9ac412d">The <code>join()</code> and <code>split()</code> methods</h4>
 <div class="outline-text-4" id="text-org9ac412d">
 <p>
-The <code>join()</code> method is useful when we want to join together a list of strings. <b>It is called on a string value and takes a list value</b>.<br />
-The <b>returned string</b> is the concatenation of each string in the passed-in arguments.<br />
+The <code>join()</code> method is useful when we want to join together a list of strings. <b>It is called on a string value and takes a list value</b>.
+The <b>returned string</b> is the concatenation of each string in the passed-in arguments.
 </p>
 
 <div class="org-src-container">
@@ -4325,12 +4325,12 @@ The <b>returned string</b> is the concatenation of each string in the passed-in 
 
 
 <p>
-The string that <code>join()</code> method calls on is inserted in between each string of the list arguments. It acts as the delimiter or separator.<br />
+The string that <code>join()</code> method calls on is inserted in between each string of the list arguments. It acts as the delimiter or separator.
 </p>
 
 <p>
-The <code>split()</code> method is opposite. <b>It is called on a string value and takes a string argument</b>.<br />
-The <b>returned list</b> contains the strings that were separated by the string that was in passed as the argument.<br />
+The <code>split()</code> method is opposite. <b>It is called on a string value and takes a string argument</b>.
+The <b>returned list</b> contains the strings that were separated by the string that was in passed as the argument.
 </p>
 
 <div class="org-src-container">
@@ -4344,7 +4344,7 @@ The <b>returned list</b> contains the strings that were separated by the string 
 
 
 <p>
-If left the argument in <code>split()</code> is left empty, the default value is set to a whitespace character, meaning that the string which the method is called upon would be splitted at where the space, tab or newline characters are found.<br />
+If left the argument in <code>split()</code> is left empty, the default value is set to a whitespace character, meaning that the string which the method is called upon would be splitted at where the space, tab or newline characters are found.
 </p>
 
 <div class="org-src-container">
@@ -4358,7 +4358,7 @@ If left the argument in <code>split()</code> is left empty, the default value is
 
 
 <p>
-<b>The argument/ delimited that is passed in <code>split()</code> <span class="underline">is not</span> included in the returned list at all.</b><br />
+<b>The argument/ delimited that is passed in <code>split()</code> <span class="underline">is not</span> included in the returned list at all.</b>
 </p>
 </div>
 </div>
@@ -4367,7 +4367,7 @@ If left the argument in <code>split()</code> is left empty, the default value is
 <h4 id="orgc6fc71e">Justifying text with <code>rjust()</code>, <code>ljust()</code> and <code>center()</code></h4>
 <div class="outline-text-4" id="text-orgc6fc71e">
 <p>
-The <code>rjust()</code> and <code>ljust()</code> methods return a <b>padded</b> version of the string they are called on. Padding just means that spaces were inserted to either <b>left or right</b> respectively of the text. This is to "justify" the text.<br />
+The <code>rjust()</code> and <code>ljust()</code> methods return a <b>padded</b> version of the string they are called on. Padding just means that spaces were inserted to either <b>left or right</b> respectively of the text. This is to "justify" the text.
 </p>
 
 <div class="org-src-container">
@@ -4384,7 +4384,7 @@ Hello World!
 
 
 <p>
-We can also use the second argument, which defaults to a single space.<br />
+We can also use the second argument, which defaults to a single space.
 </p>
 
 <div class="org-src-container">
@@ -4399,7 +4399,7 @@ We can also use the second argument, which defaults to a single space.<br />
 
 
 <p>
-<code>center()</code> works similarly to <code>rjust()</code> and <code>ljust()</code> except it centers the text by adding the character to both sides.<br />
+<code>center()</code> works similarly to <code>rjust()</code> and <code>ljust()</code> except it centers the text by adding the character to both sides.
 </p>
 
 <div class="org-src-container">
@@ -4414,7 +4414,7 @@ We can also use the second argument, which defaults to a single space.<br />
 
 
 <p>
-Notice how the total number of char will end up being equal to the first argument of <code>center()</code>. In the above example it's 20.<br />
+Notice how the total number of char will end up being equal to the first argument of <code>center()</code>. In the above example it's 20.
 </p>
 
 <div class="org-src-container">
@@ -4428,11 +4428,11 @@ Notice how the total number of char will end up being equal to the first argumen
 
 
 <p>
-These methods are useful when we want to print tabular data that needs correct spacing.<br />
+These methods are useful when we want to print tabular data that needs correct spacing.
 </p>
 
 <p>
-For example..<br />
+For example..
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">picnic_items</span> = {<span style="font-style: italic;">'Sandwiches'</span> : 20
@@ -4460,7 +4460,7 @@ Boardgames..........                   5
 
 
 <p>
-As above using <code>rjust()</code>, <code>ljust()</code> and <code>center()</code> let us ensure that strings are neatly aligned even if we aren't sure how many characters long our strings are.<br />
+As above using <code>rjust()</code>, <code>ljust()</code> and <code>center()</code> let us ensure that strings are neatly aligned even if we aren't sure how many characters long our strings are.
 </p>
 </div>
 </div>
@@ -4468,7 +4468,7 @@ As above using <code>rjust()</code>, <code>ljust()</code> and <code>center()</co
 <h4 id="orgecd13a6">Removing whitespace with <code>strip()</code>, <code>rstrip()</code>, <code>lstrip()</code></h4>
 <div class="outline-text-4" id="text-orgecd13a6">
 <p>
-Sometimes we want to strip off whitespace characters from a string, either from left side, right side or both. Whitespace characters include space, tab and newline.<br />
+Sometimes we want to strip off whitespace characters from a string, either from left side, right side or both. Whitespace characters include space, tab and newline. 
 </p>
 
 <div class="org-src-container">
@@ -4495,7 +4495,7 @@ python.el: native completion setup loaded
 
 
 <p>
-Or we can also pass a string argument which specifies which characters on the ends should be stripped:<br />
+Or we can also pass a string argument which specifies which characters on the ends should be stripped:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">spam</span> = <span style="font-style: italic;">'SpamSpamBaconSpamEggsSpamSpam'</span>
@@ -4509,7 +4509,7 @@ BaconSpamEggs
 
 
 <p>
-<code>strip('maSp')</code> strips any occurences of a, m, S and p from both ends of the string <code>spam</code> until both ends aren't one of <code>[m, a, S, p]</code>. The order of the characters in the string argument <b>does not matter</b>. <code>strip('ampS')</code> does the same thing as <code>strip('Spam')</code> or etc..<br />
+<code>strip('maSp')</code> strips any occurences of a, m, S and p from both ends of the string <code>spam</code> until both ends aren't one of <code>[m, a, S, p]</code>. The order of the characters in the string argument <b>does not matter</b>. <code>strip('ampS')</code> does the same thing as <code>strip('Spam')</code> or etc..
 </p>
 </div>
 </div>
@@ -4517,11 +4517,11 @@ BaconSpamEggs
 <h4 id="orgfecd94a">Copying and pasting string with <code>pyperclip</code> module</h4>
 <div class="outline-text-4" id="text-orgfecd94a">
 <p>
-The pyperclip module has <code>copy()</code> and <code>paste()</code> functions that can send text to and receive text from the host computer's clipboard. Sending the output of the program to the clipbpard makes it easy to paste it to an email, word processor or some other applications.<br />
+The pyperclip module has <code>copy()</code> and <code>paste()</code> functions that can send text to and receive text from the host computer's clipboard. Sending the output of the program to the clipbpard makes it easy to paste it to an email, word processor or some other applications. 
 </p>
 
 <p>
-Pyperclip does not come with Python therefore we have to do <code>pip install pyperclip</code>.<br />
+Pyperclip does not come with Python therefore we have to do <code>pip install pyperclip</code>. 
 </p>
 </div>
 </div>
@@ -4532,16 +4532,16 @@ Pyperclip does not come with Python therefore we have to do <code>pip install py
 <h2 id="org1c13ecd">Chapter 7 - Pattern matching with RegEx</h2>
 <div class="outline-text-2" id="text-org1c13ecd">
 <p>
-<a id="org9529f7f"></a><br />
-Regular expressions are similar to seraching for text by pressing <code>Ctrl-F</code> on most applications however it is <b>the next step</b>. RegEx allows you to specify a <b>pattern</b> of text to search for.<br />
+<a id="org9529f7f"></a>
+Regular expressions are similar to seraching for text by pressing <code>Ctrl-F</code> on most applications however it is <b>the next step</b>. RegEx allows you to specify a <b>pattern</b> of text to search for.
 </p>
 
 <p>
-RegExs are helpful and is the back-end search engine of most modern text editors and word processors like Words and Excel .etc. RegExs are huge time-savers, not just for end-users but for programmers.<br />
+RegExs are helpful and is the back-end search engine of most modern text editors and word processors like Words and Excel .etc. RegExs are huge time-savers, not just for end-users but for programmers.
 </p>
 
 <p>
-Some even argues that before one is taught how to program, he should be taught RegEx. It can mean the difference between solving a problem in 3 steps and solving it in 3000 steps.<br />
+Some even argues that before one is taught how to program, he should be taught RegEx. It can mean the difference between solving a problem in 3 steps and solving it in 3000 steps.
 </p>
 </div>
 
@@ -4549,11 +4549,11 @@ Some even argues that before one is taught how to program, he should be taught R
 <h3 id="org12f1e7d">FInding patterns of text without RegEx</h3>
 <div class="outline-text-3" id="text-org12f1e7d">
 <p>
-Say we want to find a phone number in a string. We know the pattern, three numbers + a hyphen + three number + a hyphen then four number. E.g: 999-999-9999.<br />
+Say we want to find a phone number in a string. We know the pattern, three numbers + a hyphen + three number + a hyphen then four number. E.g: 999-999-9999.
 </p>
 
 <p>
-Let's write a function named <code>isPhoneNumber()</code> to check whether a string matches this pattern, returning either True or False.<br />
+Let's write a function named <code>isPhoneNumber()</code> to check whether a string matches this pattern, returning either True or False.
 </p>
 
 <div class="org-src-container">
@@ -4601,19 +4601,19 @@ Found phone number!!!! 929-998-0089
 
 
 <p>
-As we could see the <code>isPhoneNumber</code> does several checks to see whether the string <code>text</code> is a valid phone number. If any of these fails the function would return <code>False</code>.<br />
+As we could see the <code>isPhoneNumber</code> does several checks to see whether the string <code>text</code> is a valid phone number. If any of these fails the function would return <code>False</code>. 
 </p>
 
 <p>
-For larger and more complicated strings, we would have to even perform <b>more checks</b>, by adding more code.<br />
+For larger and more complicated strings, we would have to even perform <b>more checks</b>, by adding more code.
 </p>
 
 <p>
-The <code>findPhoneNumber</code> runs iterations of the <code>for</code> loop. Each iteration creates a new chunk of 12 characters and goes through <code>isPhoneNumber</code> once. This loop goes through the entire string and print any <code>chunk_of_text</code> it finds that satisfies the <code>isPhoneNumber()</code> function.<br />
+The <code>findPhoneNumber</code> runs iterations of the <code>for</code> loop. Each iteration creates a new chunk of 12 characters and goes through <code>isPhoneNumber</code> once. This loop goes through the entire string and print any <code>chunk_of_text</code> it finds that satisfies the <code>isPhoneNumber()</code> function.
 </p>
 
 <p>
-While the strings we used in the above example are short. It could be millions of characters long and the program would till run in less than a second. A smilar program with RegEx would also run in less than a second, however RegEx makes it quicker to write these program.<br />
+While the strings we used in the above example are short. It could be millions of characters long and the program would till run in less than a second. A smilar program with RegEx would also run in less than a second, however RegEx makes it quicker to write these program.
 </p>
 </div>
 </div>
@@ -4622,15 +4622,15 @@ While the strings we used in the above example are short. It could be millions o
 <h3 id="org3b6166e">Finding pattern of text with RegEx</h3>
 <div class="outline-text-3" id="text-org3b6166e">
 <p>
-Coming back to <code>isPhoneNumber()</code>,  we will be using RegEx this time.<br />
+Coming back to <code>isPhoneNumber()</code>,  we will be using RegEx this time.
 </p>
 
 <p>
-Regular Expressions are descriptions for a pattern of text. For example, a <code>\d</code> in a regex stands for a digit character that is any single numeral from 0 to 9, i.e <code>'\d\d\d-\d\d\d-\d\d\d\d'</code> <br />
+Regular Expressions are descriptions for a pattern of text. For example, a <code>\d</code> in a regex stands for a digit character that is any single numeral from 0 to 9, i.e <code>'\d\d\d-\d\d\d-\d\d\d\d'</code> 
 </p>
 
 <p>
-RegExes can be much more complicated, for example adding a <code>{3}</code> after a patter is like saying "Match this pattern three time", i.e <code>'\d{3}-\d{3}-\d{4}'</code><br />
+RegExes can be much more complicated, for example adding a <code>{3}</code> after a patter is like saying "Match this pattern three time", i.e <code>'\d{3}-\d{3}-\d{4}'</code>
 </p>
 </div>
 </div>
@@ -4639,15 +4639,15 @@ RegExes can be much more complicated, for example adding a <code>{3}</code> afte
 <h3 id="org28b70cc">Creating RegEx Objects</h3>
 <div class="outline-text-3" id="text-org28b70cc">
 <p>
-All the regex functions in Python are in the <code>re</code> module that comes with Python. We have to import it.<br />
+All the regex functions in Python are in the <code>re</code> module that comes with Python. We have to import it.
 </p>
 
 <p>
-Passing a string value representing your regular expression to <code>re.compile()</code> returns a RegEx pattern object, or a <b>RegEx object</b>.<br />
+Passing a string value representing your regular expression to <code>re.compile()</code> returns a RegEx pattern object, or a <b>RegEx object</b>.
 </p>
 
 <p>
-When creating a RegEx object, we should use a <b>raw string</b> so that we are passing a literal backslash, not an <a href="#orga2e4d93"><i>escape character</i></a>. This is because RegExes frequently use backslashes in them. Without passing a raw string we'd be typing many extra backslashes.<br />
+When creating a RegEx object, we should use a <b>raw string</b> so that we are passing a literal backslash, not an <a href="#orga2e4d93"><i>escape character</i></a>. This is because RegExes frequently use backslashes in them. Without passing a raw string we'd be typing many extra backslashes.
 </p>
 </div>
 </div>
@@ -4656,7 +4656,7 @@ When creating a RegEx object, we should use a <b>raw string</b> so that we are p
 <h3 id="org075c943">Matching RegEx Objects</h3>
 <div class="outline-text-3" id="text-org075c943">
 <p>
-RegEx Objects have a <code>search()</code> method that searchs the string it is passed for any matches to the regexp itself.<br />
+RegEx Objects have a <code>search()</code> method that searchs the string it is passed for any matches to the regexp itself.
 </p>
 
 <div class="org-src-container">
@@ -4677,7 +4677,7 @@ RegEx Objects have a <code>search()</code> method that searchs the string it is 
 
 
 <p>
-The <code>search()</code> method returns None if the regex pattern is not found in the passed string. If the pattern is found, the <code>search()</code> method returns a <b>Match</b> object <code>&lt;class 're.Match'&gt;</code>.  Match objects have a method <code>group()</code> that returns the actual matched text (<code>match ='xxx'</code>) from the searched string.<br />
+The <code>search()</code> method returns None if the regex pattern is not found in the passed string. If the pattern is found, the <code>search()</code> method returns a <b>Match</b> object <code>&lt;class 're.Match'&gt;</code>.  Match objects have a method <code>group()</code> that returns the actual matched text (<code>match ='xxx'</code>) from the searched string. 
 </p>
 </div>
 </div>
@@ -4686,14 +4686,14 @@ The <code>search()</code> method returns None if the regex pattern is not found 
 <h3 id="org1a925d0">REVIEW of RegEx</h3>
 <div class="outline-text-3" id="text-org1a925d0">
 <p>
-There are several steps to using RegEx in Python. Each step is fairly simple.<br />
+There are several steps to using RegEx in Python. Each step is fairly simple.
 </p>
 
 <ol class="org-ol">
-<li>Import the regex module with <code>import re</code>.<br /></li>
-<li>Create the Regex object with <code>re.compile()</code> function. Use a <b>raw string</b>.<br /></li>
-<li>Pass the string we want to search into the regex obect's <code>search()</code> method. This will return a <code>Match</code> object.<br /></li>
-<li>Call the <code>Match</code> object's <code>group()</code> method to return a string of the actual matched text.<br /></li>
+<li>Import the regex module with <code>import re</code>.</li>
+<li>Create the Regex object with <code>re.compile()</code> function. Use a <b>raw string</b>.</li>
+<li>Pass the string we want to search into the regex obect's <code>search()</code> method. This will return a <code>Match</code> object.</li>
+<li>Call the <code>Match</code> object's <code>group()</code> method to return a string of the actual matched text.</li>
 </ol>
 </div>
 </div>
@@ -4702,7 +4702,7 @@ There are several steps to using RegEx in Python. Each step is fairly simple.<br
 <h3 id="orgd77c997">Grouping of RegEx with Parentheses</h3>
 <div class="outline-text-3" id="text-orgd77c997">
 <p>
-Coming to our phoneNumber_regex example, what we can also is seperate the area code from the rest of the phone number by adding parentheses in the regex object. This in turn create <b>groups</b> in the regex.<br />
+Coming to our phoneNumber_regex example, what we can also is seperate the area code from the rest of the phone number by adding parentheses in the regex object. This in turn create <b>groups</b> in the regex.
 </p>
 
 <div class="org-src-container">
@@ -4727,7 +4727,7 @@ Coming to our phoneNumber_regex example, what we can also is seperate the area c
 
 
 <p>
-In the above example, instead of just doing <code>'\d\d\d-\d\d\d-\d\d\d\d'</code>, we added parentheses to seperate the regular expression into two groups:<br />
+In the above example, instead of just doing <code>'\d\d\d-\d\d\d-\d\d\d\d'</code>, we added parentheses to seperate the regular expression into two groups:
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -4752,11 +4752,11 @@ In the above example, instead of just doing <code>'\d\d\d-\d\d\d-\d\d\d\d'</code
 </table>
 
 <p>
-By passing the integer which represents the group to the <code>group()</code> method, we can collect different parts of the matched text. Passing <code>0</code> or nothing to the <code>group()</code> method will return the entire matched text.<br />
+By passing the integer which represents the group to the <code>group()</code> method, we can collect different parts of the matched text. Passing <code>0</code> or nothing to the <code>group()</code> method will return the entire matched text.
 </p>
 
 <p>
-In the last line of the above, we saw the <code>groups()</code> method (plural). This method returns all the groups at once in form of <code>tuple</code>. This, in combination with <a href="#orgf858b5f">multiple assignment</a> can be very handy.We can assign several values to variables.<br />
+In the last line of the above, we saw the <code>groups()</code> method (plural). This method returns all the groups at once in form of <code>tuple</code>. This, in combination with <a href="#orgf858b5f">multiple assignment</a> can be very handy.We can assign several values to variables.
 </p>
 </div>
 
@@ -4764,7 +4764,7 @@ In the last line of the above, we saw the <code>groups()</code> method (plural).
 <h4 id="org21f28cf">Matching a parenthesis in regex</h4>
 <div class="outline-text-4" id="text-org21f28cf">
 <p>
-As parentheses have a special meaning in regular expressions, to match a parenthesis in text we have to escape the <code>(</code> and <code>)</code> characters with a backslash. The <code>\(</code> and  <code>\)</code> escape characters in the <b>raw string</b> passed to <code>re.compile()</code> will match actual parenthesis character.<br />
+As parentheses have a special meaning in regular expressions, to match a parenthesis in text we have to escape the <code>(</code> and <code>)</code> characters with a backslash. The <code>\(</code> and  <code>\)</code> escape characters in the <b>raw string</b> passed to <code>re.compile()</code> will match actual parenthesis character.
 </p>
 </div>
 </div>
@@ -4774,15 +4774,15 @@ As parentheses have a special meaning in regular expressions, to match a parenth
 <h3 id="org84ecc42">Matching multiple groups with Pipe</h3>
 <div class="outline-text-3" id="text-org84ecc42">
 <p>
-We can use the pipe <code>|</code> character to match one of many expressions.<br />
+We can use the pipe <code>|</code> character to match one of many expressions.
 </p>
 
 <p>
-For example the regular expression <code>r'Batman|Robin'</code> will match either <code>'Batman'</code> <b>or</b> <code>'Robin'</code>.<br />
+For example the regular expression <code>r'Batman|Robin'</code> will match either <code>'Batman'</code> <b>or</b> <code>'Robin'</code>.
 </p>
 
 <p>
-When both of the expressions exist in the searched string, the <b>first</b> occurence of the matching text will be returned as the <code>Match</code> object, i.e:<br />
+When both of the expressions exist in the searched string, the <b>first</b> occurence of the matching text will be returned as the <code>Match</code> object, i.e:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> re
@@ -4801,7 +4801,7 @@ Robin
 
 
 <p>
-We can also use the pipe character in combination with grouping parentheses to match one of several strings, i.e:<br />
+We can also use the pipe character in combination with grouping parentheses to match one of several strings, i.e:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> re
@@ -4820,7 +4820,7 @@ mobile
 
 
 <p>
-If we need to find an actual pipe character, we can escape it with backslash <code>\|</code> since in a raw string, this will be read as a literal <code>|</code>.<br />
+If we need to find an actual pipe character, we can escape it with backslash <code>\|</code> since in a raw string, this will be read as a literal <code>|</code>. 
 </p>
 </div>
 </div>
@@ -4829,7 +4829,7 @@ If we need to find an actual pipe character, we can escape it with backslash <co
 <h3 id="orgafd6552"><code>findall()</code> method</h3>
 <div class="outline-text-3" id="text-orgafd6552">
 <p>
-The <code>search()</code> method returns the <span class="underline">first</span> expression that is matched in a string in a <code>Match</code> type object. Instead we could use <code>findall()</code> which return <b>every match</b> in the searched string in a <code>List</code> object. The returned list is a list of all the matched (sub) strings in the searched string.<br />
+The <code>search()</code> method returns the <span class="underline">first</span> expression that is matched in a string in a <code>Match</code> type object. Instead we could use <code>findall()</code> which return <b>every match</b> in the searched string in a <code>List</code> object. The returned list is a list of all the matched (sub) strings in the searched string.
 </p>
 
 <div class="org-src-container">
@@ -4852,7 +4852,7 @@ Match 3: Robin
 
 
 <p>
-If there are groups in the regular expressions, <code>findall()</code> will return a list of tuples of strings instead of strings.<br />
+If there are groups in the regular expressions, <code>findall()</code> will return a list of tuples of strings instead of strings. 
 </p>
 </div>
 </div>
@@ -4861,7 +4861,7 @@ If there are groups in the regular expressions, <code>findall()</code> will retu
 <h3 id="orgcdeb6dc">OPTIONAL matching using <code>?</code></h3>
 <div class="outline-text-3" id="text-orgcdeb6dc">
 <p>
-Sometimes we want to match a patern only <b>optionally</b>. That is the regex should find a match <b>whether or not</b> that bit of text is there. To do this we use the <code>?</code> character to flag the group that <b>precedes</b> it as an optional part of the pattern.<br />
+Sometimes we want to match a patern only <b>optionally</b>. That is the regex should find a match <b>whether or not</b> that bit of text is there. To do this we use the <code>?</code> character to flag the group that <b>precedes</b> it as an optional part of the pattern.
 </p>
 
 <div class="org-src-container">
@@ -4887,7 +4887,7 @@ Batwoman
 <h3 id="org2fd5901">Matching zero or more with asterisk <code>*</code></h3>
 <div class="outline-text-3" id="text-org2fd5901">
 <p>
-We can the asterisk in regex to match zero or more occurence of the group that precedes the <code>*</code> flag. This means the group can be completely absent or repeated many times.<br />
+We can the asterisk in regex to match zero or more occurence of the group that precedes the <code>*</code> flag. This means the group can be completely absent or repeated many times.
 </p>
 
 <div class="org-src-container">
@@ -4912,7 +4912,7 @@ True
 
 
 <p>
-Again, if we actually want to match <code>*</code>, escape it with <code>\*</code>.<br />
+Again, if we actually want to match <code>*</code>, escape it with <code>\*</code>.
 </p>
 </div>
 </div>
@@ -4921,7 +4921,7 @@ Again, if we actually want to match <code>*</code>, escape it with <code>\*</cod
 <h3 id="org4775292">Matcing one or more with plus <code>+</code></h3>
 <div class="outline-text-3" id="text-org4775292">
 <p>
-Similar to asterisk, <code>+</code> gives us the ability to match one or more occurences of the group. If there is zero occurence it will not match. Unlike asterisk, the group preceding the <code>+</code> flag MUST appear <b>at least one</b>. It is not optional.<br />
+Similar to asterisk, <code>+</code> gives us the ability to match one or more occurences of the group. If there is zero occurence it will not match. Unlike asterisk, the group preceding the <code>+</code> flag MUST appear <b>at least one</b>. It is not optional.
 </p>
 
 <div class="org-src-container">
@@ -4943,7 +4943,7 @@ Batwowowowowowoman
 
 
 <p>
-Again, to match <code>+</code>, use <code>\+</code> in the raw string.<br />
+Again, to match <code>+</code>, use <code>\+</code> in the raw string.
 </p>
 </div>
 </div>
@@ -4952,15 +4952,15 @@ Again, to match <code>+</code>, use <code>\+</code> in the raw string.<br />
 <h3 id="org786baa3">Matching specific repetitions with Curly Brackets <code>{}</code></h3>
 <div class="outline-text-3" id="text-org786baa3">
 <p>
-We can use curly brackets to match patterns that repeat a specific number of times.<br />
+We can use curly brackets to match patterns that repeat a specific number of times.
 </p>
 
 <p>
-For example <code>(Ha){3}</code> will match <code>'HaHaHa'</code> but not <code>'HaHa'</code> since the later only has two repeats of <code>(Ha)</code>.<br />
+For example <code>(Ha){3}</code> will match <code>'HaHaHa'</code> but not <code>'HaHa'</code> since the later only has two repeats of <code>(Ha)</code>.
 </p>
 
 <p>
-Instead of just one number we can also use a range by writing a min, followed by a comma then the max within the curly bracket.<br />
+Instead of just one number we can also use a range by writing a min, followed by a comma then the max within the curly bracket.
 </p>
 
 <div class="org-src-container">
@@ -4986,11 +4986,11 @@ HaHaHaHa
 
 
 <p>
-We can also <b>leave out</b> the min and max in the curly brackets to leave either <b>unbounded</b>.<br />
+We can also <b>leave out</b> the min and max in the curly brackets to leave either <b>unbounded</b>.
 </p>
 
 <p>
-Curly brackets make our regex shorter, i.e instead of <code>(Ha)(Ha)(Ha)</code> we can just do <code>(Ha){3}</code>.<br />
+Curly brackets make our regex shorter, i.e instead of <code>(Ha)(Ha)(Ha)</code> we can just do <code>(Ha){3}</code>.
 </p>
 </div>
 </div>
@@ -4999,19 +4999,19 @@ Curly brackets make our regex shorter, i.e instead of <code>(Ha)(Ha)(Ha)</code> 
 <h3 id="org047cf59">Greedy and nongreedy matching</h3>
 <div class="outline-text-3" id="text-org047cf59">
 <p>
-Since <code>(Ha){3,5}</code> can match three, four or five instances of <code>Ha</code> in string <code>HaHaHaHa</code>, why does the  <code>Match</code> object's <code>group()</code> call returns <code>HaHaHaHa</code> but not <code>HaHaHa</code> which is <b>shorter</b>? After all these are both valid matches of the regular expression<br />
+Since <code>(Ha){3,5}</code> can match three, four or five instances of <code>Ha</code> in string <code>HaHaHaHa</code>, why does the  <code>Match</code> object's <code>group()</code> call returns <code>HaHaHaHa</code> but not <code>HaHaHa</code> which is <b>shorter</b>? After all these are both valid matches of the regular expression  
 </p>
 
 <p>
-This is because Python's regex are <b>greedy</b> by default. This means that in ambiguous situations they will match the longest string possible.<br />
+This is because Python's regex are <b>greedy</b> by default. This means that in ambiguous situations they will match the longest string possible.
 </p>
 
 <p>
-Instead of using greedy matching which is default, what we can do is flag a <code>?</code> right after the curly brackets.<br />
+Instead of using greedy matching which is default, what we can do is flag a <code>?</code> right after the curly brackets.
 </p>
 
 <p>
-A <code>?</code> when used with the curly brackets declares a <b>nongreedy</b> match whereas in normal situations flag an optional group. These two are entirely unrelated.<br />
+A <code>?</code> when used with the curly brackets declares a <b>nongreedy</b> match whereas in normal situations flag an optional group. These two are entirely unrelated.
 </p>
 
 <div class="org-src-container">
@@ -5100,7 +5100,7 @@ HaHaHa
 </table>
 
 <p>
-Example: <code>r'\d+\s\w+'</code> matches a string that contains at least a digit, followed by space and then one word.<br />
+Example: <code>r'\d+\s\w+'</code> matches a string that contains at least a digit, followed by space and then one word.
 </p>
 
 <div class="org-src-container">
@@ -5128,20 +5128,20 @@ Kenny is bringing 2 biscuits. John is bringing 3 cookies. Mai is bringing 5 coco
 <h4 id="org119dfb3">Matching our own custom character classes</h4>
 <div class="outline-text-4" id="text-org119dfb3">
 <p>
-Sometimes we find the generic character classes too broad. We can define our own character class using square brackets.<br />
-For example <code>[AaEeUuIiOo]</code> matches any vowel, irrespective of casing.<br />
+Sometimes we find the generic character classes too broad. We can define our own character class using square brackets.
+For example <code>[AaEeUuIiOo]</code> matches any vowel, irrespective of casing.
 </p>
 
 <p>
-We can do range using hyphen, e.g <code>[a-zA-Z0-9]</code> will match all lower case letters, upper case letters and numbers.<br />
+We can do range using hyphen, e.g <code>[a-zA-Z0-9]</code> will match all lower case letters, upper case letters and numbers.
 </p>
 
 <p>
-<code>[0-5.]</code> matches any digit from 0-5 and a period. We do need need to escape the <code>.</code> because inside the square brackets regex are not interpreted as such, things like <code>?</code> (optional), <code>*</code> (zero or more) ..etc.. don't work.<br />
+<code>[0-5.]</code> matches any digit from 0-5 and a period. We do need need to escape the <code>.</code> because inside the square brackets regex are not interpreted as such, things like <code>?</code> (optional), <code>*</code> (zero or more) ..etc.. don't work.
 </p>
 
 <p>
-If we place a caret character <code>^</code> just after the character class' opening bracket. We make it a negative character class. A negative character class matches thing that are <b>not</b> in the character class.<br />
+If we place a caret character <code>^</code> just after the character class' opening bracket. We make it a negative character class. A negative character class matches thing that are <b>not</b> in the character class.
 </p>
 </div>
 </div>
@@ -5151,15 +5151,15 @@ If we place a caret character <code>^</code> just after the character class' ope
 <h3 id="orge6a76e8">The Caret <code>^</code> and Dollar Sign <code>$</code></h3>
 <div class="outline-text-3" id="text-orge6a76e8">
 <p>
-A caret symbol can be used at the start of regex to indicate that a match must occur at the beginning of the searched text.<br />
+A caret symbol can be used at the start of regex to indicate that a match must occur at the beginning of the searched text.
 </p>
 
 <p>
-A dollar sign symbol, placed at the end of the regex indicates the string must <b>end</b> with this regex pattern.<br />
+A dollar sign symbol, placed at the end of the regex indicates the string must <b>end</b> with this regex pattern.
 </p>
 
 <p>
-We can use these together, to match the entire string with the regex.<br />
+We can use these together, to match the entire string with the regex.
 </p>
 </div>
 </div>
@@ -5168,7 +5168,7 @@ We can use these together, to match the entire string with the regex.<br />
 <h3 id="org87fc67e">The <b>WILDCARD</b></h3>
 <div class="outline-text-3" id="text-org87fc67e">
 <p>
-The <code>.</code> (dot) character in a regex is called a wildcard. It matches any character except for a new line.<br />
+The <code>.</code> (dot) character in a regex is called a wildcard. It matches any character except for a new line.
 </p>
 
 <div class="org-src-container">
@@ -5186,15 +5186,15 @@ The <code>.</code> (dot) character in a regex is called a wildcard. It matches a
 
 
 <p>
-<code>.*</code> matches everything and anything.<br />
+<code>.*</code> matches everything and anything.
 </p>
 
 <p>
-The dot star uses greedy match. It always tries to grab as much text as possible.<br />
+The dot star uses greedy match. It always tries to grab as much text as possible.
 </p>
 
 <p>
-To use the dot character to match everything <b>including</b> a newline, pass <code>re.DOTALL</code> as the second argument to <code>re.compile()</code>.<br />
+To use the dot character to match everything <b>including</b> a newline, pass <code>re.DOTALL</code> as the second argument to <code>re.compile()</code>.
 </p>
 
 <div class="org-src-container">
@@ -5222,7 +5222,7 @@ This is pretty awesome.
 <h3 id="orge2ffc33">Case-insensitive matching</h3>
 <div class="outline-text-3" id="text-orge2ffc33">
 <p>
-Like the <code>re.DOTALL</code> second argument, we can use <code>re.I</code> or <code>re.IGNORECASE</code> as the second argument within <code>re.compile()</code> to make the regex case-insensitive.<br />
+Like the <code>re.DOTALL</code> second argument, we can use <code>re.I</code> or <code>re.IGNORECASE</code> as the second argument within <code>re.compile()</code> to make the regex case-insensitive.
 </p>
 </div>
 </div>
@@ -5231,55 +5231,55 @@ Like the <code>re.DOTALL</code> second argument, we can use <code>re.I</code> or
 <h3 id="org61e7765">PRACTICE PROJECT - Phone Number and Email Address Extractor</h3>
 <div class="outline-text-3" id="text-org61e7765">
 <p>
-Say you have the boring task of finding every phone number and email address in a long web page or document. If you manually scroll through the page, you might end up searching for a long time. But if you had a program that could search the text in your clipboard for phone numbers and email addresses, you could simply press CTRL-A to select all the text, press CTRL-C to copy it to the clipboard, and then run your program. It could replace the text on the clipboard with just the phone numbers and email addresses it finds.<br />
+Say you have the boring task of finding every phone number and email address in a long web page or document. If you manually scroll through the page, you might end up searching for a long time. But if you had a program that could search the text in your clipboard for phone numbers and email addresses, you could simply press CTRL-A to select all the text, press CTRL-C to copy it to the clipboard, and then run your program. It could replace the text on the clipboard with just the phone numbers and email addresses it finds.
 </p>
 
 <p>
-Whenever you’re tackling a new project, it can be tempting to dive right into writing code. But more often than not, it’s best to take a step back and consider the bigger picture. I recommend first drawing up a high-level plan for what your program needs to do. Don’t think about the actual code yet—you can worry about that later. Right now, stick to broad strokes.<br />
+Whenever you’re tackling a new project, it can be tempting to dive right into writing code. But more often than not, it’s best to take a step back and consider the bigger picture. I recommend first drawing up a high-level plan for what your program needs to do. Don’t think about the actual code yet—you can worry about that later. Right now, stick to broad strokes.
 </p>
 
 <p>
-For example, your phone and email address extractor will need to do the following:<br />
+For example, your phone and email address extractor will need to do the following:
 </p>
 
 <p>
-Get the text off the clipboard.<br />
+Get the text off the clipboard.
 </p>
 
 <p>
-Find all phone numbers and email addresses in the text.<br />
+Find all phone numbers and email addresses in the text.
 </p>
 
 <p>
-Paste them onto the clipboard.<br />
+Paste them onto the clipboard.
 </p>
 
 <p>
-Now you can start thinking about how this might work in code. The code will need to do the following:<br />
+Now you can start thinking about how this might work in code. The code will need to do the following:
 </p>
 
 <p>
-Use the pyperclip module to copy and paste strings.<br />
+Use the pyperclip module to copy and paste strings.
 </p>
 
 <p>
-Create two regexes, one for matching phone numbers and the other for matching email addresses.<br />
+Create two regexes, one for matching phone numbers and the other for matching email addresses.
 </p>
 
 <p>
-Find all matches, not just the first match, of both regexes.<br />
+Find all matches, not just the first match, of both regexes.
 </p>
 
 <p>
-Neatly format the matched strings into a single string to paste.<br />
+Neatly format the matched strings into a single string to paste.
 </p>
 
 <p>
-Display some kind of message if no matches were found in the text.<br />
+Display some kind of message if no matches were found in the text.
 </p>
 
 <p>
-This list is like a road map for the project. As you write the code, you can focus on each of these steps separately. Each step is fairly manageable and expressed in terms of things you already know how to do in Python.<br />
+This list is like a road map for the project. As you write the code, you can focus on each of these steps separately. Each step is fairly manageable and expressed in terms of things you already know how to do in Python.
 </p>
 </div>
 
@@ -5375,7 +5375,7 @@ find_phoneNo_and_email(text)
 <h2 id="org7a1b594">Chapter 8 - Reading and writing files</h2>
 <div class="outline-text-2" id="text-org7a1b594">
 <p>
-If we want our data to persist after the program finishes running, we need to save it to a file.<br />
+If we want our data to persist after the program finishes running, we need to save it to a file.
 </p>
 </div>
 
@@ -5384,7 +5384,7 @@ If we want our data to persist after the program finishes running, we need to sa
 <div class="outline-text-3" id="text-orgfc977c0">
 <div class="org-center">
 <p>
-In Python os module, there is a <code>os.sep</code> variable that is set to the correct folder-seperating slash for the OS running the program.<br />
+In Python os module, there is a <code>os.sep</code> variable that is set to the correct folder-seperating slash for the OS running the program.
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> os
@@ -5397,16 +5397,16 @@ In Python os module, there is a <code>os.sep</code> variable that is set to the 
 </pre>
 
 <p>
-(It would be a back slash on Windows)<br />
+(It would be a back slash on Windows)
 </p>
 </div>
 
 <p>
-If we want our program to work on both Windows and Unix-based operating systems, we need to write our Python program to handle both cases.<br />
+If we want our program to work on both Windows and Unix-based operating systems, we need to write our Python program to handle both cases.
 </p>
 
 <p>
-This is simple to do with <code>os.path.join()</code> function. If we pass it the string values of individual files and folder names in our path, <code>os.path.join()</code> will return a string with a file path using the correct path seperator.<br />
+This is simple to do with <code>os.path.join()</code> function. If we pass it the string values of individual files and folder names in our path, <code>os.path.join()</code> will return a string with a file path using the correct path seperator.
 </p>
 
 <div class="org-src-container">
@@ -5421,11 +5421,11 @@ usr/bin/spam
 
 
 <p>
-Running this same line on Windows would have yielded <code>usr\\bin\\spam</code> (double back slashes to escape).<br />
+Running this same line on Windows would have yielded <code>usr\\bin\\spam</code> (double back slashes to escape).
 </p>
 
 <p>
-<code>os.path.join()</code> is also usefule when we want to create strings for filenames.<br />
+<code>os.path.join()</code> is also usefule when we want to create strings for filenames.
 </p>
 
 <div class="org-src-container">
@@ -5447,15 +5447,15 @@ Running this same line on Windows would have yielded <code>usr\\bin\\spam</code>
 <h3 id="orgfeb14e9">Current working directory (cwd)</h3>
 <div class="outline-text-3" id="text-orgfeb14e9">
 <p>
-<a id="orgba6495f"></a> <br />
+<a id="orgba6495f"></a> 
 </p>
 
 <p>
-Every program that runs on our computer has a current working directory. Any filenames or path that does not begins with the root folder (<code>/</code> on Unix or <code>C:\</code> on Windows) are assumed to be under cwd.<br />
+Every program that runs on our computer has a current working directory. Any filenames or path that does not begins with the root folder (<code>/</code> on Unix or <code>C:\</code> on Windows) are assumed to be under cwd.
 </p>
 
 <p>
-We can get cwd as a string value with <code>os.getcwd()</code> function. We can change cwd with <code>os.chdir()</code>.<br />
+We can get cwd as a string value with <code>os.getcwd()</code> function. We can change cwd with <code>os.chdir()</code>.
 </p>
 
 <div class="org-src-container">
@@ -5480,18 +5480,18 @@ os.chdir(<span style="font-style: italic;">'..'</span>)  <span style="font-weigh
 <div class="outline-text-3" id="text-orgb3b2a18">
 <div class="org-center">
 <ul class="org-ul">
-<li>An <b>absolute</b> path always begins with the root folder.<br /></li>
-<li>A <b>relative</b> path is relative to the program's current working directory<br /></li>
+<li>An <b>absolute</b> path always begins with the root folder.</li>
+<li>A <b>relative</b> path is relative to the program's current working directory</li>
 </ul>
 
 <p>
-(There are also special folder names that can be used in a path which are <code>.</code> (this directory) and <code>..</code> (parent directory).)<br />
+(There are also special folder names that can be used in a path which are <code>.</code> (this directory) and <code>..</code> (parent directory).)
 </p>
 </div>
 
 
 <p>
-<code>.\spam.txt</code> and <code>spam.txt</code> are basically the same thing. <code>.\</code> is optional in a relative path.<br />
+<code>.\spam.txt</code> and <code>spam.txt</code> are basically the same thing. <code>.\</code> is optional in a relative path.
 </p>
 </div>
 </div>
@@ -5516,19 +5516,19 @@ os.makedirs(<span style="font-style: italic;">'test_folder'</span>)
 <h3 id="org0ec7f54">The <code>os.path</code> module</h3>
 <div class="outline-text-3" id="text-org0ec7f54">
 <p>
-The <code>os.path</code> module contains many helpful functions related to file names and file paths, one of which being the <code>os.path~join()</code> method to build paths in a way that will work in any OS.<br />
+The <code>os.path</code> module contains many helpful functions related to file names and file paths, one of which being the <code>os.path~join()</code> method to build paths in a way that will work in any OS.
 </p>
 
 <p>
-Calling <code>os.path.dirname(/path/)</code> will return a string of everything that comes before the last slash in the path argument.<br />
+Calling <code>os.path.dirname(/path/)</code> will return a string of everything that comes before the last slash in the path argument.
 </p>
 
 <p>
-Calling <code>os.path.basename(path)</code> will return a string of everything comes after the last slash in the path argument.<br />
+Calling <code>os.path.basename(path)</code> will return a string of everything comes after the last slash in the path argument.
 </p>
 
 <p>
-Calling <code>os.path.split(path)</code> will return a tuple value of basename and dirname.<br />
+Calling <code>os.path.split(path)</code> will return a tuple value of basename and dirname.
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> os
@@ -5612,17 +5612,17 @@ Total Size: 240554
 <h3 id="org38be99f">Checking path validity</h3>
 <div class="outline-text-3" id="text-org38be99f">
 <p>
-Many Python functions crash with an error if the non-existent path is supplied.<br />
+Many Python functions crash with an error if the non-existent path is supplied.
 </p>
 
 <p>
-We can use <code>os.path.exists(path)</code> to check.<br />
+We can use <code>os.path.exists(path)</code> to check.
 </p>
 
 <ul class="org-ul">
-<li><code>os.path.exists(path)</code> returns <code>True</code> if the file or folder referred to in the argument <b>exists</b>.<br /></li>
-<li><code>os.path.isfile(path)</code> returns <code>True</code> if the path argument exists and is a file.<br /></li>
-<li><code>os.path.isdir(path)</code> returns <code>True</code> if the path argument exists and is a folder.<br /></li>
+<li><code>os.path.exists(path)</code> returns <code>True</code> if the file or folder referred to in the argument <b>exists</b>.</li>
+<li><code>os.path.isfile(path)</code> returns <code>True</code> if the path argument exists and is a file.</li>
+<li><code>os.path.isdir(path)</code> returns <code>True</code> if the path argument exists and is a folder.</li>
 </ul>
 </div>
 </div>
@@ -5631,16 +5631,16 @@ We can use <code>os.path.exists(path)</code> to check.<br />
 <h3 id="org614c5c5">File Reading and Writing Process</h3>
 <div class="outline-text-3" id="text-org614c5c5">
 <p>
-There are three steps to reading or writing a file in Python<br />
+There are three steps to reading or writing a file in Python
 </p>
 <ol class="org-ol">
-<li>Call the <code>open()</code> function to return a <code>File</code> object.<br /></li>
-<li>Call the <code>read()</code> or <code>write()</code> method on the <code>File</code> object.<br /></li>
-<li>Close the file by calling the <code>close()</code> method on the <code>File</code> object.<br /></li>
+<li>Call the <code>open()</code> function to return a <code>File</code> object.</li>
+<li>Call the <code>read()</code> or <code>write()</code> method on the <code>File</code> object.</li>
+<li>Close the file by calling the <code>close()</code> method on the <code>File</code> object.</li>
 </ol>
 
 <p>
-First we create a random test.txt file..<br />
+First we create a random test.txt file..
 </p>
 <div class="org-src-container">
 <pre class="src src-sh"><span style="font-weight: bold;">echo</span> <span style="font-style: italic;">'Hello World'</span> &gt; test.txt
@@ -5669,7 +5669,7 @@ Hello World
 </pre>
 
 <p>
-Then we can open the file in Python..<br />
+Then we can open the file in Python..
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> os
@@ -5692,7 +5692,7 @@ Hello World
 
 
 <p>
-In order to <b>write</b> to a file, we need to open it in <b>write mode</b>  (or <b>append mode</b>). We can't write to a file that we have opened in read mode. Write mode allow us to write on the file. Append mode wil lappend text to the end of the existing file.<br />
+In order to <b>write</b> to a file, we need to open it in <b>write mode</b>  (or <b>append mode</b>). We can't write to a file that we have opened in read mode. Write mode allow us to write on the file. Append mode wil lappend text to the end of the existing file.
 </p>
 
 <div class="org-src-container">
@@ -5725,7 +5725,7 @@ My name is Kenny.
 <h3 id="org67a07cd">The <code>shutil</code> module</h3>
 <div class="outline-text-3" id="text-org67a07cd">
 <p>
-The <code>shutil</code> module stands for <b>shell utilities</b>. It has functions to let us copy, move, rename and delete files in our Python programs. To use this module do:<br />
+The <code>shutil</code> module stands for <b>shell utilities</b>. It has functions to let us copy, move, rename and delete files in our Python programs. To use this module do:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> shutil
@@ -5738,11 +5738,11 @@ The <code>shutil</code> module stands for <b>shell utilities</b>. It has functio
 <h3 id="org89bd7e6">Copying Files and Folders</h3>
 <div class="outline-text-3" id="text-org89bd7e6">
 <p>
-The <code>shutil</code> module provides function for copying files as well as entire folders.<br />
+The <code>shutil</code> module provides function for copying files as well as entire folders.
 </p>
 
 <p>
-To copy do:<br />
+To copy do:
 </p>
 
 <div class="org-src-container">
@@ -5750,15 +5750,15 @@ To copy do:<br />
 </pre>
 </div>
 <p>
-Both source and destination are strings. If destination is a filename, it will be used as the new name of the copied file.<br />
+Both source and destination are strings. If destination is a filename, it will be used as the new name of the copied file.
 </p>
 
 <p>
-The <code>shutil.copy()</code> function returns a string of the path of the copied file.<br />
+The <code>shutil.copy()</code> function returns a string of the path of the copied file.
 </p>
 
 <p>
-Example:<br />
+Example:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> shutil, os
@@ -5776,7 +5776,7 @@ shutil.copy(<span style="font-style: italic;">'./Documents/eggs.txt'</span>, <sp
 </pre>
 
 <p>
-The second call copies the file but also give it a new name.<br />
+The second call copies the file but also give it a new name.
 </p>
 </div>
 
@@ -5784,7 +5784,7 @@ The second call copies the file but also give it a new name.<br />
 <h4 id="orgbdd08c4"><code>shutil.copytree()</code></h4>
 <div class="outline-text-4" id="text-orgbdd08c4">
 <p>
-While <code>shutil.copy()</code> copies a single file, <code>shutil.copytree()</code> copy an <b>entire folder</b> and every folder and file contained within it.<br />
+While <code>shutil.copy()</code> copies a single file, <code>shutil.copytree()</code> copy an <b>entire folder</b> and every folder and file contained within it.
 </p>
 </div>
 </div>
@@ -5794,23 +5794,23 @@ While <code>shutil.copy()</code> copies a single file, <code>shutil.copytree()</
 <h3 id="orgbc7b7ac">Moving and renaming files and folders</h3>
 <div class="outline-text-3" id="text-orgbc7b7ac">
 <p>
-Calling <code>shutil.move(source, dest)</code> will move the file or folder at <code>source</code> to the path <code>dest</code> and will return a string of the absolute path of the new location.<br />
+Calling <code>shutil.move(source, dest)</code> will move the file or folder at <code>source</code> to the path <code>dest</code> and will return a string of the absolute path of the new location.
 </p>
 
 <p>
-Similarly to <code>shutil.copy()</code>, if <code>dest</code> is a folder, the <code>source</code> file gets moved into <code>dest</code> and keeps its current filename.<br />
+Similarly to <code>shutil.copy()</code>, if <code>dest</code> is a folder, the <code>source</code> file gets moved into <code>dest</code> and keeps its current filename.
 </p>
 
 <p>
-If <code>dest</code> is a filename, the <code>source</code> file is moved and renamed.<br />
+If <code>dest</code> is a filename, the <code>source</code> file is moved and renamed.
 </p>
 
 <p>
-We should <b>be careful</b> when using <code>move()</code> because if there is an existing file in the destination folder with the same name, the file would be overwritten.<br />
+We should <b>be careful</b> when using <code>move()</code> because if there is an existing file in the destination folder with the same name, the file would be overwritten.
 </p>
 
 <p>
-If a folder with the specified name does not exist, the <code>source</code> file will get renamed into what ever specified in <code>dest</code>.<br />
+If a folder with the specified name does not exist, the <code>source</code> file will get renamed into what ever specified in <code>dest</code>. 
 </p>
 </div>
 </div>
@@ -5819,11 +5819,11 @@ If a folder with the specified name does not exist, the <code>source</code> file
 <h3 id="org1761f21">Permanent delete</h3>
 <div class="outline-text-3" id="text-org1761f21">
 <p>
-We can delete a single file or a single empty folder with functions in the <code>os</code> module, where as to delete a folder and all of its contents, we use the <code>shutil</code> module.<br />
+We can delete a single file or a single empty folder with functions in the <code>os</code> module, where as to delete a folder and all of its contents, we use the <code>shutil</code> module.
 </p>
 
 <p>
-This deletes the file at <code>path</code>.<br />
+This deletes the file at <code>path</code>.
 </p>
 <div class="org-src-container">
 <pre class="src src-python">os.unlink(path)
@@ -5831,7 +5831,7 @@ This deletes the file at <code>path</code>.<br />
 </div>
 
 <p>
-This delete the folder at <code>path</code>. This folder must be empty.<br />
+This delete the folder at <code>path</code>. This folder must be empty.
 </p>
 <div class="org-src-container">
 <pre class="src src-python">os.rmdir(path)
@@ -5839,7 +5839,7 @@ This delete the folder at <code>path</code>. This folder must be empty.<br />
 </div>
 
 <p>
-This removes the folder at <code>path</code>, and <b>all files and folders it contains will also be deleted.</b><br />
+This removes the folder at <code>path</code>, and <b>all files and folders it contains will also be deleted.</b>
 </p>
 <div class="org-src-container">
 <pre class="src src-python">shutil.rmtree(path)
@@ -5847,11 +5847,11 @@ This removes the folder at <code>path</code>, and <b>all files and folders it co
 </div>
 
 <p>
-These things delete <b>PERMANENTLY</b>, so exercise with caution. It's a good idea to comment out these statements and run <code>print()</code> commands in a loop first to print out the filenames.<br />
+These things delete <b>PERMANENTLY</b>, so exercise with caution. It's a good idea to comment out these statements and run <code>print()</code> commands in a loop first to print out the filenames.
 </p>
 
 <p>
-For example: Instead of..<br />
+For example: Instead of..
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold;">import</span> os
@@ -5862,7 +5862,7 @@ For example: Instead of..<br />
 </div>
 
 <p>
-..do this:<br />
+..do this:
 </p>
 
 <div class="org-src-container">
@@ -5879,11 +5879,11 @@ For example: Instead of..<br />
 <h3 id="org78c682a">Safe Delete</h3>
 <div class="outline-text-3" id="text-org78c682a">
 <p>
-We can do safe delete with third party <code>send2trash</code> module. Since it's a third party we need to do <code>pip install</code> first.<br />
+We can do safe delete with third party <code>send2trash</code> module. Since it's a third party we need to do <code>pip install</code> first.
 </p>
 
 <p>
-Using <code>send2trash</code> is much safer than the permadelete functions from Python's default libraries. It will send folders and files to our computer's trash or recycle bin instead of permanently deleting them.<br />
+Using <code>send2trash</code> is much safer than the permadelete functions from Python's default libraries. It will send folders and files to our computer's trash or recycle bin instead of permanently deleting them.
 </p>
 
 <div class="org-src-container">
@@ -5893,11 +5893,11 @@ send2trash.send2trash(<span style="font-style: italic;">'foo.txt'</span>)
 </div>
 
 <p>
-Things to note:<br />
+Things to note:
 </p>
 <ul class="org-ul">
-<li>While sending things to the bin is safe and let us recover them later, it will not free up disk space like permanently deleting them.<br /></li>
-<li>The <code>send2trash()</code> can only send files to the bin, it cannot retrieve them.<br /></li>
+<li>While sending things to the bin is safe and let us recover them later, it will not free up disk space like permanently deleting them.</li>
+<li>The <code>send2trash()</code> can only send files to the bin, it cannot retrieve them.</li>
 </ul>
 </div>
 </div>
@@ -5906,7 +5906,7 @@ Things to note:<br />
 <h3 id="org02f94da">Walking a dir tree</h3>
 <div class="outline-text-3" id="text-org02f94da">
 <p>
-We can use <code>os.walk()</code> to rename every file in some folder and also every file in every subfolder of that folder, meaning that we'd want to walk through the directory tree, touching files as we go.<br />
+We can use <code>os.walk()</code> to rename every file in some folder and also every file in every subfolder of that folder, meaning that we'd want to walk through the directory tree, touching files as we go.
 </p>
 
 <div class="org-src-container">
@@ -5928,15 +5928,15 @@ We can use <code>os.walk()</code> to rename every file in some folder and also e
 <h3 id="orga6aa499">Compressing Files with <code>zipfile</code> module</h3>
 <div class="outline-text-3" id="text-orga6aa499">
 <p>
-Compressing a file reduces its size, which is useful when transfering it over the Internet, especially when working with multiple files and folders.<br />
+Compressing a file reduces its size, which is useful when transfering it over the Internet, especially when working with multiple files and folders.
 </p>
 
 <p>
-A zipped file that contains multiple folders is called and archive file.<br />
+A zipped file that contains multiple folders is called and archive file.
 </p>
 
 <p>
-<code>zipfile</code> module can be used to both create and open <i>(or extract</i>) ZIP files.<br />
+<code>zipfile</code> module can be used to both create and open <i>(or extract</i>) ZIP files.
 </p>
 </div>
 
@@ -5960,7 +5960,7 @@ exampleItem.compress_size
 </div>
 
 <p>
-While a <code>ZipFile</code> object represents an entire archive file, a <code>ZipInfo</code> object holds useful information about a <i>single file</i> within the archive.<br />
+While a <code>ZipFile</code> object represents an entire archive file, a <code>ZipInfo</code> object holds useful information about a <i>single file</i> within the archive.
 </p>
 </div>
 </div>
@@ -5969,7 +5969,7 @@ While a <code>ZipFile</code> object represents an entire archive file, a <code>Z
 <h4 id="org895a0e2">Extracting from ZIP files</h4>
 <div class="outline-text-4" id="text-org895a0e2">
 <p>
-The <code>extractall()</code> method for <code>ZipFile</code> objects extracts all the files and folder from a ZIP file int other current working directory (<code>os.getcwd()</code>)<br />
+The <code>extractall()</code> method for <code>ZipFile</code> objects extracts all the files and folder from a ZIP file int other current working directory (<code>os.getcwd()</code>)
 </p>
 
 <div class="org-src-container">
@@ -5984,19 +5984,19 @@ exampleZip.close()
 </div>
 
 <p>
-Alternatively, instead of extract to $PWD you can also pass an argument to <code>extractall()</code> to have it extract the files into a folder. If the folder does not exist, it will be created.<br />
+Alternatively, instead of extract to $PWD you can also pass an argument to <code>extractall()</code> to have it extract the files into a folder. If the folder does not exist, it will be created.
 </p>
 
 <p>
-Instead of <code>extractall()</code>, you can also use <code>extract()</code> which extracts a single file from the ZIP file.<br />
+Instead of <code>extractall()</code>, you can also use <code>extract()</code> which extracts a single file from the ZIP file.
 </p>
 
 <p>
-The argument we pass to <code>extract()</code> must match one of the string in the list returned by <code>namelist()</code>. We can also pass a second argument to <code>extract()</code> to extract the file into a different folder from $PWD.<br />
+The argument we pass to <code>extract()</code> must match one of the string in the list returned by <code>namelist()</code>. We can also pass a second argument to <code>extract()</code> to extract the file into a different folder from $PWD.
 </p>
 
 <p>
-<code>extract()</code> returns the absolute path to which the file was extracted.<br />
+<code>extract()</code> returns the absolute path to which the file was extracted.
 </p>
 </div>
 </div>
@@ -6005,16 +6005,16 @@ The argument we pass to <code>extract()</code> must match one of the string in t
 <h4 id="orgecd0934">Creating and Adding to ZIP files</h4>
 <div class="outline-text-4" id="text-orgecd0934">
 <p>
-To create a ZIP file, we must open the <code>ZipFile</code> object in <i>write</i> mode by passing 'w' as the second argument. This is similar to opening a text file in write mode using <code>open()</code>.<br />
+To create a ZIP file, we must open the <code>ZipFile</code> object in <i>write</i> mode by passing 'w' as the second argument. This is similar to opening a text file in write mode using <code>open()</code>.
 </p>
 
 
 <p>
-By default, <code>write()</code> in write mode will <b>erase</b> all existing contents of a ZIP file. If we want to simply add files to an existing ZIP file, pass <code>'a'</code> as the 2nd arguement to the <code>zipfile.ZipFile()</code> to open the ZIP file in <b>append</b> mode.<br />
+By default, <code>write()</code> in write mode will <b>erase</b> all existing contents of a ZIP file. If we want to simply add files to an existing ZIP file, pass <code>'a'</code> as the 2nd arguement to the <code>zipfile.ZipFile()</code> to open the ZIP file in <b>append</b> mode.
 </p>
 
 <p>
-When we pass a path to <code>write()</code> method of the <code>ZipFile</code> object, Python will compress the file at the path and add it into the ZIP file. The <code>write()</code> method first argument is a string of the filename to add. The second argument is the compression type parameter, which tells Python what algorithm it should use to compress the files. <code>compress_type=zipfile.ZIP_DEFLATED</code> is a compression algorithm that works well on all types of data.<br />
+When we pass a path to <code>write()</code> method of the <code>ZipFile</code> object, Python will compress the file at the path and add it into the ZIP file. The <code>write()</code> method first argument is a string of the filename to add. The second argument is the compression type parameter, which tells Python what algorithm it should use to compress the files. <code>compress_type=zipfile.ZIP_DEFLATED</code> is a compression algorithm that works well on all types of data.
 </p>
 </div>
 </div>
@@ -6024,7 +6024,7 @@ When we pass a path to <code>write()</code> method of the <code>ZipFile</code> o
 <div id="postamble" class="status">
 <p class="date">Date: 2019-05-15 Wed 00:00</p>
 <p class="author">Author: Mishka Nguyen</p>
-<p class="date">Created: 2019-08-13 Tue 07:24</p>
+<p class="date">Created: 2019-08-13 Tue 08:05</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

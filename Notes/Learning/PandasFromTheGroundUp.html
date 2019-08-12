@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-13 Tue 07:24 -->
+<!-- 2019-08-13 Tue 08:05 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pandas From the Ground Up</title>
@@ -327,8 +327,8 @@ for the JavaScript code in this tag.
 <h2 id="org749d992">Information</h2>
 <div class="outline-text-2" id="text-org749d992">
 <p>
-Lecturer: Brandon Rhodes<br />
-Event: PyCon2015<br />
+Lecturer: Brandon Rhodes
+Event: PyCon2015
 </p>
 </div>
 </div>
@@ -337,7 +337,7 @@ Event: PyCon2015<br />
 <h2 id="orgb2cbfab">Short Description</h2>
 <div class="outline-text-2" id="text-orgb2cbfab">
 <p>
-The typical Pandas user learns one dataframe method at a time, slowly scraping features together through trial and error until they can solve the task in front of them. In this tutorial you will re-learn how to think about dataframes from the ground up, and discover how to select intelligently from their abilities to solve your data processing problems through direct and deliberately-chosen steps.<br />
+The typical Pandas user learns one dataframe method at a time, slowly scraping features together through trial and error until they can solve the task in front of them. In this tutorial you will re-learn how to think about dataframes from the ground up, and discover how to select intelligently from their abilities to solve your data processing problems through direct and deliberately-chosen steps.
 </p>
 </div>
 </div>
@@ -357,19 +357,19 @@ ipython3 notebook
 </div>
 
 <p>
-There are 2 modes - <b>typing</b> mode and <b>non-typing</b> mode.<br />
+There are 2 modes - <b>typing</b> mode and <b>non-typing</b> mode.
 </p>
 
 <p>
-Hitting <b>Esc</b> exits typing mode where each keyboard character performs an <b>Action</b> instead of adding a letter in stdin.<br />
+Hitting <b>Esc</b> exits typing mode where each keyboard character performs an <b>Action</b> instead of adding a letter in stdin.
 </p>
 
 <p>
-To see all shortcut for non-typing mode, hit <b>H</b>.<br />
+To see all shortcut for non-typing mode, hit <b>H</b>. 
 </p>
 
 <p>
-Common shortcut:<br />
+Common shortcut:
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -409,7 +409,7 @@ Common shortcut:<br />
 </pre>
 
 <p>
-The above statement allows matplot library to plot in the notebook (inline) instead of opening a seperate window.<br />
+The above statement allows matplot library to plot in the notebook (inline) instead of opening a seperate window.
 </p>
 </div>
 </div>
@@ -421,19 +421,19 @@ The above statement allows matplot library to plot in the notebook (inline) inst
 <h4 id="orge94f5a5">IPython Built-in magic commands</h4>
 <div class="outline-text-4" id="text-orge94f5a5">
 <p>
-IPython has a set of predefined 'magic functions' that can be calle dwith a CLI style syntax. There are two kinds of magics, <b>line-oriented</b> and <b>cell-oriented</b> <br />
+IPython has a set of predefined 'magic functions' that can be calle dwith a CLI style syntax. There are two kinds of magics, <b>line-oriented</b> and <b>cell-oriented</b> 
 </p>
 
 <p>
-<b>Line Magics</b> are prefixed with <code>%</code>. They work like OS Command line calls. They get as an argument the rest of the line, where arguments are passed without parentheses or quotes. Line magics can return results and can be used in the right hand side of an assignment. In other word, their statement is per line.<br />
+<b>Line Magics</b> are prefixed with <code>%</code>. They work like OS Command line calls. They get as an argument the rest of the line, where arguments are passed without parentheses or quotes. Line magics can return results and can be used in the right hand side of an assignment. In other word, their statement is per line.
 </p>
 
 <p>
-<b>Cell Magics</b> are prefixed with double <code>%%</code>. They get as an argument not only the rest of hte line but also the lines below it in a seperate argument. In other word, their statement is per the whole cell.<br />
+<b>Cell Magics</b> are prefixed with double <code>%%</code>. They get as an argument not only the rest of hte line but also the lines below it in a seperate argument. In other word, their statement is per the whole cell.
 </p>
 
 <p>
-<i>(<a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics">https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics</a>)</i><br />
+<i>(<a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics">https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics</a>)</i>
 </p>
 </div>
 
@@ -441,8 +441,8 @@ IPython has a set of predefined 'magic functions' that can be calle dwith a CLI 
 <li><a id="org3cbca71"></a><code>%%time</code><br />
 <div class="outline-text-5" id="text-org3cbca71">
 <p>
-Put this on top of the cell to see how long it takes for the cell to execute.<br />
-This is very useful!!<br />
+Put this on top of the cell to see how long it takes for the cell to execute.
+This is very useful!!
 </p>
 </div>
 </li>
@@ -453,7 +453,7 @@ This is very useful!!<br />
 <h4 id="orge18a1e0">Using <code>head()</code></h4>
 <div class="outline-text-4" id="text-orge18a1e0">
 <p>
-In IPython, always just do a <code>head()</code> for the df you are working on, so you have it on the screen.<br />
+In IPython, always just do a <code>head()</code> for the df you are working on, so you have it on the screen.
 </p>
 </div>
 </div>
@@ -462,7 +462,7 @@ In IPython, always just do a <code>head()</code> for the df you are working on, 
 <h4 id="orgf519193">Making things look prettier</h4>
 <div class="outline-text-4" id="text-orgf519193">
 <p>
-You can also make data table look better by using css stylesheets, similarly to the below.<br />
+You can also make data table look better by using css stylesheets, similarly to the below.
 </p>
 
 <div class="org-src-container">
@@ -473,11 +473,11 @@ HTML(<span style="font-style: italic;">'&lt;style&gt;{}&lt;/style&gt;'</span>.<s
 </div>
 
 <p>
-(See css source in reference section below: <a href="#org388b6ed">No description for this link</a>)<br />
+(See css source in reference section below: <a href="#org388b6ed">No description for this link</a>)
 </p>
 
 <p>
-I guess this is because <code>ipython notebook</code> is a browser-based intepreter so you can of course mess around with how things are displayed<br />
+I guess this is because <code>ipython notebook</code> is a browser-based intepreter so you can of course mess around with how things are displayed
 </p>
 </div>
 </div>
@@ -548,8 +548,8 @@ I guess this is because <code>ipython notebook</code> is a browser-based intepre
 <h4 id="orgc6b20c6">Series dtype</h4>
 <div class="outline-text-4" id="text-orgc6b20c6">
 <p>
-When working with series, it's important to know the data type of the values first before operating with them.<br />
-To find out the data type of the values in a series do <code>Series.dtype</code>.<br />
+When working with series, it's important to know the data type of the values first before operating with them.
+To find out the data type of the values in a series do <code>Series.dtype</code>.
 </p>
 </div>
 </div>
@@ -559,15 +559,15 @@ To find out the data type of the values in a series do <code>Series.dtype</code>
 <h3 id="orgb45894d"><code>.head()</code> and <code>.tail()</code></h3>
 <div class="outline-text-3" id="text-orgb45894d">
 <p>
-Using <code>head()</code> method displays the first 5 rows of the dataframe. Similarly you can use <code>tail()</code>. You can specify the number of rows as an argument in the bracket, overriding the default 5.<br />
+Using <code>head()</code> method displays the first 5 rows of the dataframe. Similarly you can use <code>tail()</code>. You can specify the number of rows as an argument in the bracket, overriding the default 5.
 </p>
 
 <p>
-These are genuine data operations. They do not just display or print the first n rows but really build a <b>new dataframe</b> by snipping off n numbers of rows.<br />
+These are genuine data operations. They do not just display or print the first n rows but really build a <b>new dataframe</b> by snipping off n numbers of rows.
 </p>
 
 <p>
-They are data <b>slicing/ reduction</b> operations.<br />
+They are data <b>slicing/ reduction</b> operations.
 </p>
 
 <pre class="example">
@@ -582,7 +582,7 @@ new = titles.head()  ## This new df can be assigned to a variable.
 <h3 id="org249e150">Displaying the dataframe</h3>
 <div class="outline-text-3" id="text-org249e150">
 <p>
-If we are interested in displaying only one column, put the string of the column name in the sqr bracket.<br />
+If we are interested in displaying only one column, put the string of the column name in the sqr bracket.
 </p>
 <div class="org-src-container">
 <pre class="src src-python">df[<span style="font-style: italic;">'colname'</span>]
@@ -590,7 +590,7 @@ If we are interested in displaying only one column, put the string of the column
 </div>
 
 <p>
-If we want to see multiple columns, instead of passing just a string, pass a list of string. <b>Note the double square brackets</b>:<br />
+If we want to see multiple columns, instead of passing just a string, pass a list of string. <b>Note the double square brackets</b>:
 </p>
 <div class="org-src-container">
 <pre class="src src-python">df[[<span style="font-style: italic;">'col1'</span>, <span style="font-style: italic;">'col2'</span>]]
@@ -604,11 +604,11 @@ If we want to see multiple columns, instead of passing just a string, pass a lis
 <h3 id="orgd016ca1">Counting</h3>
 <div class="outline-text-3" id="text-orgd016ca1">
 <p>
-You can do <code>len(df)</code> to count the number of rows in a df.<br />
+You can do <code>len(df)</code> to count the number of rows in a df.
 </p>
 
 <p>
-To count the number of occurences within a Series, you can use:<br />
+To count the number of occurences within a Series, you can use:
 </p>
 <div class="org-src-container">
 <pre class="src src-python">Series.value_counts(<span style="font-style: italic;">'colname'</span>)
@@ -621,46 +621,46 @@ To count the number of occurences within a Series, you can use:<br />
 <h3 id="orga81f689">Filtering the dataframe</h3>
 <div class="outline-text-3" id="text-orga81f689">
 <p>
-Filtering = reducing the dataframe to only the rows that match our criteria.<br />
+Filtering = reducing the dataframe to only the rows that match our criteria.
 </p>
 
 <p>
-We can look at only specific column by: <code>titles['year']</code> (df = titles, column = year)<br />
+We can look at only specific column by: <code>titles['year']</code> (df = titles, column = year)
 </p>
 
 <p>
-We can even manipulate the stdout by doing something like this: <code>titles['year'] + 100</code> which will return all the years plus 100.<br />
+We can even manipulate the stdout by doing something like this: <code>titles['year'] + 100</code> which will return all the years plus 100.
 </p>
 
 <p>
-So that was math operations, what's more usefule is bool, which we can do <code>titles['year'] &gt; 1985</code> which returns rows of <code>True</code> and <code>False</code>.<br />
-<b>Important</b>: This returns the <span class="underline">full</span> list of rows with the respective boolean value. It does <b>not</b> slice the dataframe yet.<br />
+So that was math operations, what's more usefule is bool, which we can do <code>titles['year'] &gt; 1985</code> which returns rows of <code>True</code> and <code>False</code>.
+<b>Important</b>: This returns the <span class="underline">full</span> list of rows with the respective boolean value. It does <b>not</b> slice the dataframe yet.
 </p>
 
 <p>
-To <b>only show the True</b> values, you can do: <code>titles[titles.year &gt; 1985]</code> or <code>title[titles['year'] &gt; 1985]</code>.<br />
+To <b>only show the True</b> values, you can do: <code>titles[titles.year &gt; 1985]</code> or <code>title[titles['year'] &gt; 1985]</code>.
 </p>
 
 <p>
-You can use <code>&amp;</code> and <code>|</code> for <code>and</code>, <code>or</code> like this:<br />
+You can use <code>&amp;</code> and <code>|</code> for <code>and</code>, <code>or</code> like this: 
 </p>
 
 <p>
-Show me the movie titles between 1985 and 1987 (notice the brackets)<br />
+Show me the movie titles between 1985 and 1987 (notice the brackets)
 </p>
 <pre class="example">
 titles[(titles['year'] &gt;= 1985) &amp; (titles['year'] &lt;= 1987)]
 </pre>
 
 <p>
-How many movies were made between 1985 and 1987?<br />
+How many movies were made between 1985 and 1987?
 </p>
 <pre class="example">
 len(titles[(titles['year'] &gt;= 1985) &amp; (titles['year'] &lt;= 1987)])
 </pre>
 
 <p>
-So using dataframe object is similar to using List where as instead of the index number within the square brackets, you use the column name.<br />
+So using dataframe object is similar to using List where as instead of the index number within the square brackets, you use the column name.
 </p>
 </div>
 
@@ -668,15 +668,15 @@ So using dataframe object is similar to using List where as instead of the index
 <h4 id="org0392a8b">Using operational String methods</h4>
 <div class="outline-text-4" id="text-org0392a8b">
 <p>
-A lot of the times we want to use common string methods like <code>startswith()</code> or <code>endswith()</code>&#x2026; The problem is a lot of the string object methods' names coincide with names of the series object.<br />
+A lot of the times we want to use common string methods like <code>startswith()</code> or <code>endswith()</code>&#x2026; The problem is a lot of the string object methods' names coincide with names of the series object.
 </p>
 
 <p>
-However there is a little namespace <code>str</code> that is attached with series object that contains all string data operation.<br />
+However there is a little namespace <code>str</code> that is attached with series object that contains all string data operation.
 </p>
 
 <p>
-E.g, instead of doing this..<br />
+E.g, instead of doing this..
 </p>
 <div class="org-src-container">
 <pre class="src src-python">Series.startswith(<span style="font-style: italic;">'abc'</span>)
@@ -684,7 +684,7 @@ E.g, instead of doing this..<br />
 </div>
 
 <p>
-.. you do this..<br />
+.. you do this..
 </p>
 <div class="org-src-container">
 <pre class="src src-python">Series.<span style="font-weight: bold;">str</span>.startswith(<span style="font-style: italic;">'Hamlet'</span>)
@@ -692,7 +692,7 @@ E.g, instead of doing this..<br />
 </div>
 
 <p>
-<i>(More details: <a href="https://pandas.pydata.org/pandas-docs/version/0.22/api.html#string-handling">https://pandas.pydata.org/pandas-docs/version/0.22/api.html#string-handling</a>)</i><br />
+<i>(More details: <a href="https://pandas.pydata.org/pandas-docs/version/0.22/api.html#string-handling">https://pandas.pydata.org/pandas-docs/version/0.22/api.html#string-handling</a>)</i>
 </p>
 </div>
 </div>
@@ -702,7 +702,7 @@ E.g, instead of doing this..<br />
 <h3 id="org8a76946">Sorting/ Reducing the dataframe</h3>
 <div class="outline-text-3" id="text-org8a76946">
 <p>
-This can be achived by <code>df.sort_values('col')</code>, to display NaN values first we can do <code>df.sort_values('col', na_position = 'first')</code>. On default na_position = last.<br />
+This can be achived by <code>df.sort_values('col')</code>, to display NaN values first we can do <code>df.sort_values('col', na_position = 'first')</code>. On default na_position = last.
 </p>
 </div>
 </div>
@@ -716,7 +716,7 @@ This can be achived by <code>df.sort_values('col')</code>, to display NaN values
 </div>
 
 <p>
-The above statement add a column with name <code>colname</code> to the dataframe <code>df</code> with value = 1.<br />
+The above statement add a column with name <code>colname</code> to the dataframe <code>df</code> with value = 1.
 </p>
 </div>
 </div>
@@ -725,11 +725,11 @@ The above statement add a column with name <code>colname</code> to the dataframe
 <h2 id="org61f37ae">Pandas Index</h2>
 <div class="outline-text-2" id="text-org61f37ae">
 <p>
-Indexing helps with <b>data lookup</b> performance, making it faster.<br />
+Indexing helps with <b>data lookup</b> performance, making it faster.
 </p>
 
 <p>
-Both rows and columns can be indexes.<br />
+Both rows and columns can be indexes.
 </p>
 </div>
 
@@ -737,11 +737,11 @@ Both rows and columns can be indexes.<br />
 <h3 id="org3cf6316">How to index and use indexes</h3>
 <div class="outline-text-3" id="text-org3cf6316">
 <p>
-Example: Reduce the dataframe 'cast' to only the row with title = 'Sleuth':<br />
+Example: Reduce the dataframe 'cast' to only the row with title = 'Sleuth':
 </p>
 
 <p>
-Operation without index:<br />
+Operation without index:
 </p>
 <div class="org-src-container">
 <pre class="src src-python">%%time 
@@ -754,7 +754,7 @@ Wall time: 127 ms
 </pre>
 
 <p>
-Indexing:<br />
+Indexing:
 </p>
 <div class="org-src-container">
 <pre class="src src-python">%%time
@@ -767,7 +767,7 @@ Wall time: 357 ms
 </pre>
 
 <p>
-Operation with index:<br />
+Operation with index:
 </p>
 <div class="org-src-container">
 <pre class="src src-python">%time c.loc[<span style="font-style: italic;">'Sleuth'</span>]
@@ -779,7 +779,7 @@ Wall time: 73.7 ms
 </div>
 
 <p>
-Multiple column indexing:<br />
+Multiple column indexing:
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">c</span> = cast.set_index([<span style="font-style: italic;">'title'</span>, <span style="font-style: italic;">'year'</span>])
@@ -787,7 +787,7 @@ Multiple column indexing:<br />
 </div>
 
 <p>
-Operation with multiple column indexing:<br />
+Operation with multiple column indexing:
 </p>
 <div class="org-src-container">
 <pre class="src src-python">%time
@@ -800,11 +800,11 @@ Wall time: 4.53 µs
 </pre>
 
 <p>
-When you present to Python a statement with the <code>==</code> operator in a dataframe that has four million rows, you are asking Python 4 millions True or False question.<br />
+When you present to Python a statement with the <code>==</code> operator in a dataframe that has four million rows, you are asking Python 4 millions True or False question.
 </p>
 
 <p>
-However with <code>loc[index]</code> it is much easier and take less steps, i.e <code>loc('Sleuth')</code> would skip everything before <code>S</code>.<br />
+However with <code>loc[index]</code> it is much easier and take less steps, i.e <code>loc('Sleuth')</code> would skip everything before <code>S</code>. 
 </p>
 </div>
 </div>
@@ -813,7 +813,7 @@ However with <code>loc[index]</code> it is much easier and take less steps, i.e 
 <h3 id="orgf345ed4"><code>set_index()</code></h3>
 <div class="outline-text-3" id="text-orgf345ed4">
 <p>
-The <code>set_index()</code> method takes a column name argument and make that column the index column.<br />
+The <code>set_index()</code> method takes a column name argument and make that column the index column.
 </p>
 
 <div class="org-src-container">
@@ -822,11 +822,11 @@ The <code>set_index()</code> method takes a column name argument and make that c
 </div>
 
 <p>
-This is similar to when we pass <code>index_col = 'col'</code> as an argument for <code>read_csv()</code>.<br />
+This is similar to when we pass <code>index_col = 'col'</code> as an argument for <code>read_csv()</code>.
 </p>
 
 <p>
-To set_index for <b>multiple</b> column, instead of passing a string of the column name, pass a <b>list</b> of column names.<br />
+To set_index for <b>multiple</b> column, instead of passing a string of the column name, pass a <b>list</b> of column names.
 </p>
 </div>
 </div>
@@ -835,7 +835,7 @@ To set_index for <b>multiple</b> column, instead of passing a string of the colu
 <h3 id="org6f4f5fc"><code>index(append = True)</code></h3>
 <div class="outline-text-3" id="text-org6f4f5fc">
 <p>
-Passing of the <code>append = True</code> argument in the <code>index()</code> method passes the index as the additional one, on top of the existing one.<br />
+Passing of the <code>append = True</code> argument in the <code>index()</code> method passes the index as the additional one, on top of the existing one.
 </p>
 </div>
 </div>
@@ -843,7 +843,7 @@ Passing of the <code>append = True</code> argument in the <code>index()</code> m
 <h3 id="org13b3f66"><code>reset_index()</code></h3>
 <div class="outline-text-3" id="text-org13b3f66">
 <p>
-This is the direct opposite of <code>set_index()</code>. It takes argument(s) of column name(s) that toss them back to normal data, not index anymore.<br />
+This is the direct opposite of <code>set_index()</code>. It takes argument(s) of column name(s) that toss them back to normal data, not index anymore.
 </p>
 <div class="org-src-container">
 <pre class="src src-python">c.reset_index(<span style="font-style: italic;">'year'</span>)
@@ -855,7 +855,7 @@ This is the direct opposite of <code>set_index()</code>. It takes argument(s) of
 <h3 id="orgb407c2e"><code>sort_index()</code></h3>
 <div class="outline-text-3" id="text-orgb407c2e">
 <p>
-To rearrange the order of the df/ series by index sorting, do:<br />
+To rearrange the order of the df/ series by index sorting, do:
 </p>
 <div class="org-src-container">
 <pre class="src src-python">series.sort_index()
@@ -869,19 +869,19 @@ To rearrange the order of the df/ series by index sorting, do:<br />
 <h2 id="orga1456b4">Grouping Pandas dataframe <code>groupby()</code></h2>
 <div class="outline-text-2" id="text-orga1456b4">
 <p>
-<code>df.groupby()</code> takes column name(s) as argument and produces a <code>DataFrameGropBy</code> object that can be used for multiple things.<br />
+<code>df.groupby()</code> takes column name(s) as argument and produces a <code>DataFrameGropBy</code> object that can be used for multiple things.
 </p>
 
 <p>
-We can use <code>df.groupby().size()</code> to see the count of different grouping of data. It displayes a hierachical index if multiple column names are pased.<br />
+We can use <code>df.groupby().size()</code> to see the count of different grouping of data. It displayes a hierachical index if multiple column names are pased.
 </p>
 
 <p>
-We can use <code>df.groupby().col.max() or min()</code> and even <code>df.groupby().col.mean()</code>, ..etc.. for data science purposes.<br />
+We can use <code>df.groupby().col.max() or min()</code> and even <code>df.groupby().col.mean()</code>, ..etc.. for data science purposes.
 </p>
 
 <p>
-See how many roles George Clooney plays per year<br />
+See how many roles George Clooney plays per year
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">c</span>= cast[cast.name == <span style="font-style: italic;">'George Clooney'</span>]
@@ -890,7 +890,7 @@ c.groupby(<span style="font-style: italic;">'year'</span>).size()
 </div>
 
 <p>
-See how many roles George Clooney plays in total<br />
+See how many roles George Clooney plays in total
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="font-weight: bold; font-style: italic;">c</span>= cast[cast.name == <span style="font-style: italic;">'George Clooney'</span>]
@@ -899,7 +899,7 @@ c.groupby(<span style="font-style: italic;">'year'</span>).size().<span style="f
 </div>
 
 <p>
-See how many roles George Clooney plays per decade<br />
+See how many roles George Clooney plays per decade
 </p>
 <div class="org-src-container">
 <pre class="src src-python">c.groupby(c[<span style="font-style: italic;">'year'</span>] // 10 * 10).size()
@@ -907,7 +907,7 @@ See how many roles George Clooney plays per decade<br />
 </div>
 
 <p>
-To groupby() multiple column, the column names have to be in a list i.e a pair of <b>square brackets</b>.<br />
+To groupby() multiple column, the column names have to be in a list i.e a pair of <b>square brackets</b>.
 </p>
 </div>
 </div>
@@ -915,7 +915,7 @@ To groupby() multiple column, the column names have to be in a list i.e a pair o
 <h2 id="org9ea39ae">Unstack operation</h2>
 <div class="outline-text-2" id="text-org9ea39ae">
 <p>
-By default, <code>unstack()</code> tackles the inner most/ first index, i.e<br />
+By default, <code>unstack()</code> tackles the inner most/ first index, i.e
 </p>
 <div class="org-src-container">
 <pre class="src src-python">df.unstack() = df.unstack([1])
@@ -924,11 +924,11 @@ By default, <code>unstack()</code> tackles the inner most/ first index, i.e<br /
 </div>
 
 <p>
-unstack pivots a level of the index labels i.e turning a column header into a row header. It allows us to see data next to each other in a row instead of being on the same column.<br />
+unstack pivots a level of the index labels i.e turning a column header into a row header. It allows us to see data next to each other in a row instead of being on the same column.
 </p>
 
 <p>
-The opposite of <code>unstack()</code> is <code>stack()</code>.  An easy way to remember is that the <code>unstack()</code> method pivots the data <b>UP</b>.<br />
+The opposite of <code>unstack()</code> is <code>stack()</code>.  An easy way to remember is that the <code>unstack()</code> method pivots the data <b>UP</b>. 
 </p>
 </div>
 
@@ -1866,7 +1866,7 @@ U595tr7/HwQA4F8r6xe7QW48Xyo7lpmbdypy4fLt1etBq0TFm2O8Z/135l0NzpXCL14jf4j6tFWi
 ooQHqeuNepF7Q18QUTR7Gs4KjeaWs08AAPAB+pKT516pkiT99bcd1gde98OB9x0h+CtpKgsdU9Vt
 L1I1lQQXB0/4G/PO+j1fb35sJw5TZ/Wu2zPc+l+SJP359z279/oNNfVfEwAA0JcA1e/96TR4Htia
 e2v3ZzvHM2K6puv6lgbmIP7JvH63NzNs+8M5iwPVo7BnO6HZe55Op5OBxZ3G1RPufAUA+Iz/BeI5
-bjhz5oDsAAAAAElFTkSuQmCC"without unstack.png /><br />
+bjhz5oDsAAAAAElFTkSuQmCC"without unstack.png />
 </p>
 </div>
 </div>
@@ -2725,7 +2725,7 @@ jiazzWY8UlTS9POM5d7/IxCKPQNAoCBNRcSuekG/qF0Xv5Cdt8Owsli/ZrpvtivVVei11/I1P5ud
 foAr1m+fT0REht25eQdNRFKdvibHvmP+z36i0B1Vv15VoCJxikTU3niB08y9k69rTN6zt035usgm
 llWVqpuy1H/1V/Pz25PK9TmT9R6KPQNAgExxOp2B7iGU+eVp4W2fJVBoPncTPYvN1XMCHicPEGg4
 NwUAABAKaQoAACAU0hQAAEAopCkAAIBQSFMAAAChkKYAAABCIU0BAACEQpoCAAAIhbs3hIA2f9wi
-AkIY7t4AEHB4WrgwfrkXEhEOlgAAQe3/A8E3Ip9PbLnfAAAAAElFTkSuQmCC"with unstack.png /><br />
+AkIY7t4AEHB4WrgwfrkXEhEOlgAAQe3/A8E3Ip9PbLnfAAAAAElFTkSuQmCC"with unstack.png />
 </p>
 </div>
 </div>
@@ -2735,11 +2735,11 @@ AkIY7t4AEHB4WrgwfrkXEhEOlgAAQe3/A8E3Ip9PbLnfAAAAAElFTkSuQmCC"with unstack.png />
 <h2 id="org5164794"><code>fillna()</code> method</h2>
 <div class="outline-text-2" id="text-org5164794">
 <p>
-Pandas is reown for not replacing N/A value with zero as in many circumstances, N/A values should be left as Not Available. This is 'NaN' in pandas.<br />
+Pandas is reown for not replacing N/A value with zero as in many circumstances, N/A values should be left as Not Available. This is 'NaN' in pandas.
 </p>
 
 <p>
-However, if you want to replace NaN values with something, use the <code>fillna()</code> method.  Be careful with this as this is dependent on the nature of the data you are dealing with. For example, missing data should not be recorded as '0' in financial report.<br />
+However, if you want to replace NaN values with something, use the <code>fillna()</code> method.  Be careful with this as this is dependent on the nature of the data you are dealing with. For example, missing data should not be recorded as '0' in financial report.
 </p>
 </div>
 </div>
@@ -2747,7 +2747,7 @@ However, if you want to replace NaN values with something, use the <code>fillna(
 <h2 id="org8870283">Date</h2>
 <div class="outline-text-2" id="text-org8870283">
 <p>
-Similarly to accessing string method by using <code>.str.</code>. You can use <code>.dt.</code><br />
+Similarly to accessing string method by using <code>.str.</code>. You can use <code>.dt.</code>
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -2786,11 +2786,11 @@ df.release_date.monht
 <h2 id="org6898f33">Merge operation</h2>
 <div class="outline-text-2" id="text-org6898f33">
 <p>
-You can merge two dfs together.<br />
+You can merge two dfs together.
 </p>
 
 <p>
-By default, pandas will try to find the matching rows by comparing values in columns with the same name.<br />
+By default, pandas will try to find the matching rows by comparing values in columns with the same name.
 </p>
 </div>
 </div>
@@ -2799,7 +2799,7 @@ By default, pandas will try to find the matching rows by comparing values in col
 <h2 id="orgc31a05c">Same table merge</h2>
 <div class="outline-text-2" id="text-orgc31a05c">
 <p>
-We can also use Pandas to merge rows that match the rows in the dataframe that are from the same table/ dataframe.<br />
+We can also use Pandas to merge rows that match the rows in the dataframe that are from the same table/ dataframe.
 </p>
 </div>
 </div>
@@ -2808,7 +2808,7 @@ We can also use Pandas to merge rows that match the rows in the dataframe that a
 <h2 id="org6131a6b">Pivot operation</h2>
 <div class="outline-text-2" id="text-org6131a6b">
 <p>
-Dataframe has a pivot function.<br />
+Dataframe has a pivot function.
 </p>
 
 <pre class="example">
@@ -2816,8 +2816,8 @@ df.pivot['col1','col2','col3']
 </pre>
 
 <p>
-It is basically a combination of <code>set_index()</code>, <code>unstack()</code>, and <code>sort_index()</code>.<br />
-In the above example, <code>col2</code> will be pivoted upto the top (unstack), <code>col1</code> over to the left, leaving <code>col3</code> as the information in the centre.<br />
+It is basically a combination of <code>set_index()</code>, <code>unstack()</code>, and <code>sort_index()</code>.
+In the above example, <code>col2</code> will be pivoted upto the top (unstack), <code>col1</code> over to the left, leaving <code>col3</code> as the information in the centre.
 </p>
 </div>
 </div>
@@ -2830,16 +2830,16 @@ In the above example, <code>col2</code> will be pivoted upto the top (unstack), 
 <h3 id="orgac5675f">Basic</h3>
 <div class="outline-text-3" id="text-orgac5675f">
 <p>
-Dataframe and series can be plotted with <code>plot()</code>.<br />
+Dataframe and series can be plotted with <code>plot()</code>.
 </p>
 
 <p>
-<code>plot()</code> takes a few arguments, including:<br />
+<code>plot()</code> takes a few arguments, including:
 </p>
 <ul class="org-ul">
-<li>x = 'colname'<br /></li>
-<li>y = 'colname'<br /></li>
-<li>kind = 'scatter' (or something else)<br /></li>
+<li>x = 'colname'</li>
+<li>y = 'colname'</li>
+<li>kind = 'scatter' (or something else)</li>
 </ul>
 </div>
 </div>
@@ -2853,7 +2853,7 @@ Dataframe and series can be plotted with <code>plot()</code>.<br />
 <h3 id="org0702261">Style sheets</h3>
 <div class="outline-text-3" id="text-org0702261">
 <p>
-<a id="org388b6ed"></a><br />
+<a id="org388b6ed"></a>
 </p>
 
 <div class="org-src-container">
@@ -2922,7 +2922,7 @@ sys.setdefaultencoding('utf-8')
 <div id="postamble" class="status">
 <p class="date">Date: 2019-08-05 Mon 00:00</p>
 <p class="author">Author: Mishka Nguyen</p>
-<p class="date">Created: 2019-08-13 Tue 07:24</p>
+<p class="date">Created: 2019-08-13 Tue 08:05</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

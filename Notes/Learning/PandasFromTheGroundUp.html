@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-13 Tue 00:21 -->
+<!-- 2019-08-13 Tue 07:24 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pandas From the Ground Up</title>
@@ -466,9 +466,9 @@ You can also make data table look better by using css stylesheets, similarly to 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #ff79c6; font-weight: bold;">from</span> IPython.core.display <span style="color: #ff79c6; font-weight: bold;">import</span> HTML
-<span style="color: #f8f8f2;">css</span> = <span style="color: #ffb86c;">open</span>(<span style="color: #f1fa8c;">'style-table.css'</span>).read() + <span style="color: #ffb86c;">open</span>(<span style="color: #f1fa8c;">'style-notebook.css'</span>).read()
-HTML(<span style="color: #f1fa8c;">'&lt;style&gt;{}&lt;/style&gt;'</span>.<span style="color: #ffb86c;">format</span>(css))
+<pre class="src src-python"><span style="font-weight: bold;">from</span> IPython.core.display <span style="font-weight: bold;">import</span> HTML
+<span style="font-weight: bold; font-style: italic;">css</span> = <span style="font-weight: bold;">open</span>(<span style="font-style: italic;">'style-table.css'</span>).read() + <span style="font-weight: bold;">open</span>(<span style="font-style: italic;">'style-notebook.css'</span>).read()
+HTML(<span style="font-style: italic;">'&lt;style&gt;{}&lt;/style&gt;'</span>.<span style="font-weight: bold;">format</span>(css))
 </pre>
 </div>
 
@@ -585,7 +585,7 @@ new = titles.head()  ## This new df can be assigned to a variable.
 If we are interested in displaying only one column, put the string of the column name in the sqr bracket.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">df[<span style="color: #f1fa8c;">'colname'</span>]
+<pre class="src src-python">df[<span style="font-style: italic;">'colname'</span>]
 </pre>
 </div>
 
@@ -593,7 +593,7 @@ If we are interested in displaying only one column, put the string of the column
 If we want to see multiple columns, instead of passing just a string, pass a list of string. <b>Note the double square brackets</b>:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">df[[<span style="color: #f1fa8c;">'col1'</span>, <span style="color: #f1fa8c;">'col2'</span>]]
+<pre class="src src-python">df[[<span style="font-style: italic;">'col1'</span>, <span style="font-style: italic;">'col2'</span>]]
 
 </pre>
 </div>
@@ -611,7 +611,7 @@ You can do <code>len(df)</code> to count the number of rows in a df.<br />
 To count the number of occurences within a Series, you can use:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">Series.value_counts(<span style="color: #f1fa8c;">'colname'</span>)
+<pre class="src src-python">Series.value_counts(<span style="font-style: italic;">'colname'</span>)
 </pre>
 </div>
 </div>
@@ -679,7 +679,7 @@ However there is a little namespace <code>str</code> that is attached with serie
 E.g, instead of doing this..<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">Series.startswith(<span style="color: #f1fa8c;">'abc'</span>)
+<pre class="src src-python">Series.startswith(<span style="font-style: italic;">'abc'</span>)
 </pre>
 </div>
 
@@ -687,7 +687,7 @@ E.g, instead of doing this..<br />
 .. you do this..<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">Series.<span style="color: #ffb86c;">str</span>.startswith(<span style="color: #f1fa8c;">'Hamlet'</span>)
+<pre class="src src-python">Series.<span style="font-weight: bold;">str</span>.startswith(<span style="font-style: italic;">'Hamlet'</span>)
 </pre>
 </div>
 
@@ -711,7 +711,7 @@ This can be achived by <code>df.sort_values('col')</code>, to display NaN values
 <h3 id="org9619959">Adding a column into a dataframe</h3>
 <div class="outline-text-3" id="text-org9619959">
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #f8f8f2;">df</span>[<span style="color: #f1fa8c;">'colname'</span>] = 1
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">df</span>[<span style="font-style: italic;">'colname'</span>] = 1
 </pre>
 </div>
 
@@ -745,7 +745,7 @@ Operation without index:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-python">%%time 
-cast[cast.title == <span style="color: #f1fa8c;">'Sleuth'</span>]
+cast[cast.title == <span style="font-style: italic;">'Sleuth'</span>]
 </pre>
 </div>
 <pre class="example">
@@ -758,7 +758,7 @@ Indexing:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-python">%%time
-<span style="color: #f8f8f2;">c</span> = cast.set_index(<span style="color: #f1fa8c;">'title'</span>)
+<span style="font-weight: bold; font-style: italic;">c</span> = cast.set_index(<span style="font-style: italic;">'title'</span>)
 </pre>
 </div>
 <pre class="example">
@@ -770,8 +770,8 @@ Wall time: 357 ms
 Operation with index:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">%time c.loc[<span style="color: #f1fa8c;">'Sleuth'</span>]
-<span style="color: #6272a4;">#</span><span style="color: #6272a4;">+begin_src </span>
+<pre class="src src-python">%time c.loc[<span style="font-style: italic;">'Sleuth'</span>]
+<span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">+begin_src </span>
 CPU times: user 74.5 ms, sys: 0 ns, total: 74.5 ms
 Wall time: 73.7 ms
 
@@ -782,7 +782,7 @@ Wall time: 73.7 ms
 Multiple column indexing:<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #f8f8f2;">c</span> = cast.set_index([<span style="color: #f1fa8c;">'title'</span>, <span style="color: #f1fa8c;">'year'</span>])
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">c</span> = cast.set_index([<span style="font-style: italic;">'title'</span>, <span style="font-style: italic;">'year'</span>])
 </pre>
 </div>
 
@@ -791,7 +791,7 @@ Operation with multiple column indexing:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-python">%time
-c.loc[(<span style="color: #f1fa8c;">'Sleuth'</span>,1972)]
+c.loc[(<span style="font-style: italic;">'Sleuth'</span>,1972)]
 </pre>
 </div>
 <pre class="example">
@@ -817,7 +817,7 @@ The <code>set_index()</code> method takes a column name argument and make that c
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python">df.set_index(<span style="color: #f1fa8c;">'col'</span>)
+<pre class="src src-python">df.set_index(<span style="font-style: italic;">'col'</span>)
 </pre>
 </div>
 
@@ -846,7 +846,7 @@ Passing of the <code>append = True</code> argument in the <code>index()</code> m
 This is the direct opposite of <code>set_index()</code>. It takes argument(s) of column name(s) that toss them back to normal data, not index anymore.<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">c.reset_index(<span style="color: #f1fa8c;">'year'</span>)
+<pre class="src src-python">c.reset_index(<span style="font-style: italic;">'year'</span>)
 </pre>
 </div>
 </div>
@@ -884,8 +884,8 @@ We can use <code>df.groupby().col.max() or min()</code> and even <code>df.groupb
 See how many roles George Clooney plays per year<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #f8f8f2;">c</span>= cast[cast.name == <span style="color: #f1fa8c;">'George Clooney'</span>]
-c.groupby(<span style="color: #f1fa8c;">'year'</span>).size()
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">c</span>= cast[cast.name == <span style="font-style: italic;">'George Clooney'</span>]
+c.groupby(<span style="font-style: italic;">'year'</span>).size()
 </pre>
 </div>
 
@@ -893,8 +893,8 @@ c.groupby(<span style="color: #f1fa8c;">'year'</span>).size()
 See how many roles George Clooney plays in total<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="color: #f8f8f2;">c</span>= cast[cast.name == <span style="color: #f1fa8c;">'George Clooney'</span>]
-c.groupby(<span style="color: #f1fa8c;">'year'</span>).size().<span style="color: #ffb86c;">sum</span>() <span style="color: #6272a4;">## </span><span style="color: #6272a4;">This returns the same result with len(c)</span>
+<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">c</span>= cast[cast.name == <span style="font-style: italic;">'George Clooney'</span>]
+c.groupby(<span style="font-style: italic;">'year'</span>).size().<span style="font-weight: bold;">sum</span>() <span style="font-weight: bold; font-style: italic;">## </span><span style="font-weight: bold; font-style: italic;">This returns the same result with len(c)</span>
 </pre>
 </div>
 
@@ -902,7 +902,7 @@ c.groupby(<span style="color: #f1fa8c;">'year'</span>).size().<span style="color
 See how many roles George Clooney plays per decade<br />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">c.groupby(c[<span style="color: #f1fa8c;">'year'</span>] // 10 * 10).size()
+<pre class="src src-python">c.groupby(c[<span style="font-style: italic;">'year'</span>] // 10 * 10).size()
 </pre>
 </div>
 
@@ -2857,44 +2857,44 @@ Dataframe and series can be plotted with <code>plot()</code>.<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-css" id="orga060650"><span style="color: #50fa7b; font-weight: bold;">body </span>{
-    <span style="color: #f8f8f2;">margin</span>: 0;
-    <span style="color: #f8f8f2;">font-family</span>: Helvetica;
+<pre class="src src-css" id="orga060650"><span style="font-weight: bold;">body </span>{
+    <span style="font-weight: bold; font-style: italic;">margin</span>: 0;
+    <span style="font-weight: bold; font-style: italic;">font-family</span>: Helvetica;
 }
-<span style="color: #50fa7b; font-weight: bold;">table.dataframe </span>{
-    <span style="color: #f8f8f2;">border-collapse</span>: collapse;
-    <span style="color: #f8f8f2;">border</span>: none;
+<span style="font-weight: bold;">table.dataframe </span>{
+    <span style="font-weight: bold; font-style: italic;">border-collapse</span>: collapse;
+    <span style="font-weight: bold; font-style: italic;">border</span>: none;
 }
-<span style="color: #50fa7b; font-weight: bold;">table.dataframe tr </span>{
-    <span style="color: #f8f8f2;">border</span>: none;
+<span style="font-weight: bold;">table.dataframe tr </span>{
+    <span style="font-weight: bold; font-style: italic;">border</span>: none;
 }
-<span style="color: #50fa7b; font-weight: bold;">table.dataframe td, table.dataframe th </span>{
-    <span style="color: #f8f8f2;">margin</span>: 0;
-    <span style="color: #f8f8f2;">border</span>: 1px solid white;
-    <span style="color: #f8f8f2;">padding-left</span>: 0.25em;
-    <span style="color: #f8f8f2;">padding-right</span>: 0.25em;
+<span style="font-weight: bold;">table.dataframe td, table.dataframe th </span>{
+    <span style="font-weight: bold; font-style: italic;">margin</span>: 0;
+    <span style="font-weight: bold; font-style: italic;">border</span>: 1px solid white;
+    <span style="font-weight: bold; font-style: italic;">padding-left</span>: 0.25em;
+    <span style="font-weight: bold; font-style: italic;">padding-right</span>: 0.25em;
 }
-<span style="color: #50fa7b; font-weight: bold;">table.dataframe th:not(:empty) </span>{
-    <span style="color: #f8f8f2;">background-color</span>: #fec;
-    <span style="color: #f8f8f2;">text-align</span>: left;
-    <span style="color: #f8f8f2;">font-weight</span>: normal;
+<span style="font-weight: bold;">table.dataframe th:not(:empty) </span>{
+    <span style="font-weight: bold; font-style: italic;">background-color</span>: #fec;
+    <span style="font-weight: bold; font-style: italic;">text-align</span>: left;
+    <span style="font-weight: bold; font-style: italic;">font-weight</span>: normal;
 }
-<span style="color: #50fa7b; font-weight: bold;">table.dataframe tr:nth-child(2) th:empty </span>{
-    <span style="color: #f8f8f2;">border-left</span>: none;
-    <span style="color: #f8f8f2;">border-right</span>: 1px dashed #888;
+<span style="font-weight: bold;">table.dataframe tr:nth-child(2) th:empty </span>{
+    <span style="font-weight: bold; font-style: italic;">border-left</span>: none;
+    <span style="font-weight: bold; font-style: italic;">border-right</span>: 1px dashed #888;
 }
-<span style="color: #50fa7b; font-weight: bold;">table.dataframe td </span>{
-    <span style="color: #f8f8f2;">border</span>: 2px solid #ccf;
-    <span style="color: #f8f8f2;">background-color</span>: #f4f4ff;
+<span style="font-weight: bold;">table.dataframe td </span>{
+    <span style="font-weight: bold; font-style: italic;">border</span>: 2px solid #ccf;
+    <span style="font-weight: bold; font-style: italic;">background-color</span>: #f4f4ff;
 }
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-css" id="orgaa724a3"><span style="color: #50fa7b; font-weight: bold;">h3 </span>{
-    <span style="color: #f8f8f2;">color</span>: white;
-    <span style="color: #f8f8f2;">background-color</span>: black;
-    <span style="color: #f8f8f2;">padding</span>: 0.5em;
+<pre class="src src-css" id="orgaa724a3"><span style="font-weight: bold;">h3 </span>{
+    <span style="font-weight: bold; font-style: italic;">color</span>: white;
+    <span style="font-weight: bold; font-style: italic;">background-color</span>: black;
+    <span style="font-weight: bold; font-style: italic;">padding</span>: 0.5em;
 }
 </pre>
 </div>
@@ -2922,7 +2922,7 @@ sys.setdefaultencoding('utf-8')
 <div id="postamble" class="status">
 <p class="date">Date: 2019-08-05 Mon 00:00</p>
 <p class="author">Author: Mishka Nguyen</p>
-<p class="date">Created: 2019-08-13 Tue 00:21</p>
+<p class="date">Created: 2019-08-13 Tue 07:24</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

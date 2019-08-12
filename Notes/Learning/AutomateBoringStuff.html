@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-11 Sun 22:38 -->
+<!-- 2019-08-12 Mon 22:33 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Automate the Boring Stuff with Python</title>
@@ -456,6 +456,27 @@ for the JavaScript code in this tag.
 <li><a href="#org4d757e2">10.6. Finding File Sizes and Folder content</a></li>
 <li><a href="#org38be99f">10.7. Checking path validity</a></li>
 <li><a href="#org614c5c5">10.8. File Reading and Writing Process</a></li>
+</ul>
+</li>
+<li><a href="#org4db1e2a">11. Chapter 9 - Organizing files</a>
+<ul>
+<li><a href="#org67a07cd">11.1. The <code>shutil</code> module</a></li>
+<li><a href="#org89bd7e6">11.2. Copying Files and Folders</a>
+<ul>
+<li><a href="#orgbdd08c4">11.2.1. <code>shutil.copytree()</code></a></li>
+</ul>
+</li>
+<li><a href="#orgbc7b7ac">11.3. Moving and renaming files and folders</a></li>
+<li><a href="#org1761f21">11.4. Permanent delete</a></li>
+<li><a href="#org78c682a">11.5. Safe Delete</a></li>
+<li><a href="#org02f94da">11.6. Walking a dir tree</a></li>
+<li><a href="#orga6aa499">11.7. Compressing Files with <code>zipfile</code> module</a>
+<ul>
+<li><a href="#org8a4e59c">11.7.1. Reading ZIP file</a></li>
+<li><a href="#org895a0e2">11.7.2. Extracting from ZIP files</a></li>
+<li><a href="#orgecd0934">11.7.3. Creating and Adding to ZIP files</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -6996,11 +7017,314 @@ My name is Kenny.
 </div>
 </div>
 </div>
+<div id="outline-container-org4db1e2a" class="outline-2">
+<h2 id="org4db1e2a"><span class="section-number-2">11</span> Chapter 9 - Organizing files</h2>
+<div class="outline-text-2" id="text-11">
+</div>
+<div id="outline-container-org67a07cd" class="outline-3">
+<h3 id="org67a07cd"><span class="section-number-3">11.1</span> The <code>shutil</code> module</h3>
+<div class="outline-text-3" id="text-11-1">
+<p>
+The <code>shutil</code> module stands for <b>shell utilities</b>. It has functions to let us copy, move, rename and delete files in our Python programs. To use this module do:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">import</span> shutil
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org89bd7e6" class="outline-3">
+<h3 id="org89bd7e6"><span class="section-number-3">11.2</span> Copying Files and Folders</h3>
+<div class="outline-text-3" id="text-11-2">
+<p>
+The <code>shutil</code> module provides function for copying files as well as entire folders.
+</p>
+
+<p>
+To copy do:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">shutil.copy(source, destination)
+</pre>
+</div>
+<p>
+Both source and destination are strings. If destination is a filename, it will be used as the new name of the copied file.
+</p>
+
+<p>
+The <code>shutil.copy()</code> function returns a string of the path of the copied file.
+</p>
+
+<p>
+Example:
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">import</span> shutil, os
+
+os.chdir(<span style="font-style: italic;">'~'</span>)  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">go to home dir</span>
+
+shutil.copy(<span style="font-style: italic;">'./Documents/foo.txt'</span>, <span style="font-style: italic;">'./Notes/texts'</span>)
+shutil.copy(<span style="font-style: italic;">'./Documents/eggs.txt'</span>, <span style="font-style: italic;">'./Notes/eggs2.txt'</span>)
+</pre>
+</div>
+
+<pre class="example">
+~/Notes/texts/foo.txt
+~/Notes/egg2.txt
+</pre>
+
+<p>
+The second call copies the file but also give it a new name.
+</p>
+</div>
+
+<div id="outline-container-orgbdd08c4" class="outline-4">
+<h4 id="orgbdd08c4"><span class="section-number-4">11.2.1</span> <code>shutil.copytree()</code></h4>
+<div class="outline-text-4" id="text-11-2-1">
+<p>
+While <code>shutil.copy()</code> copies a single file, <code>shutil.copytree()</code> copy an <b>entire folder</b> and every folder and file contained within it.
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgbc7b7ac" class="outline-3">
+<h3 id="orgbc7b7ac"><span class="section-number-3">11.3</span> Moving and renaming files and folders</h3>
+<div class="outline-text-3" id="text-11-3">
+<p>
+Calling <code>shutil.move(source, dest)</code> will move the file or folder at <code>source</code> to the path <code>dest</code> and will return a string of the absolute path of the new location.
+</p>
+
+<p>
+Similarly to <code>shutil.copy()</code>, if <code>dest</code> is a folder, the <code>source</code> file gets moved into <code>dest</code> and keeps its current filename.
+</p>
+
+<p>
+If <code>dest</code> is a filename, the <code>source</code> file is moved and renamed.
+</p>
+
+<p>
+We should <b>be careful</b> when using <code>move()</code> because if there is an existing file in the destination folder with the same name, the file would be overwritten.
+</p>
+
+<p>
+If a folder with the specified name does not exist, the <code>source</code> file will get renamed into what ever specified in <code>dest</code>. 
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1761f21" class="outline-3">
+<h3 id="org1761f21"><span class="section-number-3">11.4</span> Permanent delete</h3>
+<div class="outline-text-3" id="text-11-4">
+<p>
+We can delete a single file or a single empty folder with functions in the <code>os</code> module, where as to delete a folder and all of its contents, we use the <code>shutil</code> module.
+</p>
+
+<p>
+This deletes the file at <code>path</code>.
+</p>
+<div class="org-src-container">
+<pre class="src src-python">os.unlink(path)
+</pre>
+</div>
+
+<p>
+This delete the folder at <code>path</code>. This folder must be empty.
+</p>
+<div class="org-src-container">
+<pre class="src src-python">os.rmdir(path)
+</pre>
+</div>
+
+<p>
+This removes the folder at <code>path</code>, and <b>all files and folders it contains will also be deleted.</b>
+</p>
+<div class="org-src-container">
+<pre class="src src-python">shutil.rmtree(path)
+</pre>
+</div>
+
+<p>
+These things delete <b>PERMANENTLY</b>, so exercise with caution. It's a good idea to comment out these statements and run <code>print()</code> commands in a loop first to print out the filenames.
+</p>
+
+<p>
+For example: Instead of..
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">import</span> os
+<span style="font-weight: bold;">for</span> filename <span style="font-weight: bold;">in</span> os.listdir():
+    <span style="font-weight: bold;">if</span> filename.endswith(<span style="font-style: italic;">'.rxt'</span>):
+        os.unlink(filename)
+</pre>
+</div>
+
+<p>
+..do this:
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">import</span> os
+    <span style="font-weight: bold;">for</span> filename <span style="font-weight: bold;">in</span> os.listdir()
+        <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">os.unlink(filename)</span>
+        <span style="font-weight: bold;">print</span>(filename)  <span style="font-weight: bold; font-style: italic;">## </span><span style="font-weight: bold; font-style: italic;">making sure the correct files are listed FIRST.</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org78c682a" class="outline-3">
+<h3 id="org78c682a"><span class="section-number-3">11.5</span> Safe Delete</h3>
+<div class="outline-text-3" id="text-11-5">
+<p>
+We can do safe delete with third party <code>send2trash</code> module. Since it's a third party we need to do <code>pip install</code> first.
+</p>
+
+<p>
+Using <code>send2trash</code> is much safer than the permadelete functions from Python's default libraries. It will send folders and files to our computer's trash or recycle bin instead of permanently deleting them.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">import</span> send2trash
+send2trash.send2trash(<span style="font-style: italic;">'foo.txt'</span>)
+</pre>
+</div>
+
+<p>
+Things to note:
+</p>
+<ul class="org-ul">
+<li>While sending things to the bin is safe and let us recover them later, it will not free up disk space like permanently deleting them.</li>
+<li>The <code>send2trash()</code> can only send files to the bin, it cannot retrieve them.</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org02f94da" class="outline-3">
+<h3 id="org02f94da"><span class="section-number-3">11.6</span> Walking a dir tree</h3>
+<div class="outline-text-3" id="text-11-6">
+<p>
+We can use <code>os.walk()</code> to rename every file in some folder and also every file in every subfolder of that folder, meaning that we'd want to walk through the directory tree, touching files as we go.
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">import</span> os 
+
+<span style="font-weight: bold;">for</span> folderName, subFolders, fileNames <span style="font-weight: bold;">in</span> os.walk(<span style="font-style: italic;">'.'</span>):
+    <span style="font-weight: bold;">print</span>(<span style="font-style: italic;">'The current folder is '</span> + folderName)
+
+    <span style="font-weight: bold;">for</span> subFolder <span style="font-weight: bold;">in</span> subFolders:
+        <span style="font-weight: bold;">print</span>(<span style="font-style: italic;">'The subfolder of '</span> + folderName + <span style="font-style: italic;">': '</span> + subFolder)
+    <span style="font-weight: bold;">for</span> fileName <span style="font-weight: bold;">in</span> fileNames:
+        <span style="font-weight: bold;">print</span>(<span style="font-style: italic;">'File inside '</span> + folderName + <span style="font-style: italic;">': '</span> + fileName)
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga6aa499" class="outline-3">
+<h3 id="orga6aa499"><span class="section-number-3">11.7</span> Compressing Files with <code>zipfile</code> module</h3>
+<div class="outline-text-3" id="text-11-7">
+<p>
+Compressing a file reduces its size, which is useful when transfering it over the Internet, especially when working with multiple files and folders.
+</p>
+
+<p>
+A zipped file that contains multiple folders is called and archive file.
+</p>
+
+<p>
+<code>zipfile</code> module can be used to both create and open <i>(or extract</i>) ZIP files.
+</p>
+</div>
+
+<div id="outline-container-org8a4e59c" class="outline-4">
+<h4 id="org8a4e59c"><span class="section-number-4">11.7.1</span> Reading ZIP file</h4>
+<div class="outline-text-4" id="text-11-7-1">
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">import</span> zipfile
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">First, we create a ZipFile (case-sensitive) object</span>
+<span style="font-weight: bold; font-style: italic;">exampleZip</span> = zipfile.ZipFile(<span style="font-style: italic;">'foo.zip'</span>)
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">list the name of things contained within the ZipFile object</span>
+exampleZip.namelist()
+
+<span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">we can also get info on a specific item</span>
+<span style="font-weight: bold; font-style: italic;">exampleItem</span> = exampleZip.getinfo(<span style="font-style: italic;">'file.txt'</span>)
+exampleItem.file_size
+exampleItem.compress_size    
+</pre>
+</div>
+
+<p>
+While a <code>ZipFile</code> object represents an entire archive file, a <code>ZipInfo</code> object holds useful information about a <i>single file</i> within the archive.
+</p>
+</div>
+</div>
+
+<div id="outline-container-org895a0e2" class="outline-4">
+<h4 id="org895a0e2"><span class="section-number-4">11.7.2</span> Extracting from ZIP files</h4>
+<div class="outline-text-4" id="text-11-7-2">
+<p>
+The <code>extractall()</code> method for <code>ZipFile</code> objects extracts all the files and folder from a ZIP file int other current working directory (<code>os.getcwd()</code>)
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="font-weight: bold;">import</span> zipfile, os
+os.chdir(<span style="font-style: italic;">'~/Downloads'</span>)
+
+<span style="font-weight: bold; font-style: italic;">exampleZip</span> = zipfile.ZipFile(<span style="font-style: italic;">'example.zip'</span>)
+
+exampleZip.extractall()  <span style="font-weight: bold; font-style: italic;"># </span><span style="font-weight: bold; font-style: italic;">extract to ~/Downloads</span>
+exampleZip.close()
+</pre>
+</div>
+
+<p>
+Alternatively, instead of extract to $PWD you can also pass an argument to <code>extractall()</code> to have it extract the files into a folder. If the folder does not exist, it will be created.
+</p>
+
+<p>
+Instead of <code>extractall()</code>, you can also use <code>extract()</code> which extracts a single file from the ZIP file.
+</p>
+
+<p>
+The argument we pass to <code>extract()</code> must match one of the string in the list returned by <code>namelist()</code>. We can also pass a second argument to <code>extract()</code> to extract the file into a different folder from $PWD.
+</p>
+
+<p>
+<code>extract()</code> returns the absolute path to which the file was extracted.
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgecd0934" class="outline-4">
+<h4 id="orgecd0934"><span class="section-number-4">11.7.3</span> Creating and Adding to ZIP files</h4>
+<div class="outline-text-4" id="text-11-7-3">
+<p>
+To create a ZIP file, we must open the <code>ZipFile</code> object in <i>write</i> mode by passing 'w' as the second argument. This is similar to opening a text file in write mode using <code>open()</code>.
+</p>
+
+
+<p>
+By default, <code>write()</code> in write mode will <b>erase</b> all existing contents of a ZIP file. If we want to simply add files to an existing ZIP file, pass <code>'a'</code> as the 2nd arguement to the <code>zipfile.ZipFile()</code> to open the ZIP file in <b>append</b> mode.
+</p>
+
+<p>
+When we pass a path to <code>write()</code> method of the <code>ZipFile</code> object, Python will compress the file at the path and add it into the ZIP file. The <code>write()</code> method first argument is a string of the filename to add. The second argument is the compression type parameter, which tells Python what algorithm it should use to compress the files. <code>compress_type=zipfile.ZIP_DEFLATED</code> is a compression algorithm that works well on all types of data.
+</p>
+</div>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="date">Date: 2019-05-15 Wed 00:00</p>
 <p class="author">Author: Mishka Nguyen</p>
-<p class="date">Created: 2019-08-11 Sun 22:38</p>
+<p class="date">Created: 2019-08-12 Mon 22:33</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

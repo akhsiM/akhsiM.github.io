@@ -3,30 +3,23 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-08-13 Tue 08:15 -->
-<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Pandas From the Ground Up</title>
-<meta name="generator" content="Org mode" />
-<meta name="author" content="Mishka Nguyen" />
+<!-- 2019-08-13 Tue 16:57 -->
+<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta  name="generator" content="Org-mode" />
+<meta  name="author" content="Kenny Nguyen" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center;
-             margin-bottom: .2em; }
-  .subtitle { text-align: center;
-              font-size: medium;
-              font-weight: bold;
-              margin-top:0; }
+  .title  { text-align: center; }
   .todo   { font-family: monospace; color: red; }
-  .done   { font-family: monospace; color: green; }
-  .priority { font-family: monospace; color: orange; }
+  .done   { color: green; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -53,127 +46,30 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  /* Languages per Org manual */
-  pre.src-asymptote:before { content: 'Asymptote'; }
-  pre.src-awk:before { content: 'Awk'; }
-  pre.src-C:before { content: 'C'; }
-  /* pre.src-C++ doesn't work in CSS */
-  pre.src-clojure:before { content: 'Clojure'; }
-  pre.src-css:before { content: 'CSS'; }
-  pre.src-D:before { content: 'D'; }
-  pre.src-ditaa:before { content: 'ditaa'; }
-  pre.src-dot:before { content: 'Graphviz'; }
-  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-sh:before    { content: 'sh'; }
+  pre.src-bash:before  { content: 'sh'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-fortran:before { content: 'Fortran'; }
-  pre.src-gnuplot:before { content: 'gnuplot'; }
-  pre.src-haskell:before { content: 'Haskell'; }
-  pre.src-hledger:before { content: 'hledger'; }
-  pre.src-java:before { content: 'Java'; }
-  pre.src-js:before { content: 'Javascript'; }
-  pre.src-latex:before { content: 'LaTeX'; }
-  pre.src-ledger:before { content: 'Ledger'; }
-  pre.src-lisp:before { content: 'Lisp'; }
-  pre.src-lilypond:before { content: 'Lilypond'; }
-  pre.src-lua:before { content: 'Lua'; }
-  pre.src-matlab:before { content: 'MATLAB'; }
-  pre.src-mscgen:before { content: 'Mscgen'; }
-  pre.src-ocaml:before { content: 'Objective Caml'; }
-  pre.src-octave:before { content: 'Octave'; }
-  pre.src-org:before { content: 'Org mode'; }
-  pre.src-oz:before { content: 'OZ'; }
-  pre.src-plantuml:before { content: 'Plantuml'; }
-  pre.src-processing:before { content: 'Processing.js'; }
-  pre.src-python:before { content: 'Python'; }
-  pre.src-R:before { content: 'R'; }
-  pre.src-ruby:before { content: 'Ruby'; }
-  pre.src-sass:before { content: 'Sass'; }
-  pre.src-scheme:before { content: 'Scheme'; }
-  pre.src-screen:before { content: 'Gnu Screen'; }
-  pre.src-sed:before { content: 'Sed'; }
-  pre.src-sh:before { content: 'shell'; }
-  pre.src-sql:before { content: 'SQL'; }
-  pre.src-sqlite:before { content: 'SQLite'; }
-  /* additional languages in org.el's org-babel-load-languages alist */
-  pre.src-forth:before { content: 'Forth'; }
-  pre.src-io:before { content: 'IO'; }
-  pre.src-J:before { content: 'J'; }
-  pre.src-makefile:before { content: 'Makefile'; }
-  pre.src-maxima:before { content: 'Maxima'; }
-  pre.src-perl:before { content: 'Perl'; }
-  pre.src-picolisp:before { content: 'Pico Lisp'; }
-  pre.src-scala:before { content: 'Scala'; }
-  pre.src-shell:before { content: 'Shell Script'; }
-  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
-  /* additional language identifiers per "defun org-babel-execute"
-       in ob-*.el */
-  pre.src-cpp:before  { content: 'C++'; }
-  pre.src-abc:before  { content: 'ABC'; }
-  pre.src-coq:before  { content: 'Coq'; }
-  pre.src-groovy:before  { content: 'Groovy'; }
-  /* additional language identifiers from org-babel-shell-names in
-     ob-shell.el: ob-shell is the only babel language using a lambda to put
-     the execution function name together. */
-  pre.src-bash:before  { content: 'bash'; }
-  pre.src-csh:before  { content: 'csh'; }
-  pre.src-ash:before  { content: 'ash'; }
-  pre.src-dash:before  { content: 'dash'; }
-  pre.src-ksh:before  { content: 'ksh'; }
-  pre.src-mksh:before  { content: 'mksh'; }
-  pre.src-posh:before  { content: 'posh'; }
-  /* Additional Emacs modes also supported by the LaTeX listings package */
-  pre.src-ada:before { content: 'Ada'; }
-  pre.src-asm:before { content: 'Assembler'; }
-  pre.src-caml:before { content: 'Caml'; }
-  pre.src-delphi:before { content: 'Delphi'; }
-  pre.src-html:before { content: 'HTML'; }
-  pre.src-idl:before { content: 'IDL'; }
-  pre.src-mercury:before { content: 'Mercury'; }
-  pre.src-metapost:before { content: 'MetaPost'; }
-  pre.src-modula-2:before { content: 'Modula-2'; }
-  pre.src-pascal:before { content: 'Pascal'; }
-  pre.src-ps:before { content: 'PostScript'; }
-  pre.src-prolog:before { content: 'Prolog'; }
-  pre.src-simula:before { content: 'Simula'; }
-  pre.src-tcl:before { content: 'tcl'; }
-  pre.src-tex:before { content: 'TeX'; }
-  pre.src-plain-tex:before { content: 'Plain TeX'; }
-  pre.src-verilog:before { content: 'Verilog'; }
-  pre.src-vhdl:before { content: 'VHDL'; }
-  pre.src-xml:before { content: 'XML'; }
-  pre.src-nxml:before { content: 'XML'; }
-  /* add a generic configuration mode; LaTeX export needs an additional
-     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
-  pre.src-conf:before { content: 'Configuration File'; }
+  pre.src-R:before     { content: 'R'; }
+  pre.src-perl:before  { content: 'Perl'; }
+  pre.src-java:before  { content: 'Java'; }
+  pre.src-sql:before   { content: 'SQL'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.org-right  { text-align: center;  }
-  th.org-left   { text-align: center;   }
-  th.org-center { text-align: center; }
-  td.org-right  { text-align: right;  }
-  td.org-left   { text-align: left;   }
-  td.org-center { text-align: center; }
+  th.right  { text-align: center;  }
+  th.left   { text-align: center;   }
+  th.center { text-align: center; }
+  td.right  { text-align: right;  }
+  td.left   { text-align: left;   }
+  td.center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara { display: inline; }
+  .footpara:nth-child(2) { display: inline; }
+  .footpara { display: block; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
-  .equation-container {
-    display: table;
-    text-align: center;
-    width: 100%;
-  }
-  .equation {
-    vertical-align: middle;
-  }
-  .equation-label {
-    display: table-cell;
-    text-align: right;
-    vertical-align: middle;
-  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -190,21 +86,14 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
-  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
-<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/htmlize.css"/>
-<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/readtheorg.css"/>
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/lib/js/jquery.stickytableheaders.min.js"></script>
-<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2013 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -253,69 +142,69 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org749d992">Information</a></li>
-<li><a href="#orgb2cbfab">Short Description</a></li>
-<li><a href="#org66887ee">IPython Start up</a>
+<li><a href="#sec-1">Information</a></li>
+<li><a href="#sec-2">Short Description</a></li>
+<li><a href="#sec-3">IPython Start up</a>
 <ul>
-<li><a href="#orge2f4acf">Startup</a></li>
-<li><a href="#orgae6b0aa">Useful things</a>
+<li><a href="#sec-3-1">Startup</a></li>
+<li><a href="#sec-3-2">Useful things</a>
 <ul>
-<li><a href="#orge94f5a5">IPython Built-in magic commands</a></li>
-<li><a href="#orge18a1e0">Using <code>head()</code></a></li>
-<li><a href="#orgf519193">Making things look prettier</a></li>
+<li><a href="#sec-3-2-1">IPython Built-in magic commands</a></li>
+<li><a href="#sec-3-2-2">Using <code>head()</code></a></li>
+<li><a href="#sec-3-2-3">Making things look prettier</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgc726db5">Basic of dataframe object</a>
+<li><a href="#sec-4">Basic of dataframe object</a>
 <ul>
-<li><a href="#org9ffa56b">General definitions</a>
+<li><a href="#sec-4-1">General definitions</a>
 <ul>
-<li><a href="#orgc6b20c6">Series dtype</a></li>
+<li><a href="#sec-4-1-1">Series dtype</a></li>
 </ul>
 </li>
-<li><a href="#orgb45894d"><code>.head()</code> and <code>.tail()</code></a></li>
-<li><a href="#org249e150">Displaying the dataframe</a></li>
-<li><a href="#orgd016ca1">Counting</a></li>
-<li><a href="#orga81f689">Filtering the dataframe</a>
+<li><a href="#sec-4-2"><code>.head()</code> and <code>.tail()</code></a></li>
+<li><a href="#sec-4-3">Displaying the dataframe</a></li>
+<li><a href="#sec-4-4">Counting</a></li>
+<li><a href="#sec-4-5">Filtering the dataframe</a>
 <ul>
-<li><a href="#org0392a8b">Using operational String methods</a></li>
+<li><a href="#sec-4-5-1">Using operational String methods</a></li>
 </ul>
 </li>
-<li><a href="#org8a76946">Sorting/ Reducing the dataframe</a></li>
-<li><a href="#org9619959">Adding a column into a dataframe</a></li>
+<li><a href="#sec-4-6">Sorting/ Reducing the dataframe</a></li>
+<li><a href="#sec-4-7">Adding a column into a dataframe</a></li>
 </ul>
 </li>
-<li><a href="#org61f37ae">Pandas Index</a>
+<li><a href="#sec-5">Pandas Index</a>
 <ul>
-<li><a href="#org3cf6316">How to index and use indexes</a></li>
-<li><a href="#orgf345ed4"><code>set_index()</code></a></li>
-<li><a href="#org6f4f5fc"><code>index(append = True)</code></a></li>
-<li><a href="#org13b3f66"><code>reset_index()</code></a></li>
-<li><a href="#orgb407c2e"><code>sort_index()</code></a></li>
+<li><a href="#sec-5-1">How to index and use indexes</a></li>
+<li><a href="#sec-5-2"><code>set_index()</code></a></li>
+<li><a href="#sec-5-3"><code>index(append = True)</code></a></li>
+<li><a href="#sec-5-4"><code>reset_index()</code></a></li>
+<li><a href="#sec-5-5"><code>sort_index()</code></a></li>
 </ul>
 </li>
-<li><a href="#orga1456b4">Grouping Pandas dataframe <code>groupby()</code></a></li>
-<li><a href="#org9ea39ae">Unstack operation</a>
+<li><a href="#sec-6">Grouping Pandas dataframe <code>groupby()</code></a></li>
+<li><a href="#sec-7">Unstack operation</a>
 <ul>
-<li><a href="#org3ac47b4">Without unstack:</a></li>
-<li><a href="#org0f93752">With unstack</a></li>
+<li><a href="#sec-7-1">Without unstack:</a></li>
+<li><a href="#sec-7-2">With unstack</a></li>
 </ul>
 </li>
-<li><a href="#org5164794"><code>fillna()</code> method</a></li>
-<li><a href="#org8870283">Date</a></li>
-<li><a href="#org6898f33">Merge operation</a></li>
-<li><a href="#orgc31a05c">Same table merge</a></li>
-<li><a href="#org6131a6b">Pivot operation</a></li>
-<li><a href="#org59df686">Pandas plot</a>
+<li><a href="#sec-8"><code>fillna()</code> method</a></li>
+<li><a href="#sec-9">Date</a></li>
+<li><a href="#sec-10">Merge operation</a></li>
+<li><a href="#sec-11">Same table merge</a></li>
+<li><a href="#sec-12">Pivot operation</a></li>
+<li><a href="#sec-13">Pandas plot</a>
 <ul>
-<li><a href="#orgac5675f">Basic</a></li>
+<li><a href="#sec-13-1">Basic</a></li>
 </ul>
 </li>
-<li><a href="#org9c005ff">References</a>
+<li><a href="#sec-14">References</a>
 <ul>
-<li><a href="#org0702261">Style sheets</a></li>
-<li><a href="#orga0c3188">Cheatsheet</a></li>
+<li><a href="#sec-14-1">Style sheets</a></li>
+<li><a href="#sec-14-2">Cheatsheet</a></li>
 </ul>
 </li>
 </ul>
@@ -323,83 +212,81 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org749d992" class="outline-2">
-<h2 id="org749d992">Information</h2>
-<div class="outline-text-2" id="text-org749d992">
+<div id="outline-container-sec-1" class="outline-2">
+<h2 id="sec-1">Information</h2>
+<div class="outline-text-2" id="text-1">
 <p>
-Lecturer: Brandon Rhodes<br />
-Event: PyCon2015<br />
+Lecturer: Brandon Rhodes<br  />
+Event: PyCon2015<br  />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgb2cbfab" class="outline-2">
-<h2 id="orgb2cbfab">Short Description</h2>
-<div class="outline-text-2" id="text-orgb2cbfab">
+<div id="outline-container-sec-2" class="outline-2">
+<h2 id="sec-2">Short Description</h2>
+<div class="outline-text-2" id="text-2">
 <p>
-The typical Pandas user learns one dataframe method at a time, slowly scraping features together through trial and error until they can solve the task in front of them. In this tutorial you will re-learn how to think about dataframes from the ground up, and discover how to select intelligently from their abilities to solve your data processing problems through direct and deliberately-chosen steps.<br />
+The typical Pandas user learns one dataframe method at a time, slowly scraping features together through trial and error until they can solve the task in front of them. In this tutorial you will re-learn how to think about dataframes from the ground up, and discover how to select intelligently from their abilities to solve your data processing problems through direct and deliberately-chosen steps.<br  />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org66887ee" class="outline-2">
-<h2 id="org66887ee">IPython Start up</h2>
-<div class="outline-text-2" id="text-org66887ee">
-</div>
-<div id="outline-container-orge2f4acf" class="outline-3">
-<h3 id="orge2f4acf">Startup</h3>
-<div class="outline-text-3" id="text-orge2f4acf">
+<div id="outline-container-sec-3" class="outline-2">
+<h2 id="sec-3">IPython Start up</h2>
+<div class="outline-text-2" id="text-3">
+</div><div id="outline-container-sec-3-1" class="outline-3">
+<h3 id="sec-3-1">Startup</h3>
+<div class="outline-text-3" id="text-3-1">
 <div class="org-src-container">
-<pre class="src src-python">
-ipython3 notebook
 
+<pre class="src src-python">ipython3 notebook
 </pre>
 </div>
 
 <p>
-There are 2 modes - <b>typing</b> mode and <b>non-typing</b> mode.<br />
+There are 2 modes - <b>typing</b> mode and <b>non-typing</b> mode.<br  />
 </p>
 
 <p>
-Hitting <b>Esc</b> exits typing mode where each keyboard character performs an <b>Action</b> instead of adding a letter in stdin.<br />
+Hitting <b>Esc</b> exits typing mode where each keyboard character performs an <b>Action</b> instead of adding a letter in stdin.<br  />
 </p>
 
 <p>
-To see all shortcut for non-typing mode, hit <b>H</b>.<br />
+To see all shortcut for non-typing mode, hit <b>H</b>.<br  />
 </p>
 
 <p>
-Common shortcut:<br />
+Common shortcut:<br  />
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Key</th>
-<th scope="col" class="org-left">Action</th>
+<th scope="col" class="left">Key</th>
+<th scope="col" class="left">Action</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">A</td>
-<td class="org-left">Insert cell above</td>
+<td class="left">A</td>
+<td class="left">Insert cell above</td>
 </tr>
 
 <tr>
-<td class="org-left">B</td>
-<td class="org-left">Insert cell below</td>
+<td class="left">B</td>
+<td class="left">Insert cell below</td>
 </tr>
 
 <tr>
-<td class="org-left">X</td>
-<td class="org-left">Cut selected cell</td>
+<td class="left">X</td>
+<td class="left">Cut selected cell</td>
 </tr>
 </tbody>
 </table>
@@ -409,343 +296,345 @@ Common shortcut:<br />
 </pre>
 
 <p>
-The above statement allows matplot library to plot in the notebook (inline) instead of opening a seperate window.<br />
+The above statement allows matplot library to plot in the notebook (inline) instead of opening a seperate window.<br  />
 </p>
 </div>
 </div>
-<div id="outline-container-orgae6b0aa" class="outline-3">
-<h3 id="orgae6b0aa">Useful things</h3>
-<div class="outline-text-3" id="text-orgae6b0aa">
-</div>
-<div id="outline-container-orge94f5a5" class="outline-4">
-<h4 id="orge94f5a5">IPython Built-in magic commands</h4>
-<div class="outline-text-4" id="text-orge94f5a5">
+<div id="outline-container-sec-3-2" class="outline-3">
+<h3 id="sec-3-2">Useful things</h3>
+<div class="outline-text-3" id="text-3-2">
+</div><div id="outline-container-sec-3-2-1" class="outline-4">
+<h4 id="sec-3-2-1">IPython Built-in magic commands</h4>
+<div class="outline-text-4" id="text-3-2-1">
 <p>
-IPython has a set of predefined 'magic functions' that can be calle dwith a CLI style syntax. There are two kinds of magics, <b>line-oriented</b> and <b>cell-oriented</b> <br />
-</p>
-
-<p>
-<b>Line Magics</b> are prefixed with <code>%</code>. They work like OS Command line calls. They get as an argument the rest of the line, where arguments are passed without parentheses or quotes. Line magics can return results and can be used in the right hand side of an assignment. In other word, their statement is per line.<br />
+IPython has a set of predefined 'magic functions' that can be calle dwith a CLI style syntax. There are two kinds of magics, <b>line-oriented</b> and <b>cell-oriented</b> <br  />
 </p>
 
 <p>
-<b>Cell Magics</b> are prefixed with double <code>%%</code>. They get as an argument not only the rest of hte line but also the lines below it in a seperate argument. In other word, their statement is per the whole cell.<br />
+<b>Line Magics</b> are prefixed with <code>%</code>. They work like OS Command line calls. They get as an argument the rest of the line, where arguments are passed without parentheses or quotes. Line magics can return results and can be used in the right hand side of an assignment. In other word, their statement is per line.<br  />
 </p>
 
 <p>
-<i>(<a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics">https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics</a>)</i><br />
+<b>Cell Magics</b> are prefixed with double <code>%%</code>. They get as an argument not only the rest of hte line but also the lines below it in a seperate argument. In other word, their statement is per the whole cell.<br  />
+</p>
+
+<p>
+<i>(<a href="https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics">https://ipython.readthedocs.io/en/stable/interactive/magics.html#cell-magics</a>)</i><br  />
 </p>
 </div>
 
-<ul class="org-ul">
-<li><a id="org3cbca71"></a><code>%%time</code><br />
-<div class="outline-text-5" id="text-org3cbca71">
+<ul class="org-ul"><li><a id="sec-3-2-1-1" name="sec-3-2-1-1"></a><code>%%time</code><br  /><div class="outline-text-5" id="text-3-2-1-1">
 <p>
-Put this on top of the cell to see how long it takes for the cell to execute.<br />
-This is very useful!!<br />
+Put this on top of the cell to see how long it takes for the cell to execute.<br  />
+This is very useful!!<br  />
 </p>
 </div>
-</li>
-</ul>
+</li></ul>
 </div>
 
-<div id="outline-container-orge18a1e0" class="outline-4">
-<h4 id="orge18a1e0">Using <code>head()</code></h4>
-<div class="outline-text-4" id="text-orge18a1e0">
+<div id="outline-container-sec-3-2-2" class="outline-4">
+<h4 id="sec-3-2-2">Using <code>head()</code></h4>
+<div class="outline-text-4" id="text-3-2-2">
 <p>
-In IPython, always just do a <code>head()</code> for the df you are working on, so you have it on the screen.<br />
+In IPython, always just do a <code>head()</code> for the df you are working on, so you have it on the screen.<br  />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgf519193" class="outline-4">
-<h4 id="orgf519193">Making things look prettier</h4>
-<div class="outline-text-4" id="text-orgf519193">
+<div id="outline-container-sec-3-2-3" class="outline-4">
+<h4 id="sec-3-2-3">Making things look prettier</h4>
+<div class="outline-text-4" id="text-3-2-3">
 <p>
-You can also make data table look better by using css stylesheets, similarly to the below.<br />
+You can also make data table look better by using css stylesheets, similarly to the below.<br  />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold;">from</span> IPython.core.display <span style="font-weight: bold;">import</span> HTML
-<span style="font-weight: bold; font-style: italic;">css</span> = <span style="font-weight: bold;">open</span>(<span style="font-style: italic;">'style-table.css'</span>).read() + <span style="font-weight: bold;">open</span>(<span style="font-style: italic;">'style-notebook.css'</span>).read()
-HTML(<span style="font-style: italic;">'&lt;style&gt;{}&lt;/style&gt;'</span>.<span style="font-weight: bold;">format</span>(css))
+
+<pre class="src src-python">from IPython.core.display import HTML
+css = open('style-table.css').read() + open('style-notebook.css').read()
+HTML('&lt;style&gt;{}&lt;/style&gt;'.format(css))
 </pre>
 </div>
 
 <p>
-(See css source in reference section below: <a href="#org388b6ed">No description for this link</a>)<br />
+(See css source in reference section below: <a href="#css_style_sheets">14.1</a>)<br  />
 </p>
 
 <p>
-I guess this is because <code>ipython notebook</code> is a browser-based intepreter so you can of course mess around with how things are displayed<br />
+I guess this is because <code>ipython notebook</code> is a browser-based intepreter so you can of course mess around with how things are displayed<br  />
 </p>
 </div>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgc726db5" class="outline-2">
-<h2 id="orgc726db5">Basic of dataframe object</h2>
-<div class="outline-text-2" id="text-orgc726db5">
-</div>
-<div id="outline-container-org9ffa56b" class="outline-3">
-<h3 id="org9ffa56b">General definitions</h3>
-<div class="outline-text-3" id="text-org9ffa56b">
+<div id="outline-container-sec-4" class="outline-2">
+<h2 id="sec-4">Basic of dataframe object</h2>
+<div class="outline-text-2" id="text-4">
+</div><div id="outline-container-sec-4-1" class="outline-3">
+<h3 id="sec-4-1">General definitions</h3>
+<div class="outline-text-3" id="text-4-1">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-left" />
+<col  class="left" />
 
-<col  class="org-left" />
+<col  class="left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-left">Things</th>
-<th scope="col" class="org-left">Definition / Description</th>
+<th scope="col" class="left">Things</th>
+<th scope="col" class="left">Definition / Description</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-left">Pandas Dataframe</td>
-<td class="org-left"><b>Two-dimensional</b> labeled data structure with different columns.</td>
+<td class="left">Pandas Dataframe</td>
+<td class="left"><b>Two-dimensional</b> labeled data structure with different columns.</td>
 </tr>
 
 <tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">This is how pandas store data that is similar to spreadsheet/ SQL table..etc..</td>
+<td class="left">&#xa0;</td>
+<td class="left">This is how pandas store data that is similar to spreadsheet/ SQL table..etc..</td>
 </tr>
 
 <tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">It's similar to a dict of <b>Series</b> object. By definition, dataframes have two</td>
+<td class="left">&#xa0;</td>
+<td class="left">It's similar to a dict of <b>Series</b> object. By definition, dataframes have two</td>
 </tr>
 
 <tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">indexes.</td>
+<td class="left">&#xa0;</td>
+<td class="left">indexes.</td>
 </tr>
 
 <tr>
-<td class="org-left">Pandas Series</td>
-<td class="org-left"><b>One-dimensional</b> labeled array that holds data. Normally a <b>column</b> within a df</td>
+<td class="left">Pandas Series</td>
+<td class="left"><b>One-dimensional</b> labeled array that holds data. Normally a <b>column</b> within a df</td>
 </tr>
 
 <tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">or spreadsheet. The axis labels are collectively called <i>index</i>.</td>
+<td class="left">&#xa0;</td>
+<td class="left">or spreadsheet. The axis labels are collectively called <i>index</i>.</td>
 </tr>
 
 <tr>
-<td class="org-left">&#xa0;</td>
-<td class="org-left">&#xa0;</td>
+<td class="left">&#xa0;</td>
+<td class="left">&#xa0;</td>
 </tr>
 </tbody>
 </table>
 </div>
 
-<div id="outline-container-orgc6b20c6" class="outline-4">
-<h4 id="orgc6b20c6">Series dtype</h4>
-<div class="outline-text-4" id="text-orgc6b20c6">
+<div id="outline-container-sec-4-1-1" class="outline-4">
+<h4 id="sec-4-1-1">Series dtype</h4>
+<div class="outline-text-4" id="text-4-1-1">
 <p>
-When working with series, it's important to know the data type of the values first before operating with them.<br />
-To find out the data type of the values in a series do <code>Series.dtype</code>.<br />
+When working with series, it's important to know the data type of the values first before operating with them.<br  />
+To find out the data type of the values in a series do <code>Series.dtype</code>.<br  />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgb45894d" class="outline-3">
-<h3 id="orgb45894d"><code>.head()</code> and <code>.tail()</code></h3>
-<div class="outline-text-3" id="text-orgb45894d">
+<div id="outline-container-sec-4-2" class="outline-3">
+<h3 id="sec-4-2"><code>.head()</code> and <code>.tail()</code></h3>
+<div class="outline-text-3" id="text-4-2">
 <p>
-Using <code>head()</code> method displays the first 5 rows of the dataframe. Similarly you can use <code>tail()</code>. You can specify the number of rows as an argument in the bracket, overriding the default 5.<br />
+Using <code>head()</code> method displays the first 5 rows of the dataframe. Similarly you can use <code>tail()</code>. You can specify the number of rows as an argument in the bracket, overriding the default 5.<br  />
 </p>
 
 <p>
-These are genuine data operations. They do not just display or print the first n rows but really build a <b>new dataframe</b> by snipping off n numbers of rows.<br />
+These are genuine data operations. They do not just display or print the first n rows but really build a <b>new dataframe</b> by snipping off n numbers of rows.<br  />
 </p>
 
 <p>
-They are data <b>slicing/ reduction</b> operations.<br />
+They are data <b>slicing/ reduction</b> operations.<br  />
 </p>
 
 <pre class="example">
 titles.head()  ## This produces a fully functional dataframe
 
-new = titles.head()  ## This new df can be assigned to a variable. 
+new = titles.head()  ## This new df can be assigned to a variable.
 </pre>
 </div>
 </div>
 
-<div id="outline-container-org249e150" class="outline-3">
-<h3 id="org249e150">Displaying the dataframe</h3>
-<div class="outline-text-3" id="text-org249e150">
+<div id="outline-container-sec-4-3" class="outline-3">
+<h3 id="sec-4-3">Displaying the dataframe</h3>
+<div class="outline-text-3" id="text-4-3">
 <p>
-If we are interested in displaying only one column, put the string of the column name in the sqr bracket.<br />
+If we are interested in displaying only one column, put the string of the column name in the sqr bracket.<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">df[<span style="font-style: italic;">'colname'</span>]
+
+<pre class="src src-python">df['colname']
 </pre>
 </div>
 
 <p>
-If we want to see multiple columns, instead of passing just a string, pass a list of string. <b>Note the double square brackets</b>:<br />
+If we want to see multiple columns, instead of passing just a string, pass a list of string. <b>Note the double square brackets</b>:<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">df[[<span style="font-style: italic;">'col1'</span>, <span style="font-style: italic;">'col2'</span>]]
 
+<pre class="src src-python">df[['col1', 'col2']]
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orgd016ca1" class="outline-3">
-<h3 id="orgd016ca1">Counting</h3>
-<div class="outline-text-3" id="text-orgd016ca1">
+<div id="outline-container-sec-4-4" class="outline-3">
+<h3 id="sec-4-4">Counting</h3>
+<div class="outline-text-3" id="text-4-4">
 <p>
-You can do <code>len(df)</code> to count the number of rows in a df.<br />
+You can do <code>len(df)</code> to count the number of rows in a df.<br  />
 </p>
 
 <p>
-To count the number of occurences within a Series, you can use:<br />
+To count the number of occurences within a Series, you can use:<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">Series.value_counts(<span style="font-style: italic;">'colname'</span>)
+
+<pre class="src src-python">Series.value_counts('colname')
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga81f689" class="outline-3">
-<h3 id="orga81f689">Filtering the dataframe</h3>
-<div class="outline-text-3" id="text-orga81f689">
+<div id="outline-container-sec-4-5" class="outline-3">
+<h3 id="sec-4-5">Filtering the dataframe</h3>
+<div class="outline-text-3" id="text-4-5">
 <p>
-Filtering = reducing the dataframe to only the rows that match our criteria.<br />
+Filtering = reducing the dataframe to only the rows that match our criteria.<br  />
 </p>
 
 <p>
-We can look at only specific column by: <code>titles['year']</code> (df = titles, column = year)<br />
+We can look at only specific column by: <code>titles['year']</code> (df = titles, column = year)<br  />
 </p>
 
 <p>
-We can even manipulate the stdout by doing something like this: <code>titles['year'] + 100</code> which will return all the years plus 100.<br />
+We can even manipulate the stdout by doing something like this: <code>titles['year'] + 100</code> which will return all the years plus 100.<br  />
 </p>
 
 <p>
-So that was math operations, what's more usefule is bool, which we can do <code>titles['year'] &gt; 1985</code> which returns rows of <code>True</code> and <code>False</code>.<br />
-<b>Important</b>: This returns the <span class="underline">full</span> list of rows with the respective boolean value. It does <b>not</b> slice the dataframe yet.<br />
+So that was math operations, what's more usefule is bool, which we can do <code>titles['year'] &gt; 1985</code> which returns rows of <code>True</code> and <code>False</code>.<br  />
+<b>Important</b>: This returns the <span class="underline">full</span> list of rows with the respective boolean value. It does <b>not</b> slice the dataframe yet.<br  />
 </p>
 
 <p>
-To <b>only show the True</b> values, you can do: <code>titles[titles.year &gt; 1985]</code> or <code>title[titles['year'] &gt; 1985]</code>.<br />
+To <b>only show the True</b> values, you can do: <code>titles[titles.year &gt; 1985]</code> or <code>title[titles['year'] &gt; 1985]</code>.<br  />
 </p>
 
 <p>
-You can use <code>&amp;</code> and <code>|</code> for <code>and</code>, <code>or</code> like this:<br />
+You can use <code>&amp;</code> and <code>|</code> for <code>and</code>, <code>or</code> like this:<br  />
 </p>
 
 <p>
-Show me the movie titles between 1985 and 1987 (notice the brackets)<br />
+Show me the movie titles between 1985 and 1987 (notice the brackets)<br  />
 </p>
 <pre class="example">
 titles[(titles['year'] &gt;= 1985) &amp; (titles['year'] &lt;= 1987)]
 </pre>
 
 <p>
-How many movies were made between 1985 and 1987?<br />
+How many movies were made between 1985 and 1987?<br  />
 </p>
 <pre class="example">
 len(titles[(titles['year'] &gt;= 1985) &amp; (titles['year'] &lt;= 1987)])
 </pre>
 
 <p>
-So using dataframe object is similar to using List where as instead of the index number within the square brackets, you use the column name.<br />
+So using dataframe object is similar to using List where as instead of the index number within the square brackets, you use the column name.<br  />
 </p>
 </div>
 
-<div id="outline-container-org0392a8b" class="outline-4">
-<h4 id="org0392a8b">Using operational String methods</h4>
-<div class="outline-text-4" id="text-org0392a8b">
+<div id="outline-container-sec-4-5-1" class="outline-4">
+<h4 id="sec-4-5-1">Using operational String methods</h4>
+<div class="outline-text-4" id="text-4-5-1">
 <p>
-A lot of the times we want to use common string methods like <code>startswith()</code> or <code>endswith()</code>&#x2026; The problem is a lot of the string object methods' names coincide with names of the series object.<br />
+A lot of the times we want to use common string methods like <code>startswith()</code> or <code>endswith()</code>&#x2026; The problem is a lot of the string object methods' names coincide with names of the series object.<br  />
 </p>
 
 <p>
-However there is a little namespace <code>str</code> that is attached with series object that contains all string data operation.<br />
+However there is a little namespace <code>str</code> that is attached with series object that contains all string data operation.<br  />
 </p>
 
 <p>
-E.g, instead of doing this..<br />
+E.g, instead of doing this..<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">Series.startswith(<span style="font-style: italic;">'abc'</span>)
+
+<pre class="src src-python">Series.startswith('abc')
 </pre>
 </div>
 
 <p>
-.. you do this..<br />
+.. you do this..<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">Series.<span style="font-weight: bold;">str</span>.startswith(<span style="font-style: italic;">'Hamlet'</span>)
+
+<pre class="src src-python">Series.str.startswith('Hamlet')
 </pre>
 </div>
 
 <p>
-<i>(More details: <a href="https://pandas.pydata.org/pandas-docs/version/0.22/api.html#string-handling">https://pandas.pydata.org/pandas-docs/version/0.22/api.html#string-handling</a>)</i><br />
+<i>(More details: <a href="https://pandas.pydata.org/pandas-docs/version/0.22/api.html#string-handling">https://pandas.pydata.org/pandas-docs/version/0.22/api.html#string-handling</a>)</i><br  />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org8a76946" class="outline-3">
-<h3 id="org8a76946">Sorting/ Reducing the dataframe</h3>
-<div class="outline-text-3" id="text-org8a76946">
+<div id="outline-container-sec-4-6" class="outline-3">
+<h3 id="sec-4-6">Sorting/ Reducing the dataframe</h3>
+<div class="outline-text-3" id="text-4-6">
 <p>
-This can be achived by <code>df.sort_values('col')</code>, to display NaN values first we can do <code>df.sort_values('col', na_position = 'first')</code>. On default na_position = last.<br />
+This can be achived by <code>df.sort_values('col')</code>, to display NaN values first we can do <code>df.sort_values('col', na_position = 'first')</code>. On default na_position = last.<br  />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org9619959" class="outline-3">
-<h3 id="org9619959">Adding a column into a dataframe</h3>
-<div class="outline-text-3" id="text-org9619959">
+<div id="outline-container-sec-4-7" class="outline-3">
+<h3 id="sec-4-7">Adding a column into a dataframe</h3>
+<div class="outline-text-3" id="text-4-7">
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">df</span>[<span style="font-style: italic;">'colname'</span>] = 1
+
+<pre class="src src-python">df['colname'] = 1
 </pre>
 </div>
 
 <p>
-The above statement add a column with name <code>colname</code> to the dataframe <code>df</code> with value = 1.<br />
+The above statement add a column with name <code>colname</code> to the dataframe <code>df</code> with value = 1.<br  />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-org61f37ae" class="outline-2">
-<h2 id="org61f37ae">Pandas Index</h2>
-<div class="outline-text-2" id="text-org61f37ae">
+<div id="outline-container-sec-5" class="outline-2">
+<h2 id="sec-5">Pandas Index</h2>
+<div class="outline-text-2" id="text-5">
 <p>
-Indexing helps with <b>data lookup</b> performance, making it faster.<br />
-</p>
-
-<p>
-Both rows and columns can be indexes.<br />
-</p>
-</div>
-
-<div id="outline-container-org3cf6316" class="outline-3">
-<h3 id="org3cf6316">How to index and use indexes</h3>
-<div class="outline-text-3" id="text-org3cf6316">
-<p>
-Example: Reduce the dataframe 'cast' to only the row with title = 'Sleuth':<br />
+Indexing helps with <b>data lookup</b> performance, making it faster.<br  />
 </p>
 
 <p>
-Operation without index:<br />
+Both rows and columns can be indexes.<br  />
+</p>
+</div>
+
+<div id="outline-container-sec-5-1" class="outline-3">
+<h3 id="sec-5-1">How to index and use indexes</h3>
+<div class="outline-text-3" id="text-5-1">
+<p>
+Example: Reduce the dataframe 'cast' to only the row with title = 'Sleuth':<br  />
+</p>
+
+<p>
+Operation without index:<br  />
 </p>
 <div class="org-src-container">
+
 <pre class="src src-python">%%time 
-cast[cast.title == <span style="font-style: italic;">'Sleuth'</span>]
+cast[cast.title == 'Sleuth']
 </pre>
 </div>
 <pre class="example">
@@ -754,11 +643,12 @@ Wall time: 127 ms
 </pre>
 
 <p>
-Indexing:<br />
+Indexing:<br  />
 </p>
 <div class="org-src-container">
+
 <pre class="src src-python">%%time
-<span style="font-weight: bold; font-style: italic;">c</span> = cast.set_index(<span style="font-style: italic;">'title'</span>)
+c = cast.set_index('title')
 </pre>
 </div>
 <pre class="example">
@@ -767,31 +657,33 @@ Wall time: 357 ms
 </pre>
 
 <p>
-Operation with index:<br />
+Operation with index:<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">%time c.loc[<span style="font-style: italic;">'Sleuth'</span>]
-<span style="font-weight: bold; font-style: italic;">#</span><span style="font-weight: bold; font-style: italic;">+begin_src </span>
+
+<pre class="src src-python">%time c.loc['Sleuth']
+#+begin_src 
 CPU times: user 74.5 ms, sys: 0 ns, total: 74.5 ms
 Wall time: 73.7 ms
-
 </pre>
 </div>
 
 <p>
-Multiple column indexing:<br />
+Multiple column indexing:<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">c</span> = cast.set_index([<span style="font-style: italic;">'title'</span>, <span style="font-style: italic;">'year'</span>])
+
+<pre class="src src-python">c = cast.set_index(['title', 'year'])
 </pre>
 </div>
 
 <p>
-Operation with multiple column indexing:<br />
+Operation with multiple column indexing:<br  />
 </p>
 <div class="org-src-container">
+
 <pre class="src src-python">%time
-c.loc[(<span style="font-style: italic;">'Sleuth'</span>,1972)]
+c.loc[('Sleuth',1972)]
 </pre>
 </div>
 <pre class="example">
@@ -800,64 +692,67 @@ Wall time: 4.53 µs
 </pre>
 
 <p>
-When you present to Python a statement with the <code>==</code> operator in a dataframe that has four million rows, you are asking Python 4 millions True or False question.<br />
+When you present to Python a statement with the <code>==</code> operator in a dataframe that has four million rows, you are asking Python 4 millions True or False question.<br  />
 </p>
 
 <p>
-However with <code>loc[index]</code> it is much easier and take less steps, i.e <code>loc('Sleuth')</code> would skip everything before <code>S</code>.<br />
+However with <code>loc[index]</code> it is much easier and take less steps, i.e <code>loc('Sleuth')</code> would skip everything before <code>S</code>.<br  />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgf345ed4" class="outline-3">
-<h3 id="orgf345ed4"><code>set_index()</code></h3>
-<div class="outline-text-3" id="text-orgf345ed4">
+<div id="outline-container-sec-5-2" class="outline-3">
+<h3 id="sec-5-2"><code>set_index()</code></h3>
+<div class="outline-text-3" id="text-5-2">
 <p>
-The <code>set_index()</code> method takes a column name argument and make that column the index column.<br />
+The <code>set_index()</code> method takes a column name argument and make that column the index column.<br  />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python">df.set_index(<span style="font-style: italic;">'col'</span>)
+
+<pre class="src src-python">df.set_index('col')
 </pre>
 </div>
 
 <p>
-This is similar to when we pass <code>index_col = 'col'</code> as an argument for <code>read_csv()</code>.<br />
+This is similar to when we pass <code>index_col = 'col'</code> as an argument for <code>read_csv()</code>.<br  />
 </p>
 
 <p>
-To set_index for <b>multiple</b> column, instead of passing a string of the column name, pass a <b>list</b> of column names.<br />
+To set_index for <b>multiple</b> column, instead of passing a string of the column name, pass a <b>list</b> of column names.<br  />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org6f4f5fc" class="outline-3">
-<h3 id="org6f4f5fc"><code>index(append = True)</code></h3>
-<div class="outline-text-3" id="text-org6f4f5fc">
+<div id="outline-container-sec-5-3" class="outline-3">
+<h3 id="sec-5-3"><code>index(append = True)</code></h3>
+<div class="outline-text-3" id="text-5-3">
 <p>
-Passing of the <code>append = True</code> argument in the <code>index()</code> method passes the index as the additional one, on top of the existing one.<br />
+Passing of the <code>append = True</code> argument in the <code>index()</code> method passes the index as the additional one, on top of the existing one.<br  />
 </p>
 </div>
 </div>
-<div id="outline-container-org13b3f66" class="outline-3">
-<h3 id="org13b3f66"><code>reset_index()</code></h3>
-<div class="outline-text-3" id="text-org13b3f66">
+<div id="outline-container-sec-5-4" class="outline-3">
+<h3 id="sec-5-4"><code>reset_index()</code></h3>
+<div class="outline-text-3" id="text-5-4">
 <p>
-This is the direct opposite of <code>set_index()</code>. It takes argument(s) of column name(s) that toss them back to normal data, not index anymore.<br />
+This is the direct opposite of <code>set_index()</code>. It takes argument(s) of column name(s) that toss them back to normal data, not index anymore.<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">c.reset_index(<span style="font-style: italic;">'year'</span>)
+
+<pre class="src src-python">c.reset_index('year')
 </pre>
 </div>
 </div>
 </div>
-<div id="outline-container-orgb407c2e" class="outline-3">
-<h3 id="orgb407c2e"><code>sort_index()</code></h3>
-<div class="outline-text-3" id="text-orgb407c2e">
+<div id="outline-container-sec-5-5" class="outline-3">
+<h3 id="sec-5-5"><code>sort_index()</code></h3>
+<div class="outline-text-3" id="text-5-5">
 <p>
-To rearrange the order of the df/ series by index sorting, do:<br />
+To rearrange the order of the df/ series by index sorting, do:<br  />
 </p>
 <div class="org-src-container">
+
 <pre class="src src-python">series.sort_index()
 </pre>
 </div>
@@ -865,76 +760,79 @@ To rearrange the order of the df/ series by index sorting, do:<br />
 </div>
 </div>
 
-<div id="outline-container-orga1456b4" class="outline-2">
-<h2 id="orga1456b4">Grouping Pandas dataframe <code>groupby()</code></h2>
-<div class="outline-text-2" id="text-orga1456b4">
+<div id="outline-container-sec-6" class="outline-2">
+<h2 id="sec-6">Grouping Pandas dataframe <code>groupby()</code></h2>
+<div class="outline-text-2" id="text-6">
 <p>
-<code>df.groupby()</code> takes column name(s) as argument and produces a <code>DataFrameGropBy</code> object that can be used for multiple things.<br />
+<code>df.groupby()</code> takes column name(s) as argument and produces a <code>DataFrameGropBy</code> object that can be used for multiple things.<br  />
 </p>
 
 <p>
-We can use <code>df.groupby().size()</code> to see the count of different grouping of data. It displayes a hierachical index if multiple column names are pased.<br />
+We can use <code>df.groupby().size()</code> to see the count of different grouping of data. It displayes a hierachical index if multiple column names are pased.<br  />
 </p>
 
 <p>
-We can use <code>df.groupby().col.max() or min()</code> and even <code>df.groupby().col.mean()</code>, ..etc.. for data science purposes.<br />
+We can use <code>df.groupby().col.max() or min()</code> and even <code>df.groupby().col.mean()</code>, ..etc.. for data science purposes.<br  />
 </p>
 
 <p>
-See how many roles George Clooney plays per year<br />
+See how many roles George Clooney plays per year<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">c</span>= cast[cast.name == <span style="font-style: italic;">'George Clooney'</span>]
-c.groupby(<span style="font-style: italic;">'year'</span>).size()
+
+<pre class="src src-python">c= cast[cast.name == 'George Clooney']
+c.groupby('year').size()
 </pre>
 </div>
 
 <p>
-See how many roles George Clooney plays in total<br />
+See how many roles George Clooney plays in total<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python"><span style="font-weight: bold; font-style: italic;">c</span>= cast[cast.name == <span style="font-style: italic;">'George Clooney'</span>]
-c.groupby(<span style="font-style: italic;">'year'</span>).size().<span style="font-weight: bold;">sum</span>() <span style="font-weight: bold; font-style: italic;">## </span><span style="font-weight: bold; font-style: italic;">This returns the same result with len(c)</span>
+
+<pre class="src src-python">c= cast[cast.name == 'George Clooney']
+c.groupby('year').size().sum() ## This returns the same result with len(c)
 </pre>
 </div>
 
 <p>
-See how many roles George Clooney plays per decade<br />
+See how many roles George Clooney plays per decade<br  />
 </p>
 <div class="org-src-container">
-<pre class="src src-python">c.groupby(c[<span style="font-style: italic;">'year'</span>] // 10 * 10).size()
+
+<pre class="src src-python">c.groupby(c['year'] // 10 * 10).size()
 </pre>
 </div>
 
 <p>
-To groupby() multiple column, the column names have to be in a list i.e a pair of <b>square brackets</b>.<br />
+To groupby() multiple column, the column names have to be in a list i.e a pair of <b>square brackets</b>.<br  />
 </p>
 </div>
 </div>
-<div id="outline-container-org9ea39ae" class="outline-2">
-<h2 id="org9ea39ae">Unstack operation</h2>
-<div class="outline-text-2" id="text-org9ea39ae">
+<div id="outline-container-sec-7" class="outline-2">
+<h2 id="sec-7">Unstack operation</h2>
+<div class="outline-text-2" id="text-7">
 <p>
-By default, <code>unstack()</code> tackles the inner most/ first index, i.e<br />
+By default, <code>unstack()</code> tackles the inner most/ first index, i.e<br  />
 </p>
 <div class="org-src-container">
+
 <pre class="src src-python">df.unstack() = df.unstack([1])
-
 </pre>
 </div>
 
 <p>
-unstack pivots a level of the index labels i.e turning a column header into a row header. It allows us to see data next to each other in a row instead of being on the same column.<br />
+unstack pivots a level of the index labels i.e turning a column header into a row header. It allows us to see data next to each other in a row instead of being on the same column.<br  />
 </p>
 
 <p>
-The opposite of <code>unstack()</code> is <code>stack()</code>.  An easy way to remember is that the <code>unstack()</code> method pivots the data <b>UP</b>.<br />
+The opposite of <code>unstack()</code> is <code>stack()</code>.  An easy way to remember is that the <code>unstack()</code> method pivots the data <b>UP</b>.<br  />
 </p>
 </div>
 
-<div id="outline-container-org3ac47b4" class="outline-3">
-<h3 id="org3ac47b4">Without unstack:</h3>
-<div class="outline-text-3" id="text-org3ac47b4">
+<div id="outline-container-sec-7-1" class="outline-3">
+<h3 id="sec-7-1">Without unstack:</h3>
+<div class="outline-text-3" id="text-7-1">
 
 <div class="figure">
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAt0AAALFCAIAAACQ0MhTAAAAA3NCSVQICAjb4U/gAAAAGXRFWHRT
@@ -1866,15 +1764,15 @@ U595tr7/HwQA4F8r6xe7QW48Xyo7lpmbdypy4fLt1etBq0TFm2O8Z/135l0NzpXCL14jf4j6tFWi
 ooQHqeuNepF7Q18QUTR7Gs4KjeaWs08AAPAB+pKT516pkiT99bcd1gde98OB9x0h+CtpKgsdU9Vt
 L1I1lQQXB0/4G/PO+j1fb35sJw5TZ/Wu2zPc+l+SJP359z279/oNNfVfEwAA0JcA1e/96TR4Htia
 e2v3ZzvHM2K6puv6lgbmIP7JvH63NzNs+8M5iwPVo7BnO6HZe55Op5OBxZ3G1RPufAUA+Iz/BeI5
-bjhz5oDsAAAAAElFTkSuQmCC"without unstack.png /><br />
+bjhz5oDsAAAAAElFTkSuQmCC"without unstack.png /><br  />
 </p>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org0f93752" class="outline-3">
-<h3 id="org0f93752">With unstack</h3>
-<div class="outline-text-3" id="text-org0f93752">
+<div id="outline-container-sec-7-2" class="outline-3">
+<h3 id="sec-7-2">With unstack</h3>
+<div class="outline-text-3" id="text-7-2">
 
 <div class="figure">
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAm8AAAKYCAIAAACqw4h+AAAAA3NCSVQICAjb4U/gAAAAGXRFWHRT
@@ -2725,54 +2623,55 @@ jiazzWY8UlTS9POM5d7/IxCKPQNAoCBNRcSuekG/qF0Xv5Cdt8Owsli/ZrpvtivVVei11/I1P5ud
 foAr1m+fT0REht25eQdNRFKdvibHvmP+z36i0B1Vv15VoCJxikTU3niB08y9k69rTN6zt035usgm
 llWVqpuy1H/1V/Pz25PK9TmT9R6KPQNAgExxOp2B7iGU+eVp4W2fJVBoPncTPYvN1XMCHicPEGg4
 NwUAABAKaQoAACAU0hQAAEAopCkAAIBQSFMAAAChkKYAAABCIU0BAACEQpoCAAAIhbs3hIA2f9wi
-AkIY7t4AEHB4WrgwfrkXEhEOlgAAQe3/A8E3Ip9PbLnfAAAAAElFTkSuQmCC"with unstack.png /><br />
+AkIY7t4AEHB4WrgwfrkXEhEOlgAAQe3/A8E3Ip9PbLnfAAAAAElFTkSuQmCC"with unstack.png /><br  />
 </p>
 </div>
 </div>
 </div>
 </div>
-<div id="outline-container-org5164794" class="outline-2">
-<h2 id="org5164794"><code>fillna()</code> method</h2>
-<div class="outline-text-2" id="text-org5164794">
+<div id="outline-container-sec-8" class="outline-2">
+<h2 id="sec-8"><code>fillna()</code> method</h2>
+<div class="outline-text-2" id="text-8">
 <p>
-Pandas is reown for not replacing N/A value with zero as in many circumstances, N/A values should be left as Not Available. This is 'NaN' in pandas.<br />
+Pandas is reown for not replacing N/A value with zero as in many circumstances, N/A values should be left as Not Available. This is 'NaN' in pandas.<br  />
 </p>
 
 <p>
-However, if you want to replace NaN values with something, use the <code>fillna()</code> method.  Be careful with this as this is dependent on the nature of the data you are dealing with. For example, missing data should not be recorded as '0' in financial report.<br />
+However, if you want to replace NaN values with something, use the <code>fillna()</code> method.  Be careful with this as this is dependent on the nature of the data you are dealing with. For example, missing data should not be recorded as '0' in financial report.<br  />
 </p>
 </div>
 </div>
-<div id="outline-container-org8870283" class="outline-2">
-<h2 id="org8870283">Date</h2>
-<div class="outline-text-2" id="text-org8870283">
+<div id="outline-container-sec-9" class="outline-2">
+<h2 id="sec-9">Date</h2>
+<div class="outline-text-2" id="text-9">
 <p>
-Similarly to accessing string method by using <code>.str.</code>. You can use <code>.dt.</code><br />
+Similarly to accessing string method by using <code>.str.</code>. You can use <code>.dt.</code><br  />
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="org-right" />
+<col  class="right" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="org-right">release_date</th>
+<th scope="col" class="right">release_date</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="org-right">2008-11-11</td>
+<td class="right">2008-11-11</td>
 </tr>
 
 <tr>
-<td class="org-right">2009-12-12</td>
+<td class="right">2009-12-12</td>
 </tr>
 </tbody>
 </table>
 
 <div class="org-src-container">
+
 <pre class="src src-python">df.release_date.dt.year
 df.release_date.dt.day
 df.release_date.dt.dayofweek
@@ -2782,33 +2681,33 @@ df.release_date.monht
 </div>
 </div>
 
-<div id="outline-container-org6898f33" class="outline-2">
-<h2 id="org6898f33">Merge operation</h2>
-<div class="outline-text-2" id="text-org6898f33">
+<div id="outline-container-sec-10" class="outline-2">
+<h2 id="sec-10">Merge operation</h2>
+<div class="outline-text-2" id="text-10">
 <p>
-You can merge two dfs together.<br />
+You can merge two dfs together.<br  />
 </p>
 
 <p>
-By default, pandas will try to find the matching rows by comparing values in columns with the same name.<br />
-</p>
-</div>
-</div>
-
-<div id="outline-container-orgc31a05c" class="outline-2">
-<h2 id="orgc31a05c">Same table merge</h2>
-<div class="outline-text-2" id="text-orgc31a05c">
-<p>
-We can also use Pandas to merge rows that match the rows in the dataframe that are from the same table/ dataframe.<br />
+By default, pandas will try to find the matching rows by comparing values in columns with the same name.<br  />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org6131a6b" class="outline-2">
-<h2 id="org6131a6b">Pivot operation</h2>
-<div class="outline-text-2" id="text-org6131a6b">
+<div id="outline-container-sec-11" class="outline-2">
+<h2 id="sec-11">Same table merge</h2>
+<div class="outline-text-2" id="text-11">
 <p>
-Dataframe has a pivot function.<br />
+We can also use Pandas to merge rows that match the rows in the dataframe that are from the same table/ dataframe.<br  />
+</p>
+</div>
+</div>
+
+<div id="outline-container-sec-12" class="outline-2">
+<h2 id="sec-12">Pivot operation</h2>
+<div class="outline-text-2" id="text-12">
+<p>
+Dataframe has a pivot function.<br  />
 </p>
 
 <pre class="example">
@@ -2816,94 +2715,97 @@ df.pivot['col1','col2','col3']
 </pre>
 
 <p>
-It is basically a combination of <code>set_index()</code>, <code>unstack()</code>, and <code>sort_index()</code>.<br />
-In the above example, <code>col2</code> will be pivoted upto the top (unstack), <code>col1</code> over to the left, leaving <code>col3</code> as the information in the centre.<br />
+It is basically a combination of <code>set_index()</code>, <code>unstack()</code>, and <code>sort_index()</code>.<br  />
+In the above example, <code>col2</code> will be pivoted upto the top (unstack), <code>col1</code> over to the left, leaving <code>col3</code> as the information in the centre.<br  />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org59df686" class="outline-2">
-<h2 id="org59df686">Pandas plot</h2>
-<div class="outline-text-2" id="text-org59df686">
-</div>
-<div id="outline-container-orgac5675f" class="outline-3">
-<h3 id="orgac5675f">Basic</h3>
-<div class="outline-text-3" id="text-orgac5675f">
+<div id="outline-container-sec-13" class="outline-2">
+<h2 id="sec-13">Pandas plot</h2>
+<div class="outline-text-2" id="text-13">
+</div><div id="outline-container-sec-13-1" class="outline-3">
+<h3 id="sec-13-1">Basic</h3>
+<div class="outline-text-3" id="text-13-1">
 <p>
-Dataframe and series can be plotted with <code>plot()</code>.<br />
+Dataframe and series can be plotted with <code>plot()</code>.<br  />
 </p>
 
 <p>
-<code>plot()</code> takes a few arguments, including:<br />
+<code>plot()</code> takes a few arguments, including:<br  />
 </p>
 <ul class="org-ul">
-<li>x = 'colname'<br /></li>
-<li>y = 'colname'<br /></li>
-<li>kind = 'scatter' (or something else)<br /></li>
+<li>x = 'colname'<br  />
+</li>
+<li>y = 'colname'<br  />
+</li>
+<li>kind = 'scatter' (or something else)<br  />
+</li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org9c005ff" class="outline-2">
-<h2 id="org9c005ff">References</h2>
-<div class="outline-text-2" id="text-org9c005ff">
-</div>
-<div id="outline-container-org0702261" class="outline-3">
-<h3 id="org0702261">Style sheets</h3>
-<div class="outline-text-3" id="text-org0702261">
+<div id="outline-container-sec-14" class="outline-2">
+<h2 id="sec-14">References</h2>
+<div class="outline-text-2" id="text-14">
+</div><div id="outline-container-sec-14-1" class="outline-3">
+<h3 id="sec-14-1">Style sheets</h3>
+<div class="outline-text-3" id="text-14-1">
 <p>
-<a id="org388b6ed"></a><br />
+<a id="css_style_sheets" name="css_style_sheets"></a><br  />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-css" id="orga060650"><span style="font-weight: bold;">body </span>{
-    <span style="font-weight: bold; font-style: italic;">margin</span>: 0;
-    <span style="font-weight: bold; font-style: italic;">font-family</span>: Helvetica;
+
+<pre class="src src-css" id="style-table.css">body {
+    margin: 0;
+    font-family: Helvetica;
 }
-<span style="font-weight: bold;">table.dataframe </span>{
-    <span style="font-weight: bold; font-style: italic;">border-collapse</span>: collapse;
-    <span style="font-weight: bold; font-style: italic;">border</span>: none;
+table.dataframe {
+    border-collapse: collapse;
+    border: none;
 }
-<span style="font-weight: bold;">table.dataframe tr </span>{
-    <span style="font-weight: bold; font-style: italic;">border</span>: none;
+table.dataframe tr {
+    border: none;
 }
-<span style="font-weight: bold;">table.dataframe td, table.dataframe th </span>{
-    <span style="font-weight: bold; font-style: italic;">margin</span>: 0;
-    <span style="font-weight: bold; font-style: italic;">border</span>: 1px solid white;
-    <span style="font-weight: bold; font-style: italic;">padding-left</span>: 0.25em;
-    <span style="font-weight: bold; font-style: italic;">padding-right</span>: 0.25em;
+table.dataframe td, table.dataframe th {
+    margin: 0;
+    border: 1px solid white;
+    padding-left: 0.25em;
+    padding-right: 0.25em;
 }
-<span style="font-weight: bold;">table.dataframe th:not(:empty) </span>{
-    <span style="font-weight: bold; font-style: italic;">background-color</span>: #fec;
-    <span style="font-weight: bold; font-style: italic;">text-align</span>: left;
-    <span style="font-weight: bold; font-style: italic;">font-weight</span>: normal;
+table.dataframe th:not(:empty) {
+    background-color: #fec;
+    text-align: left;
+    font-weight: normal;
 }
-<span style="font-weight: bold;">table.dataframe tr:nth-child(2) th:empty </span>{
-    <span style="font-weight: bold; font-style: italic;">border-left</span>: none;
-    <span style="font-weight: bold; font-style: italic;">border-right</span>: 1px dashed #888;
+table.dataframe tr:nth-child(2) th:empty {
+    border-left: none;
+    border-right: 1px dashed #888;
 }
-<span style="font-weight: bold;">table.dataframe td </span>{
-    <span style="font-weight: bold; font-style: italic;">border</span>: 2px solid #ccf;
-    <span style="font-weight: bold; font-style: italic;">background-color</span>: #f4f4ff;
+table.dataframe td {
+    border: 2px solid #ccf;
+    background-color: #f4f4ff;
 }
 </pre>
 </div>
 
 <div class="org-src-container">
-<pre class="src src-css" id="orgaa724a3"><span style="font-weight: bold;">h3 </span>{
-    <span style="font-weight: bold; font-style: italic;">color</span>: white;
-    <span style="font-weight: bold; font-style: italic;">background-color</span>: black;
-    <span style="font-weight: bold; font-style: italic;">padding</span>: 0.5em;
+
+<pre class="src src-css">h3 {
+    color: white;
+    background-color: black;
+    padding: 0.5em;
 }
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-orga0c3188" class="outline-3">
-<h3 id="orga0c3188">Cheatsheet</h3>
-<div class="outline-text-3" id="text-orga0c3188">
+<div id="outline-container-sec-14-2" class="outline-3">
+<h3 id="sec-14-2">Cheatsheet</h3>
+<div class="outline-text-3" id="text-14-2">
 <pre class="example">
 len(df)       series + value    df[df.c == value]
 df.head()     series + series2  df[(df.c &gt;= value) &amp; (df.d &lt; value)]
@@ -2920,9 +2822,10 @@ sys.setdefaultencoding('utf-8')
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: 2019-08-05 Mon 00:00</p>
-<p class="author">Author: Mishka Nguyen</p>
-<p class="date">Created: 2019-08-13 Tue 08:15</p>
+<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-08-05 Mon&gt;</span></span></p>
+<p class="author">Author: Kenny Nguyen</p>
+<p class="date">Created: 2019-08-13 Tue 16:57</p>
+<p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.2 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

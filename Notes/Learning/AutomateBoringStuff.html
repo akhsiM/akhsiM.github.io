@@ -4,7 +4,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
 <title>Automate the Boring Stuff with Python</title>
-<!-- 2019-08-13 Tue 16:57 -->
+<!-- 2019-08-13 Tue 16:59 -->
 <meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta  name="generator" content="Org-mode" />
 <meta  name="author" content="Kenny Nguyen" />
@@ -1731,7 +1731,7 @@ A <b>parameter</b> is a variable that an argument is stored in when a function i
 </pre>
 
 <p>
-In the above example, when we called the <code>len()</code> function and pass it an argument <i>'Hello'</i>, the function evaluates to an integer value <code>5</code>, which is the length of the string we passed. In general, this is called a <b>return value</b> of the function <code>len()</code>.<br  />
+In the above example, when we called the <code>len()</code> function and pass it an argument /'Hello'/, the function evaluates to an integer value <code>5</code>, which is the length of the string we passed. In general, this is called a <b>return value</b> of the function <code>len()</code>.<br  />
 </p>
 
 <p>
@@ -3288,7 +3288,7 @@ print(cheese)
 </pre>
 
 <p>
-It looks a bit odd. <code>cheese[1] = 'Hello'</code> changed the <code>cheese</code> list, however the <code>spam</code> list was also changed.<br  />
+It looks a bit odd. <code>cheese[1] = 'Hello'~ changed the ~cheese</code> list, however the <code>spam</code> list was also changed.<br  />
 </p>
 
 <p>
@@ -3969,7 +3969,7 @@ Kenny's dog says "woof woof".
 </pre>
 
 <p>
-Despite <code>\"</code> or <code>\'</code> consist of two characters, it is commonly referred to as a singular escape character.<br  />
+Despite ~\"~ or ~\'~ consist of two characters, it is commonly referred to as a singular escape character.<br  />
 </p>
 
 <p>
@@ -4047,7 +4047,7 @@ Raw strings are good if we are printing string values that contain many backslas
 <h4 id="sec-8-1-4">Multiline strings with Triple Quotes</h4>
 <div class="outline-text-4" id="text-8-1-4">
 <p>
-Although we can use escape character <code>\n</code> to put a newline into a string, it is often easier to use multiline string, which is one that begins and end with either three single quotes <code>'''</code> or three double quotes <code>"""</code>.<br  />
+Although we can use escape character <code>\n</code> to put a newline into a string, it is often easier to use multiline string, which is one that begins and end with either three single quotes ~'''~ or three double quotes ~"""~.<br  />
 </p>
 
 <p>
@@ -4187,7 +4187,7 @@ False
 </p>
 
 <p>
-These methods are helpful if we need to make case-insensitive comparison/ verification. Although <code>'Hello'</code> and <code>'hellO'</code> aren't equal, <code>'Hello'.lower()</code> is equal to <code>'hellO'.lower()</code>.<br  />
+These methods are helpful if we need to make case-insensitive comparison/ verification. Although ~'Hello'~ and ~'hellO'~ aren't equal, ~'Hello'.lower()~ is equal to ~'hellO'.lower()~.<br  />
 </p>
 
 <p>
@@ -4597,11 +4597,11 @@ Coming back to <code>isPhoneNumber()</code>,  we will be using RegEx this time.<
 </p>
 
 <p>
-Regular Expressions are descriptions for a pattern of text. For example, a <code>\d</code> in a regex stands for a digit character that is any single numeral from 0 to 9, i.e <code>'\d\d\d-\d\d\d-\d\d\d\d'</code> <br  />
+Regular Expressions are descriptions for a pattern of text. For example, a <code>\d</code> in a regex stands for a digit character that is any single numeral from 0 to 9, i.e ~'\d\d\d-\d\d\d-\d\d\d\d'~<br  />
 </p>
 
 <p>
-RegExes can be much more complicated, for example adding a <code>{3}</code> after a patter is like saying "Match this pattern three time", i.e <code>'\d{3}-\d{3}-\d{4}'</code><br  />
+RegExes can be much more complicated, for example adding a <code>{3}</code> after a patter is like saying "Match this pattern three time", i.e ~'\d{3}-\d{3}-\d{4}'~<br  />
 </p>
 </div>
 </div>
@@ -4648,7 +4648,7 @@ print(test.group())
 </pre>
 
 <p>
-The <code>search()</code> method returns None if the regex pattern is not found in the passed string. If the pattern is found, the <code>search()</code> method returns a <b>Match</b> object <code>&lt;class 're.Match'&gt;</code>.  Match objects have a method <code>group()</code> that returns the actual matched text (<code>match ='xxx'</code>) from the searched string.<br  />
+The <code>search()</code> method returns None if the regex pattern is not found in the passed string. If the pattern is found, the <code>search()</code> method returns a <b>Match</b> object <code>&lt;class 're.Match'&gt;</code>.  Match objects have a method <code>group()</code> that returns the actual matched text (~match ='xxx'~) from the searched string.<br  />
 </p>
 </div>
 </div>
@@ -4702,7 +4702,7 @@ print(test.groups())
 </pre>
 
 <p>
-In the above example, instead of just doing <code>'\d\d\d-\d\d\d-\d\d\d\d'</code>, we added parentheses to seperate the regular expression into two groups:<br  />
+In the above example, instead of just doing ~'\d\d\d-\d\d\d-\d\d\d\d'~, we added parentheses to seperate the regular expression into two groups:<br  />
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
@@ -4753,7 +4753,7 @@ We can use the pipe <code>|</code> character to match one of many expressions.<b
 </p>
 
 <p>
-For example the regular expression <code>r'Batman|Robin'</code> will match either <code>'Batman'</code> <b>or</b> <code>'Robin'</code>.<br  />
+For example the regular expression ~r'Batman|Robin'~ will match either ~'Batman'~ <b>or</b> ~'Robin'~.<br  />
 </p>
 
 <p>
@@ -4930,7 +4930,7 @@ We can use curly brackets to match patterns that repeat a specific number of tim
 </p>
 
 <p>
-For example <code>(Ha){3}</code> will match <code>'HaHaHa'</code> but not <code>'HaHa'</code> since the later only has two repeats of <code>(Ha)</code>.<br  />
+For example <code>(Ha){3}</code> will match ~'HaHaHa'~ but not ~'HaHa'~ since the later only has two repeats of <code>(Ha)</code>.<br  />
 </p>
 
 <p>
@@ -5074,7 +5074,7 @@ HaHaHa
 </table>
 
 <p>
-Example: <code>r'\d+\s\w+'</code> matches a string that contains at least a digit, followed by space and then one word.<br  />
+Example: ~r'\d+\s\w+'~ matches a string that contains at least a digit, followed by space and then one word.<br  />
 </p>
 
 <div class="org-src-container">
@@ -6012,7 +6012,7 @@ To create a ZIP file, we must open the <code>ZipFile</code> object in <i>write</
 
 
 <p>
-By default, <code>write()</code> in write mode will <b>erase</b> all existing contents of a ZIP file. If we want to simply add files to an existing ZIP file, pass <code>'a'</code> as the 2nd arguement to the <code>zipfile.ZipFile()</code> to open the ZIP file in <b>append</b> mode.<br  />
+By default, <code>write()</code> in write mode will <b>erase</b> all existing contents of a ZIP file. If we want to simply add files to an existing ZIP file, pass ~'a'~ as the 2nd arguement to the <code>zipfile.ZipFile()</code> to open the ZIP file in <b>append</b> mode.<br  />
 </p>
 
 <p>
@@ -6042,7 +6042,7 @@ When we pass a path to <code>write()</code> method of the <code>ZipFile</code> o
 <div id="postamble" class="status">
 <p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-05-15 Wed&gt;</span></span></p>
 <p class="author">Author: Kenny Nguyen</p>
-<p class="date">Created: 2019-08-13 Tue 16:57</p>
+<p class="date">Created: 2019-08-13 Tue 16:59</p>
 <p class="creator"><a href="http://www.gnu.org/software/emacs/">Emacs</a> 25.2.2 (<a href="http://orgmode.org">Org</a> mode 8.2.10)</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>

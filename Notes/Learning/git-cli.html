@@ -3,23 +3,30 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
+<!-- 2019-08-13 Tue 17:14 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>git-cli</title>
-<!-- 2019-08-13 Tue 17:02 -->
-<meta  http-equiv="Content-Type" content="text/html;charset=utf-8" />
-<meta  name="generator" content="Org-mode" />
-<meta  name="author" content="Kenny Nguyen" />
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Kenny Nguyen" />
 <style type="text/css">
  <!--/*--><![CDATA[/*><!--*/
-  .title  { text-align: center; }
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
   .todo   { font-family: monospace; color: red; }
-  .done   { color: green; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
   .tag    { background-color: #eee; font-family: monospace;
             padding: 2px; font-size: 80%; font-weight: normal; }
   .timestamp { color: #bebebe; }
   .timestamp-kwd { color: #5f9ea0; }
-  .right  { margin-left: auto; margin-right: 0px;  text-align: right; }
-  .left   { margin-left: 0px;  margin-right: auto; text-align: left; }
-  .center { margin-left: auto; margin-right: auto; text-align: center; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
   .underline { text-decoration: underline; }
   #postamble p, #preamble p { font-size: 90%; margin: .2em; }
   p.verse { margin-left: 3%; }
@@ -46,30 +53,127 @@
     border: 1px solid black;
   }
   pre.src:hover:before { display: inline;}
-  pre.src-sh:before    { content: 'sh'; }
-  pre.src-bash:before  { content: 'sh'; }
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
   pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
-  pre.src-R:before     { content: 'R'; }
-  pre.src-perl:before  { content: 'Perl'; }
-  pre.src-java:before  { content: 'Java'; }
-  pre.src-sql:before   { content: 'SQL'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
 
   table { border-collapse:collapse; }
   caption.t-above { caption-side: top; }
   caption.t-bottom { caption-side: bottom; }
   td, th { vertical-align:top;  }
-  th.right  { text-align: center;  }
-  th.left   { text-align: center;   }
-  th.center { text-align: center; }
-  td.right  { text-align: right;  }
-  td.left   { text-align: left;   }
-  td.center { text-align: center; }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
   dt { font-weight: bold; }
-  .footpara:nth-child(2) { display: inline; }
-  .footpara { display: block; }
+  .footpara { display: inline; }
   .footdef  { margin-bottom: 1em; }
   .figure { padding: 1em; }
   .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
   .inlinetask {
     padding: 10px;
     border: 2px solid gray;
@@ -86,14 +190,21 @@
     { font-size: 10px; font-weight: bold; white-space: nowrap; }
   .org-info-js_search-highlight
     { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
   /*]]>*/-->
 </style>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/js/readtheorg.js"></script>
 <script type="text/javascript">
 /*
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2013 Free Software Foundation, Inc.
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -142,39 +253,39 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#sec-1">Distributed Version Control System</a></li>
-<li><a href="#sec-2">Installing &amp; Setup</a></li>
-<li><a href="#sec-3">Getting Started</a>
+<li><a href="#orgd44e807">Distributed Version Control System</a></li>
+<li><a href="#org529cb6a">Installing &amp; Setup</a></li>
+<li><a href="#org207d9c3">Getting Started</a>
 <ul>
-<li><a href="#sec-3-1">1. Initialize a Repo from existing code</a>
+<li><a href="#orgb4c890c">1. Initialize a Repo from existing code</a>
 <ul>
-<li><a href="#sec-3-1-1">Preparation</a></li>
-<li><a href="#sec-3-1-2">.gitignore</a></li>
-<li><a href="#sec-3-1-3">Add files to staging area</a></li>
-<li><a href="#sec-3-1-4">Commit</a></li>
+<li><a href="#orgbc2a736">Preparation</a></li>
+<li><a href="#org055d1cd">.gitignore</a></li>
+<li><a href="#orge64542a">Add files to staging area</a></li>
+<li><a href="#orgb5c10e2">Commit</a></li>
 </ul>
 </li>
-<li><a href="#sec-3-2">2. Tracking an existing remote project</a>
+<li><a href="#orgd15f14d">2. Tracking an existing remote project</a>
 <ul>
-<li><a href="#sec-3-2-1">Cloning a remote repo</a></li>
-<li><a href="#sec-3-2-2">Pushing changes</a></li>
+<li><a href="#org7f6cd03">Cloning a remote repo</a></li>
+<li><a href="#org5073de9">Pushing changes</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#sec-4">Common workflow</a>
+<li><a href="#org66fbe59">Common workflow</a>
 <ul>
-<li><a href="#sec-4-1">Git's Local workflow simplified</a></li>
+<li><a href="#orge8920eb">Git's Local workflow simplified</a></li>
 </ul>
 </li>
-<li><a href="#sec-5">Merging a branch to master</a></li>
-<li><a href="#sec-6">Further research</a>
+<li><a href="#org8e40500">Merging a branch to master</a></li>
+<li><a href="#orga5ad046">Further research</a>
 <ul>
-<li><a href="#sec-6-1">Differences between <code>git remote add</code> vs <code>git clone</code>:</a></li>
-<li><a href="#sec-6-2">Differences between <code>git pull</code> and <code>git fetch</code></a></li>
+<li><a href="#orgadbdc5c">Differences between <code>git remote add</code> vs <code>git clone</code>:</a></li>
+<li><a href="#org7c53023">Differences between <code>git pull</code> and <code>git fetch</code></a></li>
 </ul>
 </li>
-<li><a href="#sec-7">Git Workflow</a></li>
+<li><a href="#org0032de7">Git Workflow</a></li>
 </ul>
 </div>
 </div>
@@ -11716,360 +11827,354 @@ RnV5LCl1XpU4umQgp8NNpTBLnP4TdW9U10LMJGkvG3h05+hLreHoC2osrYuw5JuFKV0kkpttrvhh
 hasqObrIAYSMghwQYWXFszNnV7Hgbj4BGtBLV6iLsSDT9JKOjdG8fOD1y8EhHZ2Twwv8g55JHCbO
 rWHQBl1c0pnTtLBvVoFkGLIjSI25YWNIzpqno3ZL1WU/tbbvJb5VuMhgaly20cWYSqDtOM1nH3yW
 6steeu9CTjR96Gs+IA1HYE/fcAonOfzleVihf8nX90F8RwrmTGodtD1+3wxbmLGcgIR72TmxDx8M
-Yg7LAJ0b0AnCL7ifL6ZR1Fpu+ef/fwAAAP//H8rqiwxSdSMAAAAASUVORK5CYII="git.png /><br  />
+Yg7LAJ0b0AnCL7ifL6ZR1Fpu+ef/fwAAAP//H8rqiwxSdSMAAAAASUVORK5CYII="git.png /><br />
 </p>
 </div>
-<div id="outline-container-sec-1" class="outline-2">
-<h2 id="sec-1">Distributed Version Control System</h2>
-<div class="outline-text-2" id="text-1">
+<div id="outline-container-orgd44e807" class="outline-2">
+<h2 id="orgd44e807">Distributed Version Control System</h2>
+<div class="outline-text-2" id="text-orgd44e807">
 <p>
-Git is a distributed version control system, which is different from central version control system.<br  />
+Git is a distributed version control system, which is different from central version control system.<br />
 </p>
 
 <p>
-Central VCS refers to a <b>single</b> remote central database. Problem is if something wrong happens to the central database then none of the remote device would be able to connect to it. If the database is corrupted then we'd better hope it's backed up somehow.<br  />
+Central VCS refers to a <b>single</b> remote central database. Problem is if something wrong happens to the central database then none of the remote device would be able to connect to it. If the database is corrupted then we'd better hope it's backed up somehow.<br />
 </p>
 
 <p>
-For distributed VCS, <b>everybody</b> has a local copy of the repository. You can connect to the remote repo, however the local has everything that the remote had based on the last time they are synced.<br  />
+For distributed VCS, <b>everybody</b> has a local copy of the repository. You can connect to the remote repo, however the local has everything that the remote had based on the last time they are synced.<br />
 </p>
 
 <p>
-Basically in a Distributed VCS, every developer has a back-up of the central repository.<br  />
+Basically in a Distributed VCS, every developer has a back-up of the central repository.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-2" class="outline-2">
-<h2 id="sec-2">Installing &amp; Setup</h2>
-<div class="outline-text-2" id="text-2">
+<div id="outline-container-org529cb6a" class="outline-2">
+<h2 id="org529cb6a">Installing &amp; Setup</h2>
+<div class="outline-text-2" id="text-org529cb6a">
 <p>
-After installation, do this to check if everything is OK.<br  />
+After installation, do this to check if everything is OK.<br />
 </p>
 <div class="org-src-container">
-
-<pre class="src src-shell">git --version
+<pre class="src src-shell">git --version  
 </pre>
 </div>
 
 <p>
-This indicates that git is installed OK:<br  />
+This indicates that git is installed OK:<br />
 </p>
 <pre class="example">
 git version 2.17.1
 </pre>
 
+
 <p>
-Seting up global configuration variables:<br  />
+Seting up global configuration variables:<br />
 </p>
 
 <div class="org-src-container">
-
-<pre class="src src-shell">git config --global user.name "Kenny Nguyen"
-git config --global user.email "kkenny.nguyen@gmail.com"
+<pre class="src src-shell">git config --global user.name <span style="color: #ffd866;">"Kenny Nguyen"</span>
+git config --global user.email <span style="color: #ffd866;">"kkenny.nguyen@gmail.com"</span>
+ 
 </pre>
 </div>
 
 <p>
-After this we can do<br  />
+After this we can do<br />
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-shell">git config --list
+
 </pre>
 </div>
 
 <p>
-which will check all global config variables.<br  />
+which will check all global config variables.<br />
 </p>
 
 <p>
-If you <b>need help</b>:<br  />
+If you <b>need help</b>:<br />
 </p>
 
 <div class="org-src-container">
-
-<pre class="src src-shell">git help config
+<pre class="src src-shell">
+git help config
 git config --help
+
 </pre>
 </div>
 
 <p>
-The format for help is either <code>git help &lt;verb&gt;</code> or <code>git &lt;verb&gt; --help</code>.<br  />
+The format for help is either <code>git help &lt;verb&gt;</code> or <code>git &lt;verb&gt; --help</code>.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-3" class="outline-2">
-<h2 id="sec-3">Getting Started</h2>
-<div class="outline-text-2" id="text-3">
+<div id="outline-container-org207d9c3" class="outline-2">
+<h2 id="org207d9c3">Getting Started</h2>
+<div class="outline-text-2" id="text-org207d9c3">
 <p>
-Two common scenarios:<br  />
+Two common scenarios:<br />
 </p>
 </div>
 
-<div id="outline-container-sec-3-1" class="outline-3">
-<h3 id="sec-3-1">1. Initialize a Repo from existing code</h3>
-<div class="outline-text-3" id="text-3-1">
+<div id="outline-container-orgb4c890c" class="outline-3">
+<h3 id="orgb4c890c">1. Initialize a Repo from existing code</h3>
+<div class="outline-text-3" id="text-orgb4c890c">
 <p>
-<i>We have an existing project on our local machine and we want to start gitting.</i><br  />
+<i>We have an existing project on our local machine and we want to start gitting.</i><br />
 </p>
 </div>
 
-<div id="outline-container-sec-3-1-1" class="outline-4">
-<h4 id="sec-3-1-1">Preparation</h4>
-<div class="outline-text-4" id="text-3-1-1">
+<div id="outline-container-orgbc2a736" class="outline-4">
+<h4 id="orgbc2a736">Preparation</h4>
+<div class="outline-text-4" id="text-orgbc2a736">
 <p>
-We need to do:<br  />
+We need to do:<br />
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">git init
 </pre>
 </div>
 
 <p>
-after we cd to the local repo. What it would do is iniatializing an empty Git repo in the directory with the address <code>local-repo/.git/</code>.<br  />
+after we cd to the local repo. What it would do is iniatializing an empty Git repo in the directory with the address <code>local-repo/.git/</code>.<br />
 </p>
 
 <p>
-<code>.git</code> is a directory that contains everything that's related to our repository.<br  />
+<code>.git</code> is a directory that contains everything that's related to our repository.<br />
 </p>
 
 <p>
-<b>Before first commit</b>:<br  />
+<b>Before first commit</b>:<br />
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">git status
 </pre>
 </div>
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-2" class="outline-4">
-<h4 id="sec-3-1-2">.gitignore</h4>
-<div class="outline-text-4" id="text-3-1-2">
+<div id="outline-container-org055d1cd" class="outline-4">
+<h4 id="org055d1cd">.gitignore</h4>
+<div class="outline-text-4" id="text-org055d1cd">
 <p>
-If we have files that contains personal data or something that is not relevant to our code, we can do<br  />
+If we have files that contains personal data or something that is not relevant to our code, we can do<br />
 </p>
 <div class="org-src-container">
-
 <pre class="src src-shell">touch .gitignore
 </pre>
 </div>
 
 <p>
-<code>.gitignore</code> file is just a simple text file that we can add files that we want git to <b>ignore</b>. We can use <b>wildcards</b>.<br  />
+<code>.gitignore</code> file is just a simple text file that we can add files that we want git to <b>ignore</b>. We can use <b>wildcards</b>.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-3" class="outline-4">
-<h4 id="sec-3-1-3">Add files to staging area</h4>
-<div class="outline-text-4" id="text-3-1-3">
+<div id="outline-container-orge64542a" class="outline-4">
+<h4 id="orge64542a">Add files to staging area</h4>
+<div class="outline-text-4" id="text-orge64542a">
 <p>
-<i>Staging area is the area that we <b>organize</b> what we want to commit to Git</i>.<br  />
+<i>Staging area is the area that we <b>organize</b> what we want to commit to Git</i>.<br />
 </p>
 
 <p>
-[WORKING DIRECTORY] &#x2014;prepare changes&#x2014;&gt; [STAGING AREA] &#x2014;commit&#x2014;&gt; [git]<br  />
+[WORKING DIRECTORY] &#x2014;prepare changes&#x2014;&gt; [STAGING AREA] &#x2014;commit&#x2014;&gt; [git]<br />
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-shell">git add -A
 </pre>
 </div>
 <p>
-to add eveyrthing .. or we can just add files individually.<br  />
+to add eveyrthing .. or we can just add files individually.<br />
 </p>
 
 <p>
-remove from staging area:<br  />
+remove from staging area:<br />
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-shell">git reset filename
 </pre>
 </div>
 
 <p>
-or just <code>git reset</code> which would just return everything from <b>staging area</b> to <b>working directory</b>.<br  />
+or just <code>git reset</code> which would just return everything from <b>staging area</b> to <b>working directory</b>.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-3-1-4" class="outline-4">
-<h4 id="sec-3-1-4">Commit</h4>
-<div class="outline-text-4" id="text-3-1-4">
+<div id="outline-container-orgb5c10e2" class="outline-4">
+<h4 id="orgb5c10e2">Commit</h4>
+<div class="outline-text-4" id="text-orgb5c10e2">
 <p>
-After we <code>git add -A</code> to add everything to Staging area, we can do ~git commit -m "Initial Commit"~.<br  />
-</p>
-
-<p>
-After this if we do <code>git status</code>, it will show "working directory clean".  This means we've committed the files and we have no modified or untracked files.<br  />
+After we <code>git add -A</code> to add everything to Staging area, we can do <code>git commit -m "Initial Commit"</code>.<br />
 </p>
 
 <p>
-We can also do <code>git log</code> that will give us the Hash number of our commit.<br  />
+After this if we do <code>git status</code>, it will show "working directory clean".  This means we've committed the files and we have no modified or untracked files.<br />
+</p>
+
+<p>
+We can also do <code>git log</code> that will give us the Hash number of our commit.<br />
 </p>
 </div>
 </div>
 </div>
 
 
-<div id="outline-container-sec-3-2" class="outline-3">
-<h3 id="sec-3-2">2. Tracking an existing remote project</h3>
-<div class="outline-text-3" id="text-3-2">
-</div><div id="outline-container-sec-3-2-1" class="outline-4">
-<h4 id="sec-3-2-1">Cloning a remote repo</h4>
-<div class="outline-text-4" id="text-3-2-1">
+<div id="outline-container-orgd15f14d" class="outline-3">
+<h3 id="orgd15f14d">2. Tracking an existing remote project</h3>
+<div class="outline-text-3" id="text-orgd15f14d">
+</div>
+<div id="outline-container-org7f6cd03" class="outline-4">
+<h4 id="org7f6cd03">Cloning a remote repo</h4>
+<div class="outline-text-4" id="text-org7f6cd03">
 <div class="org-src-container">
-
 <pre class="src src-sh">git clone &lt;url&gt; .
 </pre>
 </div>
 
 <p>
-The <code>.</code> means to clone everything.<br  />
+The <code>.</code> means to clone everything.<br />
 </p>
 
 <p>
-<code>$ git remove -v</code>: List information of the repository.<br  />
-<code>$ git branch -a</code>: List all branches of the repository.<br  />
-</p>
-</div>
-</div>
-
-<div id="outline-container-sec-3-2-2" class="outline-4">
-<h4 id="sec-3-2-2">Pushing changes</h4>
-<div class="outline-text-4" id="text-3-2-2">
-<p>
-<code>$ git diff</code>: show the changes that we've made to the codebase.<br  />
-<code>$ git status</code>: show the modified file<br  />
-<code>$ git add -A</code>: add to staging area<br  />
-<code>$ git status</code> again: file is ready to be commited<br  />
-then..<br  />
-</p>
-
-<p>
-~$ git commit -m "abcdef"~<br  />
-</p>
-
-<p>
-then<br  />
-</p>
-
-<p>
-<code>$ git pull origin master</code>: pull any changes that have been made <b>while</b> we are working. This is useful for code bases that have a lot of people working on.<br  />
-<code>$ git push origin master</code>: push to master branch of remote origin repo.<br  />
-</p>
-
-<p>
-<b>origin</b> refers to the name of the remote repository.<br  />
-<b>master</b> refers to the branch we want to push/ pull to.<br  />
+<code>$ git remove -v</code>: List information of the repository.<br />
+<code>$ git branch -a</code>: List all branches of the repository.<br />
 </p>
 </div>
 </div>
+
+<div id="outline-container-org5073de9" class="outline-4">
+<h4 id="org5073de9">Pushing changes</h4>
+<div class="outline-text-4" id="text-org5073de9">
+<p>
+<code>$ git diff</code>: show the changes that we've made to the codebase.<br />
+<code>$ git status</code>: show the modified file<br />
+<code>$ git add -A</code>: add to staging area<br />
+<code>$ git status</code> again: file is ready to be commited<br />
+then..<br />
+</p>
+
+<p>
+<code>$ git commit -m "abcdef"</code><br />
+</p>
+
+<p>
+then<br />
+</p>
+
+<p>
+<code>$ git pull origin master</code>: pull any changes that have been made <b>while</b> we are working. This is useful for code bases that have a lot of people working on.<br />
+<code>$ git push origin master</code>: push to master branch of remote origin repo.<br />
+</p>
+
+<p>
+<b>origin</b> refers to the name of the remote repository.<br />
+<b>master</b> refers to the branch we want to push/ pull to.<br />
+</p>
+</div>
+</div>
 </div>
 </div>
 
-<div id="outline-container-sec-4" class="outline-2">
-<h2 id="sec-4">Common workflow</h2>
-<div class="outline-text-2" id="text-4">
+<div id="outline-container-org66fbe59" class="outline-2">
+<h2 id="org66fbe59">Common workflow</h2>
+<div class="outline-text-2" id="text-org66fbe59">
 <p>
-Instead of working on the master branch, we shouldn't be doing that. We should be <b>creating a branch for the desired feature</b> by:<br  />
+Instead of working on the master branch, we shouldn't be doing that. We should be <b>creating a branch for the desired feature</b> by:<br />
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-shell">git branch abc-def
 </pre>
 </div>
 
 <p>
-and then if we do <code>git branch</code> without the branch name, it will list all the branches. The one with asterisk (*)next to it is the one we are currently working on.<br  />
+and then if we do <code>git branch</code> without the branch name, it will list all the branches. The one with asterisk (*)next to it is the one we are currently working on.<br />
 </p>
 
 <p>
-To start working on the branch we just created <b>abc-def</b>, we need to do:<br  />
+To start working on the branch we just created <b>abc-def</b>, we need to do:<br />
 </p>
 
 <div class="org-src-container">
-
 <pre class="src src-shell">git checkout abc-def
 </pre>
 </div>
 
 <p>
-Then if we rerun <code>$ git branch</code> again, abc-def will have an asterisk next to it.<br  />
+Then if we rerun <code>$ git branch</code> again, abc-def will have an asterisk next to it.<br />
 </p>
 
 <p>
-Steps to undertake are:<br  />
+Steps to undertake are:<br />
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">STEPS</th>
-<th scope="col" class="left">EFFECTS</th>
+<th scope="col" class="org-left">STEPS</th>
+<th scope="col" class="org-left">EFFECTS</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left"><code>$ git init</code></td>
-<td class="left">Initiate a new repo</td>
+<td class="org-left"><code>$ git init</code></td>
+<td class="org-left">Initiate a new repo</td>
 </tr>
 
 <tr>
-<td class="left"><code>$ git clone URL</code></td>
-<td class="left">clone repo</td>
+<td class="org-left"><code>$ git clone URL</code></td>
+<td class="org-left">clone repo</td>
 </tr>
 
 <tr>
-<td class="left">&#xa0;</td>
-<td class="left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
 </tr>
 
 <tr>
-<td class="left"><code>$ git branch abc-def</code></td>
-<td class="left">Creating a local branch</td>
+<td class="org-left"><code>$ git branch abc-def</code></td>
+<td class="org-left">Creating a local branch</td>
 </tr>
 
 <tr>
-<td class="left"><code>$ git checkout abc-def</code></td>
-<td class="left">Start working on the branch</td>
+<td class="org-left"><code>$ git checkout abc-def</code></td>
+<td class="org-left">Start working on the branch</td>
 </tr>
 
 <tr>
-<td class="left">Make changes</td>
-<td class="left">Changes are made to the Working Dir</td>
+<td class="org-left">Make changes</td>
+<td class="org-left">Changes are made to the Working Dir</td>
 </tr>
 
 <tr>
-<td class="left"><code>$ git add -A</code></td>
-<td class="left">Add changes to Staging Area.</td>
+<td class="org-left"><code>$ git add -A</code></td>
+<td class="org-left">Add changes to Staging Area.</td>
 </tr>
 
 <tr>
-<td class="left"><code>$ git commit -m "I am making a change.</code></td>
-<td class="left">Changes are commited to local branch. No effect on master branch and/or remote repo.</td>
+<td class="org-left"><code>$ git commit -m "I am making a change.</code></td>
+<td class="org-left">Changes are commited to local branch. No effect on master branch and/or remote repo.</td>
 </tr>
 
 <tr>
-<td class="left"><code>$ git push -u origin abc-def</code></td>
-<td class="left">The -u option associates local abc-def branch to remote abc-def branch. After that we don't need to do that anymore</td>
+<td class="org-left"><code>$ git push -u origin abc-def</code></td>
+<td class="org-left">The -u option associates local abc-def branch to remote abc-def branch. After that we don't need to do that anymore</td>
 </tr>
 </tbody>
 </table>
@@ -12646,47 +12751,47 @@ TOfeIWqYJSLSGJnqWXsO7eOzEaNv4UO6RCk7OzuSlZXV9O4d7S+naPsOrO4UkhPVYKq+MjIyomWE
 rKwsk9aGiBzL6nM4unbr6D5GzbeP0bNS1I9arfuqErvwpKYqgEVEJOZQW0cvrfP6MDUtEhERadgQ
 9huHo7sD6bUuV1LPAyIiIg0cwtVW6RaVIiIiRyeEG0olEKfO2+UAZURERCF8uEUikcemTJlyC/D0
 uHHj/qjNJNWmTJnyIHBLJBJ5WmtDRERERETqxaxVICIicnT8fwAAAP//4PJH182D60UAAAAASUVO
-RK5CYII="git_workflow_chart.png /><br  />
+RK5CYII="git_workflow_chart.png /><br />
 </p>
 </div>
 </div>
-<div id="outline-container-sec-4-1" class="outline-3">
-<h3 id="sec-4-1">Git's Local workflow simplified</h3>
-<div class="outline-text-3" id="text-4-1">
+<div id="outline-container-orge8920eb" class="outline-3">
+<h3 id="orge8920eb">Git's Local workflow simplified</h3>
+<div class="outline-text-3" id="text-orge8920eb">
 <p>
-The local repository consists of three <b>trees</b> maintained and tracked by git.<br  />
+The local repository consists of three <b>trees</b> maintained and tracked by git.<br />
 </p>
 
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left">WORKING DIRECTORY</th>
-<th scope="col" class="left">&gt;</th>
-<th scope="col" class="left">INDEX</th>
-<th scope="col" class="left">&gt;</th>
-<th scope="col" class="left">HEAD</th>
+<th scope="col" class="org-left">WORKING DIRECTORY</th>
+<th scope="col" class="org-left">&gt;</th>
+<th scope="col" class="org-left">INDEX</th>
+<th scope="col" class="org-left">&gt;</th>
+<th scope="col" class="org-left">HEAD</th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left">Holds the actual files and folder.</td>
-<td class="left">(<code>git add</code>)</td>
-<td class="left">Staging Area</td>
-<td class="left">(<code>git commit</code>)</td>
-<td class="left">Points to the last commit</td>
+<td class="org-left">Holds the actual files and folder.</td>
+<td class="org-left">(<code>git add</code>)</td>
+<td class="org-left">Staging Area</td>
+<td class="org-left">(<code>git commit</code>)</td>
+<td class="org-left">Points to the last commit</td>
 </tr>
 </tbody>
 </table>
@@ -12696,38 +12801,38 @@ The local repository consists of three <b>trees</b> maintained and tracked by gi
 
 
 
-<div id="outline-container-sec-5" class="outline-2">
-<h2 id="sec-5">Merging a branch to master</h2>
-<div class="outline-text-2" id="text-5">
+<div id="outline-container-org8e40500" class="outline-2">
+<h2 id="org8e40500">Merging a branch to master</h2>
+<div class="outline-text-2" id="text-org8e40500">
 <p>
-<b>Branches</b> are used to develop features isolated from each other. The <i>master</i> branch is the default branch when creating a repo. Use other branches for development and merge them back to the master branch upon completion.<br  />
+<b>Branches</b> are used to develop features isolated from each other. The <i>master</i> branch is the default branch when creating a repo. Use other branches for development and merge them back to the master branch upon completion.<br />
 </p>
 
 
 
 <p>
-<code>$ git checkout master</code><br  />
+<code>$ git checkout master</code><br />
 </p>
 
 <p>
-to start working on master branch.<br  />
-then..<br  />
-<code>$ git pull origin master</code><br  />
+to start working on master branch.<br />
+then..<br />
+<code>$ git pull origin master</code><br />
 </p>
 
 <p>
-then we can do <code>$ git branch --merged</code> to see which branch has been merged with master.<br  />
-then..<br  />
-<code>$ git merge branch-name</code><br  />
+then we can do <code>$ git branch --merged</code> to see which branch has been merged with master.<br />
+then..<br />
+<code>$ git merge branch-name</code><br />
 </p>
 
 <p>
-then..<br  />
-<code>$ git push origin master</code> to push the changes to the master branch to remote repo origin.<br  />
+then..<br />
+<code>$ git push origin master</code> to push the changes to the master branch to remote repo origin.<br />
 </p>
 
 <p>
-<b>ALTERNATIVELY:</b>  Instead of pushing directly to master branch, we can work on a different branch (let's call it feature_x):<br  />
+<b>ALTERNATIVELY:</b>  Instead of pushing directly to master branch, we can work on a different branch (let's call it feature_x):<br />
 </p>
 
 <pre class="example">
@@ -12736,85 +12841,84 @@ git push origin feature_x
 </pre>
 
 <p>
-.. then, to delete the local branch, we can do <code>$ git branch -d branch-name</code> to delete the merged branch by the <code>-d</code> option.<br  />
-This would delete the local branch.<br  />
+.. then, to delete the local branch, we can do <code>$ git branch -d branch-name</code> to delete the merged branch by the <code>-d</code> option.<br />
+This would delete the local branch.<br />
 </p>
 
 <p>
-To delete a <b>remote</b> branch do this <code>$ git push --delete branch-name</code>.<br  />
+To delete a <b>remote</b> branch do this <code>$ git push --delete branch-name</code>.<br />
 </p>
 
 <p>
-A branch will <b>not</b> be available to other <b>unless</b> it has been pushed to the remote repo using <code>$ git push origin branch-name</code>.<br  />
+A branch will <b>not</b> be available to other <b>unless</b> it has been pushed to the remote repo using <code>$ git push origin branch-name</code>.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-sec-6" class="outline-2">
-<h2 id="sec-6">Further research</h2>
-<div class="outline-text-2" id="text-6">
-</div><div id="outline-container-sec-6-1" class="outline-3">
-<h3 id="sec-6-1">Differences between <code>git remote add</code> vs <code>git clone</code>:</h3>
-<div class="outline-text-3" id="text-6-1">
+<div id="outline-container-orga5ad046" class="outline-2">
+<h2 id="orga5ad046">Further research</h2>
+<div class="outline-text-2" id="text-orga5ad046">
+</div>
+<div id="outline-container-orgadbdc5c" class="outline-3">
+<h3 id="orgadbdc5c">Differences between <code>git remote add</code> vs <code>git clone</code>:</h3>
+<div class="outline-text-3" id="text-orgadbdc5c">
 <p>
-Example 1:<br  />
+Example 1:<br />
 </p>
 <div class="org-src-container">
-
 <pre class="src src-sh">git clone https://github.com/abc
 </pre>
 </div>
 <p>
-The above creates a new git local repository by copying an existing remote one located at the URL.<br  />
+The above creates a new git local repository by copying an existing remote one located at the URL.<br />
 </p>
 
 <p>
-Example 2:<br  />
+Example 2:<br />
 </p>
 <div class="org-src-container">
-
 <pre class="src src-sh">git remote add test https://github.com/abc
 </pre>
 </div>
 <p>
-The above does <b>not</b> create any local git copy. It only creates a pointer for the name of <code>https://github.com/abc</code>, which in the above equal <code>test</code>.<br  />
+The above does <b>not</b> create any local git copy. It only creates a pointer for the name of <code>https://github.com/abc</code>, which in the above equal <code>test</code>.<br />
 </p>
 
 <p>
-Both the below return the same results:<br  />
+Both the below return the same results:<br />
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <tbody>
 <tr>
-<td class="left"><code>git clone URL foo</code></td>
-<td class="left"><code>mkdir foo</code></td>
+<td class="org-left"><code>git clone URL foo</code></td>
+<td class="org-left"><code>mkdir foo</code></td>
 </tr>
 
 <tr>
-<td class="left">&#xa0;</td>
-<td class="left"><code>cd foo</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>cd foo</code></td>
 </tr>
 
 <tr>
-<td class="left">&#xa0;</td>
-<td class="left"><code>git init</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>git init</code></td>
 </tr>
 
 <tr>
-<td class="left">&#xa0;</td>
-<td class="left"><code>git remote add origin URL</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>git remote add origin URL</code></td>
 </tr>
 
 <tr>
-<td class="left">&#xa0;</td>
-<td class="left"><code>git pull origin master</code></td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><code>git pull origin master</code></td>
 </tr>
 </tbody>
 </table>
@@ -12824,62 +12928,60 @@ Both the below return the same results:<br  />
 
 
 <colgroup>
-<col  class="left" />
+<col  class="org-left" />
 
-<col  class="left" />
+<col  class="org-left" />
 </colgroup>
 <thead>
 <tr>
-<th scope="col" class="left"><code>git clone</code></th>
-<th scope="col" class="left"><code>git remote add</code></th>
+<th scope="col" class="org-left"><code>git clone</code></th>
+<th scope="col" class="org-left"><code>git remote add</code></th>
 </tr>
 </thead>
 <tbody>
 <tr>
-<td class="left">Physically download the files</td>
-<td class="left">Does not take space.</td>
+<td class="org-left">Physically download the files</td>
+<td class="org-left">Does not take space.</td>
 </tr>
 
 <tr>
-<td class="left">into local directory.</td>
-<td class="left">Pretty much like a pointer.</td>
+<td class="org-left">into local directory.</td>
+<td class="org-left">Pretty much like a pointer.</td>
 </tr>
 
 <tr>
-<td class="left">Automatically name remote git <b>origin.</b></td>
-<td class="left">Just contain a snapshot of branches and git,</td>
+<td class="org-left">Automatically name remote git <b>origin.</b></td>
+<td class="org-left">Just contain a snapshot of branches and git,</td>
 </tr>
 
 <tr>
-<td class="left">No need for preparation</td>
-<td class="left">not the actual files/ folders.</td>
+<td class="org-left">No need for preparation</td>
+<td class="org-left">not the actual files/ folders.</td>
 </tr>
 
 <tr>
-<td class="left">&#xa0;</td>
-<td class="left">An <b>existing</b> local repository is needed, and you</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">An <b>existing</b> local repository is needed, and you</td>
 </tr>
 
 <tr>
-<td class="left">&#xa0;</td>
-<td class="left">have to be currently in it.</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">have to be currently in it.</td>
 </tr>
 </tbody>
 </table>
 </div>
 </div>
-<div id="outline-container-sec-6-2" class="outline-3">
-<h3 id="sec-6-2">Differences between <code>git pull</code> and <code>git fetch</code></h3>
-<div class="outline-text-3" id="text-6-2">
+<div id="outline-container-org7c53023" class="outline-3">
+<h3 id="org7c53023">Differences between <code>git pull</code> and <code>git fetch</code></h3>
+<div class="outline-text-3" id="text-org7c53023">
 <p>
-A <code>git pull</code> is basically a <code>git fetch + merge</code>.<br  />
+A <code>git pull</code> is basically a <code>git fetch + merge</code>.<br />
 </p>
 
 <ul class="org-ul">
-<li><code>git fetch</code>: connects to remote repo (origin) and fetches new commits.<br  />
-</li>
-<li><code>git merge</code>: incoporates new commits into local branch.<br  />
-</li>
+<li><code>git fetch</code>: connects to remote repo (origin) and fetches new commits.<br /></li>
+<li><code>git merge</code>: incoporates new commits into local branch.<br /></li>
 </ul>
 
 <pre class="example">
@@ -12888,32 +12990,31 @@ git pull == git fetch origin &amp;&amp; git merge origin
 </div>
 </div>
 </div>
-<div id="outline-container-sec-7" class="outline-2">
-<h2 id="sec-7">Git Workflow</h2>
-<div class="outline-text-2" id="text-7">
+<div id="outline-container-org0032de7" class="outline-2">
+<h2 id="org0032de7">Git Workflow</h2>
+<div class="outline-text-2" id="text-org0032de7">
 <p>
-A Git workflow is a recipe or a recommendation, or a "standard process" for how to use Git to accomplish work in a consistent, productive manner. It encourages users to leverage Git effectively and consistently.<br  />
+A Git workflow is a recipe or a recommendation, or a "standard process" for how to use Git to accomplish work in a consistent, productive manner. It encourages users to leverage Git effectively and consistently.<br />
 </p>
 
 <p>
-Git offers a lot of flexibility in how users manage changes. Give its focus on flexibility, there is no "standardized process" on how to interact with Git.<br  />
+Git offers a lot of flexibility in how users manage changes. Give its focus on flexibility, there is no "standardized process" on how to interact with Git.<br />
 </p>
 
 <p>
-When working with a team on a Git managed project, it is important to make sure that <b>everyone is in agreement</b> on how the flow of changes will be applied.<br  />
+When working with a team on a Git managed project, it is important to make sure that <b>everyone is in agreement</b> on how the flow of changes will be applied.<br />
 </p>
 
 <p>
-There are several publicized Git workflows that can be a good fit for a team. Read more in here: <a href="https://www.atlassian.com/git/tutorials/comparing-workflows">Comparing Workflows</a>.<br  />
+There are several publicized Git workflows that can be a good fit for a team. Read more in here: <a href="https://www.atlassian.com/git/tutorials/comparing-workflows">Comparing Workflows</a>.<br />
 </p>
 </div>
 </div>
 </div>
 <div id="postamble" class="status">
-<p class="date">Date: <span class="timestamp-wrapper"><span class="timestamp">&lt;2019-05-25 Sat&gt;</span></span></p>
+<p class="date">Date: 2019-05-25 Sat 00:00</p>
 <p class="author">Author: Kenny Nguyen</p>
-<p class="date">Created: 2019-08-13 Tue 17:02</p>
-<p class="creator">Emacs 25.2.2 (Org mode 9.2.3)q</p>
+<p class="date">Created: 2019-08-13 Tue 17:14</p>
 <p class="validation"><a href="http://validator.w3.org/check?uri=referer">Validate</a></p>
 </div>
 </body>

@@ -1,0 +1,35 @@
+## Site Settings
+title: Mishka's Page
+email: mishk@khsim.io
+description: dev-mode
+baseurl: "" 
+url: ""
+twitter_username:
+github_username:  
+
+## Build Settings
+markdown: kramdown
+#theme: minima
+plugins:
+  - jekyll-feed
+exclude:
+   
+#include ['_pages']
+# not sure if i need the above
+sass:
+  sass_dir: ./static/_sass
+
+
+permalink: none
+# Front Matter defaults
+defaults:
+  - 
+    scope: 
+      path: ""
+      type: ""
+    values:
+      layout: "default"
+      author: "Mishka"
+  
+collections:
+  - Notes

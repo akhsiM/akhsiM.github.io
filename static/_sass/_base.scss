@@ -1,0 +1,67 @@
+
+// base16 - dark
+$base00: #181818;
+$base01: #282828;
+$base02: #383838;
+$base03: #585858;
+$base04: #b8b8b8;
+$base05: #d8d8d8;
+$base06: #e8e8e8;
+$base07: #f8f8f8;
+$base08: #ab4642;
+$base09: #dc9656;
+$base0A: #f7ca88;
+$base0B: #a1b56c;
+$base0C: #86c1b9;
+$base0D: #7cafc2;
+$base0E: #ba8baf;
+$base0F: #a16946;
+
+// Variables
+
+$base-font-family: 'Open Sans', sans-serif;
+
+$main-text-colour: $base05;
+$main-background-colour: $base00;
+$alt-text-colour:  $base04;
+$alt-background-colour: $base01;
+
+$base-font-size: 1.1em;
+$mobile-font-size: 1em;
+$nav-font-size: 1.25em;
+
+$line-height: 1.5;
+
+$link-colour: $base09;
+/* $accent-colour: $base0C; */
+$accent-colour: $base0B;
+
+// Width of the content area
+$content-width:    800px;
+$content-width-small: 550px;
+
+$on-palm:          575px;
+$on-laptop:        800px;
+
+
+body {
+    font-family: $base-font-family;
+    color: $main-text-colour;
+    background-color: $main-background-colour;
+    font-size: $mobile-font-size;
+
+    padding: 0;
+    margin: 0;
+    @media (min-width: $on-laptop) {
+        font-size: $base-font-size;
+    }
+}
+
+a {
+    color: $link-colour;
+    text-decoration: none;
+}
+
+a:hover {
+    text-decoration: underline;
+}

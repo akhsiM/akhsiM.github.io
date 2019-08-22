@@ -1,9 +1,8 @@
 --- 
 layout: default
-title: 
+title: Hi I'm Mishka.
 ---
 
-# Hi, I'm Mishka.
 
 And I am very new to this.
 

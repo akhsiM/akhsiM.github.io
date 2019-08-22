@@ -651,7 +651,7 @@ label{
     color:#333;
     font-size:90%}
 
-a{
+a,a:visited{
     color:#2980B9;
     text-decoration:none;
     cursor:pointer}
@@ -663,9 +663,6 @@ a:hover,a:active{
 
 a:hover{
     color:#3091d1}
-
-a:visited{
-    color:#9B59B6}
 
 .left{
     text-align:left}

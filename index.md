@@ -1,6 +1,6 @@
 --- 
 layout: default
-title: Hi I'm Mishka.
+title: Mishka's Home
 ---
 
 # Hi, I'm Mishka.

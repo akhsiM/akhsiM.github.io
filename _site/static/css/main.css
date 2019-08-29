@@ -17,6 +17,14 @@ a {
 a:hover {
   text-decoration: underline; }
 
+pre {
+  overflow-x: auto;
+  white-space: pre-wrap;
+  white-space: -moz-pre-wrap;
+  white-space: -pre-wrap;
+  white-space: -o-pre-wrap;
+  word-wrap: break-word; }
+
 /* $accent-colour: $base0C; */
 .header {
   margin: 1em 0;
@@ -86,14 +94,15 @@ footer {
     padding: 20px 0; }
 
 .post .post-header {
-  text-align: center;
-  font-style: italic; }
+  text-align: right;
+  font-style: strong; }
 .post .post-header-image {
   width: 100%;
   border: 1px solid #333; }
 .post .post-date {
   color: #b8b8b8;
-  margin-bottom: 0; }
+  margin-bottom: 0;
+  font-style: italic; }
 .post .old-post-warning {
   color: #b8b8b8;
   background-color: #282828;

@@ -1,0 +1,15 @@
+---
+layout: default
+title: Random Posts
+---
+
+<div class="blogs">
+    {% for post in site.categories.Random %}
+        <h2> 
+            <a href= {{ post.url }} | prepend {{ site.url }}>
+                {{ post.title }} 
+            </a> 
+        </h2>
+        <hr class="blog-list-sep">  
+    {% endfor %}
+</div>

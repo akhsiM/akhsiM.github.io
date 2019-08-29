@@ -150,8 +150,9 @@ footer {
 
 .post {
     .post-header {
-        text-align: center;
-        font-style: italic;
+        text-align: right;
+        font-style: strong;
+       
     }
 
     .post-header-image {
@@ -162,6 +163,7 @@ footer {
     .post-date {
         color: $alt-text-colour;
         margin-bottom: 0;
+        font-style: italic;
     }
 
     .old-post-warning {

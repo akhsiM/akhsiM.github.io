@@ -149,15 +149,15 @@ footer {
 }
 
 .post {
+
+    .post-imgheader{
+        width: 100%;
+        border: 1px solid $accent-colour;
+    }
     .post-header {
         text-align: right;
         font-style: strong;
        
-    }
-
-    .post-header-image {
-        width: 100%;
-        border: 1px solid #333;
     }
 
     .post-date {

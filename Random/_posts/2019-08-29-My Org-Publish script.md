@@ -13,7 +13,7 @@ In this post, what will be covered is the Org publish script that I use to batch
 
 Why script? So I can perform this action within the Terminal comfortably before incorporating it in a bash script.
 
-Oh, about the bash script, actual full workflow that I set up involves a bash script that does a few other things that may be covered in another post. However the following content will be solely about the org-publish script.
+Oh, about the bash script, the actual full workflow that I set up involves a bash script that does a few other things that may be covered in another post. However the following content will be solely about the org-publish script.
 
 There is also a setup file that I host on my github. This setup file is referenced on the preamble of all my Org files. It is used for htmlizing and CSS styling.
 

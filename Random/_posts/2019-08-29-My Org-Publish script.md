@@ -1,6 +1,7 @@
 ---
 title: My Org-Publish script
 layout: posts
+imgheader: org-publish.png
 ---
 
 

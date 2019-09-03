@@ -1,0 +1,13 @@
+---
+layout: default
+title: Useful Cheatsheets
+---
+<h3>
+    <ul type="a|A">
+        {% for cheatsheet in site.static_files %}
+            {% if cheatsheet.path contains 'Cheatsheets' %}
+                <li> <a href="{{ cheatsheet.path}}" target="_blank"> {{ cheatsheet.name }} </a></li>      
+            {% endif %}
+        {% endfor %}
+    </ul>
+</h3>

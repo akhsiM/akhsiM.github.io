@@ -9,7 +9,7 @@ Firstly, my real name is actually not Mishka, it's Kenny. Oh well, if we are goi
 
 However Mishka is my home/ nickname. It's my favourite name.
 
-I am an Application Analyst by day. By night/ afterhour, I am a technically inclined indidual who has a strong interest in learning about all things technical-related, whether it's Dev, DevOps, SQLs or even CSS sometimes (we all know CSS isn't really a programming language!).
+I am currently working as an Application Analyst by "trade". As an individual, I am a technically inclined person who has a strong interest in learning about all things technical-related, whether it's Dev, DevOps, SQLs or even CSS sometimes (we all know CSS isn't really a programming language!).
 
 This page was created in August 2019. It is the result of my "mini project" with the following intentions:
 - I have always wanted to learn about webdev.

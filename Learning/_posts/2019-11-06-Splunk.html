@@ -1,0 +1,2023 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2019-11-06 Wed 22:51 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Splunk 7.x Fundamentals</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mishka Nguyen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Splunk 7.x Fundamentals</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orge25c010">Machine Data</a></li>
+<li><a href="#org49f579a">What is Splunk</a>
+<ul>
+<li><a href="#orga30a4f4">General</a>
+<ul>
+<li><a href="#org1779235">Index Data</a></li>
+<li><a href="#org44861f8">Search &amp; investigate</a></li>
+<li><a href="#org82cfadb">Add Knowledge</a></li>
+<li><a href="#org3e388ac">Monitor &amp; Alert</a></li>
+<li><a href="#orgc0ba9f8">Report &amp; Analyze</a></li>
+</ul>
+</li>
+<li><a href="#org33b6cc3">Under the hood</a>
+<ul>
+<li><a href="#orgd212088">Indexer</a></li>
+<li><a href="#orgc345237">Search Heads</a></li>
+<li><a href="#orgc752c91">Forwarder</a></li>
+</ul>
+</li>
+<li><a href="#orga17107d">Deploying and Scaling</a></li>
+</ul>
+</li>
+<li><a href="#orgaf013e8">Installing Splunk</a>
+<ul>
+<li><a href="#orgb4ea2f8">Linux</a></li>
+<li><a href="#orged5b48e">Windows</a></li>
+<li><a href="#org01ad9b6">Splunk Cloud</a></li>
+</ul>
+</li>
+<li><a href="#org7b7b2da">Apps and Roles</a></li>
+<li><a href="#org5746685">Getting Data in</a>
+<ul>
+<li><a href="#org29060a6">Source Type</a></li>
+</ul>
+</li>
+<li><a href="#orgf526033">Basic Searching</a>
+<ul>
+<li><a href="#orgd5e6526">Using the Search</a></li>
+<li><a href="#org3db4018">Using Events/ Search Results</a>
+<ul>
+<li><a href="#orgb133e09">Time Range</a></li>
+</ul>
+</li>
+<li><a href="#org24d89e1">Search Everything</a></li>
+</ul>
+</li>
+<li><a href="#org409ea02">Using Fields in Searches</a></li>
+<li><a href="#orga6300dd">Best Practices</a>
+<ul>
+<li><a href="#org0a8e9e5">General Searching</a></li>
+<li><a href="#org718fc97">Using Time</a></li>
+<li><a href="#org45d4d39">Using Indexes</a></li>
+</ul>
+</li>
+<li><a href="#org4a2f698">SPL - Splunk's Search Language</a>
+<ul>
+<li><a href="#org97bb3ce">Field Commands</a></li>
+<li><a href="#org46a0f47">Table Command</a></li>
+<li><a href="#org11a80bd">Rename Command</a></li>
+<li><a href="#org813b442">Dedup Command</a></li>
+<li><a href="#org77d3db2">Sort Command</a></li>
+</ul>
+</li>
+<li><a href="#org72ac8e7">Transforming Commands</a>
+<ul>
+<li><a href="#orgfecccdd">Top Command</a></li>
+<li><a href="#org4f1de9d">Rare Command</a></li>
+<li><a href="#org2b0b8ac">Stats Command</a></li>
+</ul>
+</li>
+<li><a href="#org47dc198">Report and Dashboards</a>
+<ul>
+<li><a href="#org02ece3f">Reports</a></li>
+<li><a href="#org51eb836">Visualization</a></li>
+<li><a href="#org0be2d82">Dashboard</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+
+<div id="outline-container-orge25c010" class="outline-2">
+<h2 id="orge25c010">Machine Data</h2>
+<div class="outline-text-2" id="text-orge25c010">
+<p>
+Machine data is <b>everywhere</b>, constantly flowing everywhere from servers to devices,..etc.. This machine data can be in many different formats, making it difficult to format and see. This data however can be very insightful.<br />
+</p>
+
+<p>
+Machine data can be used for <b>event monitoring</b>, and even <b>alert</b> and <b>notification</b> for specific events.<br />
+</p>
+
+<p>
+This is where Splunk comes in. Splunk can take any data and use indexing to allow us to extract insights i.e security, user behaviour, hardward failure, sales ..etc.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org49f579a" class="outline-2">
+<h2 id="org49f579a">What is Splunk</h2>
+<div class="outline-text-2" id="text-org49f579a">
+</div>
+<div id="outline-container-orga30a4f4" class="outline-3">
+<h3 id="orga30a4f4">General</h3>
+<div class="outline-text-3" id="text-orga30a4f4">
+<p>
+There are 5 main functions of Splunk.<br />
+</p>
+</div>
+
+<div id="outline-container-org1779235" class="outline-4">
+<h4 id="org1779235">Index Data</h4>
+<div class="outline-text-4" id="text-org1779235">
+<p>
+This is the heart of Splunk. It collects data from virtually any source.<br />
+</p>
+
+<p>
+It's like a factory and data is raw material.<br />
+</p>
+
+<p>
+Index decides how data can be processed and extracted. Data is broken and normalised into single events. After this we can use data for statistics and etc..<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org44861f8" class="outline-4">
+<h4 id="org44861f8">Search &amp; investigate</h4>
+</div>
+
+<div id="outline-container-org82cfadb" class="outline-4">
+<h4 id="org82cfadb">Add Knowledge</h4>
+</div>
+<div id="outline-container-org3e388ac" class="outline-4">
+<h4 id="org3e388ac">Monitor &amp; Alert</h4>
+<div class="outline-text-4" id="text-org3e388ac">
+<p>
+This is real-time monitoring to allow us to proactively monitor and identify issues and impacts before the clients are affected.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc0ba9f8" class="outline-4">
+<h4 id="orgc0ba9f8">Report &amp; Analyze</h4>
+<div class="outline-text-4" id="text-orgc0ba9f8">
+<p>
+Report &amp; Analyzation via dashboard. This allows us to look at data for meaningful insight.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org33b6cc3" class="outline-3">
+<h3 id="org33b6cc3">Under the hood</h3>
+<div class="outline-text-3" id="text-org33b6cc3">
+<p>
+Splunk has three main processing components. Although Splunk has more components, these three are the basic building blocks.<br />
+</p>
+</div>
+
+<div id="outline-container-orgd212088" class="outline-4">
+<h4 id="orgd212088">Indexer</h4>
+<div class="outline-text-4" id="text-orgd212088">
+<p>
+Indexer processes incoming machine data, storing the results of indexes as <b>events</b>. This enables fast search and analysis.<br />
+</p>
+
+<p>
+This data is then organized into different directories that corresponds to different <b>timeframe</b>. These files are organized <b>by age</b>. These events are then retrievable by using <b>timeframe</b>.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc345237" class="outline-4">
+<h4 id="orgc345237">Search Heads</h4>
+<div class="outline-text-4" id="text-orgc345237">
+<p>
+Search heads handle search requests from users and distribute request to indexer, which perform the actual search on the data. After retrieving the data, it is finetuned before returning to user.<br />
+</p>
+
+<p>
+It is used in various tools e.g report, dashboard..etc..<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc752c91" class="outline-4">
+<h4 id="orgc752c91">Forwarder</h4>
+<div class="outline-text-4" id="text-orgc752c91">
+<p>
+Forwarders are splunk enterprise instances. It consumes data and forward it to the indexers for indexing. They require <b>minimal</b> resources and <b>resides on the originating machine</b>.<br />
+</p>
+
+<p>
+As an example, if we have a web server that we want to monitor, we'd have the forwarded installed on that server.<br />
+</p>
+
+<p>
+In most Splunk deployments, forwarders serve as the primary way data is supplied for indexing.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga17107d" class="outline-3">
+<h3 id="orga17107d">Deploying and Scaling</h3>
+<div class="outline-text-3" id="text-orga17107d">
+<p>
+Splunk can be deployed and various ways. It can also be scaled from a single instance to a full distributed infrastructure.<br />
+</p>
+
+<p>
+In a single instance deployment, one single instance of Splunk Enterprise handles all functions of Splunk including:<br />
+</p>
+<ul class="org-ul">
+<li>Input<br /></li>
+<li>Parsing<br /></li>
+<li>Indexing<br /></li>
+<li>Searching<br /></li>
+</ul>
+
+<p>
+This is perfect for POC, personal use, learning and small department-sized environment.<br />
+</p>
+
+<p>
+In a distributed environment, we'd need to divide the functions into multiple instances of Splunk.<br />
+</p>
+
+<p>
+Search Heads and Indexers can be clustered together.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgaf013e8" class="outline-2">
+<h2 id="orgaf013e8">Installing Splunk</h2>
+<div class="outline-text-2" id="text-orgaf013e8">
+</div>
+<div id="outline-container-orgb4ea2f8" class="outline-3">
+<h3 id="orgb4ea2f8">Linux</h3>
+<div class="outline-text-3" id="text-orgb4ea2f8">
+<p>
+Installation can be done using .deb file, then<br />
+</p>
+
+<ul class="org-ul">
+<li>Start splunk<br /></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-bash"><span style="color: #ab9df2;">cd</span> /opt/splunk/bin
+sudo ./splunk start --accept-license
+</pre>
+</div>
+
+<p>
+The Splunk web-interface was is at ~<a href="http://hostname:8000/">http://hostname:8000/</a><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orged5b48e" class="outline-3">
+<h3 id="orged5b48e">Windows</h3>
+<div class="outline-text-3" id="text-orged5b48e">
+<p>
+On Windows we have the options of installing the GUI or CLI interface of Splunk Enterprise.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org01ad9b6" class="outline-3">
+<h3 id="org01ad9b6">Splunk Cloud</h3>
+<div class="outline-text-3" id="text-org01ad9b6">
+<p>
+This is a machine data platform offered by Splunk as a subscription service.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7b7b2da" class="outline-2">
+<h2 id="org7b7b2da">Apps and Roles</h2>
+<div class="outline-text-2" id="text-org7b7b2da">
+<p>
+After logging into Splunk, we are redirected to the Apps Homepage. The apps we see are defined by the user with admin role.<br />
+</p>
+
+<p>
+Roles determine what a user can see, do and interact with.<br />
+</p>
+
+<p>
+There are three roles:<br />
+<b>- Admin role</b><br />
+Can install app, digest data, create knowledge object for all users.<br />
+<b>- Power role</b><br />
+Create and share knowledge object for users of an app and realtime searches.<br />
+<b>- User role</b><br />
+Can only see their own knowledge object and those that's been shared with them.<br />
+</p>
+</div>
+</div>
+
+
+
+<div id="outline-container-org5746685" class="outline-2">
+<h2 id="org5746685">Getting Data in</h2>
+<div class="outline-text-2" id="text-org5746685">
+<p>
+Before we start searching and analysing our data, we need to add it to our index.<br />
+</p>
+
+<p>
+The addition of data to index is done by the administrators. Splunk data ingestion can be broken down into three phases:<br />
+</p>
+<ol class="org-ol">
+<li>Input phase<br /></li>
+<li>Parsing phase<br /></li>
+<li>Indexing Phase<br /></li>
+</ol>
+
+<p>
+There are many ways to get our data into Splunk Enterprise.<br />
+</p>
+
+<ul class="org-ul">
+<li>Upload allows local Upload. Data is only indexed <b>once</b>. It's good for data that's only uploaded once and never gets updated.<br /></li>
+<li>Monitor options allow us to monitor events via multiple channels.<br /></li>
+<li><b>Forward</b> option allow us to receive data from external forwarders. These are generally installed on <b>external</b> machine.<br /></li>
+</ul>
+
+<p>
+When data source is indexed, Splunk assigns <b>metadata values</b> to the entire source.<br />
+</p>
+</div>
+
+<div id="outline-container-org29060a6" class="outline-3">
+<h3 id="org29060a6">Source Type</h3>
+<div class="outline-text-3" id="text-org29060a6">
+<p>
+After loading the file, we are presented with a window that we can use to select the <b>Source Type</b> for our data. If Splunk regconizes our data type it will set the data source with a pre-trained Source Type.<br />
+</p>
+
+<p>
+We can configure how the data is sourced or change the source type.<br />
+</p>
+
+<p>
+If a pre-defined source type is <b>not</b> used, Splunk doesn't show how the event is broken down and it looks quite messy i.e data is not organized into columns .etc..<br />
+</p>
+
+<div class="org-center">
+<p>
+The <b>Data Preview</b> function displays how processed events will be indexed. We should use this to make sure that events are correctly seperated and the right timestamps are highlighted, before moving ahead. If not, we should continue configuring the source type by either using the pretrained list or customize the settings.<br />
+</p>
+</div>
+
+<p>
+We can also save a predefined source-type for <b>reuse</b> purposes after making changes.<br />
+</p>
+
+<p>
+The <b>App</b> context setting when saving a source type tells Splunk which application the source type is available for. The source type can be made available sytem wide or for a specific Splunk application. The <i>system</i> option sets the source-type to be available system-wide.<br />
+</p>
+
+<p>
+The <b>Input Settings</b> allow us to configure settings that are correponding with the Host where data is originally from.<br />
+</p>
+
+<p>
+Indexer:<br />
+</p>
+<ul class="org-ul">
+<li>We should be using <b>multiple indexes</b>.<br /></li>
+<li>With multiple indexes, we can also limit individual index to specfic user roles. We can also set seperate data retention policies.<br /></li>
+</ul>
+
+<p>
+When we index a data source, Splunk assigns metadata values to the entire source.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-orgf526033" class="outline-2">
+<h2 id="orgf526033">Basic Searching</h2>
+<div class="outline-text-2" id="text-orgf526033">
+<p>
+The Searching &amp; Reporting app is the default interface that allows searching and analysing data.<br />
+</p>
+
+<p>
+It enables us to create knowledge object, dashboard, report..etc..<br />
+</p>
+
+<p>
+The <b>What to Search</b> panel provides an overview of indexed data that is searchable via the Search panel.<br />
+</p>
+
+<p>
+When a Search is executed or sent to Splunk, it becomes a <b>Search Job</b>.<br />
+</p>
+</div>
+
+<div id="outline-container-orgd5e6526" class="outline-3">
+<h3 id="orgd5e6526">Using the Search</h3>
+<div class="outline-text-3" id="text-orgd5e6526">
+<p>
+The Search Bar works like a normal search bar. As we type, the Splunk Search Assitant provides some help and suggestions for how to complete the search string. It provides matching term, syntax completion.etc..<br />
+</p>
+
+<p>
+Limiting a search by time is the <b>best practice</b>.<br />
+</p>
+
+<p>
+We can also use the <b>Save As</b> function to save the search to <b>knowledge object</b>.<br />
+</p>
+
+<p>
+The <b>Events</b> tab will display the events returned from the search.<br />
+</p>
+
+<p>
+The <b>Patterns</b> tab allow seeing the general pattern.<br />
+</p>
+
+<p>
+Analysis can be done via the <b>statistic</b> and <b>visualization</b> tab.<br />
+</p>
+
+<div class="org-center">
+<p>
+Quick Note: Commands that create statistics and visualizations are called <b>transforming command</b>. These transform event data into data tables.<br />
+</p>
+</div>
+
+<p>
+By default, a search job will remain active for 10 minutes. After this Splunk will need to run the search again.<br />
+</p>
+
+<p>
+Shared search jobs remain active for seven days.<br />
+</p>
+
+<p>
+Search mode<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Mode</th>
+<th scope="col" class="org-left">Info</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">Fast</td>
+<td class="org-left">Cutting down information for speed. No Field Discovery</td>
+</tr>
+
+<tr>
+<td class="org-left">Smart</td>
+<td class="org-left">Default Option. Toggle behaviours based on the type of search being run</td>
+</tr>
+
+<tr>
+<td class="org-left">Verbose</td>
+<td class="org-left">As much field and event data as possible. All fields are returned.</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+We can select a specific timeframe by using the Time Segment function.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3db4018" class="outline-3">
+<h3 id="org3db4018">Using Events/ Search Results</h3>
+<div class="outline-text-3" id="text-org3db4018">
+<p>
+While date is normalized, time is set by user preference.<br />
+</p>
+
+<p>
+When we mouse over a search result, keywords are highlighted. We can click any item to:<br />
+</p>
+<ul class="org-ul">
+<li>Add item to search<br /></li>
+<li>exclude item from search<br /></li>
+<li>open a new search including only that item<br /></li>
+</ul>
+</div>
+
+<div id="outline-container-orgb133e09" class="outline-4">
+<h4 id="orgb133e09">Time Range</h4>
+<div class="outline-text-4" id="text-orgb133e09">
+<p>
+Time ranges are specified in the <b>Advanced</b> tab of the timerange picker.<br />
+</p>
+
+<p>
+<code>@</code> symbol "snaps" to the time unit specified. Snapping rounds <i>down</i> to the nearest specified unit. For example, at 09:37:12, if we use <code>-30m@h</code> the search will look back to 09:00:00<br />
+</p>
+
+<p>
+We can also specify a time range in the search bar by using <code>earliest</code> and <code>latest</code>.<br />
+</p>
+
+<p>
+Example:<br />
+</p>
+<ul class="org-ul">
+<li>earliest=-h looks back one hour<br /></li>
+<li>earliest=-2d@d looks back to two days ago, up the beginning of today<br /></li>
+<li>earliest=6/15/2017:12:30:00 looks back to the specified time<br /></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org24d89e1" class="outline-3">
+<h3 id="org24d89e1">Search Everything</h3>
+<div class="outline-text-3" id="text-org24d89e1">
+<p>
+We can use wildcard: <code>*</code>. e.g: fail*<br />
+</p>
+
+<p>
+The uppercase of these can be used for Booleans operations: <code>NOT</code> <code>OR</code> <code>AND</code>. e.g: fail NOT password, failed OR password. Booleans operations can also have parenthesis.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org409ea02" class="outline-2">
+<h2 id="org409ea02">Using Fields in Searches</h2>
+<div class="outline-text-2" id="text-org409ea02">
+<p>
+Fields are searchable key/value pairs in our event data.<br />
+</p>
+
+<p>
+The Field sidebar shows all the fields we have extracted during search. They are:<br />
+</p>
+
+<ul class="org-ul">
+<li>Selected Fields: the utmost important ones. host and source, sourcetype are default. These are displayed on the search results.<br /></li>
+</ul>
+<p>
+-Interesting Fields: They have values in <b>at least 20%</b> of the event. <code>a</code> denotes a string value. <code>#</code> denotes a numeral value.<br />
+</p>
+
+<p>
+We can also <b>see more fields</b> to see stats around fields.<br />
+</p>
+
+<p>
+Using fields in search we can run more efficient searches.<br />
+e.g search <code>sourcetype=linux_operation</code>.<br />
+</p>
+
+<div class="org-center">
+<p>
+Field Names (e.g sourcetype) are case-senstive.<br />
+Values are <b>not</b>.<br />
+</p>
+</div>
+
+<p>
+Field operators include <code>=</code>, <code>!=</code> and <code>&gt;</code>, <code>&gt;=</code>, <code>&lt;</code>, <code>&lt;=</code> which are only usable with numerical values.<br />
+</p>
+
+<p>
+There is a difference between using <code>NOT</code> and <code>!=</code>. They will not always return the same result.<br />
+</p>
+
+<p>
+Example:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">status != 200</td>
+<td class="org-left">returns all result with status fields equals something not 200</td>
+</tr>
+
+<tr>
+<td class="org-left">NOT status = 200</td>
+<td class="org-left">returns all results without the field status = 200.</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">i.e if an event does not have a status <b>at all</b>, it will be included.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-orga6300dd" class="outline-2">
+<h2 id="orga6300dd">Best Practices</h2>
+<div class="outline-text-2" id="text-orga6300dd">
+</div>
+<div id="outline-container-org0a8e9e5" class="outline-3">
+<h3 id="org0a8e9e5">General Searching</h3>
+<div class="outline-text-3" id="text-org0a8e9e5">
+<p>
+Use time limitation.<br />
+</p>
+
+<p>
+Use the default fields (source, sourcetype,host)<br />
+</p>
+
+<p>
+The more we tell the search engine, the better.<br />
+</p>
+
+<p>
+Inclusion &gt; Exclusion.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org718fc97" class="outline-3">
+<h3 id="org718fc97">Using Time</h3>
+<div class="outline-text-3" id="text-org718fc97">
+<p>
+Use the Splunk Time presets. Using Time is the single most efficient method to filter events in Splunk.<br />
+</p>
+
+<p>
+We should get familiar with the Time abbreviation (<code>m</code>, <code>s</code>, <code>w</code>..)<br />
+</p>
+
+<p>
+Use <code>@a</code> symbol for rounding down to the nearest unit.<br />
+</p>
+
+<p>
+We can also use <b>absolute value</b>.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org45d4d39" class="outline-3">
+<h3 id="org45d4d39">Using Indexes</h3>
+<div class="outline-text-3" id="text-org45d4d39">
+<p>
+Using indexes allow us to filter events earlier in the search.<br />
+</p>
+
+<p>
+It possible to use a wildcard in index values.<br />
+</p>
+
+<p>
+<b>The index always appears as a field in search results</b>.<br />
+</p>
+
+<p>
+Indexes are where data is stored as events.<br />
+</p>
+
+<p>
+As best practice, it's always more efficient to specify one or more indexes in our search.<br />
+e.g <code>index=web</code>, <code>index=security</code>.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4a2f698" class="outline-2">
+<h2 id="org4a2f698">SPL - Splunk's Search Language</h2>
+<div class="outline-text-2" id="text-org4a2f698">
+<p>
+SPL is built from 5 components:<br />
+</p>
+<ul class="org-ul">
+<li>Search Term<br /></li>
+<li>Commands (e.g create charts, stats..)<br /></li>
+<li>Functions<br /></li>
+<li>Arguments<br /></li>
+<li>Clauses (define groups)<br /></li>
+</ul>
+
+<p>
+SPL example: <code>sourcetype=acc* status = 200 | stats list(product_name) as "Games Sold" | top "Games Sold"</code><br />
+</p>
+<ul class="org-ul">
+<li>stats is a command, the list bit is a function, product_name is an argument, as is the clause<br /></li>
+</ul>
+
+<p>
+Search components are seperated by pipes (<code>|</code>).<br />
+</p>
+
+
+<div class="figure">
+<p><img src="data:image/png;base64,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
+szmu7Qs4kpq7Fa3LG5VWs6HZyhDuSF1bWGYOt2O/g6PaTrQ03zj4bKBdOHzokE6vb14O6KLQ6fRZ
+s2Y524qOiONnhFiltla69oufzUvc3Difr3mpLUwDnACcEQJ0CHR6/fQJns3LAV2UY2clBoOBQqFA
+6ta2xcuL99knL5qXYG190ivQkQGfDbQ9sHgDIIQ0Gg0cFdrmUCiYu3sr5+hAFwB8NgAA7YLBYHC2
+CR0Ug9HUIIfBARBCyGA0tei+Fnw2AADtAiy3WIXJZDKZ7Lv39TBAAEKIwWBxuVzHD0EGnw08IZQq
+TWFhhcFg7N07xIXFRAg1KdWVlXWhIX6kE+O1Wn1JabWbGxvPV9wgbxKJ6sPD/Ol0GkJIJKpXqtTh
+YQG4cGFRZW2d1NuLFxkRROg01xYQ4OnKhbN7gY4Ci8UaMyZJo9FotVrw2gBCiEZrgSMGnw08CX7+
+9dyqd7/WaLUUCoXFYuz+76qpkxMuXsqePe/D65nf9O3Tw1z44OELL76yPiTY9+G9XzAMO34ya8lr
+G/Nz9oQE+yKEPlzz/aXL9/i5e5QqzdSZ7+XmCUKCfQuLKwcPjDp1dAOu01zbbz99OHP6yCfaWwCw
+Db4QymAw6PS/b1Vv3bp1+PBhT0/PJUuWcLncu3fvHj58mMlk/utf/woJCSkqKioqKqqurubz+UuX
+Ls3Jybl69eqcOXPc3d0FAoFQKOTz+UuWLMnJybl27dqcOXMGDRqEELpw4cKZM2fYbPZLL73UvXt3
+hNDPP/98//79wMDA1NRULhceincgHJ9nQ8Ah0O48zC9b9saWeXOfFVedEJUdnTNz1Idrvjc/aYDE
+r/vSZk4fWVFZe+Vanh21Fy7evXItL/3M5ptXdp84/GVgoE9l1aM0Sdczv1HJ0vDXzOkjtVr9pi37
+2rhXANBaMAyjUCi0vygqKnr99dfnz59vMpmWLl3K5/NTU1NTUlJGjhw5YcIEpVJZUlLyxhtv9OzZ
+Mzw8fOzYsVqtdvz48YsXLy4pKVmxYkVERER4eHhSUpJWq50wYcLixYtNJlNJScmqVatefPHFgQMH
+Jicnm0ymvXv3ZmVlvfTSS3q9/uuvv8YwjAZ0GDAMc/CpNsyzgXbnj/Sber1h7ccv4ovbWzctt5O+
+oFokuXDp7uljGySSht/2pScM7WNLMrC7N0Lo/Q93/2vBuOEJfX/Y/R5CKJ9fjhB6mF+m1z+K8RnQ
+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"SPL.png /><br />
+</p>
+</div>
+
+<p>
+<b>Visual Pipeline</b>: The Search Assistant provides help with completing a SPL query. By defaults, some parts of the search strings are automatically colored as we type. The color is based on the search syntax, the rest of the search string remains black.<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">BOOLEAN</td>
+<td class="org-left">orange</td>
+</tr>
+
+<tr>
+<td class="org-left">Commands</td>
+<td class="org-left">blue</td>
+</tr>
+
+<tr>
+<td class="org-left">Functions</td>
+<td class="org-left">purple</td>
+</tr>
+
+<tr>
+<td class="org-left">Arguments</td>
+<td class="org-left">green</td>
+</tr>
+</tbody>
+</table>
+
+<div class="org-center">
+<p>
+Tip: Ctrl (Command) + \ to seperate search components with linebreaks.<br />
+</p>
+</div>
+
+<p>
+We can configure our SPL (search bar) for themes..etc..<br />
+</p>
+
+
+
+<p>
+SPL flows left-to-right. This is a very important concept in SPL.<br />
+</p>
+
+<p>
+<code>Search Command | Command/ Function | Command/ Function</code><br />
+</p>
+
+<p>
+Imagine Splunk data is like a spreadsheet, and the search term turns the spreadsheet into a smaller one.<br />
+</p>
+</div>
+
+<div id="outline-container-org97bb3ce" class="outline-3">
+<h3 id="org97bb3ce">Field Commands</h3>
+<div class="outline-text-3" id="text-org97bb3ce">
+<p>
+Field commands allow us to include or exclude specific fields from search results. This is handy and can make search run faster.<br />
+</p>
+
+<p>
+e.g:<br />
+<code>index = web sourcetype=access_combined</code><br />
+<code>|fields status clientip</code><br />
+</p>
+
+<p>
+The above search only displays the status and client ip.<br />
+</p>
+
+<p>
+or we can do removal:<br />
+<code>index = web sourcetype=access_combined</code><br />
+<code>|fields - status clientip</code><br />
+</p>
+
+<p>
+The above search removes the two field status and client ip from the result.<br />
+</p>
+
+<p>
+Field extraction is one of the most costly part of searching in Splunk. The ability to limit fields can make our searches more efficient.<br />
+</p>
+
+<p>
+Field inclusion happens before exclusion. Therefore, <b>inclusions</b> would lead to <b>better performance</b>. Since exclusions happen after all the fields have been returned and only affect the displaying of results, exclusion does <b>not</b> affect performance.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org46a0f47" class="outline-3">
+<h3 id="org46a0f47">Table Command</h3>
+<div class="outline-text-3" id="text-org46a0f47">
+<p>
+Table command is similar to the Fields command where as it only returns the columns listed in the arguments. However the data is returned in a tabular format.<br />
+<code>index = web sourcetype=access_combined</code><br />
+<code>|table status clientip</code><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org11a80bd" class="outline-3">
+<h3 id="org11a80bd">Rename Command</h3>
+<div class="outline-text-3" id="text-org11a80bd">
+<p>
+Rename command is used to rename field.<br />
+</p>
+
+<p>
+<code>index = web sourcetype=access_combined</code><br />
+<code>|table status clientip</code><br />
+<code>|rename clientip as "Client's IP"</code><br />
+</p>
+
+<p>
+New name needs to be wrapped in quotes.<br />
+</p>
+
+<p>
+Once renamed, you'd need to use the new name in subsequent command.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org813b442" class="outline-3">
+<h3 id="org813b442">Dedup Command</h3>
+<div class="outline-text-3" id="text-org813b442">
+<p>
+Dedup command can be used to remove duplicate events from results that share <b>common values</b>.<br />
+</p>
+
+<p>
+Dedup command can be used to remove duplicate values that share a common value of a single field, or of multiple fileds.<br />
+</p>
+
+<pre class="example">
+index=security sourcetype=history* Address_Description="San Francisco"
+| dedup First_Name Last_Name
+| table Username First_Name Last_Name
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org77d3db2" class="outline-3">
+<h3 id="org77d3db2">Sort Command</h3>
+<div class="outline-text-3" id="text-org77d3db2">
+<p>
+Sort Command lets us display result in ascending or descending order.<br />
+</p>
+
+<p>
+Sort can be used with one or more than one fields. Fields are sorted by the order that they are listed in the command.<br />
+</p>
+
+<p>
+By default, sort happens ascending (<code>+</code>), descending can be indicated by adding <code>-</code> right after sort.<br />
+</p>
+
+<p>
+i.e <code>| sort - price</code><br />
+</p>
+
+<p>
+The positioning of the operator matters too:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left"><code>sort - price Vendor</code></td>
+<td class="org-left">sort by price then Vendor, both descending</td>
+</tr>
+
+<tr>
+<td class="org-left"><code>sort -price Vendor</code></td>
+<td class="org-left">sort by price descending, then Vendor ascending</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Sort command can be used in junction with the <code>limit</code> command too, e.g <code>sort sale_price Vendor limit=20</code>.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org72ac8e7" class="outline-2">
+<h2 id="org72ac8e7">Transforming Commands</h2>
+<div class="outline-text-2" id="text-org72ac8e7">
+<p>
+Transforming Commands order search result into a data table that can be used by Splunk for statistical purposes. We typically need to use these to transform our result for the use of data visualization.<br />
+</p>
+</div>
+
+<div id="outline-container-orgfecccdd" class="outline-3">
+<h3 id="orgfecccdd">Top Command</h3>
+<div class="outline-text-3" id="text-orgfecccdd">
+<p>
+Finds the most common value of given fields in a result set.<br />
+</p>
+
+<p>
+e.g:<br />
+<code>index=sales sourcetype=vendor_sales</code><br />
+<code>top Vendor</code><br />
+</p>
+
+<p>
+The above limit the result to the <b>top 10</b> vendor by default. . It will return a list of Vendor and their counts. We can set the number by including <code>limit=n</code>.<br />
+</p>
+
+<p>
+We can also use <code>top</code> command for multiple fields.<br />
+</p>
+
+<p>
+<code>Top</code> has a few clauses:<br />
+</p>
+<ul class="org-ul">
+<li>limit = int<br /></li>
+<li>countfield = string (rename the name of the count field)<br /></li>
+<li>percentfield = string<br /></li>
+<li>showcount = True/False<br /></li>
+<li>showperc = True/False<br /></li>
+<li>showother = True/False<br /></li>
+<li>otherstr = string<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org4f1de9d" class="outline-3">
+<h3 id="org4f1de9d">Rare Command</h3>
+<div class="outline-text-3" id="text-org4f1de9d">
+<p>
+Rare command has the same option as the Top Command, however its functionality is competely opposite. It shows the result with the <b>least</b> common values<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2b0b8ac" class="outline-3">
+<h3 id="org2b0b8ac">Stats Command</h3>
+<div class="outline-text-3" id="text-org2b0b8ac">
+<p>
+This is used to produce statistic.<br />
+</p>
+
+<p>
+Common stats functions are:<br />
+</p>
+<ul class="org-ul">
+<li>count<br /></li>
+<li>distinct count<br /></li>
+<li>sum<br /></li>
+<li>average (avg)<br /></li>
+<li>min<br /></li>
+<li>max<br /></li>
+<li>list<br /></li>
+<li>values<br /></li>
+</ul>
+
+<p>
+Count function:<br />
+</p>
+<pre class="example">
+index = sales sourcetype=vendor_sales
+| stats count as "Total Sales by Vendors" by product_name
+</pre>
+
+<p>
+Adding a field as an argument results into only events that has the field to be returned.<br />
+</p>
+<pre class="example">
+index=web sourcetype=access_combined
+| stats count(action) as ActionEven
+</pre>
+
+<p>
+Distinct count provides the count of how many distinct value there are.<br />
+</p>
+<pre class="example">
+.....
+| stats distinct_count(product_name)
+</pre>
+
+<p>
+Stats Sum function<br />
+</p>
+<pre class="example">
+.....
+| stats sum(price) as "Gross Sales" by product_name
+</pre>
+
+<p>
+or combining sum and count<br />
+</p>
+<pre class="example">
+....
+| stats count as "Unit Sold" sum(price) as "Gross Sales" by product_name
+</pre>
+
+<p>
+Note that both of them have to be in the same pipe. They share the same sort function.<br />
+</p>
+
+<p>
+The Avg/Min/Max functions only works with fields that have numerical values. They will exclude incorrectly formatted values.<br />
+</p>
+<pre class="example">
+...
+| stats avg(sale_price) as "Average Price"
+</pre>
+
+<p>
+The List function will list <b>all</b> field values for a given field.<br />
+</p>
+<pre class="example">
+..
+| stat list(asset) as  "Company Assets" by Employee
+</pre>
+<p>
+.. list all assets each employee has.<br />
+</p>
+
+<p>
+The Value function works like the list but only returns the values<br />
+</p>
+<pre class="example">
+...
+| stats values(s_hostname) by cs_username
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org47dc198" class="outline-2">
+<h2 id="org47dc198">Report and Dashboards</h2>
+<div class="outline-text-2" id="text-org47dc198">
+</div>
+<div id="outline-container-org02ece3f" class="outline-3">
+<h3 id="org02ece3f">Reports</h3>
+<div class="outline-text-3" id="text-org02ece3f">
+<p>
+In Splunks, reports are basically saved searches. They can show events, statistics (tables) or visualizations/ charts. Everytime a report/ saved search is run, it returns fresh new results.<br />
+</p>
+
+<p>
+Statistics and Charts by default allow us to drill down to see the underlying events.<br />
+</p>
+
+<p>
+Reports can also be shared and added to dashboards.<br />
+</p>
+
+<p>
+Initiall a report needs to be created by running a search then use the <b>Save As</b> function.<br />
+</p>
+
+<p>
+The <b>Run As</b> function allow us to set the report to be run with User Permission only. This will disallow people with User access to see things that they should not be seeing anyway.<br />
+</p>
+
+<p>
+We can also use the Quick Report function after running a master search then save it as a new report.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org51eb836" class="outline-3">
+<h3 id="org51eb836">Visualization</h3>
+<div class="outline-text-3" id="text-org51eb836">
+<p>
+There are many types of visualization/ charts. We have a lot of options and format our charts to best tell our stories.<br />
+</p>
+
+<p>
+Charts can be based on number, times, and even location.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org0be2d82" class="outline-3">
+<h3 id="org0be2d82">Dashboard</h3>
+<div class="outline-text-3" id="text-org0be2d82">
+<p>
+A Dashboard is a collection of report, compiled into a single window.<br />
+</p>
+
+<p>
+Next to the option <b>Save As</b>, we can also use <b>Add to Dashboard Panel</b>. We can also use <b>Add Panel</b> from within an existing dashboard.<br />
+</p>
+
+<p>
+We can also click &amp; drag dashboards and reports in <b>Edit Mode</b>.<br />
+</p>
+
+<p>
+We can also <b>Add Input</b> to add a filter. We give the Input a Label as well as a Token. This token is used to tie into the inline searches for our panels that are to be used with the Inut.<br />
+</p>
+
+<p>
+Note that the Input will only work with the report <b>with an inline search</b>, i.e having a magnifying glass symbol on the panel. Clicking on these symbol allows us to edit searches.<br />
+</p>
+
+<p>
+Panels without an inline search can also be cloned to one with an inline search.<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
+                          <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 25.2.2 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
+                          <p>Created: </p>
+                          <p class="date">Updated: 2019-11-06 Wed 22:51</p>
+</div>
+</body>
+</html>

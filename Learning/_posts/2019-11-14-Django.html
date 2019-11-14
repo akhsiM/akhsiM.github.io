@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-11-13 Wed 22:35 -->
+<!-- 2019-11-14 Thu 22:41 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Django Framework</title>
@@ -253,14 +253,22 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgb924d55">General</a></li>
-<li><a href="#orgf652c64">Setting up virtualenv</a></li>
-<li><a href="#orgd0e9b27">Setting up new project</a>
+<li><a href="#org7273c14">General</a></li>
+<li><a href="#org3b1cc3c">Setting up virtualenv</a></li>
+<li><a href="#orgf1caf5a">Setting up new project</a>
 <ul>
-<li><a href="#orgf3c0793">Looking at the Django Project structure</a></li>
+<li><a href="#org69c906b">Looking at the Django Project structure</a></li>
 </ul>
 </li>
-<li><a href="#org3048b07">Starting the server</a></li>
+<li><a href="#orgf773e57">Starting the server</a></li>
+<li><a href="#org839ccaf">Adding a Blog Application to Django site</a>
+<ul>
+<li><a href="#orgb48855a">Making the blog/ page the home page</a></li>
+<li><a href="#org820b5c2">Note about the views Module</a></li>
+<li><a href="#orgbfbc0dc">Note about Dev mode</a></li>
+<li><a href="#org1571a7d">The forward slash</a></li>
+</ul>
+</li>
 </ul>
 </div>
 </div>
@@ -1119,18 +1127,18 @@ AAAATHfI3gEAAAAAAACmu/8fPct1g1ynNj0AAAAASUVORK5CYII="django-banner.png /><br />
 </p>
 </div>
 
-<div id="outline-container-orgb924d55" class="outline-2">
-<h2 id="orgb924d55">General</h2>
-<div class="outline-text-2" id="text-orgb924d55">
+<div id="outline-container-org7273c14" class="outline-2">
+<h2 id="org7273c14">General</h2>
+<div class="outline-text-2" id="text-org7273c14">
 <p>
-I am learning how to use the Python Django Framework to use a full-on logging webpage with authentication. There's also gonna be user profile functionalities.<br />
+I am learning how to use the Python Django Framework to use a full-on blogging webpage with authentication. There's also gonna be user profile functionalities.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgf652c64" class="outline-2">
-<h2 id="orgf652c64">Setting up virtualenv</h2>
-<div class="outline-text-2" id="text-orgf652c64">
+<div id="outline-container-org3b1cc3c" class="outline-2">
+<h2 id="org3b1cc3c">Setting up virtualenv</h2>
+<div class="outline-text-2" id="text-org3b1cc3c">
 <p>
 First of all we need to install Django with <code>pip install django</code>.<br />
 </p>
@@ -1160,9 +1168,9 @@ We can verify by checking the version of django by<br />
 </div>
 </div>
 
-<div id="outline-container-orgd0e9b27" class="outline-2">
-<h2 id="orgd0e9b27">Setting up new project</h2>
-<div class="outline-text-2" id="text-orgd0e9b27">
+<div id="outline-container-orgf1caf5a" class="outline-2">
+<h2 id="orgf1caf5a">Setting up new project</h2>
+<div class="outline-text-2" id="text-orgf1caf5a">
 <div class="org-src-container">
 <pre class="src src-sh">&#9654; django-admin startproject --help
 
@@ -1185,9 +1193,9 @@ current directory or optionally<span style="color: #ff6188;"> in</span> the give
 </div>
 </div>
 
-<div id="outline-container-orgf3c0793" class="outline-3">
-<h3 id="orgf3c0793">Looking at the Django Project structure</h3>
-<div class="outline-text-3" id="text-orgf3c0793">
+<div id="outline-container-org69c906b" class="outline-3">
+<h3 id="org69c906b">Looking at the Django Project structure</h3>
+<div class="outline-text-3" id="text-org69c906b">
 
 <div class="figure">
 <p><img src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAjoAAACZCAIAAACpPQf+AAAAA3NCSVQICAjb4U/gAAAAGXRFWHRT
@@ -1426,9 +1434,9 @@ IReA4QohhJAL+P+KPSDTrREQjQAAAABJRU5ErkJggg=="django_project-tree.png /><br />
 </div>
 </div>
 
-<div id="outline-container-org3048b07" class="outline-2">
-<h2 id="org3048b07">Starting the server</h2>
-<div class="outline-text-2" id="text-org3048b07">
+<div id="outline-container-orgf773e57" class="outline-2">
+<h2 id="orgf773e57">Starting the server</h2>
+<div class="outline-text-2" id="text-orgf773e57">
 <p>
 We can do this by running the <b>manage.py</b> file:<br />
 </p>
@@ -1792,12 +1800,226 @@ Within this urls.py module we can add more route later.<br />
 </p>
 </div>
 </div>
+
+<div id="outline-container-org839ccaf" class="outline-2">
+<h2 id="org839ccaf">Adding a Blog Application to Django site</h2>
+<div class="outline-text-2" id="text-org839ccaf">
+<p>
+Within our website project which is on Django, we can have several different applications that do their own things on the django projects. One of that can be the blogging app. This way, for example, if you like our blogging app so much we can even install it on other website project that we have.<br />
+</p>
+
+<p>
+We can run<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">django-admin startapp blog
+</pre>
+</div>
+
+<p>
+This creates a directory for our app - 'blog'. This is created by <code>django-admin startapp</code>.<br />
+</p>
+
+<pre class="example">
+▶ tree .
+.
+├── blog
+│   ├── admin.py
+│   ├── apps.py
+│   ├── __init__.py
+│   ├── migrations
+│   │   └── __init__.py
+│   ├── models.py
+│   ├── tests.py
+│   └── views.py
+├── db.sqlite3
+├── django_project
+│   ├── __init__.py
+│   ├── __pycache__
+│   │   ├── __init__.cpython-37.pyc
+│   │   ├── settings.cpython-37.pyc
+│   │   ├── urls.cpython-37.pyc
+│   │   └── wsgi.cpython-37.pyc
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
+└── manage.py
+</pre>
+
+<p>
+As we can see we have a lot already out of the box.<br />
+</p>
+
+<p>
+We now create a urls.py module in the blog directory. This looks similar to django_project/urls.py:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.urls <span style="color: #ff6188;">import</span> path
+<span style="color: #ff6188;">from</span> . <span style="color: #ff6188;">import</span> views
+
+<span style="color: #fcfcfa;">urlpatterns</span> = [
+    path(<span style="color: #ffd866;">''</span>, views.home, name =<span style="color: #ffd866;">'blog-home'</span>),
+]
+</pre>
+</div>
+
+<p>
+Then we edit blog/views.py:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.shortcuts <span style="color: #ff6188;">import</span> render  <span style="color: #727072;">## </span><span style="color: #727072; font-style: italic;">This was in the out-of-the-box module</span>
+<span style="color: #ff6188;">from</span> django.http <span style="color: #ff6188;">import</span> HttpResponse
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">home</span>(request):
+    <span style="color: #ff6188;">return</span> HttpResponse(<span style="color: #ffd866;">'&lt;h1&gt;Blog Home &lt;/h1&gt;'</span>)
+</pre>
+</div>
+
+<p>
+Then we edit django_project/urls.py:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
+<span style="color: #ff6188;">from</span> django.urls <span style="color: #ff6188;">import</span> path, include
+
+<span style="color: #fcfcfa;">urlpatterns</span> = [
+    path(<span style="color: #ffd866;">'admin/'</span>, admin.site.urls),
+    path(<span style="color: #ffd866;">'blog/'</span>, include(<span style="color: #ffd866;">'blog.urls'</span>))
+]
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">When we go to /blog/, include urls.py module</span>
+</pre>
+</div>
+
+<p>
+When we start adding some URL patterns on our project and re-start the server. We no longer get the same homepage with the rocket like before. The project now just tries to match <b>our specific routes</b> and not the default routes.<br />
+</p>
+
+<p>
+In the DEBUG log we also get:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">[14/Nov/2019 11:04:07] <span style="color: #ffd866;">"GET / HTTP/1.1"</span> 404 2034
+Not Found: /
+</pre>
+</div>
+
+<p>
+However if we go to <a href="http://localhost:8000/blog">http://localhost:8000/blog</a> now, we can see 'Blog Home' wrapped in &lt;h1&gt; tags.<br />
+</p>
+
+<p>
+The orders of URL pattern goes:<br />
+</p>
+<ol class="org-ol">
+<li>When we first navigate to the project, it first looks at the project <code>urls.py</code> module in the main project folder.<br /></li>
+<li>If we are going to <code>/blog/</code> then it goes OK where do I send people to now&#x2026; do we have a pattern that matches this navigation? The answers is <code>blog.urls</code>. With the <code>include</code> function, <b>it chops off whatever part the URL has matched up to at that point</b> (<code>blog/</code>) and only send the remaining string in the URL to the server.<br /></li>
+<li>There's nothing after <code>blog/</code>, so we go to <code>blog.urls</code> i.e <code>blog.urls.py</code>.<br /></li>
+<li>OK with an empty string ,we are in <code>urls.py</code>, looking for patterns that match an empty route..<br /></li>
+<li>OK what do we do now, we found views.home so lets look into <code>views.py</code> and run the <code>home()</code> function.<br /></li>
+</ol>
+
+<p>
+We can then add an about page..<br />
+</p>
+
+<p>
+First we create the view function:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python" id="orgd9481cd"><span style="color: #ff6188;">from</span> django.shortcuts <span style="color: #ff6188;">import</span> render  <span style="color: #727072;">## </span><span style="color: #727072; font-style: italic;">This was in the out-of-the-box module</span>
+<span style="color: #ff6188;">from</span> django.http <span style="color: #ff6188;">import</span> HttpResponse
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">home</span>(request):
+    <span style="color: #ff6188;">return</span> HttpResponse(<span style="color: #ffd866;">'&lt;h1&gt;Blog Home &lt;/h1&gt;'</span>)
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">about</span>(request):
+    <span style="color: #ff6188;">return</span> HttpResponse(<span style="color: #ffd866;">'&lt;h1&gt;Blog About&lt;/h1&gt;'</span>)
+</pre>
+</div>
+
+<p>
+Then we add the routing:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python" id="org69d1e96"><span style="color: #ff6188;">from</span> django.urls <span style="color: #ff6188;">import</span> path
+<span style="color: #ff6188;">from</span> . <span style="color: #ff6188;">import</span> views
+
+<span style="color: #fcfcfa;">urlpatterns</span> = [
+    path(<span style="color: #ffd866;">''</span>, views.home, name =<span style="color: #ffd866;">'blog-home'</span>),
+    path(<span style="color: #ffd866;">'about/'</span>, views.about, name=<span style="color: #ffd866;">'blog-about'</span>)
+]
+</pre>
+</div>
+
+<p>
+.. <a href="http://localhost/blog/about">http://localhost/blog/about</a> is now live<br />
+</p>
+
+<p>
+When we go to this process, what changes is at step 2, because we have <code>blog/about</code>, the <code>include('blog.urls')</code> will chop off the <code>blog/</code> bit, sending the left-over string <code>about</code> to the server&#x2026; Ultimately the call is handled by the <code>views.about</code> function.<br />
+</p>
+</div>
+
+<div id="outline-container-orgb48855a" class="outline-3">
+<h3 id="orgb48855a">Making the blog/ page the home page</h3>
+<div class="outline-text-3" id="text-orgb48855a">
+<p>
+We can do so by leaving the path blank in our root <code>url.py</code> module i.e:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python">path(<span style="color: #ffd866;">''</span>, include(<span style="color: #ffd866;">'blog.urls'</span>))
+</pre>
+</div>
+
+<p>
+This way when we go to <a href="http://localhost:8000/">http://localhost:8000/</a> we are routed to <code>blog/urls.py</code> then <code>views.about()</code>.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-org820b5c2" class="outline-3">
+<h3 id="org820b5c2">Note about the views Module</h3>
+<div class="outline-text-3" id="text-org820b5c2">
+<p>
+The functions that handle the web calls need to take <b>one argument</b> at least, but it really doesn't care what we call it. So we could be doing <code>def home(request):</code> or we could be doing <code>def home(shit):</code>. It doesn't make a real difference.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgbfbc0dc" class="outline-3">
+<h3 id="orgbfbc0dc">Note about Dev mode</h3>
+<div class="outline-text-3" id="text-orgbfbc0dc">
+<p>
+Say if we are working on the blog page and it's not really ready for production, we can change the routing of the webpage by going into the main <code>urls.py</code> module and update the url patterns to:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #fcfcfa;">urlpatterns</span> = [
+        path(<span style="color: #ffd866;">'admin/'</span>, admin.site.urls),
+        path(<span style="color: #ffd866;">'blog_dev/'</span>, include(<span style="color: #ffd866;">'blogs.url'</span>))
+]
+</pre>
+</div>
+
+<p>
+This way we can only access the blog page via <code>blog_dev</code>. When anyone tries to go to <a href="http://localhost/blog/">http://localhost/blog/</a> they will get a 404.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1571a7d" class="outline-3">
+<h3 id="org1571a7d">The forward slash</h3>
+<div class="outline-text-3" id="text-org1571a7d">
+<p>
+It's a good idea to leave it there. The trailing forward slash is ignored during the routing anyway.<br />
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 25.2.2 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
                           <p>Created: </p>
-                          <p class="date">Updated: 2019-11-13 Wed 22:35</p>
+                          <p class="date">Updated: 2019-11-14 Thu 22:41</p>
 </div>
 </body>
 </html>

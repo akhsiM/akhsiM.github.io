@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-11-14 Thu 22:41 -->
+<!-- 2019-11-14 Thu 22:56 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Django Framework</title>
@@ -263,12 +263,14 @@ for the JavaScript code in this tag.
 <li><a href="#orgf773e57">Starting the server</a></li>
 <li><a href="#org839ccaf">Adding a Blog Application to Django site</a>
 <ul>
-<li><a href="#orgb48855a">Making the blog/ page the home page</a></li>
+<li><a href="#org43f4c92">Making the blog page the home page</a></li>
 <li><a href="#org820b5c2">Note about the views Module</a></li>
 <li><a href="#orgbfbc0dc">Note about Dev mode</a></li>
 <li><a href="#org1571a7d">The forward slash</a></li>
 </ul>
 </li>
+<li><a href="#org9207c43">Working with Templates</a></li>
+<li><a href="#org2e3c4a0">References</a></li>
 </ul>
 </div>
 </div>
@@ -1809,7 +1811,23 @@ Within our website project which is on Django, we can have several different app
 </p>
 
 <p>
-We can run<br />
+<b>What's the difference between a project (<code>django-admin startproject</code>) vs an app (<code>django-admin startapp</code>)?</b><br />
+</p>
+
+<p>
+A project refers to the entire suite and all the applications that compose it. A simple project may only have one app.<br />
+</p>
+
+<p>
+An app refers to a submodule of the project. An app should be self-sufficient and not intertwined with any other apps in the project. In theory, our app should be plug-and-play and reusable into another project without modification. An app is like a standalone module. An app brings <b>modularity</b> to the project. Each app should solve one problem, or "does one thing".<br />
+</p>
+
+<p>
+&#x2014;<br />
+</p>
+
+<p>
+To start an app, we can run<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-sh">django-admin startapp blog
@@ -1851,7 +1869,7 @@ As we can see we have a lot already out of the box.<br />
 </p>
 
 <p>
-We now create a urls.py module in the blog directory. This looks similar to django_project/urls.py:<br />
+We now create a <b>urls.py</b> module in the blog directory. This looks similar to django_project/urls.py:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">from</span> django.urls <span style="color: #ff6188;">import</span> path
@@ -1864,7 +1882,7 @@ We now create a urls.py module in the blog directory. This looks similar to djan
 </div>
 
 <p>
-Then we edit blog/views.py:<br />
+Then we edit <b>blog/views.py</b>:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">from</span> django.shortcuts <span style="color: #ff6188;">import</span> render  <span style="color: #727072;">## </span><span style="color: #727072; font-style: italic;">This was in the out-of-the-box module</span>
@@ -1876,7 +1894,7 @@ Then we edit blog/views.py:<br />
 </div>
 
 <p>
-Then we edit django_project/urls.py:<br />
+Then we edit <b>django_project/urls.py</b>:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
@@ -1952,7 +1970,7 @@ Then we add the routing:<br />
 </div>
 
 <p>
-.. <a href="http://localhost/blog/about">http://localhost/blog/about</a> is now live<br />
+.. <a href="http://localhost/blog/about">http://localhost/blog/about</a> is now live!<br />
 </p>
 
 <p>
@@ -1960,9 +1978,9 @@ When we go to this process, what changes is at step 2, because we have <code>blo
 </p>
 </div>
 
-<div id="outline-container-orgb48855a" class="outline-3">
-<h3 id="orgb48855a">Making the blog/ page the home page</h3>
-<div class="outline-text-3" id="text-orgb48855a">
+<div id="outline-container-org43f4c92" class="outline-3">
+<h3 id="org43f4c92">Making the blog page the home page</h3>
+<div class="outline-text-3" id="text-org43f4c92">
 <p>
 We can do so by leaving the path blank in our root <code>url.py</code> module i.e:<br />
 </p>
@@ -1976,11 +1994,12 @@ This way when we go to <a href="http://localhost:8000/">http://localhost:8000/</
 </p>
 </div>
 </div>
+
 <div id="outline-container-org820b5c2" class="outline-3">
 <h3 id="org820b5c2">Note about the views Module</h3>
 <div class="outline-text-3" id="text-org820b5c2">
 <p>
-The functions that handle the web calls need to take <b>one argument</b> at least, but it really doesn't care what we call it. So we could be doing <code>def home(request):</code> or we could be doing <code>def home(shit):</code>. It doesn't make a real difference.<br />
+The functions that handle the web calls in <b>views.py</b> need to take <b>one argument</b> at least, but it really doesn't care what we call it. So we could be doing <code>def home(request):</code> or we could be doing <code>def home(shit):</code>. It doesn't make a real difference.<br />
 </p>
 </div>
 </div>
@@ -2014,12 +2033,67 @@ It's a good idea to leave it there. The trailing forward slash is ignored during
 </div>
 </div>
 </div>
+
+
+<div id="outline-container-org9207c43" class="outline-2">
+<h2 id="org9207c43">Working with Templates</h2>
+<div class="outline-text-2" id="text-org9207c43">
+<p>
+We have worked with setting up the webpage and configure some routing which is cool. However we don't want to keep routing to the same basic HTML page.<br />
+</p>
+
+<p>
+In this episode we'll be using templates to create complex HTML as well as using some variables in our templates.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2e3c4a0" class="outline-2">
+<h2 id="org2e3c4a0">References</h2>
+<div class="outline-text-2" id="text-org2e3c4a0">
+<p>
+During my learning of this lesson, I also stopped and looked at external resources when I come acorss content that are worth 'digging into'. Here is the list:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Name</th>
+<th scope="col" class="org-left">Note</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><a href="https://web.archive.org/web/20140409085244/http://www.deploydjango.com/django_project_structure">Django Project Structure</a></td>
+<td class="org-left">Talks about the directory structure of Django Project</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 25.2.2 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
                           <p>Created: </p>
-                          <p class="date">Updated: 2019-11-14 Thu 22:41</p>
+                          <p class="date">Updated: 2019-11-14 Thu 22:56</p>
 </div>
 </body>
 </html>

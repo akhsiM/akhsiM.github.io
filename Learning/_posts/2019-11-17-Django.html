@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2019-11-17 Sun 23:11 -->
+<!-- 2019-11-17 Sun 23:22 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Django Framework</title>
@@ -2047,13 +2047,11 @@ This way we can only access the blog page via <code>blog_dev</code>. When anyone
 <h3 id="orgbfebf50">The forward slash</h3>
 <div class="outline-text-3" id="text-orgbfebf50">
 <p>
-It's a good idea to leave it there. The trailing forward slash is ignored during the routing anyway.<br />
+We should end the path with a trailing forward slash as a good rule of thumb.<br />
 </p>
 </div>
 </div>
 </div>
-
-
 <div id="outline-container-org197ce2d" class="outline-2">
 <h2 id="org197ce2d">Working with Templates</h2>
 <div class="outline-text-2" id="text-org197ce2d">
@@ -3230,7 +3228,7 @@ This base template should contain everything that is repeated in <b>home.html</b
 &lt;/<span style="color: #a9dc76;">head</span>&gt;
 
 &lt;<span style="color: #a9dc76;">body</span>&gt;
-    {% block content %}{% endblock %}
+    {% block content %}{% endblock content %}
 &lt;/<span style="color: #a9dc76;">body</span>&gt;
 
 &lt;/<span style="color: #a9dc76;">html</span>&gt; 
@@ -4591,7 +4589,7 @@ During my learning of this lesson, I also stopped and looked at external resourc
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 25.2.2 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
                           <p>Created: </p>
-                          <p class="date">Updated: 2019-11-17 Sun 23:11</p>
+                          <p class="date">Updated: 2019-11-17 Sun 23:22</p>
 </div>
 </body>
 </html>

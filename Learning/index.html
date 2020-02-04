@@ -1,15 +1,15 @@
----
+--- 
 layout: default
-title: Notes
+title: Notes 
 ---
 
 <div class="blogs">
     {% for post in site.categories.Learning %}
-        <h2> 
-            <a href= {{ post.url }} | prepend {{ site.url }}>
-                {{ post.title }} 
-            </a> 
+        <h2>
+            <a href={{ post.url }} | prepend {{ site.url }}>
+                    {{ post.title }} 
+                </a>
         </h2>
-        <hr class="blog-list-sep">  
+        <hr class="blog-list-sep"> 
     {% endfor %}
 </div>

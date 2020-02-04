@@ -5,10 +5,6 @@ title: Mishka's Home
 
 # Hi, I'm Mishka.
 
-Firstly, my real name is actually not Mishka, it's Kenny. Oh well, if we are going down this rabbit hole, Kenny is also not my real name, but it is definitely the name that most of my contacts and associates know me by.
-
-However Mishka is my home/ nickname. It's my favourite name.
-
 I am currently working as an Application Analyst by "trade". As an individual, I am a technically inclined person who has a strong interest in learning about all things technical-related, whether it's Dev, DevOps, SQLs or even CSS sometimes (we all know CSS isn't really a programming language!).
 
 This page was created in August 2019. It is the result of my "mini project" with the following intentions:

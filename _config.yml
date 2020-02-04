@@ -33,3 +33,5 @@ defaults:
   
 collections:
   - Notes
+
+exclude: ['Learning/_posts/2020-02-04-Django.html']

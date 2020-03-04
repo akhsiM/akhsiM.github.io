@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-04 Wed 22:23 -->
+<!-- 2020-03-04 Wed 23:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Go by Example</title>
@@ -253,17 +253,19 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org88bce4b">Go - General</a>
+<li><a href="#orgaae0a8c">Go - General</a>
 <ul>
-<li><a href="#orgcf5934e">Go Workspace</a></li>
-<li><a href="#org1353b05">Package Management in Go</a></li>
+<li><a href="#org386ec0f">Go Workspace</a></li>
+<li><a href="#org18aba10">Package Management in Go</a></li>
 </ul>
 </li>
-<li><a href="#orgcee20f7">Hello World</a></li>
-<li><a href="#org0626e91">Values</a></li>
-<li><a href="#org0599445">Variables</a></li>
-<li><a href="#orgf93fb9a">Constants</a></li>
-<li><a href="#org1ae6ad4">For</a></li>
+<li><a href="#org7c2c4b2">Hello World</a></li>
+<li><a href="#orgcdb9869">Values</a></li>
+<li><a href="#org797d4d6">Variables</a></li>
+<li><a href="#orgb6fc8d7">Constants</a></li>
+<li><a href="#orga5194dd">For</a></li>
+<li><a href="#org8765361">If/ Else</a></li>
+<li><a href="#orgf5b7545">Switch</a></li>
 </ul>
 </div>
 </div>
@@ -271,13 +273,13 @@ for the JavaScript code in this tag.
 Today I am starting to learn Go Lang at <a href="https://gobyexample.com/">https://gobyexample.com/</a>.<br />
 </p>
 
-<div id="outline-container-org88bce4b" class="outline-2">
-<h2 id="org88bce4b">Go - General</h2>
-<div class="outline-text-2" id="text-org88bce4b">
+<div id="outline-container-orgaae0a8c" class="outline-2">
+<h2 id="orgaae0a8c">Go - General</h2>
+<div class="outline-text-2" id="text-orgaae0a8c">
 </div>
-<div id="outline-container-orgcf5934e" class="outline-3">
-<h3 id="orgcf5934e">Go Workspace</h3>
-<div class="outline-text-3" id="text-orgcf5934e">
+<div id="outline-container-org386ec0f" class="outline-3">
+<h3 id="org386ec0f">Go Workspace</h3>
+<div class="outline-text-3" id="text-org386ec0f">
 <p>
 Go programmers normally put all their source codes in a Go code in a single workspace including other packages and dependencies that are installed.<br />
 </p>
@@ -1107,9 +1109,9 @@ AElFTkSuQmCC"goworkspace.png /><br />
 
 
 
-<div id="outline-container-org1353b05" class="outline-3">
-<h3 id="org1353b05">Package Management in Go</h3>
-<div class="outline-text-3" id="text-org1353b05">
+<div id="outline-container-org18aba10" class="outline-3">
+<h3 id="org18aba10">Package Management in Go</h3>
+<div class="outline-text-3" id="text-org18aba10">
 <p>
 The concept of packages is quite familiar for Java, Javascript or Node programmer. A package is nothing but a directory with some code files, which exposes different variables (features) from a single point of reference.<br />
 </p>
@@ -1166,9 +1168,9 @@ There are two types of packages. An <b>executable package</b>  and a <b>utility 
 </div>
 
 
-<div id="outline-container-orgcee20f7" class="outline-2">
-<h2 id="orgcee20f7">Hello World</h2>
-<div class="outline-text-2" id="text-orgcee20f7">
+<div id="outline-container-org7c2c4b2" class="outline-2">
+<h2 id="org7c2c4b2">Hello World</h2>
+<div class="outline-text-2" id="text-org7c2c4b2">
 <p>
 A classic programming course always starts with a 'Hello World' message.<br />
 </p>
@@ -1833,9 +1835,9 @@ AAAASUVORK5CYII="gobuild.png /><br />
 </div>
 
 
-<div id="outline-container-org0626e91" class="outline-2">
-<h2 id="org0626e91">Values</h2>
-<div class="outline-text-2" id="text-org0626e91">
+<div id="outline-container-orgcdb9869" class="outline-2">
+<h2 id="orgcdb9869">Values</h2>
+<div class="outline-text-2" id="text-orgcdb9869">
 <p>
 Similarly to other languages, Go also has various value types including strings, integers, floats, booleans, etc.. These data types can also be used with operators that you'd normally expect.<br />
 </p>
@@ -2041,9 +2043,9 @@ aP34+Z6SPP7w5rXsCQDgKoFjbgAAAMCd/H+ylfF1JNeOlQAAAABJRU5ErkJggg=="govalues.png />
 </div>
 </div>
 
-<div id="outline-container-org0599445" class="outline-2">
-<h2 id="org0599445">Variables</h2>
-<div class="outline-text-2" id="text-org0599445">
+<div id="outline-container-org797d4d6" class="outline-2">
+<h2 id="org797d4d6">Variables</h2>
+<div class="outline-text-2" id="text-org797d4d6">
 <p>
 A variable is a storage unit of a particular data type.<br />
 </p>
@@ -2131,9 +2133,9 @@ apple
 </div>
 </div>
 
-<div id="outline-container-orgf93fb9a" class="outline-2">
-<h2 id="orgf93fb9a">Constants</h2>
-<div class="outline-text-2" id="text-orgf93fb9a">
+<div id="outline-container-orgb6fc8d7" class="outline-2">
+<h2 id="orgb6fc8d7">Constants</h2>
+<div class="outline-text-2" id="text-orgb6fc8d7">
 <p>
 Go support constants of the following data types: <b>character, string, boolean, numeric</b>.<br />
 </p>
@@ -2192,9 +2194,9 @@ constant
 </div>
 </div>
 
-<div id="outline-container-org1ae6ad4" class="outline-2">
-<h2 id="org1ae6ad4">For</h2>
-<div class="outline-text-2" id="text-org1ae6ad4">
+<div id="outline-container-orga5194dd" class="outline-2">
+<h2 id="orga5194dd">For</h2>
+<div class="outline-text-2" id="text-orga5194dd">
 <p>
 <code>for</code> is Go's only looping construct. Go does not have <code>while</code>.<br />
 </p>
@@ -2309,12 +2311,254 @@ loop
 </pre>
 </div>
 </div>
+<div id="outline-container-org8765361" class="outline-2">
+<h2 id="org8765361">If/ Else</h2>
+<div class="outline-text-2" id="text-org8765361">
+<p>
+In Go, branching with <code>if</code> and <code>else</code> is straight-forward.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	if 7%2 == 0 {
+		fmt.Println("7 is even")
+	} else {
+		fmt.Println("7 is odd")
+	}
+
+	if num := 9; num &lt; 0 {
+		fmt.Println(num, "is negative")
+	} else if num &lt; 10 {
+		fmt.Println(num, "has 1 digit")
+	} else {
+		fmt.Println(num, "has multiple digit")
+	}
+}
+</pre>
+</div>
+
+<pre class="example">
+7 is odd
+9 has 1 digit
+</pre>
+
+
+<p>
+In Go, we don't need parentheses around conditions. However the braces are required.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgf5b7545" class="outline-2">
+<h2 id="orgf5b7545">Switch</h2>
+<div class="outline-text-2" id="text-orgf5b7545">
+<p>
+<code>switch</code> statements express conditionals across <b>many branches</b>.<br />
+</p>
+
+<p>
+We can use commas to separate multiple expressions in the same <code>case</code> statement. We can also use the optional <code>default</code> case.<br />
+</p>
+
+<p>
+Instead of doing this:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	i := 1
+	if i == 0 {
+		fmt.Println("Zero")
+	} else if i == 1 {
+		fmt.Println("One")
+	} else if i == 2 {
+		fmt.Println("Two")
+	} else if i == 3 {
+		fmt.Println("Three")
+	} else if i == 4 {
+		fmt.Println("Four")
+	} else if i == 5 {
+		fmt.Println("Five")
+	}
+}
+</pre>
+</div>
+
+<pre class="example">
+One
+</pre>
+
+
+<p>
+We can use the <code>switch</code> statement.  A <code>switch</code> statement starts with the keyword <code>switch</code>, followed by an expression - in this case <code>i</code> and then a series of <code>case</code>. The value of the expression is compared to the expression following each <code>case</code> keyword. If the value and the keyword are equivalent, then the statement following the <code>:</code> is executed. Similarly to the <code>if</code> statement, each case is checked top down and <b>the first one to succeed is chosen</b>.<br />
+</p>
+
+<p>
+<code>case</code> statement also have a <code>default</code> case which will happen if none of the cases matches the value.<br />
+</p>
+
+<p>
+Instead of doing the <code>if</code> statements above, we can do:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	i := 1
+	switch i {
+	case 0:
+		fmt.Println("Zero")
+	case 1:
+		fmt.Println("One")
+	case 2:
+		fmt.Println("Two")
+	case 3:
+		fmt.Println("Three")
+	case 4:
+		fmt.Println("Four")
+	case 5:
+		fmt.Println("Five")
+	default:
+		fmt.Println("Unknown number")
+	}
+}
+
+</pre>
+</div>
+
+<pre class="example">
+One
+</pre>
+
+
+<p>
+.. to use the <code>default</code> statement:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	i := 7
+	switch i {
+	case 0:
+		fmt.Println("Zero")
+	case 1:
+		fmt.Println("One")
+	case 2:
+		fmt.Println("Two")
+	case 3:
+		fmt.Println("Three")
+	case 4:
+		fmt.Println("Four")
+	case 5:
+		fmt.Println("Five")
+	default:
+		fmt.Println("Unknown number")
+	}
+}
+
+</pre>
+</div>
+
+<pre class="example">
+Unknown number
+</pre>
+
+
+<p>
+You can also <b>use <code>switch</code> without an expression</b>. It is an alternate way to express if/else logic.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import (
+	"fmt"
+	"time"
+)
+
+func main() {
+	i := 2
+	fmt.Print("Write ", i, " as ")
+	switch i {
+	case 1:
+		fmt.Println("one")
+	case 2:
+		fmt.Println("two")
+	case 3:
+		fmt.Println("three")
+	}
+
+	switch time.Now().Weekday() {
+	case time.Saturday, time.Sunday:
+		fmt.Print(" Today is ", time.Now().Weekday(), ".It's the weekend! \n")
+	default:
+		fmt.Print("Oh mann It's only ", time.Now().Weekday(), ".\n")
+	}
+
+	t := time.Now()
+	// switch without expression
+	switch {
+	case t.Hour() &lt; 12:
+		fmt.Println("Good morning!")
+	default:
+		fmt.Println("It's after noon!")
+	}
+
+	/*
+		A type switch can be used to compare types instead of values.
+		This can be used to discover the type of an interface value.
+	*/
+	whatAmI := func(i interface{}) {
+		switch t := i.(type) {
+		case bool:
+			fmt.Println("I'm a bool.")
+		case int:
+			fmt.Println("I'm an integer.")
+		default:
+			fmt.Printf("Don't know type %T\n", t)
+		}
+	}
+	whatAmI(true)
+	whatAmI(1)
+	whatAmI("hey")
+	whatAmI(0.6)
+}
+
+</pre>
+</div>
+
+<pre class="example">
+Write 2 as two
+Oh mann It's only Wednesday.
+It's after noon!
+I'm a bool.
+I'm an integer.
+Don't know type string
+Don't know type float64
+</pre>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
                           <p>Created: 2020-02-24 Mon 00:00</p>
-                          <p class="date">Updated: 2020-03-04 Wed 22:23</p>
+                          <p class="date">Updated: 2020-03-04 Wed 23:23</p>
 </div>
 </body>
 </html>

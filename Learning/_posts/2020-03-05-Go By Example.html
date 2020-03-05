@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-04 Wed 23:23 -->
+<!-- 2020-03-05 Thu 23:29 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Go by Example</title>
@@ -253,19 +253,33 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgaae0a8c">Go - General</a>
+<li><a href="#org3a9c6ee">Go - General</a>
 <ul>
-<li><a href="#org386ec0f">Go Workspace</a></li>
-<li><a href="#org18aba10">Package Management in Go</a></li>
+<li><a href="#org7268662">Go Workspace</a></li>
+<li><a href="#org7ab3123">Package Management in Go</a></li>
 </ul>
 </li>
-<li><a href="#org7c2c4b2">Hello World</a></li>
-<li><a href="#orgcdb9869">Values</a></li>
-<li><a href="#org797d4d6">Variables</a></li>
-<li><a href="#orgb6fc8d7">Constants</a></li>
-<li><a href="#orga5194dd">For</a></li>
-<li><a href="#org8765361">If/ Else</a></li>
-<li><a href="#orgf5b7545">Switch</a></li>
+<li><a href="#org3d1b148">Hello World</a></li>
+<li><a href="#orgd2fd3d1">Values</a></li>
+<li><a href="#orgd483173">Variables</a></li>
+<li><a href="#org6c4925b">Constants</a></li>
+<li><a href="#orgff7d507">For</a>
+<ul>
+<li><a href="#org3e1b26d">Five basic <code>for</code> loop patterns</a>
+<ul>
+<li><a href="#org87cf2e6">Three-component loop</a></li>
+<li><a href="#org7808d13">While loop</a></li>
+<li><a href="#org4ce84e4">Infinite loop</a></li>
+<li><a href="#orga98d2d5">For-each range loop</a></li>
+<li><a href="#orgd6b9447">Exit a loop</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgb0a5f17">If/ Else</a></li>
+<li><a href="#org6d7ba26">Switch</a></li>
+<li><a href="#org8524ccc">Arrays</a></li>
+<li><a href="#org6c38bb3"><b>Slices</b></a></li>
 </ul>
 </div>
 </div>
@@ -273,13 +287,13 @@ for the JavaScript code in this tag.
 Today I am starting to learn Go Lang at <a href="https://gobyexample.com/">https://gobyexample.com/</a>.<br />
 </p>
 
-<div id="outline-container-orgaae0a8c" class="outline-2">
-<h2 id="orgaae0a8c">Go - General</h2>
-<div class="outline-text-2" id="text-orgaae0a8c">
+<div id="outline-container-org3a9c6ee" class="outline-2">
+<h2 id="org3a9c6ee">Go - General</h2>
+<div class="outline-text-2" id="text-org3a9c6ee">
 </div>
-<div id="outline-container-org386ec0f" class="outline-3">
-<h3 id="org386ec0f">Go Workspace</h3>
-<div class="outline-text-3" id="text-org386ec0f">
+<div id="outline-container-org7268662" class="outline-3">
+<h3 id="org7268662">Go Workspace</h3>
+<div class="outline-text-3" id="text-org7268662">
 <p>
 Go programmers normally put all their source codes in a Go code in a single workspace including other packages and dependencies that are installed.<br />
 </p>
@@ -1109,9 +1123,9 @@ AElFTkSuQmCC"goworkspace.png /><br />
 
 
 
-<div id="outline-container-org18aba10" class="outline-3">
-<h3 id="org18aba10">Package Management in Go</h3>
-<div class="outline-text-3" id="text-org18aba10">
+<div id="outline-container-org7ab3123" class="outline-3">
+<h3 id="org7ab3123">Package Management in Go</h3>
+<div class="outline-text-3" id="text-org7ab3123">
 <p>
 The concept of packages is quite familiar for Java, Javascript or Node programmer. A package is nothing but a directory with some code files, which exposes different variables (features) from a single point of reference.<br />
 </p>
@@ -1168,9 +1182,9 @@ There are two types of packages. An <b>executable package</b>  and a <b>utility 
 </div>
 
 
-<div id="outline-container-org7c2c4b2" class="outline-2">
-<h2 id="org7c2c4b2">Hello World</h2>
-<div class="outline-text-2" id="text-org7c2c4b2">
+<div id="outline-container-org3d1b148" class="outline-2">
+<h2 id="org3d1b148">Hello World</h2>
+<div class="outline-text-2" id="text-org3d1b148">
 <p>
 A classic programming course always starts with a 'Hello World' message.<br />
 </p>
@@ -1835,9 +1849,9 @@ AAAASUVORK5CYII="gobuild.png /><br />
 </div>
 
 
-<div id="outline-container-orgcdb9869" class="outline-2">
-<h2 id="orgcdb9869">Values</h2>
-<div class="outline-text-2" id="text-orgcdb9869">
+<div id="outline-container-orgd2fd3d1" class="outline-2">
+<h2 id="orgd2fd3d1">Values</h2>
+<div class="outline-text-2" id="text-orgd2fd3d1">
 <p>
 Similarly to other languages, Go also has various value types including strings, integers, floats, booleans, etc.. These data types can also be used with operators that you'd normally expect.<br />
 </p>
@@ -2043,9 +2057,9 @@ aP34+Z6SPP7w5rXsCQDgKoFjbgAAAMCd/H+ylfF1JNeOlQAAAABJRU5ErkJggg=="govalues.png />
 </div>
 </div>
 
-<div id="outline-container-org797d4d6" class="outline-2">
-<h2 id="org797d4d6">Variables</h2>
-<div class="outline-text-2" id="text-org797d4d6">
+<div id="outline-container-orgd483173" class="outline-2">
+<h2 id="orgd483173">Variables</h2>
+<div class="outline-text-2" id="text-orgd483173">
 <p>
 A variable is a storage unit of a particular data type.<br />
 </p>
@@ -2133,9 +2147,9 @@ apple
 </div>
 </div>
 
-<div id="outline-container-orgb6fc8d7" class="outline-2">
-<h2 id="orgb6fc8d7">Constants</h2>
-<div class="outline-text-2" id="text-orgb6fc8d7">
+<div id="outline-container-org6c4925b" class="outline-2">
+<h2 id="org6c4925b">Constants</h2>
+<div class="outline-text-2" id="text-org6c4925b">
 <p>
 Go support constants of the following data types: <b>character, string, boolean, numeric</b>.<br />
 </p>
@@ -2194,9 +2208,9 @@ constant
 </div>
 </div>
 
-<div id="outline-container-orga5194dd" class="outline-2">
-<h2 id="orga5194dd">For</h2>
-<div class="outline-text-2" id="text-orga5194dd">
+<div id="outline-container-orgff7d507" class="outline-2">
+<h2 id="orgff7d507">For</h2>
+<div class="outline-text-2" id="text-orgff7d507">
 <p>
 <code>for</code> is Go's only looping construct. Go does not have <code>while</code>.<br />
 </p>
@@ -2310,10 +2324,269 @@ loop
 5
 </pre>
 </div>
+
+<div id="outline-container-org3e1b26d" class="outline-3">
+<h3 id="org3e1b26d">Five basic <code>for</code> loop patterns</h3>
+<div class="outline-text-3" id="text-org3e1b26d">
 </div>
-<div id="outline-container-org8765361" class="outline-2">
-<h2 id="org8765361">If/ Else</h2>
-<div class="outline-text-2" id="text-org8765361">
+<div id="outline-container-org87cf2e6" class="outline-4">
+<h4 id="org87cf2e6">Three-component loop</h4>
+<div class="outline-text-4" id="text-org87cf2e6">
+<p>
+This is the basic loop. It contains three components:<br />
+</p>
+<ul class="org-ul">
+<li>The init statement, e.g <code>i := 1</code>.<br /></li>
+<li>The condition, e.g <code>i &lt; 5</code>, is computed.<br />
+<ul class="org-ul">
+<li>If true, the loop body runs. The scope of <code>i</code> is limited to the loop.<br /></li>
+<li>Otherwise, the loop is done.<br /></li>
+</ul></li>
+<li>The post statement, e.g <code>i++, runs.</code><br /></li>
+<li>Back to step 2, i.e checking if condition is stil true<br /></li>
+</ul>
+<div class="org-src-container">
+<pre class="src src-go">package main
+import "fmt"
+
+func main() {
+	sum := 0
+	for i := 1; i &lt; 5; i++ {
+		sum +=i
+	}
+	fmt.Println(sum)
+}
+</pre>
+</div>
+
+<pre class="example">
+10
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7808d13" class="outline-4">
+<h4 id="org7808d13">While loop</h4>
+<div class="outline-text-4" id="text-org7808d13">
+<p>
+Although Go doesn't a <code>while</code> statement, if we skip the init and the post statements, we get a while loop.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-go">package main
+import "fmt"
+
+func main() {
+	n := 1
+	for n &lt; 5 {
+		n *= 2
+	}
+	fmt.Println(n) // 1*2*2*2
+}
+</pre>
+</div>
+
+<pre class="example">
+8
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org4ce84e4" class="outline-4">
+<h4 id="org4ce84e4">Infinite loop</h4>
+<div class="outline-text-4" id="text-org4ce84e4">
+<p>
+If we also skip the condition, we have an infite loop. The following program will never finish computing:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	sum := 0
+	for {
+		sum++
+	}
+	fmt.Println(sum)
+}
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orga98d2d5" class="outline-4">
+<h4 id="orga98d2d5">For-each range loop</h4>
+<div class="outline-text-4" id="text-orga98d2d5">
+<p>
+Looping over elements in slices, arrays, maps, channels or strings is often best done with a range loop.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	strings := []string{"hello", "world"}
+	fmt.Println(strings)
+
+	for i, s := range strings {
+		fmt.Println(i, s)
+	}
+}
+</pre>
+</div>
+
+<pre class="example">
+[hello world]
+0 hello
+1 world
+</pre>
+
+
+<ul class="org-ul">
+<li>The range expression, <code>strings</code> is <b>evaluated once</b> before beginning of the loop.<br /></li>
+<li>The iteration values are assigned to the respective iteration variables, <code>i</code> and <code>s</code>, as in an assignment statement.<br /></li>
+<li>The second iteration variable is optional (<code>s</code>).<br /></li>
+<li>For a nil slice, the number of iterations is 0.<br /></li>
+</ul>
+</div>
+
+<ul class="org-ul">
+<li><a id="org92861be"></a>String iteration<br />
+<div class="outline-text-6" id="text-org92861be">
+<p>
+You can also do <b>string iteration</b>: runes or bytes.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+import "fmt"
+
+func main() {
+		for i, ch := range "日本語" {
+    	fmt.Printf("%#U starts at byte position %d\n", ch, i)
+	}
+}
+
+</pre>
+</div>
+
+<pre class="example">
+U+65E5 '日' starts at byte position 0
+U+672C '本' starts at byte position 3
+U+8A9E '語' starts at byte position 6
+</pre>
+
+
+<ul class="org-ul">
+<li>The index is the first byte of a UTF-8-encoded code point; the second value, of type <code>rune</code> is the value of the code point.<br /></li>
+<li>For an invalid UTF-8 sequence, the second value will be 0xFFFD, and the iteration will advance a single byte.<br /></li>
+</ul>
+
+<p>
+To loop over individual bytes, we can simply use a normal for loop and string indexing:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	const s = "日本語"
+	for i := 0; i &lt; len(s); i++ {
+		fmt.Printf("%x ", s[i])
+	}
+}
+</pre>
+</div>
+
+<pre class="example">
+e6 97 a5 e6 9c ac e8 aa 9e
+</pre>
+</div>
+</li>
+
+<li><a id="orgd883fa4"></a>Map iterations: key and values<br />
+<div class="outline-text-6" id="text-orgd883fa4">
+<div class="org-src-container">
+<pre class="src src-go">package main 
+
+import "fmt"
+
+func main() {
+	m := map[string]int{
+		"one": 	1,
+		"two": 	2,
+		"three": 3,
+	}
+	for k, v := range m {
+		fmt.Println(k, v)
+	}
+}
+</pre>
+</div>
+
+<pre class="example">
+three 3
+one 1
+two 2
+</pre>
+
+
+<p>
+Note: The iteration order over maps is not specified and is not guaranteed to be the same order from one iteration to another, i.e if we re-run the above program it may print the key:value pair in a different order.<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgd6b9447" class="outline-4">
+<h4 id="orgd6b9447">Exit a loop</h4>
+<div class="outline-text-4" id="text-orgd6b9447">
+<p>
+The <code>break</code> and <code>continue</code> keywords work just as they do in C and Java.<br />
+</p>
+
+<p>
+<code>continue</code> = skip | begins the next iteration of the innermost <code>for</code> loop at its post statement<br />
+<code>break</code> = stop | leaves the innermost <code>for</code>, <code>switch</code> or <code>select</code> statement.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	sum := 0
+	
+	for i := 1; i &lt; 5; i++ {
+		if i%2 != 0 {
+		// skip odd number
+			continue
+		}
+		sum += i
+	}
+	fmt.Println(sum) // should be 2 + 4
+}
+</pre>
+</div>
+
+<pre class="example">
+6
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgb0a5f17" class="outline-2">
+<h2 id="orgb0a5f17">If/ Else</h2>
+<div class="outline-text-2" id="text-orgb0a5f17">
 <p>
 In Go, branching with <code>if</code> and <code>else</code> is straight-forward.<br />
 </p>
@@ -2353,9 +2626,9 @@ In Go, we don't need parentheses around conditions. However the braces are requi
 </div>
 </div>
 
-<div id="outline-container-orgf5b7545" class="outline-2">
-<h2 id="orgf5b7545">Switch</h2>
-<div class="outline-text-2" id="text-orgf5b7545">
+<div id="outline-container-org6d7ba26" class="outline-2">
+<h2 id="org6d7ba26">Switch</h2>
+<div class="outline-text-2" id="text-org6d7ba26">
 <p>
 <code>switch</code> statements express conditionals across <b>many branches</b>.<br />
 </p>
@@ -2553,12 +2826,315 @@ Don't know type float64
 </pre>
 </div>
 </div>
+<div id="outline-container-org8524ccc" class="outline-2">
+<h2 id="org8524ccc">Arrays</h2>
+<div class="outline-text-2" id="text-org8524ccc">
+<p>
+An array is a numbered sequence of elements of a single type with a fixed length. In Go they look like this:<br />
+</p>
+<pre class="example">
+var x [5]int
+</pre>
+
+<p>
+<code>x</code> is an example of an array which is composed of 5 <code>int</code><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	var x [5]int
+	x[4] = 100
+	fmt.Println(x)
+	fmt.Println(x[4])
+}
+</pre>
+</div>
+
+<pre class="example">
+[0 0 0 0 100]
+100
+</pre>
+
+
+<p>
+The statement <code>x[4] = 100</code> can be read as "set the 5th element of the array x to 100". In Go, similar to Python, arrays are indexed starting from 0.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+
+	// Create an array that holds exactly 5 ints
+	// By default, an array is zero valued.
+	var a [5]int
+	fmt.Println("emp:", a)
+
+	a[4] = 100
+	fmt.Println("set:", a)
+	fmt.Println("get:", a[4])
+	
+	// Shorter syntax for array
+	b := [5]int{1, 2, 3, 4, 5}
+	fmt.Println("dcl:", b)
+
+	// multi-dimensional array
+	var twoD [2][3]int
+	fmt.Println(twoD)
+	for i := 0; i &lt; 2; i++ {
+		for j := 0; j &lt; 3; j++ {
+			twoD[i][j] = i + j
+		}
+	}
+	fmt.Println("2d:", twoD)
+}
+</pre>
+</div>
+
+<pre class="example">
+emp: [0 0 0 0 0]
+set: [0 0 0 0 100]
+get: 100
+dcl: [1 2 3 4 5]
+[[0 0 0] [0 0 0]]
+2d: [[0 1 2] [1 2 3]]
+</pre>
+
+
+<p>
+An example of program that uses array to compute the average test score:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	var score [5]float64
+
+	score[0] = 56
+	score[1] = 65
+	score[2] = 87
+	score[3] = 90
+	score[4] = 28
+	
+	var total float64
+	for i := 0; i &lt; len(score); i++ {
+		total += score[i]	
+	}
+	fmt.Println("total:", total)
+	fmt.Println("avg:", total/float64(len(score))) // We have to convert len(score) into a float64
+}
+</pre>
+</div>
+
+<pre class="example">
+total: 326
+avg: 65.2
+</pre>
+
+
+<p>
+We can also use a special form of the <code>for</code> loop:<br />
+</p>
+
+<p>
+In this loop, <code>i</code> represents the current positio and <code>value</code> is the same as <code>score[i]</code>. We use the keyword <code>range</code> followed by the name of the variable we want to loop over.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	var score [5]float64
+
+	score[0] = 56
+	score[1] = 65
+	score[2] = 87
+	score[3] = 90
+	score[4] = 28
+	
+	var total float64
+	for i, value := range score {
+		total += value
+	}
+	fmt.Println("total:", total)
+	fmt.Println("avg:", total/float64(len(score))) // We have to convert len(score) into a float64
+}
+</pre>
+</div>
+<pre class="example">
+command-line-arguments
+/tmp/babel-SPIxT5/go-src-b7Uuux.go:16:6: i declared but not used
+</pre>
+
+<p>
+The reason we go the error is that Go compiler does not allow us to create variables that are never used. As we don't use <code>i</code> insire of our loop, we need to change it to the underscore <code>_</code>. An underscore (<code>_</code>) is used to tell the compiler that we don't need the variable.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+	var score [5]float64
+
+	score[0] = 56
+	score[1] = 65
+	score[2] = 87
+	score[3] = 90
+	score[4] = 28
+
+	
+	var total float64
+	for _, value := range score {
+		total += value
+	}
+	fmt.Println("total:", total)
+	fmt.Println("avg:", total/float64(len(score))) // We have to convert len(score) into a float64
+}
+</pre>
+</div>
+
+<pre class="example">
+total: 326
+avg: 65.2
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org6c38bb3" class="outline-2">
+<h2 id="org6c38bb3"><b>Slices</b></h2>
+<div class="outline-text-2" id="text-org6c38bb3">
+<p>
+Slices are a key data type in Go. Slices give a more powerful interface to sequences than array.<br />
+</p>
+
+<p>
+In Go, the slice type is abstraction built on top of array type. Arrays are inflexible and don't get used a lot in Go code. Slices, however, are everywhere. They build on arrays to provide great power and convenience.<br />
+</p>
+
+<p>
+A slice is a segment of an array. Like arrays slices are indexable and have a length. Unlike arrays the length is <b>allowed to change</b>. Here's an example of a slice <code>var x []float64</code>. Unlike arrays, slices are typed only by the elements they contain, not the number of elements.<br />
+</p>
+
+<p>
+<code>len()</code> returns the length of the slice as expected.<br />
+</p>
+
+<p>
+The only difference between an array and a slice is the <b>missing length</b> between the brackets. In the above example, <code>x</code> has been created with a length of <code>0</code>.<br />
+</p>
+
+<p>
+We should create a slice using the built-in <code>make</code> function: <code>x := make([]float64, 5)</code>. This creates a slice that is associated with an underlying <code>float64</code> array of length 5. Slices are always associated with an underlying array, although they can never be longer than the array, they can be smaller.<br />
+</p>
+
+<p>
+A slice is a descriptor of an array segment. It consists of a pointer to the array, the length of the segment and its capacity (maximum length of the segment).<br />
+</p>
+
+<p>
+In addition to the basic operations, slices support several more that make them richer than arrays. One is the built-in <code>append</code> which returns a slice containing or or more new values. Note that we need to accept a return value from <code>append</code> as we may get a new slice value.<br />
+</p>
+
+<p>
+Slices can also be copy'd.<br />
+</p>
+
+<p>
+Slices support a slice operator with the syntax <code>slice[low: high]</code>.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+
+	// create a slice of strings of length 3
+	s := make([]string, 3)
+	fmt.Println("emp:", s)
+
+	s[0] = "a"
+	s[1] = "b"
+	s[2] = "c"
+	fmt.Println(s)
+	fmt.Println(s[2])
+	fmt.Println("len", len(s))
+
+	// appending
+	s = append(s, "d")
+	s = append(s, "e", "f")
+	fmt.Println("appended:", s)
+
+	// create an empty slice c
+	c := make([]string, len(s))
+	// copy c from s
+	copy(c, s)
+	fmt.Println("copy:", c)
+
+	// slice operator
+	// slice from and inclduing 2 upto and excluding 5
+	l := s[2:5]
+	fmt.Println("from 2 to 5:", l)
+
+	// slice from and including 2
+	n := s[2:]
+	fmt.Println("from 2:", n)
+
+	// Declare and initialize a variable for slice in a single line
+	t := []string{"hello", "world"}
+	fmt.Println("dcl:", t)
+
+	// Slices can also be composed into multi-dimensional data structures.
+	// The length of the inner slices can vary, unlike with multi-dimensional arrays
+	// Create a twoD slice with outer length = 3, inner length can vary
+	twoD := make([][]int, 3)
+
+	for i := 0; i &lt; 3; i++ {
+		innerLen := i + 1
+		twoD[i] = make([]int, innerLen)
+		for j := 0; j &lt; innerLen; j++ {
+			twoD[i][j] = i + j
+		}
+	}
+	fmt.Println("2d:", twoD)
+}
+
+</pre>
+</div>
+
+<pre class="example">
+emp: [  ]
+[a b c]
+c
+len 3
+appended: [a b c d e f]
+copy: [a b c d e f]
+from 2 to 5: [c d e]
+from 2: [c d e f]
+dcl: [hello world]
+2d: [[0] [1 2] [2 3 4]]
+</pre>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
                           <p>Created: 2020-02-24 Mon 00:00</p>
-                          <p class="date">Updated: 2020-03-04 Wed 23:23</p>
+                          <p class="date">Updated: 2020-03-05 Thu 23:29</p>
 </div>
 </body>
 </html>

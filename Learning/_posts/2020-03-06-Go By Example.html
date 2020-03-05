@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-03-05 Thu 23:29 -->
+<!-- 2020-03-06 Fri 00:04 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Go by Example</title>
@@ -253,33 +253,34 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3a9c6ee">Go - General</a>
+<li><a href="#org19e89f9">Go - General</a>
 <ul>
-<li><a href="#org7268662">Go Workspace</a></li>
-<li><a href="#org7ab3123">Package Management in Go</a></li>
+<li><a href="#org1c1d2fd">Go Workspace</a></li>
+<li><a href="#org93ec2a8">Package Management in Go</a></li>
 </ul>
 </li>
-<li><a href="#org3d1b148">Hello World</a></li>
-<li><a href="#orgd2fd3d1">Values</a></li>
-<li><a href="#orgd483173">Variables</a></li>
-<li><a href="#org6c4925b">Constants</a></li>
-<li><a href="#orgff7d507">For</a>
+<li><a href="#orgf9b7280">Hello World</a></li>
+<li><a href="#orge0d339c">Values</a></li>
+<li><a href="#org9920f67">Variables</a></li>
+<li><a href="#org145e516">Constants</a></li>
+<li><a href="#org69551ef">For</a>
 <ul>
-<li><a href="#org3e1b26d">Five basic <code>for</code> loop patterns</a>
+<li><a href="#orgbe3bb72">Five basic <code>for</code> loop patterns</a>
 <ul>
-<li><a href="#org87cf2e6">Three-component loop</a></li>
-<li><a href="#org7808d13">While loop</a></li>
-<li><a href="#org4ce84e4">Infinite loop</a></li>
-<li><a href="#orga98d2d5">For-each range loop</a></li>
-<li><a href="#orgd6b9447">Exit a loop</a></li>
+<li><a href="#orge577258">Three-component loop</a></li>
+<li><a href="#orgbea528d">While loop</a></li>
+<li><a href="#orgf762247">Infinite loop</a></li>
+<li><a href="#org65ef5e3">For-each range loop</a></li>
+<li><a href="#org9848813">Exit a loop</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orgb0a5f17">If/ Else</a></li>
-<li><a href="#org6d7ba26">Switch</a></li>
-<li><a href="#org8524ccc">Arrays</a></li>
-<li><a href="#org6c38bb3"><b>Slices</b></a></li>
+<li><a href="#orgf33dd42">If/ Else</a></li>
+<li><a href="#orga58c5a2">Switch</a></li>
+<li><a href="#org54999c8">Arrays</a></li>
+<li><a href="#org288585f"><b>Slices</b></a></li>
+<li><a href="#org0e1fe73">Maps</a></li>
 </ul>
 </div>
 </div>
@@ -287,13 +288,13 @@ for the JavaScript code in this tag.
 Today I am starting to learn Go Lang at <a href="https://gobyexample.com/">https://gobyexample.com/</a>.<br />
 </p>
 
-<div id="outline-container-org3a9c6ee" class="outline-2">
-<h2 id="org3a9c6ee">Go - General</h2>
-<div class="outline-text-2" id="text-org3a9c6ee">
+<div id="outline-container-org19e89f9" class="outline-2">
+<h2 id="org19e89f9">Go - General</h2>
+<div class="outline-text-2" id="text-org19e89f9">
 </div>
-<div id="outline-container-org7268662" class="outline-3">
-<h3 id="org7268662">Go Workspace</h3>
-<div class="outline-text-3" id="text-org7268662">
+<div id="outline-container-org1c1d2fd" class="outline-3">
+<h3 id="org1c1d2fd">Go Workspace</h3>
+<div class="outline-text-3" id="text-org1c1d2fd">
 <p>
 Go programmers normally put all their source codes in a Go code in a single workspace including other packages and dependencies that are installed.<br />
 </p>
@@ -1123,9 +1124,9 @@ AElFTkSuQmCC"goworkspace.png /><br />
 
 
 
-<div id="outline-container-org7ab3123" class="outline-3">
-<h3 id="org7ab3123">Package Management in Go</h3>
-<div class="outline-text-3" id="text-org7ab3123">
+<div id="outline-container-org93ec2a8" class="outline-3">
+<h3 id="org93ec2a8">Package Management in Go</h3>
+<div class="outline-text-3" id="text-org93ec2a8">
 <p>
 The concept of packages is quite familiar for Java, Javascript or Node programmer. A package is nothing but a directory with some code files, which exposes different variables (features) from a single point of reference.<br />
 </p>
@@ -1182,9 +1183,9 @@ There are two types of packages. An <b>executable package</b>  and a <b>utility 
 </div>
 
 
-<div id="outline-container-org3d1b148" class="outline-2">
-<h2 id="org3d1b148">Hello World</h2>
-<div class="outline-text-2" id="text-org3d1b148">
+<div id="outline-container-orgf9b7280" class="outline-2">
+<h2 id="orgf9b7280">Hello World</h2>
+<div class="outline-text-2" id="text-orgf9b7280">
 <p>
 A classic programming course always starts with a 'Hello World' message.<br />
 </p>
@@ -1849,9 +1850,9 @@ AAAASUVORK5CYII="gobuild.png /><br />
 </div>
 
 
-<div id="outline-container-orgd2fd3d1" class="outline-2">
-<h2 id="orgd2fd3d1">Values</h2>
-<div class="outline-text-2" id="text-orgd2fd3d1">
+<div id="outline-container-orge0d339c" class="outline-2">
+<h2 id="orge0d339c">Values</h2>
+<div class="outline-text-2" id="text-orge0d339c">
 <p>
 Similarly to other languages, Go also has various value types including strings, integers, floats, booleans, etc.. These data types can also be used with operators that you'd normally expect.<br />
 </p>
@@ -2057,9 +2058,9 @@ aP34+Z6SPP7w5rXsCQDgKoFjbgAAAMCd/H+ylfF1JNeOlQAAAABJRU5ErkJggg=="govalues.png />
 </div>
 </div>
 
-<div id="outline-container-orgd483173" class="outline-2">
-<h2 id="orgd483173">Variables</h2>
-<div class="outline-text-2" id="text-orgd483173">
+<div id="outline-container-org9920f67" class="outline-2">
+<h2 id="org9920f67">Variables</h2>
+<div class="outline-text-2" id="text-org9920f67">
 <p>
 A variable is a storage unit of a particular data type.<br />
 </p>
@@ -2147,9 +2148,9 @@ apple
 </div>
 </div>
 
-<div id="outline-container-org6c4925b" class="outline-2">
-<h2 id="org6c4925b">Constants</h2>
-<div class="outline-text-2" id="text-org6c4925b">
+<div id="outline-container-org145e516" class="outline-2">
+<h2 id="org145e516">Constants</h2>
+<div class="outline-text-2" id="text-org145e516">
 <p>
 Go support constants of the following data types: <b>character, string, boolean, numeric</b>.<br />
 </p>
@@ -2208,9 +2209,9 @@ constant
 </div>
 </div>
 
-<div id="outline-container-orgff7d507" class="outline-2">
-<h2 id="orgff7d507">For</h2>
-<div class="outline-text-2" id="text-orgff7d507">
+<div id="outline-container-org69551ef" class="outline-2">
+<h2 id="org69551ef">For</h2>
+<div class="outline-text-2" id="text-org69551ef">
 <p>
 <code>for</code> is Go's only looping construct. Go does not have <code>while</code>.<br />
 </p>
@@ -2325,13 +2326,13 @@ loop
 </pre>
 </div>
 
-<div id="outline-container-org3e1b26d" class="outline-3">
-<h3 id="org3e1b26d">Five basic <code>for</code> loop patterns</h3>
-<div class="outline-text-3" id="text-org3e1b26d">
+<div id="outline-container-orgbe3bb72" class="outline-3">
+<h3 id="orgbe3bb72">Five basic <code>for</code> loop patterns</h3>
+<div class="outline-text-3" id="text-orgbe3bb72">
 </div>
-<div id="outline-container-org87cf2e6" class="outline-4">
-<h4 id="org87cf2e6">Three-component loop</h4>
-<div class="outline-text-4" id="text-org87cf2e6">
+<div id="outline-container-orge577258" class="outline-4">
+<h4 id="orge577258">Three-component loop</h4>
+<div class="outline-text-4" id="text-orge577258">
 <p>
 This is the basic loop. It contains three components:<br />
 </p>
@@ -2365,9 +2366,9 @@ func main() {
 </div>
 </div>
 
-<div id="outline-container-org7808d13" class="outline-4">
-<h4 id="org7808d13">While loop</h4>
-<div class="outline-text-4" id="text-org7808d13">
+<div id="outline-container-orgbea528d" class="outline-4">
+<h4 id="orgbea528d">While loop</h4>
+<div class="outline-text-4" id="text-orgbea528d">
 <p>
 Although Go doesn't a <code>while</code> statement, if we skip the init and the post statements, we get a while loop.<br />
 </p>
@@ -2391,9 +2392,9 @@ func main() {
 </div>
 </div>
 
-<div id="outline-container-org4ce84e4" class="outline-4">
-<h4 id="org4ce84e4">Infinite loop</h4>
-<div class="outline-text-4" id="text-org4ce84e4">
+<div id="outline-container-orgf762247" class="outline-4">
+<h4 id="orgf762247">Infinite loop</h4>
+<div class="outline-text-4" id="text-orgf762247">
 <p>
 If we also skip the condition, we have an infite loop. The following program will never finish computing:<br />
 </p>
@@ -2415,9 +2416,9 @@ func main() {
 </div>
 </div>
 
-<div id="outline-container-orga98d2d5" class="outline-4">
-<h4 id="orga98d2d5">For-each range loop</h4>
-<div class="outline-text-4" id="text-orga98d2d5">
+<div id="outline-container-org65ef5e3" class="outline-4">
+<h4 id="org65ef5e3">For-each range loop</h4>
+<div class="outline-text-4" id="text-org65ef5e3">
 <p>
 Looping over elements in slices, arrays, maps, channels or strings is often best done with a range loop.<br />
 </p>
@@ -2454,8 +2455,8 @@ func main() {
 </div>
 
 <ul class="org-ul">
-<li><a id="org92861be"></a>String iteration<br />
-<div class="outline-text-6" id="text-org92861be">
+<li><a id="org1d7b5cc"></a>String iteration<br />
+<div class="outline-text-6" id="text-org1d7b5cc">
 <p>
 You can also do <b>string iteration</b>: runes or bytes.<br />
 </p>
@@ -2509,8 +2510,8 @@ e6 97 a5 e6 9c ac e8 aa 9e
 </div>
 </li>
 
-<li><a id="orgd883fa4"></a>Map iterations: key and values<br />
-<div class="outline-text-6" id="text-orgd883fa4">
+<li><a id="orgacc69ed"></a>Map iterations: key and values<br />
+<div class="outline-text-6" id="text-orgacc69ed">
 <div class="org-src-container">
 <pre class="src src-go">package main 
 
@@ -2544,9 +2545,9 @@ Note: The iteration order over maps is not specified and is not guaranteed to be
 </ul>
 </div>
 
-<div id="outline-container-orgd6b9447" class="outline-4">
-<h4 id="orgd6b9447">Exit a loop</h4>
-<div class="outline-text-4" id="text-orgd6b9447">
+<div id="outline-container-org9848813" class="outline-4">
+<h4 id="org9848813">Exit a loop</h4>
+<div class="outline-text-4" id="text-org9848813">
 <p>
 The <code>break</code> and <code>continue</code> keywords work just as they do in C and Java.<br />
 </p>
@@ -2584,9 +2585,9 @@ func main() {
 </div>
 </div>
 
-<div id="outline-container-orgb0a5f17" class="outline-2">
-<h2 id="orgb0a5f17">If/ Else</h2>
-<div class="outline-text-2" id="text-orgb0a5f17">
+<div id="outline-container-orgf33dd42" class="outline-2">
+<h2 id="orgf33dd42">If/ Else</h2>
+<div class="outline-text-2" id="text-orgf33dd42">
 <p>
 In Go, branching with <code>if</code> and <code>else</code> is straight-forward.<br />
 </p>
@@ -2626,9 +2627,9 @@ In Go, we don't need parentheses around conditions. However the braces are requi
 </div>
 </div>
 
-<div id="outline-container-org6d7ba26" class="outline-2">
-<h2 id="org6d7ba26">Switch</h2>
-<div class="outline-text-2" id="text-org6d7ba26">
+<div id="outline-container-orga58c5a2" class="outline-2">
+<h2 id="orga58c5a2">Switch</h2>
+<div class="outline-text-2" id="text-orga58c5a2">
 <p>
 <code>switch</code> statements express conditionals across <b>many branches</b>.<br />
 </p>
@@ -2826,9 +2827,9 @@ Don't know type float64
 </pre>
 </div>
 </div>
-<div id="outline-container-org8524ccc" class="outline-2">
-<h2 id="org8524ccc">Arrays</h2>
-<div class="outline-text-2" id="text-org8524ccc">
+<div id="outline-container-org54999c8" class="outline-2">
+<h2 id="org54999c8">Arrays</h2>
+<div class="outline-text-2" id="text-org54999c8">
 <p>
 An array is a numbered sequence of elements of a single type with a fixed length. In Go they look like this:<br />
 </p>
@@ -3012,9 +3013,9 @@ avg: 65.2
 </div>
 </div>
 
-<div id="outline-container-org6c38bb3" class="outline-2">
-<h2 id="org6c38bb3"><b>Slices</b></h2>
-<div class="outline-text-2" id="text-org6c38bb3">
+<div id="outline-container-org288585f" class="outline-2">
+<h2 id="org288585f"><b>Slices</b></h2>
+<div class="outline-text-2" id="text-org288585f">
 <p>
 Slices are a key data type in Go. Slices give a more powerful interface to sequences than array.<br />
 </p>
@@ -3129,12 +3130,79 @@ dcl: [hello world]
 </pre>
 </div>
 </div>
+<div id="outline-container-org0e1fe73" class="outline-2">
+<h2 id="org0e1fe73">Maps</h2>
+<div class="outline-text-2" id="text-org0e1fe73">
+<p>
+Maps are Go's built-in <b>associative data type</b>. This is called <b>dict</b> or <b>hashes</b> in other languages.<br />
+</p>
+
+<p>
+To create an empty map, we need to use the built in <code>make</code> statement in this format: <code>make(map[key-type]value-type)</code><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-go">package main
+
+import "fmt"
+
+func main() {
+
+	// create an empty map
+	// make(map[key-type]value-type)
+	m := make(map[string]int)
+
+	m["k1"] = 7
+	m["k2"] = 13
+	fmt.Println("map:", m)
+
+	// Get a value for a key using name[key]
+	fmt.Println("key 1:", m["k1"])
+
+	// Print the number of key/value pairs
+	fmt.Println("lenth:", len(m))
+
+	// Delete a key from the map
+	delete(m, "k2")
+	fmt.Println("After delete:", m)
+
+	// This key doesn't exist, so the return value is 0
+	prs := m["k2"]
+	fmt.Println("prs:", prs)
+
+	/* Use optional second return value when getting a value from a map.
+	This helps indicate if they key was present in the map and return a bool value.
+	It can be used to disambiguate between missing keys and keys with 0 value or "".
+	i.e the second optional return value will be false.
+	*/
+	prs, prs1 := m["k2"]
+	fmt.Println("prs:", prs, "prs1:", prs1)
+
+	// If we don't need the return value, we can just use "_" and get the second value only
+	_, o2o := m["k2"]
+	fmt.Println("optional 2nd value only:", o2o)
+}
+
+</pre>
+</div>
+
+<pre class="example">
+map: map[k1:7 k2:13]
+key 1: 7
+lenth: 2
+After delete: map[k1:7]
+prs: 0
+prs: 0 prs1: false
+optional 2nd value only: false
+</pre>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
                           <p>Created: 2020-02-24 Mon 00:00</p>
-                          <p class="date">Updated: 2020-03-05 Thu 23:29</p>
+                          <p class="date">Updated: 2020-03-06 Fri 00:04</p>
 </div>
 </body>
 </html>

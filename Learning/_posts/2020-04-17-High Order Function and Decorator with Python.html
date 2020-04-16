@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-17 Fri 01:43 -->
+<!-- 2020-04-17 Fri 01:46 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Python - High Order Function &amp; Decorator</title>
@@ -272,9 +272,9 @@ for the JavaScript code in this tag.
 <li><a href="#orgdc80cdf">Working with function with argument(s)</a></li>
 <li><a href="#org09fe7b8">Working with Classes as decorator</a></li>
 <li><a href="#orgc397f33">Looking at a practical example for decorator</a></li>
-<li><a href="#orge148cab">stacking decorators with <b>functool</b> module and the <b>wrap</b> decorator</a></li>
 </ul>
 </li>
+<li><a href="#org60fcffc">Stacking decorators with <b>functool</b> module and the <b>wrap</b> decorator</a></li>
 </ul>
 </div>
 </div>
@@ -978,14 +978,15 @@ See how the <code>my_timer</code> times the log wrapper function instead of the 
 </p>
 
 <p>
-To make sure that we <b>preserve the information of our original function with multiple decorator</b>, we need to use the functool module and the wrap decorator:<br />
+To make sure that we <b>preserve the information of our original function with multiple decorator</b>, we need to use the functool module and the wrap decorator when we stack multiple decorators together.<br />
 </p>
 </div>
 </div>
+</div>
 
-<div id="outline-container-orge148cab" class="outline-3">
-<h3 id="orge148cab">stacking decorators with <b>functool</b> module and the <b>wrap</b> decorator</h3>
-<div class="outline-text-3" id="text-orge148cab">
+<div id="outline-container-org60fcffc" class="outline-2">
+<h2 id="org60fcffc">Stacking decorators with <b>functool</b> module and the <b>wrap</b> decorator</h2>
+<div class="outline-text-2" id="text-org60fcffc">
 <p>
 It's quite confusing. We are putting a decorator wrap within a decorator.<br />
 </p>
@@ -1041,12 +1042,11 @@ Adding the <code>funtools.wraps</code> decorator ensure that the information fro
 </div>
 </div>
 </div>
-</div>
 <div id="postamble" class="status">
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
                           <p>Created: </p>
-                          <p class="date">Updated: 2020-04-17 Fri 01:43</p>
+                          <p class="date">Updated: 2020-04-17 Fri 01:46</p>
 </div>
 </body>
 </html>

@@ -1,0 +1,1403 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-04-20 Mon 01:26 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Python SQLite</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mishka Nguyen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Python SQLite</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org00ac363">General</a>
+<ul>
+<li><a href="#org75f208d">About DBMSs</a></li>
+<li><a href="#org3c44d75">What is standard SQL?</a></li>
+<li><a href="#orgef08cc6">Columns</a></li>
+<li><a href="#org03bce6c">Constraints</a></li>
+<li><a href="#org0c6fa30">More</a></li>
+</ul>
+</li>
+<li><a href="#org4ab5384">About SQLite</a>
+<ul>
+<li><a href="#org0ac5d53">Data Types</a></li>
+<li><a href="#org7664ec0">Advantates versus disadvantages of SQLite</a></li>
+<li><a href="#org9abc0c4">SQLites is suitable for..</a></li>
+<li><a href="#orgd8f889d">More</a></li>
+</ul>
+</li>
+<li><a href="#org3f89da6">Using SQLite with Python</a>
+<ul>
+<li><a href="#org0ca4e92">Starting &amp; Setup</a></li>
+<li><a href="#org86b0436">Adding an employee</a></li>
+<li><a href="#org92186fa">Querying the database</a></li>
+<li><a href="#org1c17949">Working with a class</a></li>
+<li><a href="#org7ec0cbb">In-memory table</a></li>
+<li><a href="#orgc0fd603">Intro</a></li>
+<li><a href="#orgf6c6c51">Using in-mem database to prototype a basic Python application</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org00ac363" class="outline-2">
+<h2 id="org00ac363">General</h2>
+<div class="outline-text-2" id="text-org00ac363">
+</div>
+<div id="outline-container-org75f208d" class="outline-3">
+<h3 id="org75f208d">About DBMSs</h3>
+<div class="outline-text-3" id="text-org75f208d">
+<p>
+DBMSs or RDBMSs are different from databases. Databases are logically modelled clusters of information, or data. A DBMS on the other hand is a computer program that interacts with a database. A DBMS allows us to control access to a database, write data, run queries and perform any other tasks related to database management.<br />
+</p>
+
+<p>
+A database can be any collection of data, while a DBMS is the software tool that allows us to interact with a database.<br />
+</p>
+
+<p>
+All DBMSs have an underlying model that structures how data is stored and accessed. A RDBMS is a DBMS that employs the relational data model, in which data are organized into <b>tables</b>. In the context of RDBMS, <b>tables</b> are formally referred to as <b>relations</b>. A relation is a set of <i>tuples,</i> or rows in a table, with each tuple/ row sharing a set of attributes, i.e columns.<br />
+</p>
+
+
+<div class="figure">
+<p><img src="data:image/png;base64,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
+3lEBVPOnXTpac5sLRM0pqoVnVYutKyXLa2ngaLNyAIjAdvDmiKhrsAWCiIiIYuM8EERERBQbAwQR
+ERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHF
+xgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBB
+REREsTFAEBERUWxeVxeAoAoAInAKp5CuLg8R0W6jgBWIFH8JqVyIhv/TqKup8ptDRHso/gCWIwaI
+rqcKBQR4ewuWbUTCQsO/iYh6NAF8h8OHYUBV9DPIGFFGeAqj66kiUCQs/rAQV8wBqgHHABFfaRJm
+7cXCqttp2xx/sfY6L6w6AbKYcwFO2w9BACMMEOWEAaLriUAAVSQsTALGQ6D8IsWjgHPRfREYVl2n
+5asuPPxTNknGIiJhvQHC72wsmu/ypQprolMYrMDywgDRXYTfHJf/NQoy2x3cUDsESEZ3NQcXdGlh
+yosACUAEChjxkvwJj8H3gSD69gZZwHX4CsozQAIotETkO1FSGWGA6HbCPslXno5hveA7Hkx3wCk8
+g7UNmP0YVKFZnD0RnxiPtA/LQcrtCqtuXSNmPwY/UEAOqa0b5L+XUytga3y7FAok4NdXDnlx6xCn
+CieXnYSDBiEXwPCD167AIWUxfyWumw+TRCHt8xNXdhgguh0FjOCcgzC8V1cXpXysbcAlj8MB6uOw
+YfjkgV1doPKxrhGXPA44h6TNbl372BP3wqvkwWDHjCDdNOqIk+ygIS7t4Ozp++LIEV1dqvJRkcB1
+T/OcRXljgOh2wpOCdWkMroFzPJrpgFMYQV0aqtHolZYcfAffRYPLaUdKqy48heHESqpKbQXPn3VM
+BKpqElHtCeoz8B0Cx6avDvgOnkFDBuBpizLHANEdicAaeAYODBAdCPeC1uT7ogJG4BkADBAdKK06
+IN+CHAUx/q53gmo07FABRN9ZAQNExzwT1RK/oWWNn3QiivDHfCex4miPxABBREREsTFAEBERUWwM
+EERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERE
+RBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQb
+AwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQR
+ERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHF
+xgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBB
+REREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBRERE
+sTFAEBERUWxeVxeA2qLQkhu1QxUKqEaVFj2i0ePUjtKqA8D62jmFbyi/s51UWkusq7LGANEdaesb
+taNVRcm2D1I7WlWdKgROVZ1CWHmdIIBT51Qk2g3yO9tJrKUegwGi21HACCo9GIGxXV2abs8IAFR6
+EIE4qCJhYQRJVl1HSqsOIlCkrNRWGmcMf947JiLGVCZFNaq9Cn5nOyf8blZYQCHS0dLUjTFAdDsC
+BA7n3oWqBJyC36/2hXmrOYfAQQGkcPMCPP4OAlZdR8Kqa8khFwAiCPBBxegBx30pUP6qd0wBK7oV
+FX4LIAKLbz6EvpX8znZMAStY1wgkEbiuLg19CAwQ3Y4ATvH8Ch4ExiH5z7LFu5vw7vouLk45CatO
+BMCGdGID+nR1gcqRwGDhaoC7w84zgMc+EOWNAaK7EvBAZicJRxftLP6a74TCh40fvFj4+1b+GCC6
+nbAz4AFDUOHB8Rxh+zRqh0/7eGMjAMBhaC8MrUHAqmtfvuoyPt7YCFUFpG+lX2uzPIXRGQpYaIsm
+NrQkAAVkn4GoTeZPYbAGd0wVVrC5BSu2QAxTaxljgOh2FPAE956D/QZAuRfsSFhFyzfhgBsRKDSN
+r52Ey05A4GB5ONiusOre2YIDbkDWV3iyl79i1XMPOJPq6qKVA4FkW4YedMyW2il+RhHIb87A1NFw
+DoYfvHaF382/LsE5f4Ktgt/V5aGdxgDR7QiggiAcKu0AdureMYmGICJQqERV5/KTQDgH4U/5DhSr
+zkElGsaZ8YMt9WlY8GRGx0SQSdemfekFQCEIXHH2EVZfOxxgFIECwooqbwwQ3ZEUpqYpuU/bU5Q0
+0rSewEe1sJOkNpRWneQHIhoRsUYth3F2ggissSY/jDOPE0l1TEtO8bCuyhkDRLckkJIbtSOcwiC6
+hT9NrL3OKVRd9GvOw8GdUviM8VPXSaW1xLoqa2zhJaIIf8yJqPMYIIiIiCg2BggiIiKKjQGCiIiI
+YmOAICIiotgYIIiIiCg2BggiIiKKjQGCiIiIYmOAICIiotgYIIiIiCg2BggiIiKKjQGCiIiIYmOA
+ICIiotgYIIiIiCg2BggiIiKKjQGCiIiIYmOAICIiotgYIIiIiCg2BggiIiKKjQGCiIiIYmOAICIi
+otgYIIiIiCg2BggiIiKKjQGCiIiIYmOAICIiotgYIIiIiCg2BggiIiKKjQGCiIiIYmOAICIiotgY
+IIiIiCg2BggiIiKKjQGCiIiIYmOAICIioti8ri4AtUWhJTdqhyoUreqqWHVdXbZurlB1UU2xvnZK
+4RvK72wnbfNtpfLFANEdqUBKbtQOQUldAaqtqo61145C1WlUcXCqGjjAMU10TASBc05Fot0gP3Wd
+VKwlBVhX5YwBottRwGirRghqR9TSkK+x/KNQDfeLXVi07q5QdaKACBRJz/aprQhshbDiOqIiJuUq
+U57maw/gd7ZTio1ezA9ljgGi2xHAV8z6C1IenPIL1gEFjCDjww9/kipw44v42+sIWHUdCasuGyDn
+wuNprEyNrjn6K4HyGLpjqrCCjc7zM4AIPHzpftQk+Z3tmAJWsCUNJBG4ri4NfQgMEN2OKKBYtr6r
+y1F2LADAYF0D1m3t4rKUGYswMmzN2K2o7OrSlCEVCN7dxBavOASwbK0pbwwQ3Y+UdGqT/B1qU6F+
+pPWfWlKN1KZtqg75Px2blWOy+TvK72znsPdDT8EA0e2owggO2QspC8fG5I6E1ZUN8MoHUAAOI/ti
+RG/kAlZdBwpVt3AdnFOoDKsNBlXkfDbCd4ICnujWXOLdrR5EoXLQUNSmEDh+8DqgCs9gUwve3AAx
+zFpljAGi23FAVQIXTER1kj9GHQv3gmkfsx9Dcw7wcfzeOGNf1GdgOctJu1RhDZqy+Pd/oCkDAAf1
+qhvYvDTtPMNPXUcU8DTXXL33uw0j4ADg3IMwohcyAVh77XOKqgReW4+frINYBogyxgDR7YhCFY1Z
+BMoA0bEwQGSC/JgLQcbH1jQasgwQHQgDRHMu7BWvMJL2dUtas065C+yQAkY1SGo0ethIcxb1GQaI
+jjlFLkCLDwj7QJQ3BohuRwUArIn2fwwQ7QsDhC3p92Akqj0GiPaFASKqJREojIhnJIBwF9ghBayK
+hgM4w9oLP3XKANEBUVgDI4AWBsBSWeJPbLcjDA07RUr7UVIcrLoPhbW301hpZY4BgoiIiGJjgCAi
+IqLYGCCIiIgoNgYIIiIiio0BgoiIiGJjgCAiIqLYGCCIiIgotvKbSEpVRURVnWIHV2WJZhQKp3MJ
+LydhBKoCRK8VEacazkEkIuFqS1YIACLF9Ra2uM2qwheGzzuNHi8pT/SU5NcgnOGBiIh6hPILEOE+
+WERstC/e/uJ3rfbi+cXC2XKksAZTGhCKK2wVR1ShiOaVK9licVWFtSGcvE9KL8Yn20wxw/RAREQ9
+RvkFiPA43nf65kYETkQ03G+rFuZwVAC+05G90a8Si9ahysN+A7ZtgfigUd+vw34D0KdCAKRz+uYm
+ADCiAIygXyWG1kIApzAigdPX1iPlYf8BbbdAvLsFW1qQsK1aIJxKpaf79mcLBBER9SjlGiDqM3rx
+Q6hPizUKiBGp8JBzyAUAnBGzpcVdfhLOPAAXP4j9++PXs4p7/cCpZ+XR5frTp/HrmTh+lABY26jf
+fgiBMzkXNWYkLSYNwdemYN/+ANCS00sexbBa3HLWtgHCqXhWb1mAR5eblOd8F7U9CLTFl/37622f
+gGWAICKiHqT8AkS4D65NylXT4LvogVVb9RfzcfwofGw8nBMj6jsZ1RctOdQkUeGFL0TpKQzPSFWi
+eL0lKyKCI4brZw5Rp5Lx8exK/O01rG7ATWdgQDUAqfS2XVW4tvAUR8qiMqGXHi8DqpHPCuIUVQkp
+nATZfdVERES0K5VrgEhYmTCk+GC/Ss34GFiFSUMBGMCFXRDqWhTY4dXeWvWbEOQC9KvUSUOj3fzR
+I2GN/v4V88/33FnjxSl0x6sK16bQiUNlYDW27wOhygBBREQ9R/kN41TV8N/AaeCQCxA4NOdERHwn
+gZOsr34gfhA2A3T2evOqEIHvJHDI+pL1NXAyebgY0TUNYQNCZ1YjjVnkAmR8yQXIBZoL4IfjPfIl
+JyIi6gHKtQWiMCZCFEYKAyXCUxISdoQUCXsq7OR2rNHGrDpI0gLoVBBRaK+UJCzaHIXBi9cSEVGP
+UX4BIhYt+Xfbp1o/GrZVJKxaE3bMxOZmvW+peILxg7STHRgEcuU8pDyEWcGINmXluL115jgETmz5
+NfcQERG1rYcHiGinr8W4kD+PsG2ocIoKD0vWyY+eUIVkfCxZL6vrcdYBOmW4oNMne9Y2oBA1jKAh
+gwMHfcg3QURE1O305ACh+dwQ7tFVAYERgTrAiGhpsABgBI1ZLN8sAKzg4EG48LC/2RcAACAASURB
+VAhM26cwhqITW4T+7BQZ1gvbn8Jg8wMREfUkPTlAFDpABIrCnE8KVRVVDVyYJ6Luk0bQnMOxI/Wy
+EwVamFNSADjnRKQzfSAE4juowmkYO6JJtUXAOSCIiKgn6bEBQlWNMZWeq0lKXYv6Tkw4q6RCYUTc
+pmYkrNSmIMX5p8MTGxqoEQVEVLVwsYz8ahG4QsOGAmGwCAdZAIDT6FbK5IvEEEFERD1Dj21YD2ec
+THqy3wC8s0WWbVRj1IgYkYSF7/DSGhlcjb17q2phSiioStg+AajkL8dV8iyMqDXwLLyou2V4PxwY
+AkCrk7Am7IyJcAFrREREOA8EERH1HD2nBULaGiWpirPG6WPL5X/myeyjsW9/WIP1Tfr7V2TxOlw0
+RXtVSC7QhI2mljSCcE9fur/Pz+IAz6DFl1c/CBsbostw+A7Da3VwLQAYyKsfYGB18RSGQqzo/gOQ
+sJzKmoiIeo6yDxCqChGn2pRDJggfEYUaYwxUFZOGyfeO1+ufky//HQOrkbDY1Iy0j89M0PMminPh
+1bPEqTa3XkNpgAgv/x0o3tpkvnq/y8cVZ0TqWvTSE3DuBDTn0Jwz//WkC1whzGjgpCapd5yDAVXi
+VC0DBBER9QhlHyCMCICRveXmWRhcA0TjHQqH++oUM8fJlL3w/Cq8VwffYVA1Dh2GAwbmmwggAAZX
+y41noH9lcQ2FTYRJoiopl58E36kxxQt2C+A7GdEbAL54GD4+XhNWNP8sIFAYI71TxaISERH1AGUf
+IMK9e3VSJu9VeAT5y09oeKUrpxhcg5njCi8qdn4sNDNUJOSI4duuoXQTngmvvlF6te5WE02O7bfN
+s9suwPMXRETUY5R9gAhTgqq6/GjMwrW2w8cRnmxoPeWDSNRzUgvdGdpaw/abCIdl5k9hRKM0w54T
+TqMXlvTHKF2AfSCIiKjnKPsAsc2lMbDdtbajO0AbfSxbr6fNNbS1ibZbIIxsvxm2QBARUc/UY4dx
+EhER0a7DAEFERESxMUAQERFRbAwQREREFBsDBBEREcXGAEFERESxlf0wzh5JtXij9qlC0aquWHud
+tG1FKVhhceWvxQuUVCarsX3bfOqofDFAdDuq4QW9ijdqX7GitNWfrLoOlVSdhnOoOeecc+1PmkKI
+prN14WT4Ye3xg9dJgmjKPjA/lDkGiG4nnNTSd9ExDbUvPOCLZhoVQKP7bIHoUFhF+aoLr9tiqyor
+TOAZ7gI7ooAH22w95GvPsQWic8JayjpAw5qjcsUA0e0IkM7hqmfhGX61OkUAX9HiAwA8PPQ25q2E
+Y911ggCBotmPstcLm/vUJA5j1XWSCDJ1AhfV3v++hKTld7ZTjKA5B1im/PLGANHthO2fG5u7uhzl
+SABBYwaNma4uSTkyaMqiKS0Qtix3QuG6Nya6s7mlq4tUdoQBorwxQHQ/CiiQ5Y94HAIk8z/oAeB3
+dXnKSFh1YW5Vge3q8pSX8Nsa1l4OcF1dnjJigURXl4E+HAaIbkcFAsycgN4VCBw7ZHVAFdagPo37
+3oQC8DFxOCYOQdaBJ/Lbo1DAChqyuG8pnCogI2rSfVDnq+GJ6U4QC9dkat5tqlFVqJw6DkNr4buO
+L923h1NFwuCdLXj6XRjL0FXGGCC6HQWswY2nYXivri5K+VjbgAfeglO4LD59ML57TFcXqHysa8Sc
+t5DNOiRsn/R778y/29kKNn91TASZ5pETT/D6HZtLOwT2RyfiyBFdXary8feleHoZTIIBoowxQHQ7
+4aCwujQG18A5GM711S6nMIK6dH7YhaA5B9/Bd7AcUNeu0qqDCAQZX5pyFmoZIDomgpxtCUyh9uoz
+8B0CB8vvbLt8B8+gIcs+EGWPAaI7EsBItP9jO3z7wroyUmwzFsAKVBggOrBt1SmMQAyUldYZApj8
+11OB/HcW4b+0Y+F3k79sPUAPChCXXYb58/HEE7tjW888gxkz8OqrGD58l6yfE0l1muRnQ0J+9ACn
+4eqk0qqL/qb4ChXIT10nldYS66qs9ZS2tsWLceWVuPHG3bS5o4/GjBn4+td30+aIiIi6mZ4SIK6+
+GlOnYvx4AHjpJQwahPXrcfLJqKjAb34DAA8/jClTUFGBgQNxwQXYvBkAPv5xfOIT0RpyOfTti8mT
+i+scPx4/+hFU8eMfY8wYVFRg2DCccw6CAAC++U38/e9Yvny3vk0iIqLuoUcEiCDAXXfh7LOLj2za
+hI9/HGeeifnzMWsWFi7EjBmYORNLlmDOHCxdiunTEQQ49VQ88QScA4Ann0RNDRYswOrVALB2Ld54
+A9Om4a67cNVV+POfsXo15szBxz4GawHg0EMxZgz++teueMNERERdrEcEiMWL0dCAY0qG7jmHc87B
+N76Bww7D4MH4yU9w0km49FLssw8mT8af/oSXX8Yjj2DaNGzejIULAeCeezB9OiZOxP33A8A//hE1
+SNTXwzn07o3+/TFpEs45p7iVY4/FvHm7960SERF1Cz0iQKxYAQCjR7d6cPr04v3XXsOUKcU/R43C
+sGFYuBCjRmHffTF3LlTx979j+nR89KO47z4AePxxnHIKjMFnP4tzzsHEiTjzTDz+eKtNjBoVbZqI
+iGgP0yMCxNatSKWQSrV6sKKieD+z3aURVKOuDNOmYe5cvPgiNm3C9OmYMQNz56KxEXPnRhEkmcRv
+foNlyzB+PD7xiejcR6h3b9TV7ao3RURE1I31iABRW4tMBtnsDheYNAnPPlv8c8UKrF2LCRMA4NRT
+MX8+5szBqaeiuhpHHIH+/fGb32DlSpx6avEle++Nn/wEL7yARx7Bc89FD9bXo7Z2V7whIiKibq5H
+BIgRIwDgvfd2uMB3v4unnsJ//zdWrMCCBfjsZ3HggTj9dACYOhXpNH7/e3zsYwAggjPOwLXX4uCD
+ozkennwS99+PVauwZQvmzkUiUTxX8v77GDly1741IiKibqlHBIiJE1FZ2V5/xsmT8eijePBBjB+P
+U07BmDF4/HF4HgDU1ODoo7F6NWbOjBaeNQvvv49p06I/gwCXXYZx4zByJG69Fffdh2HDoqfmzWvV
+c5OIiGiP0SNmokwkMGsW7rwT558PAIcf3sYE6yeeiPnz2375NpNXnn56q5d/5CNYtKiNVy1ahGXL
+itNIEBER7Ul6RAsEgNmz8dhjWLp0923x2msxfToOOmj3bZGIiKjb6CkB4rDDMHs2vvGN3bS5F17A
+vffi17/eTZsjIiLqZnrEKYzQT3+6+7Y1eXI0GTYREdEeqae0QBAREdFuxABBREREsTFAEBERUWwM
+EERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERE
+RBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBSb
+19UFoDaowuVv0K4uTffmNPpXFapASe0JIF1buO6ttOoAQMPPGuus8wTI1x6K31nhd7ZdxR+3ktqj
+csQA0e0oYAQpCyMwtqtL0+0ZAYCUhQgEUIVnYARJVl1HSqsOqhBAneayUMPc2jER5LLOBVHtKZL8
+znZO+N1MWkAhzKvljAGi2xEAilX1qPAQuOhXnnbEKazBqvp8C4RgSxqr65FzsMKj6faEVbeyPqw3
+gYPxKvoNHupMsquLVg4EkktXVNWqQ5heP2jE6nr4DpYfu3b5ioTB+iZA2AJR3kT5P7CrqSJQeAZX
+PIUfPARbhUBR5cEYfrs6RQTOodmPDpuTFikvaiCl9onAKZpzAABF0kNlgp+6zhIgG6AlBwigqEzA
+8jvbOUaQC5D2IQLN4eEvYNo+0fES2yTKCFsgup3w96fZ7+JilCUBFFmHbLarS1J2VCGS9TWbVbbb
+dFZ4ulEkrL0WfmfjY94qawwQ3U54CgNZwHV1UcqIAKn8nRzAn/LOC6tOBApA4DE+xOGA8AQQgAy/
+s3FYIMnONuWNAaLbCY9qzj8S/SsR8GiwIwpYweYW/O4VKIAcjh2DY0ciG7D7SAfCqtuSxi2vIHAK
+yNjapr7Bhpyy5jqmgIeg2eu7tLGPqsLJOYdiVB/4ARvhO+AUSYvXNuD+12ESDF1ljAGi21HAGlw+
+FcNqu7oo5eODRty6CE7hcpi1P2Yf09UFKh8bmvD7RQh8h4StbFr56tN/U1vBA8OOiSDTPOqwqV7/
+43JpB2e/fSSm7NXVpSof97+J+1+FSTJAlDEGiG4nHBS2uQWDquEcDOf6apdTGMHmluIojMYsfBd1
+huexYDvCqtvUkh+FIcgGJosUkGKA6AQBgoyzhdrbmobvEDhYfmfb5Tt4BvUZjsIoewwQ3ZEIrET7
+P7Ymt08AI9GIzfA8vjWwAhUGiA6UVh0AaNgjUFU4f1knCCBqJOq6C8AYWAGEwzg7EH43w182fkPL
+GgNENyVSvFE7JF9Xhd9xsPY6p1XVgVNQ7iSJ/ivWJz917WMt9RhsayMiIqLYGCCIiIgoNgYIIiIi
+io0BgoiIiGJjgCAiIqLYGCCIiIgoNgYIIiIiio0BgoiIiGJjgCAiIqLYGCCIiIgoNgYIIiIiio0B
+goiIiGJjgCAiIqLYGCCIiIgoNgYIIiIiio0BgoiIiGJjgCAiIqLYGCCIiIgoNgYIIiIiio0BgoiI
+iGJjgCAiIqLYGCCIiIgoNgYIIiIiio0BgoiIiGJjgCAiIqLYGCCIiIgoNgYIIiIiio0BgoiIiGJj
+gCAiIqLYGCCIiIgoNgYIIiIiio0BgoiIiGJjgCAiIqLYvK4uALVBFU4RODgH7erCdHNOoQKnUIVq
+9EjgEDhAINLV5evGSqsOABQKiLDWOidfUZr/ihY/eNSuwEEAp0BJ7VE5YoDodhQwgqoErIFlC1FH
+LACgKgERCKCKlGXVdUpp1UEVAnGBS7fAAuBusCNikG5xgR/VnqLS4wevU8IqqvAAZVgtbwwQ3Y4A
+UCz6APVpBPyCdUQVVrBia74FwmBVPZasR8bnT3kHwqp7vx6qgAgcpKL2wImHOJNE+DmkHQgPm42f
+sf0Hrw7C1gi8sRG9K5ALYPjBa1fgkLRYvgkwbIEob6L8H9jVVBEoPIMrnsIPHoKtQlD4f6L8Ie9I
+oYoKlZZvimDVdaC06gRQeBY1lfxN7ywRtGSRyUa1xw9eZylEoIU7OTz0BUzfB76D5Qm0ssIWiG5E
+ACuw0vohap9sdyd/Gog60KrqFCJOta6R8SEGEbFWoCVNhfzgdajkgyeAStSZnzVXdhggul6h919z
+DkEzAoA9J6nr8Gc8BgWCri5D2cshGwBRTxK2QJQTBoiuJ/kAPmN/9E3CS0T9k4l2Iyn5l+Jive0k
+AQKHAwcBgOH5i3LDPhBEREQUG1sgul4Y4UTgFM7xYIaI9ixGYKT4S0jlggGiGxFw5CEREZUHnsIg
+IiKi2HjAS0RERLExQBAREVFsDBBEREQUGwMEERERxcYAQURERLExQBAREVFsnAeCiNqgqiKi2urq
+koVHPgxpaz1tzh5UWgARCUu1zda3f+E2ryq8ke0fb/+NdLhY6frbXRNRz8R5IIhoW6U73dJHdvVG
+A6fWiIjEuiZ24BSqxgh35ES7EwMEEbUh/GVwqvWNmVTSq6pIhI9kckHOd4XFAqeqau0OL5/uO0Xr
+BcRITUUikwuaW7LGGiMCwLNSmUoUNl2IL82ZXCbj11SlEp4BEASuvjkrIoX1pRI2mbAAnFMj4eUc
+pbElm8u5XtVJa03p2oLA1TdlEwlTU5lsyfh+4ErK6aDwSuaCNUaqKxItWT+dzllrtk0ngupUwhi2
+QNCei6cwiKiVMCj4ThPWXHHbc9fe+uyocUPmX/3JVMJaY77723/e8MfnpXelOgVQU5X0PFPXmNnR
+NWRrqpOeNXWNaYTXeUn7Y8YMePv/vnDHk29+6+rHMgnbkvYBJBPmgOF9Pv2RAy7+2KGeNaouUCSs
+/OwvL11/y7y7r/vU1ENGAFi6csux3/lrNhc0p/1w/bUViSn7Dbrok4fNnDImcA4Ka+Wr182d88TS
+Z27+3AEj+jmFFThVK/Lm6rpjvvj700464E//Mf1TP33w74++Ib0qwjfSqyZlROoa09ElpZszh08a
+8eJ1595w38Kf/HZeOmnTmZILdzv1kvbN331uzNA+zqm1DBC0J2KAIKJtqapnpCWT++0jr9UFbuGi
+lY+9/P7Mo8YEzp0yaWQlxKS8QFVE/vj4Gx98UP+Vsyb1qk62OhYPexuI/P7R19dvaLzwrEk1VQlR
+1UD79akEkPGDug/qPzJt/KH7DnZONzek75u//N9/PGfhik1/umSa0yjHNKazdVuasvk2D6dat75h
+zNiBHz9uX+dUBO9+UH/Xk28+/s/lf7nyY2cfv182CKw1W5sydVuag8AVChKuLQhcXV1zQ0sWwJlH
+j91/UC+T8sJV/+/9rzaksxefNSmRsAJoLhg+pBeAdDaoW98wc+Yh+4/s55yasOXDqeeZPjUp5Dtn
+EO2BGCCIqBURCZxawT9eWbn6zXWXfmPqDfcs/N8HF886eqw6nXnU2JlHjS0s/PJb69atq//Fl46t
+qUy2ubbnXl+7YVPTL798XCrV6tfGs0b84NNTx/3btAPDR9adf8xRF91++/2v/scnD5swZqDv+wCs
+MeJZk99JWysSuMnjhlx5wbGFVc094+BTvn77L/624Ozj98ufEDHi2XDXvs2/4tnwbMj5px6IU4vl
+ue+Zt9dubvrlV0/YpvwJz4jTr5x+8GmTR7f5Bs0Oz94Q9XAMEERUVOgUJSK/emiJqUn95zlHvL1m
+618fWbJmU+Ow/tU5PwgP6FVhjGRygQIbtrakEl7xAD0cLqEwRrJ+oMD6rS1D+lWHCwTOVSQ9VVWR
++uZMznc550QxuG/V9CNH/2rJ6qWrthw8eoDLl0RbF09FmjO5lowfOCdGPJGph4yoGdZnXV1zuMXt
+X9X6DUbvMZP1S7OFHzjndEtjpqYiETal+M5VhuUENjWkWzK+75xnTL5+kErYQl39y/4HEJUPzgNB
+REUi4lStkTWbGh9+etlHj9+vqiLxmZP2d3Utf3lymSLq8JjwTHgrHPEXHtnmJtstUNpRUUSMESMS
+tgo0pn0VqUx6Im0PqRARqFYmvcqUV1OZrE4lUknvxWXr6t/ZMG6vvsZIEHTUK1yi/b2125ZTRBLb
+lTPcYr+aisqUV1uZrEx54a0iX0imB9pjsQWCiIpU1Tk1nrnjqWXBluavnX6Qqp40ccTA/Qb/+qHF
+F581yZp/zVFHIQpYI9ZYAHMXrvzzg4trRvSdMm6Iqpq2dszOKRLeG+9vvu7ehYFTI1i5oeGvc5dO
+nLDXlV881m0zpqyNLKE7bJrYAaeKhHfXvLfeXrs1ULUiECAXDB5Ye84J+4WNGcwQtGdigCCiSLg7
+tMao0189uLjPmIHHH7xX1g9Snv3MR8Zd85t/vrTsgyP2HxLuuePM1NAGP1BUp356x4s3P7wEipas
+v/TdjfsM7X3Vtz4yqE9VELg298rOKVLeq8vWfWvJGoRFyAYwcsHXTpw4dlDYrbLkzWh4B5Di3ZgJ
+Itzi/z24GNn8KAwRNGfGH7r3OSfs51SFAYL2VAwQRBQRET9w1sgLb65btmjVFf/vlELXyH//5OE3
+/vG53z782uRxQwEVkR0M24wncJrznaqu29IcbE0fNe3A0yeP9gNnpO22AmsFzZlpJ+73m2+dHIaM
++ubsnU8v+69r/rHg7fV3f/+MfKxRFKbAgqA0NRSHiXSqhNYImjM3fm/6GUeOCQIXTmihTlNJC6DN
+ZhKiPQQDBBEBrbtP3vLoawBeXrbuGzc+oYqw2V76VN05760rv3hs7+pU/vB+53efnhU0ZS49d/JX
+TjsYQDrrX3brM1ddO3dAn6qfX3CsHzjRHfSBcFpTkRw5sLbw4ITRA95eu/X22198atbEkyaODBcM
+Z71WVREN30I0KXV+teEjHTYehFsc0re6dIutniXaUzFAEBEQdp90zhqpa8zc9fRbif41j7z8XtZ3
+kj98r6lI1K3Zev9z7372I+MCp1Y+VGeIcK+ezvrOadYPKpLeL758/NyFK6+69ZkLThm//4i+mVyQ
+2K6Xd/iqwLkgcEHgjJFsoNbI4fsOvsPponc2hvNN9a5OIRvUN2ej+SSMUeccZGtTBrkgDECtLvLR
+UTkzuSAInB+4Yg9QKTY/MEbQnomjMIgoHHWpgVMAD77w7qa31v/w80dtvPMrW+76av29X6u/+8LG
+e7/20g3nelXJmx95TUSMiMq/4ByGACIw1uT8QFWv+MLR2pi5/C8vlF6Do9XyIuFlL6w1yaT1PFuV
+8lIJ+9r7m5ygd3UqHBYxaexApHPzXl9jjThFEDinsEbmvbYGmdyksQNFJDwR03EJRaCa8Iy1JpW0
+1proZgxHYdAejgGCiKJj6HCfeMvjr5s+lZ+eun9VKlFbmaxMelUViYqkt8+wPicfNebZF99d8cFW
+a41zYY9L8dqdyHlHC4QTREV7YcCzxql+9PBRhx67z9/mLH5r1ZaKpAfAGuO1vtCG59kg0PrmzJaG
+TF1jeuWGhuvvW3jLvQurRvY7ZdLIMAmddezYir36/vyPz724bF3Ss541Sc++8OYHv7jt+cq9+p51
+9Fjd7uJb1ojX1pRQIvAStimdq2/ObG7I1Dfnb00ZvzjTJdGeiKcwiCgavWmteWX5+n88sPiIqfuP
+HtI77MwYXhszbL0/76RxD9/2/C/vfuWaC08IA8TmhrS/uTlsuig9KxCdI4Bsbkj7W5pdyQLhEy0Z
+39/U2JzxC4871YQ1//WZKTMfff0bNz0x54ozPWsaWrL+psaMH42AyGQDP+Pf9/jrvectj4qe9dGQ
+HjZm4K8vmTZiUG3gnCpGDux18yXTzvuv+yd/4f8mThoxtF/N2k2NCxeulIS97Ucz9xpYG57+CNNG
+GCM21rfU1bVE3STy198C0NCc81tyX/jZw18ojRcCtOQeu+5TJ08aGQTO8+zu+J9E1M0wQBARgKjf
+YdYPLvvScaecsJ+qiqDQRh82A5w+efRl3z9j6MAaAAnPArho1sT3jhjVd7urQhTuf+usSauOHtur
+OomSdg4AU8YNueySaccfNBxAeAlvzxhVPX3y6J/9eFZTc7Yl49dWJWccOab/7FP336tvuLah/asv
+u/AEBw1cGFW0JpU4aFT/EyaO6FOdck6tEVUEzn32pHEH7t3/d3NenffamiXvbuxXnfzGp4644IwJ
+E8cMDJzb/trfl507ubElF17YM5ppygiAkw8dKRefrEnrlww7EYHmglGDe4FTWdMejJfzJqJI6aiE
+Hd3fDZveOYFz1hjNj98MnLZ5jfHC47wMN9GHxABBRCjMqOicBs4ZY6yR0mkWC636fqAi8KyJLhgR
+OFV4VsJnt+n82OYC4b/hhqwx4amE0meDfO8KEQmcC8+tmHwx/O0mqxaBaWtChnAIRviUAs6piBRC
+Ren7AuAHToFwSuvS8gRO3Q6mvLBWTOt3TbRHYYAgop4m/7Mm2MG8k9zlE314DBBEREQUG4dxEhER
+UWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEERERBQbAwQRERHFxgBBREREsTFAEBERUWwM
+EERERBQbAwQRERHFxgBBREREsTFAEBERUWwMEES0Z6upwW23dXUhiMoPAwQRlb/LLsPUqV1diJ1S
+V4ehQzFnTleXgyg2r6sLQET04SxejCuvxMKFXV2OndKnD376U3zpS3j7bVRWdnVpiGJgCwQRlbmr
+r8bUqRg/Pvpz2TKcdRb69kVNDY44Alu2RA/OnIlevVBbi2nT8OqrbazngQcggnS6+MjEibjssuh+
+TQ0eeACnnYbKSgwZgiuuwMqVmDUL1dUYOhTf/S5Ui0s++CDOOgs1NRg0CJ/7HOrro6fuvhuHHoqq
+KvTvjxNPxPLlAHDuucjl8Oc//8srhmiXYoAgonIWBLjrLpx9dvTnpk044QRks5gzB88+i9mz0bcv
+mptx8smoqMC8eXjhBYwejeOPx/vvx97WBRfgC1/A0qX43vfwgx/guOMwaxZefx3XXIOrr8Y99xSX
+/PznMWsWlizBX/6CRx7B5ZcDwAcf4Oyz8c1vYuVKPPsszjsPe+8NAKkUZs3CHXd8+Mog2p14CoOI
+ytnixWhowDHHRH/+8Y9Ip3HHHaipAYCDDwaAW29FQwNuvRVVVQD+f/v28xJFGMdx/K1ZFuIuuhRe
+JCuojTQtMCXq0F8QVETBhiIEwRpeJPBQt0CCTi11iyiQDp27WBQhhFSXyn5QhyyCLpEruaGwux0c
+nJQixpRt4P06zfeZZ5/5spf58MwMV69y/z65HJcuRbvWiRNBUhkYYHiYgwfp6wPYvJnLl3n6lCNH
+gpnHj9PbC9DSQibD48cAhQLFImvXkkqRSrF9e7jygQOcPUuxyJo1y/oXpApwB0JSnH34ALBlS1BO
+TNDaGqSHBRMTtLUF6QGorqa7eznvTOzaFR4nk+zcGZaJRPicAti9OzxuaCCfB9i6lVyOM2fYt48b
+N5idDee0tPD9O1+/Rm5JqhwDhKQ4y+epraW2NijLZaqqls759Va9MK1Y/PviP34sKhciyLx16/74
+w7q6349ns3z+TE8PFy+STvPpUzCeTAJMTf29Jem/YYCQFGf19czOMjcXlOk0L14wM7Nozp49PH8e
+DpZKjI8v2iSYl0gA4bRCIbzBr6BEgmyWly8Bbt4MBud3L+rrV/5y0qoxQEiKs+ZmgMnJoMxkqK7m
+1CmePeP1a0ZGKBTIZEgm6e3l1SvevaO/ny9f6O9fulRrK3V15HKUyxQKnDu36IuMfzc5yfXrvH/P
+9DTj43z7xo4dwamPH1m/no0bV/Jy0iozQEiKs44ONmxgbCwom5p48ICZGQ4dorOTK1col0kmefSI
+Uon9+2lv5+1bHj5k27alSzU2MjLCnTukUuzdS0MDR4+uZKs1Ndy6RWcnuBKbEgAAAK5JREFUmzZx
++jTnz3PsWHBqbIyuLmp8q11xUlVe+HZZkuLo5Enyee7erXQfyzU3R3MzFy6QzVa6FSkCdyAkxdzg
+IKOjvHlT6T6W6/ZtSiV6eirdhxSNOxCS4m9oiCdPuHev0n1ENz1NOs21axw+XOlWpGgMEJIkKTIf
+YUiSpMgMEJIkKTIDhCRJiswAIUmSIjNASJKkyAwQkiQpMgOEJEmKzAAhSZIiM0BIkqTIfgJdXEC0
+1W+h8AAAAABJRU5ErkJggg=="relation.png /><br />
+</p>
+</div>
+
+<p>
+Most relational databases use <i>structured query language</i> (SQL) to manage and query data. However many RDBMSs use their own particular dialect of SQL, which may have certain limitation or extensions. These extensions normally come in the form of more complex operations that users can perform on top of what they otherwise could with standard SQL.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3c44d75" class="outline-3">
+<h3 id="org3c44d75">What is standard SQL?</h3>
+<div class="outline-text-3" id="text-org3c44d75">
+<p>
+SQL standards are jointly maintained by the <a href="https://www.ansi.org/">American National Standards Institute</a> (ANSI), The <a href="https://www.iso.org/home.html">International Organization for Standardization</a> (ISO), and the <a href="https://www.iec.ch/">International Electrotechnical Comission</a> (IEC).<br />
+</p>
+
+<p>
+Standard SQL refers to the current version of SQL standards published by the above three bodies.<br />
+</p>
+
+<p>
+Full SQL Standard is large and complex. Full core SQL:2011 compliance requries 179 features. Due to this most RDBMSs don't support the entire standard, although some do come closer to full compliance than others.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgef08cc6" class="outline-3">
+<h3 id="orgef08cc6">Columns</h3>
+<div class="outline-text-3" id="text-orgef08cc6">
+<p>
+Each columns is assigned a <i>data type</i> which dictates what kind of entries are allowed in that column. Different RDBMSs implement different data types which aren't always directly interchangeable. Some common data types include <i>dates, strings, integers, Booleans</i>.<br />
+</p>
+
+<p>
+Numeric data types can be <i>signed</i>, meaning they can represent both positive and negative numbers, or <i>unsigned</i>, which means they can only represent positive numbers.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org03bce6c" class="outline-3">
+<h3 id="org03bce6c">Constraints</h3>
+<div class="outline-text-3" id="text-org03bce6c">
+<p>
+Sometimes a DBA will impose a <i>constraints</i> on a table to limite what values can be entered into it. A constraint typically applies to one particular column, but some constraints can be applied to an entire table. Here are some constraints that are commonly used in SQL:<br />
+</p>
+
+<ul class="org-ul">
+<li><code>UNIQUE</code>: Applying this constraint to a column ensures that no two entries in that column are identical.<br /></li>
+<li><code>NOT NULL</code>: This constraint ensures that a column doesn’t have any NULL entries.<br /></li>
+<li><code>PRIMARY KEY</code>: A combination of UNIQUE and NOT NULL, the PRIMARY KEY constraint ensures that no entry in the column is NULL and that every entry is distinct.<br /></li>
+<li><code>FOREIGN KEY</code>: A FOREIGN KEY is a column in one table that refers to the PRIMARY KEY of another table. This constraint is used to link two tables together: entries to the FOREIGN KEY column must already exist in the parent PRIMARY KEY column for the write process to succeed.<br /></li>
+<li><code>CHECK</code>: This constraint limits the range of values that can be entered into a column. For example, if your application is intended only for residents of Alaska, you could add a CHECK constraint on a ZIP code column to only allow entries between 99501 and 99950.<br /></li>
+<li><code>DEFAULT</code>: This provides a default value for a given column. Unless another value is specified, SQLite enters the default value automatically.<br /></li>
+<li><code>INDEX</code>: Used to help retrieve data from a table more quickly, this constraint is similar to an index in a textbook: instead of having to review every entry in a table, a query only has to review entries from the indexed column to find the desired results.<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org0c6fa30" class="outline-3">
+<h3 id="org0c6fa30">More</h3>
+<div class="outline-text-3" id="text-org0c6fa30">
+<p>
+To learn more about DBMSs, visit: <a href="https://www.digitalocean.com/community/articles/understanding-sql-and-nosql-databases-and-different-database-models">Understanding SQL and NoSQL Databases and Different Database Models</a>.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org4ab5384" class="outline-2">
+<h2 id="org4ab5384">About SQLite</h2>
+<div class="outline-text-2" id="text-org4ab5384">
+<p>
+SQLite is part of the default Python library.<br />
+</p>
+
+<p>
+SQLite is one of the most widely implemented open-sourced Relational Database Management Systems (RDBMSs). The other being MySQL and PostgrreSQL.<br />
+</p>
+
+<p>
+SQLite is self-contained, file-based and fully open-source. It is known for its portability, reliablity and strong performance in low-memory environments. Its transactions are ACID-compliant even in cases where the system crashes or undergoes a power outage.<br />
+</p>
+
+<p>
+SQLite is described as a serverless databse. This means that with SQLite, any proicess that access the database reads from and writes to the database disk file directly, which is different to the traditional RDBMSs which are implemented as as server-client connection process in which programs communicate with the host server through an interprocess communication that relays requests. This simplifies SQLite's setup process since it eliminates the need to set up a server process. Likewise there is no configuration necessasry for programs that use SQLite database, all they need is access to the disk.<br />
+</p>
+</div>
+
+<div id="outline-container-org0ac5d53" class="outline-3">
+<h3 id="org0ac5d53">Data Types</h3>
+<div class="outline-text-3" id="text-org0ac5d53">
+<p>
+SQLite's supported data types are listed below:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-center" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-center">Data Types</th>
+<th scope="col" class="org-left">Explanation</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-center">null</td>
+<td class="org-left">Includes any NULL values</td>
+</tr>
+
+<tr>
+<td class="org-center">integer</td>
+<td class="org-left">Signed integers, stored in 1, 2, 3, 4, 6 or 8 bytes depending on</td>
+</tr>
+
+<tr>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">magnitude of value</td>
+</tr>
+
+<tr>
+<td class="org-center">real</td>
+<td class="org-left">Real numbers or floating point values, stored as 8-byte floating</td>
+</tr>
+
+<tr>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">point numbers</td>
+</tr>
+
+<tr>
+<td class="org-center">text</td>
+<td class="org-left">text strings stored usign database encoding which can either be</td>
+</tr>
+
+<tr>
+<td class="org-center">&#xa0;</td>
+<td class="org-left">UTF-8, UTF-16BE or UTF-16LE</td>
+</tr>
+
+<tr>
+<td class="org-center">blob</td>
+<td class="org-left">any blob of data with every blob stored exactly as it was input</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org7664ec0" class="outline-3">
+<h3 id="org7664ec0">Advantates versus disadvantages of SQLite</h3>
+<div class="outline-text-3" id="text-org7664ec0">
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Advantages</th>
+<th scope="col" class="org-left">Disadvantages</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left"><b>Small footprint</b>: SQLite is very light-weight. It is</td>
+<td class="org-left"><b>Limited concurrency</b>: Although multiple process</td>
+</tr>
+
+<tr>
+<td class="org-left">also fully self-contained, so you don't need to</td>
+<td class="org-left">can access and query an SQLite database at the same</td>
+</tr>
+
+<tr>
+<td class="org-left">install any dependencies for it to work.</td>
+<td class="org-left">time, *only one process can make changes to the database</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">at any given time*. This means although SQLite supports</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>User-friendly</b>: SQLite is a zero-configuration</td>
+<td class="org-left">greater concurrency than most other embedeed DBMSs, this</td>
+</tr>
+
+<tr>
+<td class="org-left">database which does not run as a server process.</td>
+<td class="org-left">is not as much as client/ server RDBMSs like MySQL or</td>
+</tr>
+
+<tr>
+<td class="org-left">It is ready to be used out of the box and help to</td>
+<td class="org-left">PostgreSQL.</td>
+</tr>
+
+<tr>
+<td class="org-left">streamline the path from installing SQLite to</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">integrating it with an application</td>
+<td class="org-left"><b>No user management</b>: Database systems often come with support</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">for <i>users</i> or managed connections with predefined access</td>
+</tr>
+
+<tr>
+<td class="org-left"><b>Portable</b>: Unlike other DBMSs, which typically store</td>
+<td class="org-left">privileges to the databases and tables. SQLite doesn't have this.</td>
+</tr>
+
+<tr>
+<td class="org-left">data as a large batch of seperate files. An entire</td>
+<td class="org-left">The only applicable access permissions is Read/Write permissions,</td>
+</tr>
+
+<tr>
+<td class="org-left">SQLite database is stored in <b>a single file</b>.</td>
+<td class="org-left">which are the typicall OS privilegse. This means SQLite is a poor</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">choice for database applications that require multiple users with</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">special access levels.</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left"><b>Security</b>: A database engine that uses a server can provide better</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">protection from bugs in the client application than a serverless</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">database like SQLite. Moreover, because a server is a single</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">persistent process, a client-server database can control data</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">access with more precision than a serverless database, allowing</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">for more fine-grained locking and better concurrency.</td>
+</tr>
+</tbody>
+</table>
+</div>
+</div>
+
+<div id="outline-container-org9abc0c4" class="outline-3">
+<h3 id="org9abc0c4">SQLites is suitable for..</h3>
+<div class="outline-text-3" id="text-org9abc0c4">
+<ul class="org-ul">
+<li>Embedded applications: SQLite is a great choice of database for applications that need portability and don’t require future expansion. Examples include single-user local applications and mobile applications or games.<br /></li>
+<li>Disk access replacement: In cases where an application needs to read and write files to disk directly, it can be beneficial to use SQLite for the additional functionality and simplicity that comes with using SQL.<br /></li>
+<li>Testing: For many applications it can be overkill to test their functionality with a DBMS that uses an additional server process. SQLite has an in-memory mode which can be used to run tests quickly without the overhead of actual database operations, making it an ideal choice for testing.<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgd8f889d" class="outline-3">
+<h3 id="orgd8f889d">More</h3>
+<div class="outline-text-3" id="text-orgd8f889d">
+<p>
+To read more about comparision between SQLite and MySQL and PostgreSQL, see: <a href="https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems">SQLite vs MySQL vs PostgreSQL: A Comparison Of Relational Database Management Systems | DigitalOcean</a>.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org3f89da6" class="outline-2">
+<h2 id="org3f89da6">Using SQLite with Python</h2>
+<div class="outline-text-2" id="text-org3f89da6">
+</div>
+<div id="outline-container-org0ca4e92" class="outline-3">
+<h3 id="org0ca4e92">Starting &amp; Setup</h3>
+<div class="outline-text-3" id="text-org0ca4e92">
+<p>
+Let's say that we want to create an application where we have Employees. We also want to have add/ update and delete Employees from the database, as well as being able to query Employees from that database.<br />
+</p>
+
+<p>
+We need to:<br />
+</p>
+<ol class="org-ol">
+<li>import sqlite3<br /></li>
+<li>create a database connection object<br />
+<ul class="org-ul">
+<li>within the <code>sqlite3.connect()</code> method arguments, we can either pass in a file where our data is stored. We can even do an <b>in-memory</b> database like this: <code>conn = sqlite3.connect(':memory:')</code>.<br /></li>
+</ul></li>
+</ol>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
+
+<span style="color: #fcfcfa;">conn</span> = sqlite3.connect(<span style="color: #ffd866;">'employee.db'</span>)
+
+</pre>
+</div>
+
+<p>
+This creates a file in the current dir (note the file size 0 B right now):<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ls -la | grep *.db
+</pre>
+</div>
+
+<pre class="example">
+-rw-r--r--  1 kkennynguyen kkennynguyen       0 Apr 20 00:16 employee.db
+</pre>
+
+
+<p>
+(If the file exists, sqlite3 will just connect to that database file.)<br />
+..then we have to create a cursor to execute SQL commands.<br />
+</p>
+
+<p>
+with a cursor, we can run commands using <code>execute()</code> method.<br />
+</p>
+
+<p>
+After running a command, we have to commit the connection. This commit the current transactions.<br />
+</p>
+
+<p>
+Afterward, it's good practice to close the connection.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
+
+<span style="color: #fcfcfa;">conn</span> = sqlite3.connect(<span style="color: #ffd866;">'employee.db'</span>)
+
+<span style="color: #fcfcfa;">c</span> = conn.cursor()
+
+<span style="color: #727072;">#</span><span style="color: #727072; font-style: italic;">create a table Employees with Firstname, Lastname and Pay.</span>
+c.execute(<span style="color: #ffd866;">""" </span>
+<span style="color: #ffd866;">        CREATE TABLE employees (</span>
+<span style="color: #ffd866;">                first text,</span>
+<span style="color: #ffd866;">                last text,</span>
+<span style="color: #ffd866;">                pay integer</span>
+<span style="color: #ffd866;">                        )"""</span>)
+
+conn.commit()
+conn.close()
+</pre>
+</div>
+
+<p>
+After running the above script, a table has been created in the <b>employee.db</b> file. We the file again and see the size of the file has changed to 8192 B or 8 KB.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">ls -la | grep *.db
+</pre>
+</div>
+
+<pre class="example">
+-rw-r--r--  1 kkennynguyen kkennynguyen    8192 Apr 20 00:25 employee.db
+</pre>
+
+
+<p>
+If I run the same script again, we would get an error because the table has already existed. This is good.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
+
+<span style="color: #fcfcfa;">conn</span> = sqlite3.connect(<span style="color: #ffd866;">'employee.db'</span>)
+
+<span style="color: #fcfcfa;">c</span> = conn.cursor()
+
+<span style="color: #727072;">#</span><span style="color: #727072; font-style: italic;">create a table Employees with Firstname, Lastname and Pay.</span>
+c.execute(<span style="color: #ffd866;">""" </span>
+<span style="color: #ffd866;">        CREATE TABLE employees (</span>
+<span style="color: #ffd866;">                first text,</span>
+<span style="color: #ffd866;">                last text,</span>
+<span style="color: #ffd866;">                pay integer</span>
+<span style="color: #ffd866;">                        )"""</span>)
+
+conn.commit()
+conn.close()
+</pre>
+</div>
+
+<pre class="example">
+Traceback (most recent call last):
+  File "&lt;stdin&gt;", line 1, in &lt;module&gt;
+  File "/tmp/babel-fwY7Nq/python-b2Eked", line 8, in &lt;module&gt;
+    c.execute(""" 
+sqlite3.OperationalError: table employees already exists
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org86b0436" class="outline-3">
+<h3 id="org86b0436">Adding an employee</h3>
+<div class="outline-text-3" id="text-org86b0436">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
+
+<span style="color: #fcfcfa;">conn</span> = sqlite3.connect(<span style="color: #ffd866;">'employee.db'</span>)
+
+<span style="color: #fcfcfa;">c</span> = conn.cursor()
+
+c.execute(<span style="color: #ffd866;">'INSERT INTO employees VALUES ("Kenny", "Nguyen", 50000)'</span>)
+
+conn.commit()
+conn.close()
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org92186fa" class="outline-3">
+<h3 id="org92186fa">Querying the database</h3>
+<div class="outline-text-3" id="text-org92186fa">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
+
+<span style="color: #fcfcfa;">conn</span> = sqlite3.connect(<span style="color: #ffd866;">'employee.db'</span>)
+
+<span style="color: #fcfcfa;">c</span> = conn.cursor()
+
+c.execute(<span style="color: #ffd866;">'SELECT * FROM employees'</span>)
+
+<span style="color: #ff6188;">print</span>(c.fetchall())
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Instead of fetchall we can also fetchone or fetchmany</span>
+
+conn.commit()
+conn.close()
+</pre>
+</div>
+
+<pre class="example">
+[('Kenny', 'Nguyen', 50000)]
+</pre>
+
+
+<p>
+What we did above is we retrieve data by running direct SQL commands. However in a real applications we want to have some Python variables and we want to put the values of these variables into the query.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1c17949" class="outline-3">
+<h3 id="org1c17949">Working with a class</h3>
+<div class="outline-text-3" id="text-org1c17949">
+<p>
+Create an entry using an instance of a class.<br />
+</p>
+
+<p>
+We can choose to use a formatted Python string for this, which is similar to something like <code>c.execute("INSERT INTO employees VALUES ('{}', '{}', {})".format(emp1.first, emp1.last, emp1.pay))</code>. However this makes our program vulnerable to <b>SQL injection attack</b>.<br />
+</p>
+
+<p>
+The reason for that is doing SQL insert this way does not involve a proper escape.<br />
+</p>
+
+<p>
+There are two different ways:<br />
+</p>
+
+<p>
+First way: Using the question marks<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first, last, pay):
+                <span style="color: #ff6188;">self</span>.first = first
+                <span style="color: #ff6188;">self</span>.last = last
+                <span style="color: #ff6188;">self</span>.pay = pay
+
+        <span style="color: #78dce8;">@property</span>
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
+                <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+        <span style="color: #78dce8;">@property</span>
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
+                <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__repr__</span>(<span style="color: #ff6188;">self</span>):
+                <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">"Employee ('{}', '{}', {})"</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last, <span style="color: #ff6188;">self</span>.pay)
+
+<span style="color: #fcfcfa;">conn</span> = sqlite3.connect(<span style="color: #ffd866;">'employee.db'</span>)
+
+<span style="color: #fcfcfa;">c</span> = conn.cursor()
+
+<span style="color: #fcfcfa;">emp1</span> = Employee(<span style="color: #ffd866;">'John'</span>, <span style="color: #ffd866;">'Smith'</span>, 80000)
+<span style="color: #fcfcfa;">emp2</span> = Employee(<span style="color: #ffd866;">'Jane'</span>, <span style="color: #ffd866;">'Lee'</span>, 80000)
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">first way - question mark placeholder and a tuple</span>
+c.execute(<span style="color: #ffd866;">"INSERT INTO employees VALUES (?, ?, ?)"</span>, (emp1.first, emp1.last, emp1.pay))
+conn.commit()
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">second way - using a dictionary</span>
+c.execute(<span style="color: #ffd866;">'INSERT INTO employees VALUES (:first, :last, :pay)'</span>, {<span style="color: #ffd866;">'first'</span>: emp2.first, <span style="color: #ffd866;">'last'</span>: emp2.last, <span style="color: #ffd866;">'pay'</span>: emp2.pay})
+conn.commit()
+
+conn.close()
+</pre>
+</div>
+
+<p>
+<b>Note</b>: Even if we are putting in one value, that has to be wrapped in a tuple (first way).<br />
+</p>
+
+<p>
+Now we can re-query it and there should be two new employee rows.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
+
+<span style="color: #fcfcfa;">conn</span> = sqlite3.connect(<span style="color: #ffd866;">'employee.db'</span>)
+
+<span style="color: #fcfcfa;">c</span> = conn.cursor()
+
+c.execute(<span style="color: #ffd866;">'SELECT * FROM employees'</span>)
+
+<span style="color: #ff6188;">print</span>(c.fetchall())
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Instead of fetchall we can also fetchone or fetchmany</span>
+
+conn.close()
+</pre>
+</div>
+
+<pre class="example">
+[('Kenny', 'Nguyen', 50000), ('Jane', 'Lee', 80000), ('John', 'Smith', 80000)]
+</pre>
+
+
+<p>
+We can also use the two approaches in a SELECT statement, i.e avoiding direct SQL:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
+
+<span style="color: #fcfcfa;">conn</span> = sqlite3.connect(<span style="color: #ffd866;">'employee.db'</span>)
+
+<span style="color: #fcfcfa;">c</span> = conn.cursor()
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">first way - question mark placeholder and a tuple</span>
+<span style="color: #fcfcfa;">c1</span> = c.execute(<span style="color: #ffd866;">'SELECT * FROM employees WHERE last=?'</span>, (<span style="color: #ffd866;">'Smith'</span>,))
+
+<span style="color: #ff6188;">print</span>(c1.fetchall())
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">second way - using a dictionary</span>
+<span style="color: #fcfcfa;">c2</span> = c.execute(<span style="color: #ffd866;">'SELECT * FROM employees WHERE last=:last'</span>, {<span style="color: #ffd866;">'last'</span>: <span style="color: #ffd866;">'Nguyen'</span>})
+
+<span style="color: #ff6188;">print</span>(c2.fetchall())
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Instead of fetchall we can also fetchone or fetchmany</span>
+
+conn.close()
+</pre>
+</div>
+
+<pre class="example">
+[('John', 'Smith', 80000)]
+[('Kenny', 'Nguyen', 50000)]
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org7ec0cbb" class="outline-3">
+<h3 id="org7ec0cbb">In-memory table</h3>
+<div class="outline-text-3" id="text-org7ec0cbb">
+<p>
+In-memory databases are useful for testing when we want a freshly cleaned database every run.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc0fd603" class="outline-3">
+<h3 id="orgc0fd603">Intro</h3>
+<div class="outline-text-3" id="text-orgc0fd603">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first, last, pay):
+                <span style="color: #ff6188;">self</span>.first = first
+                <span style="color: #ff6188;">self</span>.last = last
+                <span style="color: #ff6188;">self</span>.pay = pay
+
+        <span style="color: #78dce8;">@property</span>
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
+                <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+        <span style="color: #78dce8;">@property</span>
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
+                <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__repr__</span>(<span style="color: #ff6188;">self</span>):
+                <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">"Employee ('{}', '{}', {})"</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last, <span style="color: #ff6188;">self</span>.pay)
+
+<span style="color: #fcfcfa;">conn</span> = sqlite3.connect(<span style="color: #ffd866;">':memory:'</span>)
+<span style="color: #fcfcfa;">c</span> = conn.cursor()
+
+c.execute(<span style="color: #ffd866;">""" </span>
+<span style="color: #ffd866;">        CREATE TABLE employees (</span>
+<span style="color: #ffd866;">                first text,</span>
+<span style="color: #ffd866;">                last text,</span>
+<span style="color: #ffd866;">                pay integer</span>
+<span style="color: #ffd866;">                        )"""</span>)
+
+<span style="color: #fcfcfa;">emp1</span> = Employee(<span style="color: #ffd866;">'John'</span>, <span style="color: #ffd866;">'Smith'</span>, 80000)
+<span style="color: #fcfcfa;">emp2</span> = Employee(<span style="color: #ffd866;">'Jane'</span>, <span style="color: #ffd866;">'Lee'</span>, 80000)
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">raw sql</span>
+c.execute(<span style="color: #ffd866;">'INSERT INTO employees VALUES ("Kenny", "Nguyen", 50000)'</span>)
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">first way - question mark placeholder and a tuple</span>
+c.execute(<span style="color: #ffd866;">"INSERT INTO employees VALUES (?, ?, ?)"</span>, (emp1.first, emp1.last, emp1.pay))
+
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">second way - using a dictionary</span>
+c.execute(<span style="color: #ffd866;">'INSERT INTO employees VALUES (:first, :last, :pay)'</span>, {<span style="color: #ffd866;">'first'</span>: emp2.first, <span style="color: #ffd866;">'last'</span>: emp2.last, <span style="color: #ffd866;">'pay'</span>: emp2.pay})
+
+conn.commit()
+
+c.execute(<span style="color: #ffd866;">'SELECT * FROM employees'</span>)
+<span style="color: #ff6188;">print</span>(c.fetchall())
+
+conn.close()
+</pre>
+</div>
+
+<pre class="example">
+[('Kenny', 'Nguyen', 50000), ('John', 'Smith', 80000), ('Jane', 'Lee', 80000)]
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgf6c6c51" class="outline-3">
+<h3 id="orgf6c6c51">Using in-mem database to prototype a basic Python application</h3>
+<div class="outline-text-3" id="text-orgf6c6c51">
+<p>
+Tips: To make our application more Pythonic, when handling database connection in Python, use <b>context manger</b>, instead of manually commiting each statement. This is applicable to write statements, read statements aren't needed to be commited.<br />
+</p>
+
+<p>
+This ensures that if the transactions isn't executed properly, it would be rolled back.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first, last, pay):
+                <span style="color: #ff6188;">self</span>.first = first
+                <span style="color: #ff6188;">self</span>.last = last
+                <span style="color: #ff6188;">self</span>.pay = pay
+
+        <span style="color: #78dce8;">@property</span>
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
+                <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+        <span style="color: #78dce8;">@property</span>
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
+                <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__repr__</span>(<span style="color: #ff6188;">self</span>):
+                <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">"Employee ('{}', '{}', {})"</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last, <span style="color: #ff6188;">self</span>.pay)
+
+<span style="color: #fcfcfa;">conn</span> = sqlite3.connect(<span style="color: #ffd866;">':memory:'</span>)
+<span style="color: #fcfcfa;">c</span> = conn.cursor()
+
+c.execute(<span style="color: #ffd866;">""" </span>
+<span style="color: #ffd866;">        CREATE TABLE employees (</span>
+<span style="color: #ffd866;">                first text,</span>
+<span style="color: #ffd866;">                last text,</span>
+<span style="color: #ffd866;">                pay integer</span>
+<span style="color: #ffd866;">                        )"""</span>)
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">insert_emp</span>(emp):
+        <span style="color: #ff6188;">with</span> conn:
+                c.execute(<span style="color: #ffd866;">"INSERT INTO employees VALUES (:first, :last, :pay)"</span>, {<span style="color: #ffd866;">'first'</span>: emp.first, <span style="color: #ffd866;">'last'</span>: emp.last, <span style="color: #ffd866;">'pay'</span>: emp.pay})
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">get_emps_by_name</span>(lastname):
+        c.execute(<span style="color: #ffd866;">"SELECT * FROM employees WHERE last=:last"</span>, {<span style="color: #ffd866;">'last'</span>: lastname})
+        <span style="color: #ff6188;">return</span> c.fetchall()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">update_pay</span>(emp, pay):
+        <span style="color: #ff6188;">with</span> conn:
+                c.execute(<span style="color: #ffd866;">"""</span>
+<span style="color: #ffd866;">                        UPDATE employees SET pay = :pay</span>
+<span style="color: #ffd866;">                        WHERE first = :first AND last = :last   </span>
+<span style="color: #ffd866;">        """</span>, {<span style="color: #ffd866;">'first'</span>: emp.first, <span style="color: #ffd866;">'last'</span>: emp.last, <span style="color: #ffd866;">'pay'</span>: pay})                
+        
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">remove_emp</span>(emp):
+        <span style="color: #ff6188;">with</span> conn:
+                c.execute(<span style="color: #ffd866;">"""</span>
+<span style="color: #ffd866;">                DELETE FROM employees</span>
+<span style="color: #ffd866;">                WHERE first = :first and last = :last </span>
+<span style="color: #ffd866;">        """</span>, {<span style="color: #ffd866;">'first'</span>: emp.first, <span style="color: #ffd866;">'last'</span>: emp.last})
+
+
+<span style="color: #fcfcfa;">emp1</span> = Employee(<span style="color: #ffd866;">'Kenny'</span>, <span style="color: #ffd866;">'Nguyen'</span>, 50000)
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'emp1:'</span>, emp1)
+<span style="color: #fcfcfa;">emp2</span> = Employee(<span style="color: #ffd866;">'John'</span>, <span style="color: #ffd866;">'Smith'</span>, 60000)
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'emp2:'</span>, emp2)
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Run 1</span>
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Run 1.. insert and select emp1'</span>)
+insert_emp(emp1)
+<span style="color: #ff6188;">print</span>(get_emps_by_name(<span style="color: #ffd866;">'Nguyen'</span>))
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Run 2</span>
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Run 2.. insert and select emp2'</span>)
+insert_emp(emp2)
+<span style="color: #ff6188;">print</span>(get_emps_by_name(<span style="color: #ffd866;">'Smith'</span>))
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Run 3</span>
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Run 3.. remove and select emp2'</span>)
+remove_emp(emp2)
+<span style="color: #ff6188;">print</span>(get_emps_by_name(<span style="color: #ffd866;">'Smith'</span>))
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Run 4</span>
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Run 4.. change pay for emp1'</span>)
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'before:'</span>, get_emps_by_name(<span style="color: #ffd866;">'Nguyen'</span>))
+update_pay(emp1, 100000)
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'after:'</span>, get_emps_by_name(<span style="color: #ffd866;">'Nguyen'</span>))
+
+
+</pre>
+</div>
+
+<pre class="example">
+emp1: Employee ('Kenny', 'Nguyen', 50000)
+emp2: Employee ('John', 'Smith', 60000)
+Run 1.. insert and select emp1
+[('Kenny', 'Nguyen', 50000)]
+Run 2.. insert and select emp2
+[('John', 'Smith', 60000)]
+Run 3.. remove and select emp2
+[]
+Run 4.. change pay for emp1
+before: [('Kenny', 'Nguyen', 50000)]
+after: [('Kenny', 'Nguyen', 100000)]
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
+                          <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
+                          <p>Created: 2020-04-19 Sun 00:00</p>
+                          <p class="date">Updated: 2020-04-20 Mon 01:26</p>
+</div>
+</body>
+</html>

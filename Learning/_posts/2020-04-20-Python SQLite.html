@@ -3,10 +3,10 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-04-20 Mon 01:26 -->
+<!-- 2020-04-20 Mon 09:30 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Python SQLite</title>
+<title>SQLite and how to use it in Python</title>
 <meta name="generator" content="Org mode" />
 <meta name="author" content="Mishka Nguyen" />
 <style type="text/css">
@@ -248,7 +248,7 @@ for the JavaScript code in this tag.
 </head>
 <body>
 <div id="content">
-<h1 class="title">Python SQLite</h1>
+<h1 class="title">SQLite and how to use it in Python</h1>
 <div id="table-of-contents">
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
@@ -259,7 +259,7 @@ for the JavaScript code in this tag.
 <li><a href="#org3c44d75">What is standard SQL?</a></li>
 <li><a href="#orgef08cc6">Columns</a></li>
 <li><a href="#org03bce6c">Constraints</a></li>
-<li><a href="#org0c6fa30">More</a></li>
+<li><a href="#orgd8f889d">More</a></li>
 </ul>
 </li>
 <li><a href="#org4ab5384">About SQLite</a>
@@ -267,7 +267,7 @@ for the JavaScript code in this tag.
 <li><a href="#org0ac5d53">Data Types</a></li>
 <li><a href="#org7664ec0">Advantates versus disadvantages of SQLite</a></li>
 <li><a href="#org9abc0c4">SQLites is suitable for..</a></li>
-<li><a href="#orgd8f889d">More</a></li>
+<li><a href="#org1b411ae">More</a></li>
 </ul>
 </li>
 <li><a href="#org3f89da6">Using SQLite with Python</a>
@@ -276,9 +276,12 @@ for the JavaScript code in this tag.
 <li><a href="#org86b0436">Adding an employee</a></li>
 <li><a href="#org92186fa">Querying the database</a></li>
 <li><a href="#org1c17949">Working with a class</a></li>
-<li><a href="#org7ec0cbb">In-memory table</a></li>
+<li><a href="#org7ec0cbb">In-memory table</a>
+<ul>
 <li><a href="#orgc0fd603">Intro</a></li>
 <li><a href="#orgf6c6c51">Using in-mem database to prototype a basic Python application</a></li>
+</ul>
+</li>
 </ul>
 </li>
 </ul>
@@ -657,9 +660,9 @@ Sometimes a DBA will impose a <i>constraints</i> on a table to limite what value
 </div>
 </div>
 
-<div id="outline-container-org0c6fa30" class="outline-3">
-<h3 id="org0c6fa30">More</h3>
-<div class="outline-text-3" id="text-org0c6fa30">
+<div id="outline-container-orgd8f889d" class="outline-3">
+<h3 id="orgd8f889d">More</h3>
+<div class="outline-text-3" id="text-orgd8f889d">
 <p>
 To learn more about DBMSs, visit: <a href="https://www.digitalocean.com/community/articles/understanding-sql-and-nosql-databases-and-different-database-models">Understanding SQL and NoSQL Databases and Different Database Models</a>.<br />
 </p>
@@ -896,9 +899,9 @@ SQLite's supported data types are listed below:<br />
 </div>
 </div>
 
-<div id="outline-container-orgd8f889d" class="outline-3">
-<h3 id="orgd8f889d">More</h3>
-<div class="outline-text-3" id="text-orgd8f889d">
+<div id="outline-container-org1b411ae" class="outline-3">
+<h3 id="org1b411ae">More</h3>
+<div class="outline-text-3" id="text-org1b411ae">
 <p>
 To read more about comparision between SQLite and MySQL and PostgreSQL, see: <a href="https://www.digitalocean.com/community/tutorials/sqlite-vs-mysql-vs-postgresql-a-comparison-of-relational-database-management-systems">SQLite vs MySQL vs PostgreSQL: A Comparison Of Relational Database Management Systems | DigitalOcean</a>.<br />
 </p>
@@ -1104,10 +1107,11 @@ The reason for that is doing SQL insert this way does not involve a proper escap
 <p>
 There are two different ways:<br />
 </p>
+<ol class="org-ol">
+<li>Using the question marks as placeholders<br /></li>
+<li>Using a dictionary<br /></li>
+</ol>
 
-<p>
-First way: Using the question marks<br />
-</p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
 
@@ -1217,11 +1221,10 @@ conn.close()
 In-memory databases are useful for testing when we want a freshly cleaned database every run.<br />
 </p>
 </div>
-</div>
 
-<div id="outline-container-orgc0fd603" class="outline-3">
-<h3 id="orgc0fd603">Intro</h3>
-<div class="outline-text-3" id="text-orgc0fd603">
+<div id="outline-container-orgc0fd603" class="outline-4">
+<h4 id="orgc0fd603">Intro</h4>
+<div class="outline-text-4" id="text-orgc0fd603">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">import</span> sqlite3
 
@@ -1281,9 +1284,9 @@ conn.close()
 </div>
 </div>
 
-<div id="outline-container-orgf6c6c51" class="outline-3">
-<h3 id="orgf6c6c51">Using in-mem database to prototype a basic Python application</h3>
-<div class="outline-text-3" id="text-orgf6c6c51">
+<div id="outline-container-orgf6c6c51" class="outline-4">
+<h4 id="orgf6c6c51">Using in-mem database to prototype a basic Python application</h4>
+<div class="outline-text-4" id="text-orgf6c6c51">
 <p>
 Tips: To make our application more Pythonic, when handling database connection in Python, use <b>context manger</b>, instead of manually commiting each statement. This is applicable to write statements, read statements aren't needed to be commited.<br />
 </p>
@@ -1393,11 +1396,12 @@ after: [('Kenny', 'Nguyen', 100000)]
 </div>
 </div>
 </div>
+</div>
 <div id="postamble" class="status">
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
                           <p>Created: 2020-04-19 Sun 00:00</p>
-                          <p class="date">Updated: 2020-04-20 Mon 01:26</p>
+                          <p class="date">Updated: 2020-04-20 Mon 09:30</p>
 </div>
 </body>
 </html>

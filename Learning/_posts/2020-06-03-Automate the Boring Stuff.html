@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-06-02 Tue 01:04 -->
+<!-- 2020-06-03 Wed 01:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Automate the Boring Stuff with Python</title>
@@ -275,303 +275,320 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org1442a1b">Introduction</a></li>
-<li><a href="#org44dc6af"><b>Note</b> Python virtual environment:</a></li>
-<li><a href="#org12ba40e">Chapter 1 - Python Basics</a>
+<li><a href="#org6e474a6">Introduction</a></li>
+<li><a href="#orgbea3753"><b>Note</b> Python virtual environment:</a></li>
+<li><a href="#orga1fc946">Chapter 1 - Python Basics</a>
 <ul>
-<li><a href="#orga1e424c">Expression, Variable, Operator and Data type</a>
+<li><a href="#org2946bae">Expression, Variable, Operator and Data type</a>
 <ul>
-<li><a href="#org0c3af19">Expression</a></li>
-<li><a href="#orgc7f60b0">Operators</a></li>
-<li><a href="#org5a90c6f">Data type</a></li>
-<li><a href="#orgbe2f46f">Variable</a></li>
+<li><a href="#org0e2fafc">Expression</a></li>
+<li><a href="#orgef35779">Operators</a></li>
+<li><a href="#org4fcda57">Data type</a></li>
+<li><a href="#org23d0a6e">Variable</a></li>
 </ul>
 </li>
-<li><a href="#org911b1ff">Basic about writing codes</a></li>
-<li><a href="#orgc558174">The str(), int(), and float() Functions</a></li>
+<li><a href="#org7321a40">Basic about writing codes</a></li>
+<li><a href="#org267d273">The str(), int(), and float() Functions</a></li>
 </ul>
 </li>
-<li><a href="#org312570c">Chapter 2 - Flow control</a>
+<li><a href="#org79f1769">Chapter 2 - Flow control</a>
 <ul>
-<li><a href="#orgbd1b09f">Boolean</a></li>
-<li><a href="#org472ba6d">Flow control - The condition</a></li>
-<li><a href="#org8463eab">Block of code</a></li>
-<li><a href="#org037cd41">The <code>if</code> and <code>else</code> statements</a></li>
-<li><a href="#org69c40a8">The <code>elif</code> statement</a>
+<li><a href="#org985afd0">Boolean</a></li>
+<li><a href="#org7225cdd">Flow control - The condition</a></li>
+<li><a href="#orge62ab8c">Block of code</a></li>
+<li><a href="#orge046b9f">The <code>if</code> and <code>else</code> statements</a></li>
+<li><a href="#orgd2d16a5">The <code>elif</code> statement</a>
 <ul>
-<li><a href="#orga1e902f">Comparison between <code>if</code> and <code>elif</code></a></li>
+<li><a href="#orgcddbd15">Comparison between <code>if</code> and <code>elif</code></a></li>
 </ul>
 </li>
-<li><a href="#org215bf53">The <code>while</code> statement</a>
+<li><a href="#org225a1f9">The <code>while</code> statement</a>
 <ul>
-<li><a href="#orgea527ad">Overview and how to</a></li>
-<li><a href="#orgdbb1cc7">break</a></li>
-<li><a href="#org2275914">continue</a></li>
-<li><a href="#org5a75afb">Trapped in an infinite loop</a></li>
-<li><a href="#orgae0bf08">"Truthy" and "Falsey" values</a></li>
+<li><a href="#org45b0b98">Overview and how to</a></li>
+<li><a href="#org356cb9c">break</a></li>
+<li><a href="#org918ba44">continue</a></li>
+<li><a href="#org4bfbdba">Trapped in an infinite loop</a></li>
+<li><a href="#org5d9120f">"Truthy" and "Falsey" values</a></li>
 </ul>
 </li>
-<li><a href="#org17f56e9">The <code>for</code> statement and <code>range()</code> function</a>
+<li><a href="#orgdb6b7c3">The <code>for</code> statement and <code>range()</code> function</a>
 <ul>
-<li><a href="#org0b84437"><code>range()</code> function with starting, stopping and stepping arguments</a></li>
+<li><a href="#orgc65d0ff"><code>range()</code> function with starting, stopping and stepping arguments</a></li>
 </ul>
 </li>
-<li><a href="#org1cb5de7">Importing Modules</a>
+<li><a href="#orgd661516">Importing Modules</a>
 <ul>
-<li><a href="#orgbfa6640"><code>import</code> a  standard library</a></li>
-<li><a href="#orgab5d31c"><code>from import</code> statement</a></li>
-<li><a href="#orgde6c536">ending a program early with <code>sys.exit()</code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orga84d114">Chapter 3 - Functions</a>
-<ul>
-<li><a href="#org90228dd"><code>def</code> statement</a></li>
-<li><a href="#orgcc75b5a"><code>def</code> statement with parameters</a></li>
-<li><a href="#orgedf37e8"><code>return</code> values and <code>return</code> statements</a></li>
-<li><a href="#org9940ccd">The <code>None</code> value</a></li>
-<li><a href="#orgeb138b6">Local and Global Scope</a></li>
-<li><a href="#org05e7b6b">The Global Statement</a></li>
-<li><a href="#org660c230">Exception Handling</a></li>
-<li><a href="#orga81fce0">Practice: Guess the Number</a></li>
-<li><a href="#org2063820">Practice - The Collatz Sequence</a></li>
-</ul>
-</li>
-<li><a href="#org454f5f7">Chapter 4 - Lists</a>
-<ul>
-<li><a href="#orgc08dc01">Indexes</a>
-<ul>
-<li><a href="#org6385f6a">Looped lists and multiple indexes</a></li>
-<li><a href="#orgda5cf51">Negative Indexes</a></li>
-<li><a href="#org229ccc6">Sublists and slices</a></li>
-<li><a href="#org860f457">Changing a value of a list item with indexes</a></li>
-</ul>
-</li>
-<li><a href="#orgfebe080">List concatenation and list replication</a></li>
-<li><a href="#orgf49e33a">Removing list item with <code>del</code></a></li>
-<li><a href="#org441cf92">Working with lists</a></li>
-<li><a href="#orgfc73cd0">Using <code>for</code> loops with lists</a></li>
-<li><a href="#org204aedb">the <code>in</code> and <code>not in</code> operators</a></li>
-<li><a href="#org2965246">The multiple assignment trick</a></li>
-<li><a href="#org226a577">Augmented Assignment Operators</a></li>
-<li><a href="#org7337cbb">Methods and List Methods</a>
-<ul>
-<li><a href="#org80c85c1"><code>append()</code> and <code>insert()</code></a></li>
-<li><a href="#org14d4c61"><code>remove()</code></a></li>
-<li><a href="#org2a1f882"><code>sort()</code></a></li>
-</ul>
-</li>
-<li><a href="#orgd28a4d5">Exception to indentation rule</a></li>
-<li><a href="#org611938c">List-like data type: strings</a></li>
-<li><a href="#org4b2cb44">Mutable and Immutable data types</a></li>
-<li><a href="#org11de720">The Tuple Data type</a></li>
-<li><a href="#org765eaac">References</a></li>
-<li><a href="#orgcb2d8b7">PRACTICE PROJECTS</a>
-<ul>
-<li><a href="#orgbf8e0f5">Comma Code</a></li>
-<li><a href="#orgb58715f">Character Picture Grid</a></li>
+<li><a href="#org50e9a47"><code>import</code> a  standard library</a></li>
+<li><a href="#orga9efc9d"><code>from import</code> statement</a></li>
+<li><a href="#org210ef1a">ending a program early with <code>sys.exit()</code></a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org2d9025b">Chapter 5 - Dictionaries and Structuring Data</a>
+<li><a href="#org39bb1d0">Chapter 3 - Functions</a>
 <ul>
-<li><a href="#org5047c42">Dictionaries vs. Lists</a></li>
-<li><a href="#org5d3664f"><code>keys()</code>, <code>values()</code> and <code>items()</code> methods</a></li>
-<li><a href="#org5691368">The <code>get()</code> method</a></li>
-<li><a href="#org95b0e77">The <code>setdefault()</code> method</a></li>
-<li><a href="#org53d646a">Pretty printing <code>pprint()</code> and <code>pformat()</code></a></li>
-<li><a href="#org8851efa">Nested dictionaries and lists</a></li>
-<li><a href="#org70cb384">PRACTICE PROJECT - Fantasy Game Inventory</a></li>
+<li><a href="#org84090c7"><code>def</code> statement</a></li>
+<li><a href="#org258abf4"><code>def</code> statement with parameters</a></li>
+<li><a href="#org8618563"><code>return</code> values and <code>return</code> statements</a></li>
+<li><a href="#org4f7310b">The <code>None</code> value</a></li>
+<li><a href="#org409a32a">Local and Global Scope</a></li>
+<li><a href="#orga737147">The Global Statement</a></li>
+<li><a href="#org4c960a0">Exception Handling</a></li>
+<li><a href="#orgd5f5091">Practice: Guess the Number</a></li>
+<li><a href="#org622d0a5">Practice - The Collatz Sequence</a></li>
 </ul>
 </li>
-<li><a href="#org4616211">Chapter 6 - Manipulating Strings</a>
+<li><a href="#orgeab123a">Chapter 4 - Lists</a>
 <ul>
-<li><a href="#org01f3cb1">String literals</a>
+<li><a href="#orge44c898">Indexes</a>
 <ul>
-<li><a href="#orgd773ecd">Double Quotes</a></li>
-<li><a href="#orgebfe734">Escape Character</a></li>
-<li><a href="#orge8e00d5">Raw strings</a></li>
-<li><a href="#orge273ee2">Multiline strings with Triple Quotes</a></li>
-<li><a href="#org0a14df2">Multiline Comments</a></li>
+<li><a href="#org68ab29c">Looped lists and multiple indexes</a></li>
+<li><a href="#orgeb4bb10">Negative Indexes</a></li>
+<li><a href="#org883d6f1">Sublists and slices</a></li>
+<li><a href="#org24f7334">Changing a value of a list item with indexes</a></li>
 </ul>
 </li>
-<li><a href="#org85aa616">Indexing and Slicing Strings</a></li>
-<li><a href="#org2a59b54"><code>in</code> and <code>not in</code> operators with strings</a></li>
-<li><a href="#orged4fe34">Useful string methods</a>
+<li><a href="#org3b5f816">List concatenation and list replication</a></li>
+<li><a href="#orgaa58f84">Removing list item with <code>del</code></a></li>
+<li><a href="#org1659f3b">Working with lists</a></li>
+<li><a href="#org5c4dafd">Using <code>for</code> loops with lists</a></li>
+<li><a href="#orga055a59">the <code>in</code> and <code>not in</code> operators</a></li>
+<li><a href="#org6715972">The multiple assignment trick</a></li>
+<li><a href="#org1701a79">Augmented Assignment Operators</a></li>
+<li><a href="#org0dcf549">Methods and List Methods</a>
 <ul>
-<li><a href="#org991bfe3"><code>upper()</code> and <code>lower()</code>, <code>isupper()</code> and <code>islower()</code> methods</a></li>
-<li><a href="#org19a9544">The <code>isX</code> methods</a></li>
-<li><a href="#org73b5942">The <code>startswith()</code> and <code>endswith()</code> string methods</a></li>
-<li><a href="#org26c44a2">The <code>join()</code> and <code>split()</code> methods</a></li>
-<li><a href="#orge2277ec">Justifying text with <code>rjust()</code>, <code>ljust()</code> and <code>center()</code></a></li>
-<li><a href="#orgc78fee9">Removing whitespace with <code>strip()</code>, <code>rstrip()</code>, <code>lstrip()</code></a></li>
-<li><a href="#orgdf9a2d9">Copying and pasting string with <code>pyperclip</code> module</a></li>
+<li><a href="#orgfe26638"><code>append()</code> and <code>insert()</code></a></li>
+<li><a href="#org0d4d9c0"><code>remove()</code></a></li>
+<li><a href="#orge6d97cc"><code>sort()</code></a></li>
 </ul>
 </li>
-</ul>
-</li>
-<li><a href="#org2dc74d7">Chapter 7 - Pattern matching with RegEx</a>
+<li><a href="#orga8f1625">Exception to indentation rule</a></li>
+<li><a href="#org7d24e10">List-like data type: strings</a></li>
+<li><a href="#org5988721">Mutable and Immutable data types</a></li>
+<li><a href="#org0435b73">The Tuple Data type</a></li>
+<li><a href="#org796d752">References</a></li>
+<li><a href="#org65629a0">PRACTICE PROJECTS</a>
 <ul>
-<li><a href="#orgb9f8d6c">FInding patterns of text without RegEx</a></li>
-<li><a href="#org7d74e92">Finding pattern of text with RegEx</a></li>
-<li><a href="#orge72a40b">Creating RegEx Objects</a></li>
-<li><a href="#orgd70f2ce">Matching RegEx Objects</a></li>
-<li><a href="#org889eed1">REVIEW of RegEx</a></li>
-<li><a href="#org5893df1">Grouping of RegEx with Parentheses</a>
-<ul>
-<li><a href="#org9aa44d3">Matching a parenthesis in regex</a></li>
-</ul>
-</li>
-<li><a href="#org21cc104">Matching multiple groups with Pipe</a></li>
-<li><a href="#orgb973857"><code>findall()</code> method</a></li>
-<li><a href="#orge044ec6">OPTIONAL matching using <code>?</code></a></li>
-<li><a href="#org5066207">Matching zero or more with asterisk <code>*</code></a></li>
-<li><a href="#org0c9078d">Matcing one or more with plus <code>+</code></a></li>
-<li><a href="#orgf287fc1">Matching specific repetitions with Curly Brackets <code>{}</code></a></li>
-<li><a href="#org33c14c2">Greedy and nongreedy matching</a></li>
-<li><a href="#org1d4e50f">SHORTHAND CODES FOR CHARACTER CLASSES</a>
-<ul>
-<li><a href="#org5b346bb">Matching our own custom character classes</a></li>
-</ul>
-</li>
-<li><a href="#org6724c14">The Caret <code>^</code> and Dollar Sign <code>$</code></a></li>
-<li><a href="#orgd3b661e">The <b>WILDCARD</b></a></li>
-<li><a href="#org92c967a">Case-insensitive matching</a></li>
-<li><a href="#org66c60fb"><code>re.VERBOSE</code></a></li>
-<li><a href="#org9753c61">PRACTICE PROJECT - Phone Number and Email Address Extractor</a>
-<ul>
-<li><a href="#orgab14080">Resolution</a></li>
+<li><a href="#orga6dff52">Comma Code</a></li>
+<li><a href="#orgf0287a1">Character Picture Grid</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org4eaaecc">Chapter 8 - Input validation</a>
+<li><a href="#orgd429083">Chapter 5 - Dictionaries and Structuring Data</a>
 <ul>
-<li><a href="#org8c358cb">PyInputPlus</a></li>
-<li><a href="#org8bc1bdf">PyInputPlus common functions</a></li>
-<li><a href="#org1b059d7"><code>inputNum</code> | <code>inputInt</code> | <code>inputFloat</code> - implement range limit</a></li>
-<li><a href="#org6ea86ea">the <code>blank</code> keyword argument</a></li>
-<li><a href="#org9887e08">limit | timeout</a></li>
-<li><a href="#orga595d06">default keyword argument</a></li>
-<li><a href="#org624764a">The <code>allowRegexes</code> and <code>blockRegexes</code> keyword arguments</a></li>
-<li><a href="#orgfd43648"><code>inputCustom()</code></a></li>
-<li><a href="#org247ba59">Project: How to keep an idiot busy for hours</a></li>
+<li><a href="#org838d269">Dictionaries vs. Lists</a></li>
+<li><a href="#orgb9b05a9"><code>keys()</code>, <code>values()</code> and <code>items()</code> methods</a></li>
+<li><a href="#orgabd07e5">The <code>get()</code> method</a></li>
+<li><a href="#orgc1307c5">The <code>setdefault()</code> method</a></li>
+<li><a href="#org7855d1a">Pretty printing <code>pprint()</code> and <code>pformat()</code></a></li>
+<li><a href="#orgeea590e">Nested dictionaries and lists</a></li>
+<li><a href="#org75c5817">PRACTICE PROJECT - Fantasy Game Inventory</a></li>
 </ul>
 </li>
-<li><a href="#org982988a">Chapter 9 - Reading and writing files</a>
+<li><a href="#org2f471e4">Chapter 6 - Manipulating Strings</a>
 <ul>
-<li><a href="#orgf4b5a78">Backslashes on Windows and Forward Slash on OS X and Linus</a></li>
-<li><a href="#org0313702">Current working directory (cwd)</a></li>
-<li><a href="#org4164b74">Absolute vs Relative path</a></li>
-<li><a href="#org40fb075">Create new folder with <code>os.makedirs()</code></a></li>
-<li><a href="#org7e1f102">The <code>os.path</code> module</a></li>
-<li><a href="#org6262f75">Finding File Sizes and Folder content</a></li>
-<li><a href="#org882ba60">Checking path validity</a></li>
-<li><a href="#orgf471cad">File Reading and Writing Process</a></li>
+<li><a href="#org4b65c26">String literals</a>
+<ul>
+<li><a href="#orgb4246bd">Double Quotes</a></li>
+<li><a href="#org31efbfa">Escape Character</a></li>
+<li><a href="#org7dae506">Raw strings</a></li>
+<li><a href="#orgfe35ff2">Multiline strings with Triple Quotes</a></li>
+<li><a href="#org7049820">Multiline Comments</a></li>
 </ul>
 </li>
-<li><a href="#orgc7b5d41">Chapter 10 - Organizing files</a>
+<li><a href="#org40adda0">Indexing and Slicing Strings</a></li>
+<li><a href="#org8baf2ba"><code>in</code> and <code>not in</code> operators with strings</a></li>
+<li><a href="#orgdfbee77">Useful string methods</a>
 <ul>
-<li><a href="#orgf94f2f7">The <code>shutil</code> module</a></li>
-<li><a href="#orga7f545f">Copying Files and Folders</a>
-<ul>
-<li><a href="#org121f4c8"><code>shutil.copytree()</code></a></li>
-</ul>
-</li>
-<li><a href="#org0f2adf7">Moving and renaming files and folders</a></li>
-<li><a href="#org8832d39">Permanent delete</a></li>
-<li><a href="#org8ff3764">Safe Delete</a></li>
-<li><a href="#org249d0f0">Walking a dir tree</a></li>
-<li><a href="#org2a6325d">Compressing Files with <code>zipfile</code> module</a>
-<ul>
-<li><a href="#org0037a81">Reading ZIP file</a></li>
-<li><a href="#org4df046d">Extracting from ZIP files</a></li>
-<li><a href="#org8abd5d0">Creating and Adding to ZIP files</a></li>
-<li><a href="#org7d84f3c">Project: Renaming files with Ameri</a></li>
+<li><a href="#org02d2077"><code>upper()</code> and <code>lower()</code>, <code>isupper()</code> and <code>islower()</code> methods</a></li>
+<li><a href="#orgf23c5a7">The <code>isX</code> methods</a></li>
+<li><a href="#orge7dfa13">The <code>startswith()</code> and <code>endswith()</code> string methods</a></li>
+<li><a href="#org8956c29">The <code>join()</code> and <code>split()</code> methods</a></li>
+<li><a href="#org8f6709d">Justifying text with <code>rjust()</code>, <code>ljust()</code> and <code>center()</code></a></li>
+<li><a href="#orgc24ad37">Removing whitespace with <code>strip()</code>, <code>rstrip()</code>, <code>lstrip()</code></a></li>
+<li><a href="#orgae62f0c">Copying and pasting string with <code>pyperclip</code> module</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#orge4ea7fd">Chapter 11- Debugging</a>
+<li><a href="#org85e05be">Chapter 7 - Pattern matching with RegEx</a>
 <ul>
-<li><a href="#org01435af">Raising Exceptions</a></li>
-<li><a href="#org6c0acb9">Getting the Traceback as a string</a></li>
-<li><a href="#orga6f81c6">Assertions</a>
+<li><a href="#org38856ff">FInding patterns of text without RegEx</a></li>
+<li><a href="#orgeb37a86">Finding pattern of text with RegEx</a></li>
+<li><a href="#orgeede070">Creating RegEx Objects</a></li>
+<li><a href="#org883b343">Matching RegEx Objects</a></li>
+<li><a href="#org7a1dc7d">REVIEW of RegEx</a></li>
+<li><a href="#orgcb05b53">Grouping of RegEx with Parentheses</a>
 <ul>
-<li><a href="#org334fe15">Assertion versus error handling</a></li>
-<li><a href="#org5d7da46">Assertion - A Traffic Light simulation</a></li>
+<li><a href="#org6185fe7">Matching a parenthesis in regex</a></li>
 </ul>
 </li>
-<li><a href="#orgf1b5b2d">Logging</a>
+<li><a href="#org780d391">Matching multiple groups with Pipe</a></li>
+<li><a href="#org0da6a02"><code>findall()</code> method</a></li>
+<li><a href="#org2507376">OPTIONAL matching using <code>?</code></a></li>
+<li><a href="#orgf8a7fce">Matching zero or more with asterisk <code>*</code></a></li>
+<li><a href="#org244cf70">Matcing one or more with plus <code>+</code></a></li>
+<li><a href="#org8c9347d">Matching specific repetitions with Curly Brackets <code>{}</code></a></li>
+<li><a href="#org9357376">Greedy and nongreedy matching</a></li>
+<li><a href="#orgd765386">SHORTHAND CODES FOR CHARACTER CLASSES</a>
 <ul>
-<li><a href="#orgc538686">Using the logging module</a></li>
-<li><a href="#orgcf218ef">Use debug instead of <code>print()</code></a></li>
-<li><a href="#orgf12af46">Logging Levels</a></li>
-<li><a href="#org58fabe5">Disabling logging</a></li>
-<li><a href="#org1f754ce">Logging to a file</a></li>
+<li><a href="#orgc2aee2d">Matching our own custom character classes</a></li>
 </ul>
 </li>
-<li><a href="#org70f96b0">The Debugger</a>
+<li><a href="#orgf0dcb01">The Caret <code>^</code> and Dollar Sign <code>$</code></a></li>
+<li><a href="#org303a5c8">The <b>WILDCARD</b></a></li>
+<li><a href="#orga010358">Case-insensitive matching</a></li>
+<li><a href="#org8185b05"><code>re.VERBOSE</code></a></li>
+<li><a href="#org00eccee">PRACTICE PROJECT - Phone Number and Email Address Extractor</a>
 <ul>
-<li><a href="#org95fb1ad">Breakpoints</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#orgc8d0773">Chapter 12 - Web Scraping</a>
-<ul>
-<li><a href="#orgfd54a54">Project - <b>mapit.py</b> with <b>webbrowser</b> module</a>
-<ul>
-<li><a href="#orgf3c2e44">Handling command line argument</a></li>
-</ul>
-</li>
-<li><a href="#orgb37cad9">Downloading files from the web with the Requests Module</a>
-<ul>
-<li><a href="#orgf410738">Saving downloaded file to hard drive with <code>iter_content()</code> method</a></li>
-</ul>
-</li>
-<li><a href="#org8c49648">Parsing HTML with <b>bs4</b> module</a>
-<ul>
-<li><a href="#orgbb70e85">Finding an Element with the <code>select()</code> method</a></li>
-</ul>
-</li>
-<li><a href="#org84856cf">Controlling the browser with <b>selenium</b></a>
-<ul>
-<li><a href="#org9687b3d">Finding Elements on the Page</a></li>
+<li><a href="#org8d62499">Resolution</a></li>
 </ul>
 </li>
 </ul>
 </li>
-<li><a href="#org978f93d">Chapter 13 - Working with Excel Spreadsheets</a>
+<li><a href="#org0dfc2d4">Chapter 8 - Input validation</a>
 <ul>
-<li><a href="#org5510ea6">Open a workbook</a></li>
-<li><a href="#org02a805a">Getting sheets from the workbook</a></li>
-<li><a href="#orga1b07a7">Getting Cells from Sheets</a></li>
-<li><a href="#org0c7e6f9">Converting between Column Letters and Numbers</a></li>
-<li><a href="#orgd61b8d6">Getting Rows and Columns from the Sheets</a></li>
-<li><a href="#org6b333fd">Writing Excel Documents</a></li>
-<li><a href="#org81db613">Create and saving Excel Document</a></li>
-<li><a href="#org1fbce0e">Setting Font Style of Cells</a></li>
-<li><a href="#org968453e">Other stuff</a></li>
+<li><a href="#org34db54a">PyInputPlus</a></li>
+<li><a href="#orgcfe8967">PyInputPlus common functions</a></li>
+<li><a href="#orgbbe6352"><code>inputNum</code> | <code>inputInt</code> | <code>inputFloat</code> - implement range limit</a></li>
+<li><a href="#org933383a">the <code>blank</code> keyword argument</a></li>
+<li><a href="#org242e17e">limit | timeout</a></li>
+<li><a href="#org9385c0f">default keyword argument</a></li>
+<li><a href="#org5abc2b1">The <code>allowRegexes</code> and <code>blockRegexes</code> keyword arguments</a></li>
+<li><a href="#org876192d"><code>inputCustom()</code></a></li>
+<li><a href="#org2dc629d">Project: How to keep an idiot busy for hours</a></li>
 </ul>
 </li>
-<li><a href="#orgfdadb02">Chapter 16 - Working with CSV Files</a>
+<li><a href="#org20d70c6">Chapter 9 - Reading and writing files</a>
 <ul>
-<li><a href="#org628f164">CSV</a>
-<ul>
-<li><a href="#org1e02acf">reader objects</a></li>
-<li><a href="#org60a4825">writer object</a></li>
-<li><a href="#orgc0b5fb2">The delimiter and lineterminator keyword argument</a></li>
-<li><a href="#org1d270b3">DictReader and DictWriter CSV Object</a></li>
+<li><a href="#org8456f58">Backslashes on Windows and Forward Slash on OS X and Linus</a></li>
+<li><a href="#org2d99bfd">Current working directory (cwd)</a></li>
+<li><a href="#org48f60b4">Absolute vs Relative path</a></li>
+<li><a href="#org9c25f6b">Create new folder with <code>os.makedirs()</code></a></li>
+<li><a href="#org09d362d">The <code>os.path</code> module</a></li>
+<li><a href="#org395051a">Finding File Sizes and Folder content</a></li>
+<li><a href="#orgf870048">Checking path validity</a></li>
+<li><a href="#org0d1db2b">File Reading and Writing Process</a></li>
 </ul>
 </li>
-<li><a href="#orgc233524">JSON</a>
+<li><a href="#org871d52a">Chapter 10 - Organizing files</a>
 <ul>
-<li><a href="#orgb35162a">The json module</a></li>
+<li><a href="#org71b024e">The <code>shutil</code> module</a></li>
+<li><a href="#orgee00caa">Copying Files and Folders</a>
+<ul>
+<li><a href="#orgc2a8c4b"><code>shutil.copytree()</code></a></li>
 </ul>
 </li>
+<li><a href="#orgc374fca">Moving and renaming files and folders</a></li>
+<li><a href="#org0d85959">Permanent delete</a></li>
+<li><a href="#orgef85d1c">Safe Delete</a></li>
+<li><a href="#orgf8d6edc">Walking a dir tree</a></li>
+<li><a href="#org3ef0da7">Compressing Files with <code>zipfile</code> module</a>
+<ul>
+<li><a href="#org5aada79">Reading ZIP file</a></li>
+<li><a href="#orgf289e61">Extracting from ZIP files</a></li>
+<li><a href="#org8feb579">Creating and Adding to ZIP files</a></li>
+<li><a href="#org443d843">Project: Renaming files with Ameri</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgd3a503d">Chapter 11- Debugging</a>
+<ul>
+<li><a href="#org0015fc3">Raising Exceptions</a></li>
+<li><a href="#org9ccc6e7">Getting the Traceback as a string</a></li>
+<li><a href="#org8bd07c1">Assertions</a>
+<ul>
+<li><a href="#orgb6efc7c">Assertion versus error handling</a></li>
+<li><a href="#org63c166a">Assertion - A Traffic Light simulation</a></li>
+</ul>
+</li>
+<li><a href="#org90a05a8">Logging</a>
+<ul>
+<li><a href="#org3dcbcb6">Using the logging module</a></li>
+<li><a href="#orgd9ad12b">Use debug instead of <code>print()</code></a></li>
+<li><a href="#org47ead8a">Logging Levels</a></li>
+<li><a href="#org31fbf1f">Disabling logging</a></li>
+<li><a href="#org8e61e1d">Logging to a file</a></li>
+</ul>
+</li>
+<li><a href="#orgba309b4">The Debugger</a>
+<ul>
+<li><a href="#org4869e71">Breakpoints</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orge4642fe">Chapter 12 - Web Scraping</a>
+<ul>
+<li><a href="#org797a7f0">Project - <b>mapit.py</b> with <b>webbrowser</b> module</a>
+<ul>
+<li><a href="#orga681824">Handling command line argument</a></li>
+</ul>
+</li>
+<li><a href="#org4e39401">Downloading files from the web with the Requests Module</a>
+<ul>
+<li><a href="#orgf88139c">Saving downloaded file to hard drive with <code>iter_content()</code> method</a></li>
+</ul>
+</li>
+<li><a href="#orgfe19a88">Parsing HTML with <b>bs4</b> module</a>
+<ul>
+<li><a href="#org73e374b">Finding an Element with the <code>select()</code> method</a></li>
+</ul>
+</li>
+<li><a href="#org5c402d2">Controlling the browser with <b>selenium</b></a>
+<ul>
+<li><a href="#org1636dfc">Finding Elements on the Page</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org79db393">Chapter 13 - Working with Excel Spreadsheets</a>
+<ul>
+<li><a href="#org825109e">Open a workbook</a></li>
+<li><a href="#orga3d822b">Getting sheets from the workbook</a></li>
+<li><a href="#orgb6cbd2a">Getting Cells from Sheets</a></li>
+<li><a href="#org10adcbf">Converting between Column Letters and Numbers</a></li>
+<li><a href="#orgd8ee980">Getting Rows and Columns from the Sheets</a></li>
+<li><a href="#org9fa466a">Writing Excel Documents</a></li>
+<li><a href="#org34ae577">Create and saving Excel Document</a></li>
+<li><a href="#orgad973a9">Setting Font Style of Cells</a></li>
+<li><a href="#orgf6c28fc">Other stuff</a></li>
+</ul>
+</li>
+<li><a href="#orga163ee3">Chapter 16 - Working with CSV Files</a>
+<ul>
+<li><a href="#org9a2297a">CSV</a>
+<ul>
+<li><a href="#org3363c97">reader objects</a></li>
+<li><a href="#orge6e1245">writer object</a></li>
+<li><a href="#orga350cb2">The delimiter and lineterminator keyword argument</a></li>
+<li><a href="#orgf76ece8">DictReader and DictWriter CSV Object</a></li>
+</ul>
+</li>
+<li><a href="#orgd5b35f9">JSON</a>
+<ul>
+<li><a href="#org3b823a5">The json module</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6ab689c">Chapter 17 - Keeping Time, Scheduling Tasks and Launching Programs</a>
+<ul>
+<li><a href="#org9ac22d5">The <code>time</code> module</a>
+<ul>
+<li><a href="#org5854950">The <code>time.time()</code> function</a></li>
+<li><a href="#org506c1a6">The <code>time.ctime()</code> function</a></li>
+<li><a href="#org0a7fc34">The <code>time.sleep()</code> function</a></li>
+<li><a href="#org3367e58">Rounding number</a></li>
+</ul>
+</li>
+<li><a href="#orge3a8a83">The <code>datetime</code> module</a></li>
+<li><a href="#org477ad0f">The <code>timedelta</code> data type</a></li>
+<li><a href="#org7b00bf0">Pausing until a specific date</a></li>
+<li><a href="#org5f3037c">Converting <code>datetime</code> object into and from strings</a></li>
+<li><a href="#orgac47749">Launching other programs from Python</a></li>
 </ul>
 </li>
 </ul>
@@ -579,9 +596,9 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org1442a1b" class="outline-2">
-<h2 id="org1442a1b">Introduction</h2>
-<div class="outline-text-2" id="text-org1442a1b">
+<div id="outline-container-org6e474a6" class="outline-2">
+<h2 id="org6e474a6">Introduction</h2>
+<div class="outline-text-2" id="text-org6e474a6">
 <p>
 All programs use basic instructions as building blocks. The commons are:<br />
 </p>
@@ -612,9 +629,9 @@ Example:<br />
 </div>
 </div>
 
-<div id="outline-container-org44dc6af" class="outline-2">
-<h2 id="org44dc6af"><b>Note</b> Python virtual environment:</h2>
-<div class="outline-text-2" id="text-org44dc6af">
+<div id="outline-container-orgbea3753" class="outline-2">
+<h2 id="orgbea3753"><b>Note</b> Python virtual environment:</h2>
+<div class="outline-text-2" id="text-orgbea3753">
 <ul class="org-ul">
 <li>emacs elpy has been set up to use the interpreter in <b>~/myenv/bin/python3.7</b>, which is a <b>virtual environment</b>.<br /></li>
 <li>This can be shown by running <code>print(sys.executable)</code> after <code>import os, sys</code>.<br /></li>
@@ -623,17 +640,17 @@ Example:<br />
 </div>
 </div>
 
-<div id="outline-container-org12ba40e" class="outline-2">
-<h2 id="org12ba40e">Chapter 1 - Python Basics</h2>
-<div class="outline-text-2" id="text-org12ba40e">
+<div id="outline-container-orga1fc946" class="outline-2">
+<h2 id="orga1fc946">Chapter 1 - Python Basics</h2>
+<div class="outline-text-2" id="text-orga1fc946">
 </div>
-<div id="outline-container-orga1e424c" class="outline-3">
-<h3 id="orga1e424c">Expression, Variable, Operator and Data type</h3>
-<div class="outline-text-3" id="text-orga1e424c">
+<div id="outline-container-org2946bae" class="outline-3">
+<h3 id="org2946bae">Expression, Variable, Operator and Data type</h3>
+<div class="outline-text-3" id="text-org2946bae">
 </div>
-<div id="outline-container-org0c3af19" class="outline-4">
-<h4 id="org0c3af19">Expression</h4>
-<div class="outline-text-4" id="text-org0c3af19">
+<div id="outline-container-org0e2fafc" class="outline-4">
+<h4 id="org0e2fafc">Expression</h4>
+<div class="outline-text-4" id="text-org0e2fafc">
 <div class="org-src-container">
 <pre class="src src-python">2 + 2
 
@@ -652,12 +669,12 @@ In the above example, <code>2+2</code> is called an <b>expression</b>. An expres
 </div>
 </div>
 
-<div id="outline-container-orgc7f60b0" class="outline-4">
-<h4 id="orgc7f60b0">Operators</h4>
-<div class="outline-text-4" id="text-orgc7f60b0">
+<div id="outline-container-orgef35779" class="outline-4">
+<h4 id="orgef35779">Operators</h4>
+<div class="outline-text-4" id="text-orgef35779">
 <p>
 Python Math Operators from Highest to Lowest Precedence<br />
-<a id="org6425a3b"></a> <a id="org9b2985b"></a><br />
+<a id="orgdaccd92"></a> <a id="orgef24b74"></a><br />
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -737,12 +754,12 @@ The order of operations (also called <i>precendence</i>) of Python math operator
 </div>
 </div>
 
-<div id="outline-container-org5a90c6f" class="outline-4">
-<h4 id="org5a90c6f">Data type</h4>
-<div class="outline-text-4" id="text-org5a90c6f">
+<div id="outline-container-org4fcda57" class="outline-4">
+<h4 id="org4fcda57">Data type</h4>
+<div class="outline-text-4" id="text-org4fcda57">
 <p>
 A <b>data type</b> is a category for values. Every value belongs to exactly one data type. The most common data types in Python are listed in the table below.<br />
-<a id="orga2b0427"></a> <a id="orga4d1fa7"></a><br />
+<a id="orgb9a169e"></a> <a id="org01365df"></a><br />
 </p>
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
@@ -809,11 +826,11 @@ TypeError: can't multiply sequence by non-int of type 'str'.
 </div>
 </div>
 
-<div id="outline-container-orgbe2f46f" class="outline-4">
-<h4 id="orgbe2f46f">Variable</h4>
-<div class="outline-text-4" id="text-orgbe2f46f">
+<div id="outline-container-org23d0a6e" class="outline-4">
+<h4 id="org23d0a6e">Variable</h4>
+<div class="outline-text-4" id="text-org23d0a6e">
 <p>
-<a id="org671f602"></a> <a id="org5fafa80"></a><br />
+<a id="orgbac36ce"></a> <a id="org170db7a"></a><br />
 A variable is like a box in computer's memory where a <b>single value</b> can be stored. For reuse of a result that has been evaluated, we can store it in a variable.<br />
 </p>
 
@@ -860,9 +877,9 @@ Note that variable names are <b>case sensitive</b>.<br />
 
 
 
-<div id="outline-container-org911b1ff" class="outline-3">
-<h3 id="org911b1ff">Basic about writing codes</h3>
-<div class="outline-text-3" id="text-org911b1ff">
+<div id="outline-container-org7321a40" class="outline-3">
+<h3 id="org7321a40">Basic about writing codes</h3>
+<div class="outline-text-3" id="text-org7321a40">
 <p>
 Python <b>ignores</b> blank lines so this can be useful to make code easier to read, like paragraphs in a book.<br />
 "#" starts a comment line.<br />
@@ -887,9 +904,9 @@ Example:<br />
 </div>
 
 
-<div id="outline-container-orgc558174" class="outline-3">
-<h3 id="orgc558174">The str(), int(), and float() Functions</h3>
-<div class="outline-text-3" id="text-orgc558174">
+<div id="outline-container-org267d273" class="outline-3">
+<h3 id="org267d273">The str(), int(), and float() Functions</h3>
+<div class="outline-text-3" id="text-org267d273">
 <p>
 <code>print('hello ' + 29)</code> would return an error because 29 is an integer and 'hello ' is a string and these two data types cannot concatenate.<br />
 </p>
@@ -955,9 +972,9 @@ ValueError: invalid literal for int() with base 10: '99.99'
 </div>
 </div>
 
-<div id="outline-container-org312570c" class="outline-2">
-<h2 id="org312570c">Chapter 2 - Flow control</h2>
-<div class="outline-text-2" id="text-org312570c">
+<div id="outline-container-org79f1769" class="outline-2">
+<h2 id="org79f1769">Chapter 2 - Flow control</h2>
+<div class="outline-text-2" id="text-org79f1769">
 <p>
 The real strength of programming isn't just executing one instructions after another. Based on how the expressions evaluate, the program can decide to skip instructions, repeat them or choose one of several instructions to run. In fact we should never want our program to start from the first line of code and simply execute every line straight to the end.<br />
 </p>
@@ -967,9 +984,9 @@ This is what <b>Flow control</b> statements are for. They decide which Python in
 </p>
 </div>
 
-<div id="outline-container-orgbd1b09f" class="outline-3">
-<h3 id="orgbd1b09f">Boolean</h3>
-<div class="outline-text-3" id="text-orgbd1b09f">
+<div id="outline-container-org985afd0" class="outline-3">
+<h3 id="org985afd0">Boolean</h3>
+<div class="outline-text-3" id="text-org985afd0">
 <p>
 Before learning about flow control statements, we first need to learn how to represent <i>yes</i> and <i>no</i> options. To that end we need to explore Boolean values, comparison operators and Boolean operators.<br />
 </p>
@@ -1115,9 +1132,9 @@ Order of evaluation:<br />
 </div>
 </div>
 
-<div id="outline-container-org472ba6d" class="outline-3">
-<h3 id="org472ba6d">Flow control - The condition</h3>
-<div class="outline-text-3" id="text-org472ba6d">
+<div id="outline-container-org7225cdd" class="outline-3">
+<h3 id="org7225cdd">Flow control - The condition</h3>
+<div class="outline-text-3" id="text-org7225cdd">
 <div class="org-center">
 <p>
 Flow control statements most often start with a part called <b>condition</b>, and are all followed by a block of code called <b>the clause</b>.<br />
@@ -1130,9 +1147,9 @@ The Boolean expressions could all be considered conditions, which are similar to
 </div>
 </div>
 
-<div id="outline-container-org8463eab" class="outline-3">
-<h3 id="org8463eab">Block of code</h3>
-<div class="outline-text-3" id="text-org8463eab">
+<div id="outline-container-orge62ab8c" class="outline-3">
+<h3 id="orge62ab8c">Block of code</h3>
+<div class="outline-text-3" id="text-orge62ab8c">
 <p>
 Lines of Python code can be grouped together in blocks. Beginnings and end of blocks can be identified by the indentation of the lines of code. There are three rules for blocks:<br />
 </p>
@@ -1145,9 +1162,9 @@ Lines of Python code can be grouped together in blocks. Beginnings and end of bl
 </div>
 </div>
 
-<div id="outline-container-org037cd41" class="outline-3">
-<h3 id="org037cd41">The <code>if</code> and <code>else</code> statements</h3>
-<div class="outline-text-3" id="text-org037cd41">
+<div id="outline-container-orge046b9f" class="outline-3">
+<h3 id="orge046b9f">The <code>if</code> and <code>else</code> statements</h3>
+<div class="outline-text-3" id="text-orge046b9f">
 <p>
 The statement represents the actual decision that the program will make.<br />
 </p>
@@ -1209,9 +1226,9 @@ Aloha!
 </div>
 </div>
 
-<div id="outline-container-org69c40a8" class="outline-3">
-<h3 id="org69c40a8">The <code>elif</code> statement</h3>
-<div class="outline-text-3" id="text-org69c40a8">
+<div id="outline-container-orgd2d16a5" class="outline-3">
+<h3 id="orgd2d16a5">The <code>elif</code> statement</h3>
+<div class="outline-text-3" id="text-orgd2d16a5">
 <p>
 In scenarios where we want one of many possible clauses to execute, the <code>elif</code> statement is used. The <code>elif</code> statement is an "else if" statement that <b>always follows an <code>if</code> or another <code>elif</code> statement</b>.<br />
 </p>
@@ -1254,9 +1271,9 @@ Optionally, we can also have an <code>else</code> statement after the last <code
 </p>
 </div>
 
-<div id="outline-container-orga1e902f" class="outline-4">
-<h4 id="orga1e902f">Comparison between <code>if</code> and <code>elif</code></h4>
-<div class="outline-text-4" id="text-orga1e902f">
+<div id="outline-container-orgcddbd15" class="outline-4">
+<h4 id="orgcddbd15">Comparison between <code>if</code> and <code>elif</code></h4>
+<div class="outline-text-4" id="text-orgcddbd15">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fcfcfa;">a</span> = 2
 <span style="color: #ff6188;">if</span> a &gt; 1:
@@ -1293,13 +1310,13 @@ In the second code block, both <code>if</code> statement's conditions were met a
 </div>
 </div>
 
-<div id="outline-container-org215bf53" class="outline-3">
-<h3 id="org215bf53">The <code>while</code> statement</h3>
-<div class="outline-text-3" id="text-org215bf53">
+<div id="outline-container-org225a1f9" class="outline-3">
+<h3 id="org225a1f9">The <code>while</code> statement</h3>
+<div class="outline-text-3" id="text-org225a1f9">
 </div>
-<div id="outline-container-orgea527ad" class="outline-4">
-<h4 id="orgea527ad">Overview and how to</h4>
-<div class="outline-text-4" id="text-orgea527ad">
+<div id="outline-container-org45b0b98" class="outline-4">
+<h4 id="org45b0b98">Overview and how to</h4>
+<div class="outline-text-4" id="text-org45b0b98">
 <p>
 We can make a block of code execute <b>over and over</b> again with a <code>while</code> statement. The code in a <code>while</code> clause will be executed <b>as long as</b> the <code>while</code> statement's condition is <code>True</code>.<br />
 </p>
@@ -1357,9 +1374,9 @@ As long as the user input is <b>not</b> "your name", the while loop's condition 
 </div>
 </div>
 
-<div id="outline-container-orgdbb1cc7" class="outline-4">
-<h4 id="orgdbb1cc7">break</h4>
-<div class="outline-text-4" id="text-orgdbb1cc7">
+<div id="outline-container-org356cb9c" class="outline-4">
+<h4 id="org356cb9c">break</h4>
+<div class="outline-text-4" id="text-org356cb9c">
 <p>
 There are some situations where your want the <code>while</code> condition to always remain <code>True</code>. So you need a way to <b>break out</b> of a <code>while</code> loop.<br />
 </p>
@@ -1386,9 +1403,9 @@ The first line <code>while True</code> essentially creates an <b>infinite</b> lo
 </div>
 </div>
 
-<div id="outline-container-org2275914" class="outline-4">
-<h4 id="org2275914">continue</h4>
-<div class="outline-text-4" id="text-org2275914">
+<div id="outline-container-org918ba44" class="outline-4">
+<h4 id="org918ba44">continue</h4>
+<div class="outline-text-4" id="text-org918ba44">
 <div class="org-center">
 <p>
 Instead of "continue", the <code>continue</code> statements actually jump back to the start of the loop.<br />
@@ -1431,9 +1448,9 @@ Hello Kenny, who is 26 years old.
 </div>
 </div>
 
-<div id="outline-container-org5a75afb" class="outline-4">
-<h4 id="org5a75afb">Trapped in an infinite loop</h4>
-<div class="outline-text-4" id="text-org5a75afb">
+<div id="outline-container-org4bfbdba" class="outline-4">
+<h4 id="org4bfbdba">Trapped in an infinite loop</h4>
+<div class="outline-text-4" id="text-org4bfbdba">
 <p>
 Solution: Press <code>CTRL + C</code>.<br />
 Action: Sending a <code>KeyboardInterrupt</code> error to the program and cause it to stop immediately.<br />
@@ -1441,9 +1458,9 @@ Action: Sending a <code>KeyboardInterrupt</code> error to the program and cause 
 </div>
 </div>
 
-<div id="outline-container-orgae0bf08" class="outline-4">
-<h4 id="orgae0bf08">"Truthy" and "Falsey" values</h4>
-<div class="outline-text-4" id="text-orgae0bf08">
+<div id="outline-container-org5d9120f" class="outline-4">
+<h4 id="org5d9120f">"Truthy" and "Falsey" values</h4>
+<div class="outline-text-4" id="text-org5d9120f">
 <p>
 There are some values in other data types that conditions will consider equivalent to <code>True</code> and <code>False</code>.<br />
 </p>
@@ -1516,9 +1533,9 @@ Explanation:<br />
 </div>
 </div>
 
-<div id="outline-container-org17f56e9" class="outline-3">
-<h3 id="org17f56e9">The <code>for</code> statement and <code>range()</code> function</h3>
-<div class="outline-text-3" id="text-org17f56e9">
+<div id="outline-container-orgdb6b7c3" class="outline-3">
+<h3 id="orgdb6b7c3">The <code>for</code> statement and <code>range()</code> function</h3>
+<div class="outline-text-3" id="text-orgdb6b7c3">
 <p>
 The <code>while</code> loop keeps looping while its condition is <code>True</code>. However if we want to execute a block of code a certain <code>n</code> number of time, we can use <code>for</code> loop statement and the <code>range()</code> function.<br />
 </p>
@@ -1609,9 +1626,9 @@ Hello, this is 4 iteration.
 </pre>
 </div>
 
-<div id="outline-container-org0b84437" class="outline-4">
-<h4 id="org0b84437"><code>range()</code> function with starting, stopping and stepping arguments</h4>
-<div class="outline-text-4" id="text-org0b84437">
+<div id="outline-container-orgc65d0ff" class="outline-4">
+<h4 id="orgc65d0ff"><code>range()</code> function with starting, stopping and stepping arguments</h4>
+<div class="outline-text-4" id="text-orgc65d0ff">
 <p>
 Some functions can be called with multiple arguments separated by a comma. This includes the <code>range()</code> function.<br />
 </p>
@@ -1666,13 +1683,13 @@ range([start],[stop],[step])
 </div>
 </div>
 
-<div id="outline-container-org1cb5de7" class="outline-3">
-<h3 id="org1cb5de7">Importing Modules</h3>
-<div class="outline-text-3" id="text-org1cb5de7">
+<div id="outline-container-orgd661516" class="outline-3">
+<h3 id="orgd661516">Importing Modules</h3>
+<div class="outline-text-3" id="text-orgd661516">
 </div>
-<div id="outline-container-orgbfa6640" class="outline-4">
-<h4 id="orgbfa6640"><code>import</code> a  standard library</h4>
-<div class="outline-text-4" id="text-orgbfa6640">
+<div id="outline-container-org50e9a47" class="outline-4">
+<h4 id="org50e9a47"><code>import</code> a  standard library</h4>
+<div class="outline-text-4" id="text-org50e9a47">
 <p>
 <code>print()</code>, <code>len()</code> functions are so called built-in functions. They belong to a basic set of functions that come with Python.<br />
 </p>
@@ -1737,9 +1754,9 @@ We need to type <code>random.</code> infront  of <code>randint</code> because th
 </div>
 </div>
 
-<div id="outline-container-orgab5d31c" class="outline-4">
-<h4 id="orgab5d31c"><code>from import</code> statement</h4>
-<div class="outline-text-4" id="text-orgab5d31c">
+<div id="outline-container-orga9efc9d" class="outline-4">
+<h4 id="orga9efc9d"><code>from import</code> statement</h4>
+<div class="outline-text-4" id="text-orga9efc9d">
 <p>
 An alternative form of <code>import</code> is composed of the <code>from</code> keyword followed by the module name, and a star.<br />
 </p>
@@ -1770,9 +1787,9 @@ we can do<br />
 </div>
 
 
-<div id="outline-container-orgde6c536" class="outline-4">
-<h4 id="orgde6c536">ending a program early with <code>sys.exit()</code></h4>
-<div class="outline-text-4" id="text-orgde6c536">
+<div id="outline-container-org210ef1a" class="outline-4">
+<h4 id="org210ef1a">ending a program early with <code>sys.exit()</code></h4>
+<div class="outline-text-4" id="text-org210ef1a">
 <p>
 A program normally terminates when execution reaches the <b>bottom</b> of the insturctions. However we can cause the program to terminate or exit by calling the <code>sys.exit()</code> function.<br />
 </p>
@@ -1808,18 +1825,18 @@ SystemExit
 </div>
 </div>
 </div>
-<div id="outline-container-orga84d114" class="outline-2">
-<h2 id="orga84d114">Chapter 3 - Functions</h2>
-<div class="outline-text-2" id="text-orga84d114">
+<div id="outline-container-org39bb1d0" class="outline-2">
+<h2 id="org39bb1d0">Chapter 3 - Functions</h2>
+<div class="outline-text-2" id="text-org39bb1d0">
 <div class="org-center">
 <p>
 A function is like a mini-program within a program.<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org90228dd" class="outline-3">
-<h3 id="org90228dd"><code>def</code> statement</h3>
-<div class="outline-text-3" id="text-org90228dd">
+<div id="outline-container-org84090c7" class="outline-3">
+<h3 id="org84090c7"><code>def</code> statement</h3>
+<div class="outline-text-3" id="text-org84090c7">
 <p>
 Example:<br />
 </p>
@@ -1852,9 +1869,9 @@ A major purpose of functions is to group code that get executed multiple times. 
 </div>
 </div>
 
-<div id="outline-container-orgcc75b5a" class="outline-3">
-<h3 id="orgcc75b5a"><code>def</code> statement with parameters</h3>
-<div class="outline-text-3" id="text-orgcc75b5a">
+<div id="outline-container-org258abf4" class="outline-3">
+<h3 id="org258abf4"><code>def</code> statement with parameters</h3>
+<div class="outline-text-3" id="text-org258abf4">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Hello, this is an argument'</span>)
 </pre>
@@ -1898,9 +1915,9 @@ A <b>parameter</b> is a variable that an argument is stored in when a function i
 </div>
 </div>
 
-<div id="outline-container-orgedf37e8" class="outline-3">
-<h3 id="orgedf37e8"><code>return</code> values and <code>return</code> statements</h3>
-<div class="outline-text-3" id="text-orgedf37e8">
+<div id="outline-container-org8618563" class="outline-3">
+<h3 id="org8618563"><code>return</code> values and <code>return</code> statements</h3>
+<div class="outline-text-3" id="text-org8618563">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ab9df2;">len</span>(<span style="color: #ffd866;">'Hello'</span>)
 </pre>
@@ -1995,9 +2012,9 @@ As a function evaluates to a return value, it can be used within an expression b
 </div>
 </div>
 
-<div id="outline-container-org9940ccd" class="outline-3">
-<h3 id="org9940ccd">The <code>None</code> value</h3>
-<div class="outline-text-3" id="text-org9940ccd">
+<div id="outline-container-org4f7310b" class="outline-3">
+<h3 id="org4f7310b">The <code>None</code> value</h3>
+<div class="outline-text-3" id="text-org4f7310b">
 <p>
 There is a value called <code>None</code>, which represents the absence of a value.<br />
 </p>
@@ -2028,9 +2045,9 @@ Behind the scene, Python adds <code>return None</code> to the end of any functio
 </p>
 </div>
 </div>
-<div id="outline-container-orgeb138b6" class="outline-3">
-<h3 id="orgeb138b6">Local and Global Scope</h3>
-<div class="outline-text-3" id="text-orgeb138b6">
+<div id="outline-container-org409a32a" class="outline-3">
+<h3 id="org409a32a">Local and Global Scope</h3>
+<div class="outline-text-3" id="text-org409a32a">
 <p>
 Parameters and variables that are assigned in a called functions are said to exist in that function's local scope.<br />
 </p>
@@ -2118,9 +2135,9 @@ It is bad habits to rely on global variables, especially if your programs get la
 </div>
 </div>
 
-<div id="outline-container-org05e7b6b" class="outline-3">
-<h3 id="org05e7b6b">The Global Statement</h3>
-<div class="outline-text-3" id="text-org05e7b6b">
+<div id="outline-container-orga737147" class="outline-3">
+<h3 id="orga737147">The Global Statement</h3>
+<div class="outline-text-3" id="text-orga737147">
 <p>
 To modify a global variable from within a function's local scope, use the <code>global</code> statement. Using this ensure Python does <b>not</b> create a local variable within the local scope.<br />
 </p>
@@ -2214,9 +2231,9 @@ UnboundLocalError: local variable 'spam' referenced before assignment
 </div>
 </div>
 
-<div id="outline-container-org660c230" class="outline-3">
-<h3 id="org660c230">Exception Handling</h3>
-<div class="outline-text-3" id="text-org660c230">
+<div id="outline-container-org4c960a0" class="outline-3">
+<h3 id="org4c960a0">Exception Handling</h3>
+<div class="outline-text-3" id="text-org4c960a0">
 <p>
 An <b>Exception</b> is an error within a Python program. In real life we don't want this to happen because the program would crash. Instead we want the program to <b>detect error</b>, handle them and continue to run.<br />
 </p>
@@ -2286,9 +2303,9 @@ In the above example we only had one function call within a <code>try</code> blo
 </div>
 </div>
 
-<div id="outline-container-orga81fce0" class="outline-3">
-<h3 id="orga81fce0">Practice: Guess the Number</h3>
-<div class="outline-text-3" id="text-orga81fce0">
+<div id="outline-container-orgd5f5091" class="outline-3">
+<h3 id="orgd5f5091">Practice: Guess the Number</h3>
+<div class="outline-text-3" id="text-orgd5f5091">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">from</span> random <span style="color: #ff6188;">import</span> randint
 
@@ -2336,9 +2353,9 @@ With another <code>if</code>, the <code>else</code> statement belongs to the sec
 </p>
 </div>
 </div>
-<div id="outline-container-org2063820" class="outline-3">
-<h3 id="org2063820">Practice - The Collatz Sequence</h3>
-<div class="outline-text-3" id="text-org2063820">
+<div id="outline-container-org622d0a5" class="outline-3">
+<h3 id="org622d0a5">Practice - The Collatz Sequence</h3>
+<div class="outline-text-3" id="text-org622d0a5">
 <blockquote>
 <p>
 <br />
@@ -2393,7 +2410,7 @@ The Collatz Program<br />
 </p>
 </div>
 <div class="org-src-container">
-<pre class="src src-python" id="orga1bbf76"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">collatz_number</span>(x):
+<pre class="src src-python" id="orgef3b98b"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">collatz_number</span>(x):
     <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">One parameter, a number, which is x.</span>
 
     <span style="color: #ff6188;">if</span> x % 2 == 0:  <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">return x // 2 for even x</span>
@@ -2432,9 +2449,9 @@ The Collatz Program<br />
 </div>
 </div>
 </div>
-<div id="outline-container-org454f5f7" class="outline-2">
-<h2 id="org454f5f7">Chapter 4 - Lists</h2>
-<div class="outline-text-2" id="text-org454f5f7">
+<div id="outline-container-orgeab123a" class="outline-2">
+<h2 id="orgeab123a">Chapter 4 - Lists</h2>
+<div class="outline-text-2" id="text-orgeab123a">
 <div class="org-center">
 <p>
 A list is a value that contains multiple values in an ordered sequence.<br />
@@ -2479,9 +2496,9 @@ The test variable is assigned only <b>one value - the list value</b>. However th
 </p>
 </div>
 
-<div id="outline-container-orgc08dc01" class="outline-3">
-<h3 id="orgc08dc01">Indexes</h3>
-<div class="outline-text-3" id="text-orgc08dc01">
+<div id="outline-container-orge44c898" class="outline-3">
+<h3 id="orge44c898">Indexes</h3>
+<div class="outline-text-3" id="text-orge44c898">
 <p>
 <code>list[i]</code>: list is the name of the list variable and i refers to the index.<br />
 </p>
@@ -2517,9 +2534,9 @@ The cat ate the elephant.
 </ul>
 </div>
 
-<div id="outline-container-org6385f6a" class="outline-4">
-<h4 id="org6385f6a">Looped lists and multiple indexes</h4>
-<div class="outline-text-4" id="text-org6385f6a">
+<div id="outline-container-org68ab29c" class="outline-4">
+<h4 id="org68ab29c">Looped lists and multiple indexes</h4>
+<div class="outline-text-4" id="text-org68ab29c">
 <p>
 <b>List can also contains other list values, the values in these lists of lists can be accessed using <span class="underline">multiple indexes</span>, for example:</b><br />
 </p>
@@ -2540,9 +2557,9 @@ butterfly
 </div>
 </div>
 
-<div id="outline-container-orgda5cf51" class="outline-4">
-<h4 id="orgda5cf51">Negative Indexes</h4>
-<div class="outline-text-4" id="text-orgda5cf51">
+<div id="outline-container-orgeb4bb10" class="outline-4">
+<h4 id="orgeb4bb10">Negative Indexes</h4>
+<div class="outline-text-4" id="text-orgeb4bb10">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fcfcfa;">test</span> = [<span style="color: #ffd866;">'dog'</span>, <span style="color: #ffd866;">'cat'</span>, <span style="color: #ffd866;">'elephant'</span>]
 
@@ -2562,9 +2579,9 @@ While indexes start at <code>0</code> and go up, we can also use negative intege
 </p>
 </div>
 </div>
-<div id="outline-container-org229ccc6" class="outline-4">
-<h4 id="org229ccc6">Sublists and slices</h4>
-<div class="outline-text-4" id="text-org229ccc6">
+<div id="outline-container-org883d6f1" class="outline-4">
+<h4 id="org883d6f1">Sublists and slices</h4>
+<div class="outline-text-4" id="text-org883d6f1">
 <p>
 An index can get a <b>single value</b> from a list.<br />
 </p>
@@ -2618,9 +2635,9 @@ Iron Man
 </div>
 </div>
 
-<div id="outline-container-org860f457" class="outline-4">
-<h4 id="org860f457">Changing a value of a list item with indexes</h4>
-<div class="outline-text-4" id="text-org860f457">
+<div id="outline-container-org24f7334" class="outline-4">
+<h4 id="org24f7334">Changing a value of a list item with indexes</h4>
+<div class="outline-text-4" id="text-org24f7334">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fcfcfa;">test</span> = [<span style="color: #ffd866;">'dog'</span>, <span style="color: #ffd866;">'cat'</span>, <span style="color: #ffd866;">'elephant'</span>, <span style="color: #ffd866;">'lion'</span>, <span style="color: #ffd866;">'tiger'</span>, <span style="color: #ffd866;">'cheetah'</span>, <span style="color: #ffd866;">'panther'</span>, <span style="color: #ffd866;">'Iron Man'</span>]
 <span style="color: #fcfcfa;">test</span>[0] = <span style="color: #ffd866;">'not a dog anymore'</span>
@@ -2638,9 +2655,9 @@ Iron Man
 </div>
 </div>
 
-<div id="outline-container-orgfebe080" class="outline-3">
-<h3 id="orgfebe080">List concatenation and list replication</h3>
-<div class="outline-text-3" id="text-orgfebe080">
+<div id="outline-container-org3b5f816" class="outline-3">
+<h3 id="org3b5f816">List concatenation and list replication</h3>
+<div class="outline-text-3" id="text-org3b5f816">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -2689,11 +2706,11 @@ Iron Man
 </div>
 </div>
 
-<div id="outline-container-orgf49e33a" class="outline-3">
-<h3 id="orgf49e33a">Removing list item with <code>del</code></h3>
-<div class="outline-text-3" id="text-orgf49e33a">
+<div id="outline-container-orgaa58f84" class="outline-3">
+<h3 id="orgaa58f84">Removing list item with <code>del</code></h3>
+<div class="outline-text-3" id="text-orgaa58f84">
 <p>
-<a id="orge12b752"></a><br />
+<a id="org4dfbbdc"></a><br />
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fcfcfa;">test</span> = [<span style="color: #ffd866;">'dog'</span>, <span style="color: #ffd866;">'cat'</span>, <span style="color: #ffd866;">'elephant'</span>]
@@ -2712,9 +2729,9 @@ The <code>del</code> statement also be used to delete or "unassign" simple varia
 </p>
 </div>
 </div>
-<div id="outline-container-org441cf92" class="outline-3">
-<h3 id="org441cf92">Working with lists</h3>
-<div class="outline-text-3" id="text-org441cf92">
+<div id="outline-container-org1659f3b" class="outline-3">
+<h3 id="org1659f3b">Working with lists</h3>
+<div class="outline-text-3" id="text-org1659f3b">
 <p>
 Instead of using multiple, repetitive variables, we can use a single list variable that contains multiple similar values.<br />
 </p>
@@ -2754,9 +2771,9 @@ RokuHachi
 </div>
 </div>
 
-<div id="outline-container-orgfc73cd0" class="outline-3">
-<h3 id="orgfc73cd0">Using <code>for</code> loops with lists</h3>
-<div class="outline-text-3" id="text-orgfc73cd0">
+<div id="outline-container-org5c4dafd" class="outline-3">
+<h3 id="org5c4dafd">Using <code>for</code> loops with lists</h3>
+<div class="outline-text-3" id="text-org5c4dafd">
 <p>
 Technically, a <code>for</code> loop repeats the code block for each value in a list-like value.<br />
 </p>
@@ -2822,9 +2839,9 @@ In the above example the loop access both the index (<code>i</code>) as well as 
 </p>
 </div>
 </div>
-<div id="outline-container-org204aedb" class="outline-3">
-<h3 id="org204aedb">the <code>in</code> and <code>not in</code> operators</h3>
-<div class="outline-text-3" id="text-org204aedb">
+<div id="outline-container-orga055a59" class="outline-3">
+<h3 id="orga055a59">the <code>in</code> and <code>not in</code> operators</h3>
+<div class="outline-text-3" id="text-orga055a59">
 <p>
 These two values can be used in expressions that connect two values to evaluate to a Boolean value. This is good for checking values in a pre-determined set.<br />
 </p>
@@ -2848,11 +2865,11 @@ False
 </pre>
 </div>
 </div>
-<div id="outline-container-org2965246" class="outline-3">
-<h3 id="org2965246">The multiple assignment trick</h3>
-<div class="outline-text-3" id="text-org2965246">
+<div id="outline-container-org6715972" class="outline-3">
+<h3 id="org6715972">The multiple assignment trick</h3>
+<div class="outline-text-3" id="text-org6715972">
 <p>
-<a id="orgeb445f0"></a><br />
+<a id="org95b5a65"></a><br />
 Instead of doing:<br />
 </p>
 <div class="org-src-container">
@@ -2932,9 +2949,9 @@ Alice
 </div>
 </div>
 
-<div id="outline-container-org226a577" class="outline-3">
-<h3 id="org226a577">Augmented Assignment Operators</h3>
-<div class="outline-text-3" id="text-org226a577">
+<div id="outline-container-org1701a79" class="outline-3">
+<h3 id="org1701a79">Augmented Assignment Operators</h3>
+<div class="outline-text-3" id="text-org1701a79">
 <p>
 Instead of doing..<br />
 </p>
@@ -3015,9 +3032,9 @@ We could do..<br />
 </div>
 </div>
 
-<div id="outline-container-org7337cbb" class="outline-3">
-<h3 id="org7337cbb">Methods and List Methods</h3>
-<div class="outline-text-3" id="text-org7337cbb">
+<div id="outline-container-org0dcf549" class="outline-3">
+<h3 id="org0dcf549">Methods and List Methods</h3>
+<div class="outline-text-3" id="text-org0dcf549">
 <p>
 A <b>method</b> is the same thing as a function, except it is "called on" a value.<br />
 </p>
@@ -3039,9 +3056,9 @@ The list data type for example has several useful methods..<br />
 </p>
 </div>
 
-<div id="outline-container-org80c85c1" class="outline-4">
-<h4 id="org80c85c1"><code>append()</code> and <code>insert()</code></h4>
-<div class="outline-text-4" id="text-org80c85c1">
+<div id="outline-container-orgfe26638" class="outline-4">
+<h4 id="orgfe26638"><code>append()</code> and <code>insert()</code></h4>
+<div class="outline-text-4" id="text-orgfe26638">
 <p>
 These can be used to add items to a list. <code>append()</code> add the item to the <b>end</b> of the list, whereas <code>insert()</code> can add a value at <b>any index</b> in the list.<br />
 </p>
@@ -3094,9 +3111,9 @@ AttributeError: 'str' object has no attribute 'append'
 </div>
 </div>
 
-<div id="outline-container-org14d4c61" class="outline-4">
-<h4 id="org14d4c61"><code>remove()</code></h4>
-<div class="outline-text-4" id="text-org14d4c61">
+<div id="outline-container-org0d4d9c0" class="outline-4">
+<h4 id="org0d4d9c0"><code>remove()</code></h4>
+<div class="outline-text-4" id="text-org0d4d9c0">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fcfcfa;">animal</span> = [<span style="color: #ffd866;">'dog'</span>, <span style="color: #ffd866;">'cat'</span>, <span style="color: #ffd866;">'dog'</span>, <span style="color: #ffd866;">'mouse'</span>, <span style="color: #ffd866;">'elephant'</span>]
 animal.remove(<span style="color: #ffd866;">'dog'</span>)  <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Only the first value of 'dog' is removed</span>
@@ -3118,14 +3135,14 @@ ValueError: list.remove(x): x not in list
 
 
 <p>
-The <a href="#orge12b752">del</a> statement is good to be used when we know the index of an item within a list. However the <code>remove()</code> method is good when we know the value we want to remove.<br />
+The <a href="#org4dfbbdc">del</a> statement is good to be used when we know the index of an item within a list. However the <code>remove()</code> method is good when we know the value we want to remove.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org2a1f882" class="outline-4">
-<h4 id="org2a1f882"><code>sort()</code></h4>
-<div class="outline-text-4" id="text-org2a1f882">
+<div id="outline-container-orge6d97cc" class="outline-4">
+<h4 id="orge6d97cc"><code>sort()</code></h4>
+<div class="outline-text-4" id="text-orge6d97cc">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fcfcfa;">number</span> = [2, 5, 3, 3.14, 1, -1]
 number.sort()
@@ -3204,9 +3221,9 @@ animal.sort(key=<span style="color: #ab9df2;">str</span>.lower)
 </div>
 </div>
 </div>
-<div id="outline-container-orgd28a4d5" class="outline-3">
-<h3 id="orgd28a4d5">Exception to indentation rule</h3>
-<div class="outline-text-3" id="text-orgd28a4d5">
+<div id="outline-container-orga8f1625" class="outline-3">
+<h3 id="orga8f1625">Exception to indentation rule</h3>
+<div class="outline-text-3" id="text-orga8f1625">
 <p>
 List is one of the few things that are exceptions to the indentation rule.<br />
 </p>
@@ -3239,9 +3256,9 @@ Hello, how are you?
 </pre>
 </div>
 </div>
-<div id="outline-container-org611938c" class="outline-3">
-<h3 id="org611938c">List-like data type: strings</h3>
-<div class="outline-text-3" id="text-org611938c">
+<div id="outline-container-org7d24e10" class="outline-3">
+<h3 id="org7d24e10">List-like data type: strings</h3>
+<div class="outline-text-3" id="text-org7d24e10">
 <p>
 Lists aren't the only data types that represent ordered sequences of values.<br />
 </p>
@@ -3286,9 +3303,9 @@ K
 </div>
 </div>
 
-<div id="outline-container-org4b2cb44" class="outline-3">
-<h3 id="org4b2cb44">Mutable and Immutable data types</h3>
-<div class="outline-text-3" id="text-org4b2cb44">
+<div id="outline-container-org5988721" class="outline-3">
+<h3 id="org5988721">Mutable and Immutable data types</h3>
+<div class="outline-text-3" id="text-org5988721">
 <p>
 Although lists and strings are similar in that they both represent an ordered sequence of value, they differ in important way. A list value is a <b>mutable</b> data type however a string is <b>immutable</b>.<br />
 </p>
@@ -3334,9 +3351,9 @@ Kenny the silly
 </pre>
 </div>
 </div>
-<div id="outline-container-org11de720" class="outline-3">
-<h3 id="org11de720">The Tuple Data type</h3>
-<div class="outline-text-3" id="text-org11de720">
+<div id="outline-container-org0435b73" class="outline-3">
+<h3 id="org0435b73">The Tuple Data type</h3>
+<div class="outline-text-3" id="text-org0435b73">
 <p>
 Tuples are very similar to lists except in two ways:<br />
 </p>
@@ -3392,9 +3409,9 @@ Python is one of the several programming languages where it's OK to use a <b>tra
 </pre>
 </div>
 </div>
-<div id="outline-container-org765eaac" class="outline-3">
-<h3 id="org765eaac">References</h3>
-<div class="outline-text-3" id="text-org765eaac">
+<div id="outline-container-org796d752" class="outline-3">
+<h3 id="org796d752">References</h3>
+<div class="outline-text-3" id="text-org796d752">
 <p>
 As we have seen, variables can be used to store <code>str</code>, <code>int</code> or <code>float</code>..<br />
 </p>
@@ -3468,13 +3485,13 @@ Modification to any reference updates the <b>underlying</b> list.<br />
 </div>
 
 
-<div id="outline-container-orgcb2d8b7" class="outline-3">
-<h3 id="orgcb2d8b7">PRACTICE PROJECTS</h3>
-<div class="outline-text-3" id="text-orgcb2d8b7">
+<div id="outline-container-org65629a0" class="outline-3">
+<h3 id="org65629a0">PRACTICE PROJECTS</h3>
+<div class="outline-text-3" id="text-org65629a0">
 </div>
-<div id="outline-container-orgbf8e0f5" class="outline-4">
-<h4 id="orgbf8e0f5">Comma Code</h4>
-<div class="outline-text-4" id="text-orgbf8e0f5">
+<div id="outline-container-orga6dff52" class="outline-4">
+<h4 id="orga6dff52">Comma Code</h4>
+<div class="outline-text-4" id="text-orga6dff52">
 <blockquote>
 <p>
 Say you have a list value like this:<br />
@@ -3518,9 +3535,9 @@ apples, bananas, tofu, and cats
 </div>
 
 
-<div id="outline-container-orgb58715f" class="outline-4">
-<h4 id="orgb58715f">Character Picture Grid</h4>
-<div class="outline-text-4" id="text-orgb58715f">
+<div id="outline-container-orgf0287a1" class="outline-4">
+<h4 id="orgf0287a1">Character Picture Grid</h4>
+<div class="outline-text-4" id="text-orgf0287a1">
 <p>
 Say you have a list of lists where each value in the inner lists is a one-character string, like this:<br />
 </p>
@@ -3564,8 +3581,8 @@ Also, remember to pass the end keyword argument to print() if you don’t want a
 </div>
 
 <ul class="org-ul">
-<li><a id="orgf19eee3"></a>Solution<br />
-<div class="outline-text-5" id="text-orgf19eee3">
+<li><a id="org66fdf43"></a>Solution<br />
+<div class="outline-text-5" id="text-org66fdf43">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fcfcfa;">grid</span> = [[<span style="color: #ffd866;">'.'</span>, <span style="color: #ffd866;">'.'</span>, <span style="color: #ffd866;">'.'</span>, <span style="color: #ffd866;">'.'</span>, <span style="color: #ffd866;">'.'</span>, <span style="color: #ffd866;">'.'</span>],
         [<span style="color: #ffd866;">'.'</span>, <span style="color: #ffd866;">'O'</span>, <span style="color: #ffd866;">'O'</span>, <span style="color: #ffd866;">'.'</span>, <span style="color: #ffd866;">'.'</span>, <span style="color: #ffd866;">'.'</span>],
@@ -3599,15 +3616,15 @@ Also, remember to pass the end keyword argument to print() if you don’t want a
 </div>
 </li>
 
-<li><a id="orgc3e79a2"></a>Explanation and then move onto the next iteration of y value. What this means is we have to put the x loop <b>within</b> the y loop as <b>nested loops are always executed first before the parent loop</b>. The <code>End</code> value is define<br /></li>
+<li><a id="orgeecd467"></a>Explanation and then move onto the next iteration of y value. What this means is we have to put the x loop <b>within</b> the y loop as <b>nested loops are always executed first before the parent loop</b>. The <code>End</code> value is define<br /></li>
 </ul>
 </div>
 </div>
 </div>
 
-<div id="outline-container-org2d9025b" class="outline-2">
-<h2 id="org2d9025b">Chapter 5 - Dictionaries and Structuring Data</h2>
-<div class="outline-text-2" id="text-org2d9025b">
+<div id="outline-container-orgd429083" class="outline-2">
+<h2 id="orgd429083">Chapter 5 - Dictionaries and Structuring Data</h2>
+<div class="outline-text-2" id="text-orgd429083">
 <p>
 Dictionary data type provides a flexible way to access and organize data. Dictionaries and lists are closely related.<br />
 </p>
@@ -3642,9 +3659,9 @@ Dictionaries can still use integer value as keys just like lists. But they do no
 </p>
 </div>
 
-<div id="outline-container-org5047c42" class="outline-3">
-<h3 id="org5047c42">Dictionaries vs. Lists</h3>
-<div class="outline-text-3" id="text-org5047c42">
+<div id="outline-container-org838d269" class="outline-3">
+<h3 id="org838d269">Dictionaries vs. Lists</h3>
+<div class="outline-text-3" id="text-org838d269">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -3689,9 +3706,9 @@ Dictionaries can still use integer value as keys just like lists. But they do no
 </div>
 </div>
 
-<div id="outline-container-org5d3664f" class="outline-3">
-<h3 id="org5d3664f"><code>keys()</code>, <code>values()</code> and <code>items()</code> methods</h3>
-<div class="outline-text-3" id="text-org5d3664f">
+<div id="outline-container-orgb9b05a9" class="outline-3">
+<h3 id="orgb9b05a9"><code>keys()</code>, <code>values()</code> and <code>items()</code> methods</h3>
+<div class="outline-text-3" id="text-orgb9b05a9">
 <p>
 These are the three dictionary methods that will return list-like values of dictionary's keys, values or both keys and values. The returned values aren't true lists as they cannot be modified and lack the <code>append()</code> method. But these data types (<code>dict_keys</code>, <code>dict_values</code> and <code>dict_items()</code> respectively) can be used in <code>for</code> loop.<br />
 </p>
@@ -3762,9 +3779,9 @@ True
 </div>
 </div>
 
-<div id="outline-container-org5691368" class="outline-3">
-<h3 id="org5691368">The <code>get()</code> method</h3>
-<div class="outline-text-3" id="text-org5691368">
+<div id="outline-container-orgabd07e5" class="outline-3">
+<h3 id="orgabd07e5">The <code>get()</code> method</h3>
+<div class="outline-text-3" id="text-orgabd07e5">
 <p>
 This method takes two arguments: a key of the value to retrive and a fall back value to return if the key does not exist.<br />
 </p>
@@ -3792,9 +3809,9 @@ My dog weighs 0.
 </div>
 </div>
 
-<div id="outline-container-org95b0e77" class="outline-3">
-<h3 id="org95b0e77">The <code>setdefault()</code> method</h3>
-<div class="outline-text-3" id="text-org95b0e77">
+<div id="outline-container-orgc1307c5" class="outline-3">
+<h3 id="orgc1307c5">The <code>setdefault()</code> method</h3>
+<div class="outline-text-3" id="text-orgc1307c5">
 <p>
 This method offers a way to set default values in one line of code.<br />
 </p>
@@ -3873,9 +3890,9 @@ Example: Using Python to count occurences of each letter in a string.<br />
 </div>
 </div>
 
-<div id="outline-container-org53d646a" class="outline-3">
-<h3 id="org53d646a">Pretty printing <code>pprint()</code> and <code>pformat()</code></h3>
-<div class="outline-text-3" id="text-org53d646a">
+<div id="outline-container-org7855d1a" class="outline-3">
+<h3 id="org7855d1a">Pretty printing <code>pprint()</code> and <code>pformat()</code></h3>
+<div class="outline-text-3" id="text-org7855d1a">
 <p>
 Pretty print is helpful is helpful when we want a cleaner display of dictionary that what <code>print()</code> normally provides.<br />
 </p>
@@ -3967,9 +3984,9 @@ pprint.print(aDictionary) == print(pprint.pformat(aDictionary))<br />
 </div>
 </div>
 
-<div id="outline-container-org8851efa" class="outline-3">
-<h3 id="org8851efa">Nested dictionaries and lists</h3>
-<div class="outline-text-3" id="text-org8851efa">
+<div id="outline-container-orgeea590e" class="outline-3">
+<h3 id="orgeea590e">Nested dictionaries and lists</h3>
+<div class="outline-text-3" id="text-orgeea590e">
 <p>
 As we model more complicated things in life we may need to utilize dictionaries and list that contain other dictionaries and lists.<br />
 </p>
@@ -4000,9 +4017,9 @@ Alex is bringing 7 biscuits.
 </div>
 </div>
 
-<div id="outline-container-org70cb384" class="outline-3">
-<h3 id="org70cb384">PRACTICE PROJECT - Fantasy Game Inventory</h3>
-<div class="outline-text-3" id="text-org70cb384">
+<div id="outline-container-org75c5817" class="outline-3">
+<h3 id="org75c5817">PRACTICE PROJECT - Fantasy Game Inventory</h3>
+<div class="outline-text-3" id="text-org75c5817">
 <blockquote>
 <p>
 You are creating a fantasy video game. The data structure to model the player’s inventory will be a dictionary where the keys are string values describing the item in the inventory and the value is an integer value detailing how many of that item the player has. For example, the dictionary value {'rope': 1, 'torch': 6, 'gold coin': 42, 'dagger': 1, 'arrow': 12} means the player has 1 rope, 6 torches, 42 gold coins, and so on.<br />
@@ -4053,9 +4070,9 @@ Total number of items: 62
 </div>
 </div>
 </div>
-<div id="outline-container-org4616211" class="outline-2">
-<h2 id="org4616211">Chapter 6 - Manipulating Strings</h2>
-<div class="outline-text-2" id="text-org4616211">
+<div id="outline-container-org2f471e4" class="outline-2">
+<h2 id="org2f471e4">Chapter 6 - Manipulating Strings</h2>
+<div class="outline-text-2" id="text-org2f471e4">
 <p>
 Text is one of the most common forms of data our programs will handle.<br />
 </p>
@@ -4065,13 +4082,13 @@ Typing string values in Python is fairly straightforward, string data type begin
 </p>
 </div>
 
-<div id="outline-container-org01f3cb1" class="outline-3">
-<h3 id="org01f3cb1">String literals</h3>
-<div class="outline-text-3" id="text-org01f3cb1">
+<div id="outline-container-org4b65c26" class="outline-3">
+<h3 id="org4b65c26">String literals</h3>
+<div class="outline-text-3" id="text-org4b65c26">
 </div>
-<div id="outline-container-orgd773ecd" class="outline-4">
-<h4 id="orgd773ecd">Double Quotes</h4>
-<div class="outline-text-4" id="text-orgd773ecd">
+<div id="outline-container-orgb4246bd" class="outline-4">
+<h4 id="orgb4246bd">Double Quotes</h4>
+<div class="outline-text-4" id="text-orgb4246bd">
 <p>
 <b>How do we use a quote inside a string?</b><br />
 &gt; We use <b>double</b> quote.<br />
@@ -4097,11 +4114,11 @@ However, if we need <b>both</b> single and double quotes in a string, we need an
 </div>
 </div>
 
-<div id="outline-container-orgebfe734" class="outline-4">
-<h4 id="orgebfe734">Escape Character</h4>
-<div class="outline-text-4" id="text-orgebfe734">
+<div id="outline-container-org31efbfa" class="outline-4">
+<h4 id="org31efbfa">Escape Character</h4>
+<div class="outline-text-4" id="text-org31efbfa">
 <p>
-<a id="orgae2f8b7"></a><br />
+<a id="orgbda1a16"></a><br />
  An <b>escape</b> character allows us to use characters that are otherwise impossible to put into a string.<br />
 </p>
 
@@ -4171,9 +4188,9 @@ List of escape characters:<br />
 </div>
 </div>
 
-<div id="outline-container-orge8e00d5" class="outline-4">
-<h4 id="orge8e00d5">Raw strings</h4>
-<div class="outline-text-4" id="text-orge8e00d5">
+<div id="outline-container-org7dae506" class="outline-4">
+<h4 id="org7dae506">Raw strings</h4>
+<div class="outline-text-4" id="text-org7dae506">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fcfcfa;">test</span> = r<span style="color: #ffd866;">'That is Carol\'s cat'</span>
 <span style="color: #ff6188;">print</span>(test)
@@ -4189,14 +4206,14 @@ Putting an <code>r</code> infront of a string turns it into a <b>raw string</b>.
 </p>
 
 <p>
-Raw strings are good if we are printing string values that contain many backslashes, such as the strings used for <a href="#orga61c7b0">regexp</a> described in next chapter.<br />
+Raw strings are good if we are printing string values that contain many backslashes, such as the strings used for <a href="#org1c6da44">regexp</a> described in next chapter.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orge273ee2" class="outline-4">
-<h4 id="orge273ee2">Multiline strings with Triple Quotes</h4>
-<div class="outline-text-4" id="text-orge273ee2">
+<div id="outline-container-orgfe35ff2" class="outline-4">
+<h4 id="orgfe35ff2">Multiline strings with Triple Quotes</h4>
+<div class="outline-text-4" id="text-orgfe35ff2">
 <p>
 Although we can use escape character <code>\n</code> to put a newline into a string, it is often easier to use multiline string, which is one that begins and end with either three single quotes <code>'''</code> or three double quotes <code>"""</code>.<br />
 </p>
@@ -4237,9 +4254,9 @@ WHERE student_name = 'stupid'
 </div>
 </div>
 
-<div id="outline-container-org0a14df2" class="outline-4">
-<h4 id="org0a14df2">Multiline Comments</h4>
-<div class="outline-text-4" id="text-org0a14df2">
+<div id="outline-container-org7049820" class="outline-4">
+<h4 id="org7049820">Multiline Comments</h4>
+<div class="outline-text-4" id="text-org7049820">
 <p>
 While the hash <code>#</code> character can be used to mark the beginning of a comment line, a multiline string is often used for comments that span multiple lines.<br />
 </p>
@@ -4257,9 +4274,9 @@ hello world
 </div>
 </div>
 
-<div id="outline-container-org85aa616" class="outline-3">
-<h3 id="org85aa616">Indexing and Slicing Strings</h3>
-<div class="outline-text-3" id="text-org85aa616">
+<div id="outline-container-org40adda0" class="outline-3">
+<h3 id="org40adda0">Indexing and Slicing Strings</h3>
+<div class="outline-text-3" id="text-org40adda0">
 <p>
 Similar to lists, strings also use indexes and slices. You can think of it this way<br />
 </p>
@@ -4284,9 +4301,9 @@ Hello world! contains Hell.
 </div>
 </div>
 
-<div id="outline-container-org2a59b54" class="outline-3">
-<h3 id="org2a59b54"><code>in</code> and <code>not in</code> operators with strings</h3>
-<div class="outline-text-3" id="text-org2a59b54">
+<div id="outline-container-org8baf2ba" class="outline-3">
+<h3 id="org8baf2ba"><code>in</code> and <code>not in</code> operators with strings</h3>
+<div class="outline-text-3" id="text-org8baf2ba">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fcfcfa;">greeting</span> = <span style="color: #ffd866;">"Hello World"</span>
 
@@ -4307,13 +4324,13 @@ False
 </pre>
 </div>
 </div>
-<div id="outline-container-orged4fe34" class="outline-3">
-<h3 id="orged4fe34">Useful string methods</h3>
-<div class="outline-text-3" id="text-orged4fe34">
+<div id="outline-container-orgdfbee77" class="outline-3">
+<h3 id="orgdfbee77">Useful string methods</h3>
+<div class="outline-text-3" id="text-orgdfbee77">
 </div>
-<div id="outline-container-org991bfe3" class="outline-4">
-<h4 id="org991bfe3"><code>upper()</code> and <code>lower()</code>, <code>isupper()</code> and <code>islower()</code> methods</h4>
-<div class="outline-text-4" id="text-org991bfe3">
+<div id="outline-container-org02d2077" class="outline-4">
+<h4 id="org02d2077"><code>upper()</code> and <code>lower()</code>, <code>isupper()</code> and <code>islower()</code> methods</h4>
+<div class="outline-text-4" id="text-org02d2077">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #fcfcfa;">spam</span> = <span style="color: #ffd866;">'Hello World!'</span>
 <span style="color: #fcfcfa;">spam</span> = spam.upper()
@@ -4343,9 +4360,9 @@ These methods are helpful if we need to make case-insensitive comparison/ verifi
 </p>
 </div>
 </div>
-<div id="outline-container-org19a9544" class="outline-4">
-<h4 id="org19a9544">The <code>isX</code> methods</h4>
-<div class="outline-text-4" id="text-org19a9544">
+<div id="outline-container-orgf23c5a7" class="outline-4">
+<h4 id="orgf23c5a7">The <code>isX</code> methods</h4>
+<div class="outline-text-4" id="text-orgf23c5a7">
 <p>
 Along with <code>isupper()</code> and <code>islower()</code>, there are other string methods that have names beginning with <code>is</code>, which return a Boolean value that describe the nature of the string.<br />
 </p>
@@ -4398,9 +4415,9 @@ These are:<br />
 </div>
 </div>
 
-<div id="outline-container-org73b5942" class="outline-4">
-<h4 id="org73b5942">The <code>startswith()</code> and <code>endswith()</code> string methods</h4>
-<div class="outline-text-4" id="text-org73b5942">
+<div id="outline-container-orge7dfa13" class="outline-4">
+<h4 id="orge7dfa13">The <code>startswith()</code> and <code>endswith()</code> string methods</h4>
+<div class="outline-text-4" id="text-orge7dfa13">
 <p>
 These return <code>True</code> if the string value they are called on begins or ends respectively with the string passed to the methods. Otherwise they return <code>False</code>.<br />
 </p>
@@ -4425,9 +4442,9 @@ These methods can be used as alternatives to the <code>==</code> operator if we 
 </div>
 </div>
 
-<div id="outline-container-org26c44a2" class="outline-4">
-<h4 id="org26c44a2">The <code>join()</code> and <code>split()</code> methods</h4>
-<div class="outline-text-4" id="text-org26c44a2">
+<div id="outline-container-org8956c29" class="outline-4">
+<h4 id="org8956c29">The <code>join()</code> and <code>split()</code> methods</h4>
+<div class="outline-text-4" id="text-org8956c29">
 <p>
 The <code>join()</code> method is useful when we want to join together a list of strings. <b>It is called on a string value and takes a list value</b>.<br />
 The <b>returned string</b> is the concatenation of each string in the passed-in arguments.<br />
@@ -4482,9 +4499,9 @@ If left the argument in <code>split()</code> is left empty, the default value is
 </div>
 </div>
 
-<div id="outline-container-orge2277ec" class="outline-4">
-<h4 id="orge2277ec">Justifying text with <code>rjust()</code>, <code>ljust()</code> and <code>center()</code></h4>
-<div class="outline-text-4" id="text-orge2277ec">
+<div id="outline-container-org8f6709d" class="outline-4">
+<h4 id="org8f6709d">Justifying text with <code>rjust()</code>, <code>ljust()</code> and <code>center()</code></h4>
+<div class="outline-text-4" id="text-org8f6709d">
 <p>
 The <code>rjust()</code> and <code>ljust()</code> methods return a <b>padded</b> version of the string they are called on. Padding just means that spaces were inserted to either <b>left or right</b> respectively of the text. This is to "justify" the text.<br />
 </p>
@@ -4583,9 +4600,9 @@ As above using <code>rjust()</code>, <code>ljust()</code> and <code>center()</co
 </p>
 </div>
 </div>
-<div id="outline-container-orgc78fee9" class="outline-4">
-<h4 id="orgc78fee9">Removing whitespace with <code>strip()</code>, <code>rstrip()</code>, <code>lstrip()</code></h4>
-<div class="outline-text-4" id="text-orgc78fee9">
+<div id="outline-container-orgc24ad37" class="outline-4">
+<h4 id="orgc24ad37">Removing whitespace with <code>strip()</code>, <code>rstrip()</code>, <code>lstrip()</code></h4>
+<div class="outline-text-4" id="text-orgc24ad37">
 <p>
 Sometimes we want to strip off whitespace characters from a string, either from left side, right side or both. Whitespace characters include space, tab and newline.<br />
 </p>
@@ -4632,9 +4649,9 @@ BaconSpamEggs
 </p>
 </div>
 </div>
-<div id="outline-container-orgdf9a2d9" class="outline-4">
-<h4 id="orgdf9a2d9">Copying and pasting string with <code>pyperclip</code> module</h4>
-<div class="outline-text-4" id="text-orgdf9a2d9">
+<div id="outline-container-orgae62f0c" class="outline-4">
+<h4 id="orgae62f0c">Copying and pasting string with <code>pyperclip</code> module</h4>
+<div class="outline-text-4" id="text-orgae62f0c">
 <p>
 The pyperclip module has <code>copy()</code> and <code>paste()</code> functions that can send text to and receive text from the host computer's clipboard. Sending the output of the program to the clipbpard makes it easy to paste it to an email, word processor or some other applications.<br />
 </p>
@@ -4647,11 +4664,11 @@ Pyperclip does not come with Python therefore we have to do <code>pip install py
 </div>
 </div>
 
-<div id="outline-container-org2dc74d7" class="outline-2">
-<h2 id="org2dc74d7">Chapter 7 - Pattern matching with RegEx</h2>
-<div class="outline-text-2" id="text-org2dc74d7">
+<div id="outline-container-org85e05be" class="outline-2">
+<h2 id="org85e05be">Chapter 7 - Pattern matching with RegEx</h2>
+<div class="outline-text-2" id="text-org85e05be">
 <p>
-<a id="orga61c7b0"></a><br />
+<a id="org1c6da44"></a><br />
 Regular expressions are similar to seraching for text by pressing <code>Ctrl-F</code> on most applications however it is <b>the next step</b>. RegEx allows you to specify a <b>pattern</b> of text to search for.<br />
 </p>
 
@@ -4664,9 +4681,9 @@ Some even argues that before one is taught how to program, he should be taught R
 </p>
 </div>
 
-<div id="outline-container-orgb9f8d6c" class="outline-3">
-<h3 id="orgb9f8d6c">FInding patterns of text without RegEx</h3>
-<div class="outline-text-3" id="text-orgb9f8d6c">
+<div id="outline-container-org38856ff" class="outline-3">
+<h3 id="org38856ff">FInding patterns of text without RegEx</h3>
+<div class="outline-text-3" id="text-org38856ff">
 <p>
 Say we want to find a phone number in a string. We know the pattern, three numbers + a hyphen + three number + a hyphen then four number. E.g: 999-999-9999.<br />
 </p>
@@ -4737,9 +4754,9 @@ While the strings we used in the above example are short. It could be millions o
 </div>
 </div>
 
-<div id="outline-container-org7d74e92" class="outline-3">
-<h3 id="org7d74e92">Finding pattern of text with RegEx</h3>
-<div class="outline-text-3" id="text-org7d74e92">
+<div id="outline-container-orgeb37a86" class="outline-3">
+<h3 id="orgeb37a86">Finding pattern of text with RegEx</h3>
+<div class="outline-text-3" id="text-orgeb37a86">
 <p>
 Coming back to <code>isPhoneNumber()</code>,  we will be using RegEx this time.<br />
 </p>
@@ -4754,9 +4771,9 @@ RegExes can be much more complicated, for example adding a <code>{3}</code> afte
 </div>
 </div>
 
-<div id="outline-container-orge72a40b" class="outline-3">
-<h3 id="orge72a40b">Creating RegEx Objects</h3>
-<div class="outline-text-3" id="text-orge72a40b">
+<div id="outline-container-orgeede070" class="outline-3">
+<h3 id="orgeede070">Creating RegEx Objects</h3>
+<div class="outline-text-3" id="text-orgeede070">
 <p>
 All the regex functions in Python are in the <code>re</code> module that comes with Python. We have to import it.<br />
 </p>
@@ -4766,14 +4783,14 @@ Passing a string value representing your regular expression to <code>re.compile(
 </p>
 
 <p>
-When creating a RegEx object, we should use a <b>raw string</b> so that we are passing a literal backslash, not an <a href="#orgae2f8b7"><i>escape character</i></a>. This is because RegExes frequently use backslashes in them. Without passing a raw string we'd be typing many extra backslashes.<br />
+When creating a RegEx object, we should use a <b>raw string</b> so that we are passing a literal backslash, not an <a href="#orgbda1a16"><i>escape character</i></a>. This is because RegExes frequently use backslashes in them. Without passing a raw string we'd be typing many extra backslashes.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgd70f2ce" class="outline-3">
-<h3 id="orgd70f2ce">Matching RegEx Objects</h3>
-<div class="outline-text-3" id="text-orgd70f2ce">
+<div id="outline-container-org883b343" class="outline-3">
+<h3 id="org883b343">Matching RegEx Objects</h3>
+<div class="outline-text-3" id="text-org883b343">
 <p>
 RegEx Objects have a <code>search()</code> method that searchs the string it is passed for any matches to the regexp itself.<br />
 </p>
@@ -4801,9 +4818,9 @@ The <code>search()</code> method returns None if the regex pattern is not found 
 </div>
 </div>
 
-<div id="outline-container-org889eed1" class="outline-3">
-<h3 id="org889eed1">REVIEW of RegEx</h3>
-<div class="outline-text-3" id="text-org889eed1">
+<div id="outline-container-org7a1dc7d" class="outline-3">
+<h3 id="org7a1dc7d">REVIEW of RegEx</h3>
+<div class="outline-text-3" id="text-org7a1dc7d">
 <p>
 There are several steps to using RegEx in Python. Each step is fairly simple.<br />
 </p>
@@ -4817,9 +4834,9 @@ There are several steps to using RegEx in Python. Each step is fairly simple.<br
 </div>
 </div>
 
-<div id="outline-container-org5893df1" class="outline-3">
-<h3 id="org5893df1">Grouping of RegEx with Parentheses</h3>
-<div class="outline-text-3" id="text-org5893df1">
+<div id="outline-container-orgcb05b53" class="outline-3">
+<h3 id="orgcb05b53">Grouping of RegEx with Parentheses</h3>
+<div class="outline-text-3" id="text-orgcb05b53">
 <p>
 Coming to our phoneNumber_regex example, what we can also is seperate the area code from the rest of the phone number by adding parentheses in the regex object. This in turn create <b>groups</b> in the regex.<br />
 </p>
@@ -4875,13 +4892,13 @@ By passing the integer which represents the group to the <code>group()</code> me
 </p>
 
 <p>
-In the last line of the above, we saw the <code>groups()</code> method (plural). This method returns all the groups at once in form of <code>tuple</code>. This, in combination with <a href="#orgeb445f0">multiple assignment</a> can be very handy.We can assign several values to variables.<br />
+In the last line of the above, we saw the <code>groups()</code> method (plural). This method returns all the groups at once in form of <code>tuple</code>. This, in combination with <a href="#org95b5a65">multiple assignment</a> can be very handy.We can assign several values to variables.<br />
 </p>
 </div>
 
-<div id="outline-container-org9aa44d3" class="outline-4">
-<h4 id="org9aa44d3">Matching a parenthesis in regex</h4>
-<div class="outline-text-4" id="text-org9aa44d3">
+<div id="outline-container-org6185fe7" class="outline-4">
+<h4 id="org6185fe7">Matching a parenthesis in regex</h4>
+<div class="outline-text-4" id="text-org6185fe7">
 <p>
 As parentheses have a special meaning in regular expressions, to match a parenthesis in text we have to escape the <code>(</code> and <code>)</code> characters with a backslash. The <code>\(</code> and  <code>\)</code> escape characters in the <b>raw string</b> passed to <code>re.compile()</code> will match actual parenthesis character.<br />
 </p>
@@ -4889,9 +4906,9 @@ As parentheses have a special meaning in regular expressions, to match a parenth
 </div>
 </div>
 
-<div id="outline-container-org21cc104" class="outline-3">
-<h3 id="org21cc104">Matching multiple groups with Pipe</h3>
-<div class="outline-text-3" id="text-org21cc104">
+<div id="outline-container-org780d391" class="outline-3">
+<h3 id="org780d391">Matching multiple groups with Pipe</h3>
+<div class="outline-text-3" id="text-org780d391">
 <p>
 We can use the pipe <code>|</code> character to match one of many expressions.<br />
 </p>
@@ -4944,9 +4961,9 @@ If we need to find an actual pipe character, we can escape it with backslash <co
 </div>
 </div>
 
-<div id="outline-container-orgb973857" class="outline-3">
-<h3 id="orgb973857"><code>findall()</code> method</h3>
-<div class="outline-text-3" id="text-orgb973857">
+<div id="outline-container-org0da6a02" class="outline-3">
+<h3 id="org0da6a02"><code>findall()</code> method</h3>
+<div class="outline-text-3" id="text-org0da6a02">
 <p>
 The <code>search()</code> method returns the <span class="underline">first</span> expression that is matched in a string in a <code>Match</code> type object. Instead we could use <code>findall()</code> which return <b>every match</b> in the searched string in a <code>List</code> object. The returned list is a list of all the matched (sub) strings in the searched string.<br />
 </p>
@@ -4976,9 +4993,9 @@ If there are groups in the regular expressions, <code>findall()</code> will retu
 </div>
 </div>
 
-<div id="outline-container-orge044ec6" class="outline-3">
-<h3 id="orge044ec6">OPTIONAL matching using <code>?</code></h3>
-<div class="outline-text-3" id="text-orge044ec6">
+<div id="outline-container-org2507376" class="outline-3">
+<h3 id="org2507376">OPTIONAL matching using <code>?</code></h3>
+<div class="outline-text-3" id="text-org2507376">
 <p>
 Sometimes we want to match a patern only <b>optionally</b>. That is the regex should find a match <b>whether or not</b> that bit of text is there. To do this we use the <code>?</code> character to flag the group that <b>precedes</b> it as an optional part of the pattern.<br />
 </p>
@@ -5002,9 +5019,9 @@ Batwoman
 </div>
 </div>
 
-<div id="outline-container-org5066207" class="outline-3">
-<h3 id="org5066207">Matching zero or more with asterisk <code>*</code></h3>
-<div class="outline-text-3" id="text-org5066207">
+<div id="outline-container-orgf8a7fce" class="outline-3">
+<h3 id="orgf8a7fce">Matching zero or more with asterisk <code>*</code></h3>
+<div class="outline-text-3" id="text-orgf8a7fce">
 <p>
 We can the asterisk in regex to match zero or more occurence of the group that precedes the <code>*</code> flag. This means the group can be completely absent or repeated many times.<br />
 </p>
@@ -5036,9 +5053,9 @@ Again, if we actually want to match <code>*</code>, escape it with <code>\*</cod
 </div>
 </div>
 
-<div id="outline-container-org0c9078d" class="outline-3">
-<h3 id="org0c9078d">Matcing one or more with plus <code>+</code></h3>
-<div class="outline-text-3" id="text-org0c9078d">
+<div id="outline-container-org244cf70" class="outline-3">
+<h3 id="org244cf70">Matcing one or more with plus <code>+</code></h3>
+<div class="outline-text-3" id="text-org244cf70">
 <p>
 Similar to asterisk, <code>+</code> gives us the ability to match one or more occurences of the group. If there is zero occurence it will not match. Unlike asterisk, the group preceding the <code>+</code> flag MUST appear <b>at least one</b>. It is not optional.<br />
 </p>
@@ -5067,9 +5084,9 @@ Again, to match <code>+</code>, use <code>\+</code> in the raw string.<br />
 </div>
 </div>
 
-<div id="outline-container-orgf287fc1" class="outline-3">
-<h3 id="orgf287fc1">Matching specific repetitions with Curly Brackets <code>{}</code></h3>
-<div class="outline-text-3" id="text-orgf287fc1">
+<div id="outline-container-org8c9347d" class="outline-3">
+<h3 id="org8c9347d">Matching specific repetitions with Curly Brackets <code>{}</code></h3>
+<div class="outline-text-3" id="text-org8c9347d">
 <p>
 We can use curly brackets to match patterns that repeat a specific number of times.<br />
 </p>
@@ -5114,9 +5131,9 @@ Curly brackets make our regex shorter, i.e instead of <code>(Ha)(Ha)(Ha)</code> 
 </div>
 </div>
 
-<div id="outline-container-org33c14c2" class="outline-3">
-<h3 id="org33c14c2">Greedy and nongreedy matching</h3>
-<div class="outline-text-3" id="text-org33c14c2">
+<div id="outline-container-org9357376" class="outline-3">
+<h3 id="org9357376">Greedy and nongreedy matching</h3>
+<div class="outline-text-3" id="text-org9357376">
 <p>
 Since <code>(Ha){3,5}</code> can match three, four or five instances of <code>Ha</code> in string <code>HaHaHaHa</code>, why does the  <code>Match</code> object's <code>group()</code> call returns <code>HaHaHaHa</code> but not <code>HaHaHa</code> which is <b>shorter</b>? After all these are both valid matches of the regular expression<br />
 </p>
@@ -5148,9 +5165,9 @@ HaHaHa
 </div>
 </div>
 
-<div id="outline-container-org1d4e50f" class="outline-3">
-<h3 id="org1d4e50f">SHORTHAND CODES FOR CHARACTER CLASSES</h3>
-<div class="outline-text-3" id="text-org1d4e50f">
+<div id="outline-container-orgd765386" class="outline-3">
+<h3 id="orgd765386">SHORTHAND CODES FOR CHARACTER CLASSES</h3>
+<div class="outline-text-3" id="text-orgd765386">
 <table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
 
 
@@ -5243,9 +5260,9 @@ Kenny is bringing 2 biscuits. John is bringing 3 cookies. Mai is bringing 5 coco
 </pre>
 </div>
 
-<div id="outline-container-org5b346bb" class="outline-4">
-<h4 id="org5b346bb">Matching our own custom character classes</h4>
-<div class="outline-text-4" id="text-org5b346bb">
+<div id="outline-container-orgc2aee2d" class="outline-4">
+<h4 id="orgc2aee2d">Matching our own custom character classes</h4>
+<div class="outline-text-4" id="text-orgc2aee2d">
 <p>
 Sometimes we find the generic character classes too broad. We can define our own character class using square brackets.<br />
 For example <code>[AaEeUuIiOo]</code> matches any vowel, irrespective of casing.<br />
@@ -5266,9 +5283,9 @@ If we place a caret character <code>^</code> just after the character class' ope
 </div>
 </div>
 
-<div id="outline-container-org6724c14" class="outline-3">
-<h3 id="org6724c14">The Caret <code>^</code> and Dollar Sign <code>$</code></h3>
-<div class="outline-text-3" id="text-org6724c14">
+<div id="outline-container-orgf0dcb01" class="outline-3">
+<h3 id="orgf0dcb01">The Caret <code>^</code> and Dollar Sign <code>$</code></h3>
+<div class="outline-text-3" id="text-orgf0dcb01">
 <p>
 A caret symbol can be used at the start of regex to indicate that a match must occur at the beginning of the searched text.<br />
 </p>
@@ -5283,9 +5300,9 @@ We can use these together, to match the entire string with the regex.<br />
 </div>
 </div>
 
-<div id="outline-container-orgd3b661e" class="outline-3">
-<h3 id="orgd3b661e">The <b>WILDCARD</b></h3>
-<div class="outline-text-3" id="text-orgd3b661e">
+<div id="outline-container-org303a5c8" class="outline-3">
+<h3 id="org303a5c8">The <b>WILDCARD</b></h3>
+<div class="outline-text-3" id="text-org303a5c8">
 <p>
 The <code>.</code> (dot) character in a regex is called a wildcard. It matches any character except for a new line.<br />
 </p>
@@ -5337,18 +5354,18 @@ This is pretty awesome.
 </div>
 </div>
 
-<div id="outline-container-org92c967a" class="outline-3">
-<h3 id="org92c967a">Case-insensitive matching</h3>
-<div class="outline-text-3" id="text-org92c967a">
+<div id="outline-container-orga010358" class="outline-3">
+<h3 id="orga010358">Case-insensitive matching</h3>
+<div class="outline-text-3" id="text-orga010358">
 <p>
 Like the <code>re.DOTALL</code> second argument, we can use <code>re.I</code> or <code>re.IGNORECASE</code> as the second argument within <code>re.compile()</code> to make the regex case-insensitive.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org66c60fb" class="outline-3">
-<h3 id="org66c60fb"><code>re.VERBOSE</code></h3>
-<div class="outline-text-3" id="text-org66c60fb">
+<div id="outline-container-org8185b05" class="outline-3">
+<h3 id="org8185b05"><code>re.VERBOSE</code></h3>
+<div class="outline-text-3" id="text-org8185b05">
 <p>
 The normal regular expression, so-called "compact" regular expressions are pretty hard to read. A few months or years on, it would be difficult even for the us to understand what we meant at the time of code writing.<br />
 </p>
@@ -5371,9 +5388,9 @@ In order to use verbose regular expressions, we need to pass an extra argument w
 </div>
 </div>
 
-<div id="outline-container-org9753c61" class="outline-3">
-<h3 id="org9753c61">PRACTICE PROJECT - Phone Number and Email Address Extractor</h3>
-<div class="outline-text-3" id="text-org9753c61">
+<div id="outline-container-org00eccee" class="outline-3">
+<h3 id="org00eccee">PRACTICE PROJECT - Phone Number and Email Address Extractor</h3>
+<div class="outline-text-3" id="text-org00eccee">
 <p>
 Say you have the boring task of finding every phone number and email address in a long web page or document. If you manually scroll through the page, you might end up searching for a long time. But if you had a program that could search the text in your clipboard for phone numbers and email addresses, you could simply press CTRL-A to select all the text, press CTRL-C to copy it to the clipboard, and then run your program. It could replace the text on the clipboard with just the phone numbers and email addresses it finds.<br />
 </p>
@@ -5427,9 +5444,9 @@ This list is like a road map for the project. As you write the code, you can foc
 </p>
 </div>
 
-<div id="outline-container-orgab14080" class="outline-4">
-<h4 id="orgab14080">Resolution</h4>
-<div class="outline-text-4" id="text-orgab14080">
+<div id="outline-container-org8d62499" class="outline-4">
+<h4 id="org8d62499">Resolution</h4>
+<div class="outline-text-4" id="text-org8d62499">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #727072;">## </span><span style="color: #727072; font-style: italic;">HOW-TO USE</span>
 <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">1. Copy a bunch of text to clipboard</span>
@@ -5515,9 +5532,9 @@ find_phoneNo_and_email(text)
 </div>
 </div>
 
-<div id="outline-container-org4eaaecc" class="outline-2">
-<h2 id="org4eaaecc">Chapter 8 - Input validation</h2>
-<div class="outline-text-2" id="text-org4eaaecc">
+<div id="outline-container-org0dfc2d4" class="outline-2">
+<h2 id="org0dfc2d4">Chapter 8 - Input validation</h2>
+<div class="outline-text-2" id="text-org0dfc2d4">
 <p>
 Input validation code checks that values entered by the user, e.g: from <code>input()</code> function, are formatted correctly.<br />
 </p>
@@ -5559,9 +5576,9 @@ If we do this for every input, however, writing it quickly becomes tedious. More
 </p>
 </div>
 
-<div id="outline-container-org8c358cb" class="outline-3">
-<h3 id="org8c358cb">PyInputPlus</h3>
-<div class="outline-text-3" id="text-org8c358cb">
+<div id="outline-container-org34db54a" class="outline-3">
+<h3 id="org34db54a">PyInputPlus</h3>
+<div class="outline-text-3" id="text-org34db54a">
 <p>
 The PyInputPlus library contains functions similar to <code>input()</code> for several kinds of data like numbers, dates, email addresses and more. For invalid inputs, such as poorly formatted date or a number that's not within an intended range, PyInputPlus will reprompt the users for input just like our manual code. The library also has other useful features like a limit for the number of times it reprompts useres and a timeout function if users are required to respond within a time limit.<br />
 </p>
@@ -5572,9 +5589,9 @@ PyInputPlus isn't part of the standard library, so you have to install it using 
 </div>
 </div>
 
-<div id="outline-container-org8bc1bdf" class="outline-3">
-<h3 id="org8bc1bdf">PyInputPlus common functions</h3>
-<div class="outline-text-3" id="text-org8bc1bdf">
+<div id="outline-container-orgcfe8967" class="outline-3">
+<h3 id="orgcfe8967">PyInputPlus common functions</h3>
+<div class="outline-text-3" id="text-orgcfe8967">
 <ul class="org-ul">
 <li><b>inputStr()</b> is like the built-in <code>input()</code> function but has the general PyInputPlus features. We can also pass a custom validation function to it.<br /></li>
 <li><b>inputNum()</b> ensures the user enters a number and returns an int or float, depending on if the number has a decimal point.<br /></li>
@@ -7239,9 +7256,9 @@ wYQ35QAAAABJRU5ErkJggg=="inputIntwithprompt.png /><br />
 </div>
 </div>
 
-<div id="outline-container-org1b059d7" class="outline-3">
-<h3 id="org1b059d7"><code>inputNum</code> | <code>inputInt</code> | <code>inputFloat</code> - implement range limit</h3>
-<div class="outline-text-3" id="text-org1b059d7">
+<div id="outline-container-orgbbe6352" class="outline-3">
+<h3 id="orgbbe6352"><code>inputNum</code> | <code>inputInt</code> | <code>inputFloat</code> - implement range limit</h3>
+<div class="outline-text-3" id="text-orgbbe6352">
 <p>
 Range limit can be implemented by optional keyword arguments like <code>min</code>, <code>max</code>, <code>greaterThan</code> and <code>lessThan</code>.<br />
 </p>
@@ -7265,9 +7282,9 @@ Enter a Number: 7
 </div>
 </div>
 
-<div id="outline-container-org6ea86ea" class="outline-3">
-<h3 id="org6ea86ea">the <code>blank</code> keyword argument</h3>
-<div class="outline-text-3" id="text-org6ea86ea">
+<div id="outline-container-org933383a" class="outline-3">
+<h3 id="org933383a">the <code>blank</code> keyword argument</h3>
+<div class="outline-text-3" id="text-org933383a">
 <p>
 By default, blank input isn't allowed unless the <code>blank</code> keyword argument is set to <code>True</code>.<br />
 </p>
@@ -7293,9 +7310,9 @@ Enter a Number:
 </div>
 </div>
 
-<div id="outline-container-org9887e08" class="outline-3">
-<h3 id="org9887e08">limit | timeout</h3>
-<div class="outline-text-3" id="text-org9887e08">
+<div id="outline-container-org242e17e" class="outline-3">
+<h3 id="org242e17e">limit | timeout</h3>
+<div class="outline-text-3" id="text-org242e17e">
 <p>
 By default, the PyInputPlus functions will continue to ask the user for valid input for as long as the program runs. If we'd like a function to stop asking the user for input after a certain number of tries or certain amount of time, we can use the <code>limit</code> and <code>timeout</code> keyword argument.<br />
 </p>
@@ -7310,9 +7327,9 @@ The <code>timeout</code> keyword argument accepts an integer value to determine 
 </div>
 </div>
 
-<div id="outline-container-orga595d06" class="outline-3">
-<h3 id="orga595d06">default keyword argument</h3>
-<div class="outline-text-3" id="text-orga595d06">
+<div id="outline-container-org9385c0f" class="outline-3">
+<h3 id="org9385c0f">default keyword argument</h3>
+<div class="outline-text-3" id="text-org9385c0f">
 <p>
 When we use the above limit/timeout keyword arguments and also pass a <code>default</code> keyword argument, the function returns the default value instead of raising an exception.<br />
 </p>
@@ -7339,9 +7356,9 @@ N/A
 </div>
 </div>
 
-<div id="outline-container-org624764a" class="outline-3">
-<h3 id="org624764a">The <code>allowRegexes</code> and <code>blockRegexes</code> keyword arguments</h3>
-<div class="outline-text-3" id="text-org624764a">
+<div id="outline-container-org5abc2b1" class="outline-3">
+<h3 id="org5abc2b1">The <code>allowRegexes</code> and <code>blockRegexes</code> keyword arguments</h3>
+<div class="outline-text-3" id="text-org5abc2b1">
 <p>
 These two keyword arguments take a list of regular expression strings to determine what the pyinputplus function will accept or reject as valid input.<br />
 </p>
@@ -7414,9 +7431,9 @@ category
 </div>
 </div>
 
-<div id="outline-container-orgfd43648" class="outline-3">
-<h3 id="orgfd43648"><code>inputCustom()</code></h3>
-<div class="outline-text-3" id="text-orgfd43648">
+<div id="outline-container-org876192d" class="outline-3">
+<h3 id="org876192d"><code>inputCustom()</code></h3>
+<div class="outline-text-3" id="text-org876192d">
 <p>
 We can write a custom function to perform our own custom validation logic by passing the function to <code>inputCustom()</code>.<br />
 </p>
@@ -7469,9 +7486,9 @@ The inputCustom() function also supports the general PyInputPlus features, such 
 </div>
 </div>
 
-<div id="outline-container-org247ba59" class="outline-3">
-<h3 id="org247ba59">Project: How to keep an idiot busy for hours</h3>
-<div class="outline-text-3" id="text-org247ba59">
+<div id="outline-container-org2dc629d" class="outline-3">
+<h3 id="org2dc629d">Project: How to keep an idiot busy for hours</h3>
+<div class="outline-text-3" id="text-org2dc629d">
 <p>
 Let’s use PyInputPlus to create a simple program that does the following:<br />
 </p>
@@ -7531,17 +7548,17 @@ Thank you. Have a nice day.<br />
 </div>
 </div>
 
-<div id="outline-container-org982988a" class="outline-2">
-<h2 id="org982988a">Chapter 9 - Reading and writing files</h2>
-<div class="outline-text-2" id="text-org982988a">
+<div id="outline-container-org20d70c6" class="outline-2">
+<h2 id="org20d70c6">Chapter 9 - Reading and writing files</h2>
+<div class="outline-text-2" id="text-org20d70c6">
 <p>
 If we want our data to persist after the program finishes running, we need to save it to a file.<br />
 </p>
 </div>
 
-<div id="outline-container-orgf4b5a78" class="outline-3">
-<h3 id="orgf4b5a78">Backslashes on Windows and Forward Slash on OS X and Linus</h3>
-<div class="outline-text-3" id="text-orgf4b5a78">
+<div id="outline-container-org8456f58" class="outline-3">
+<h3 id="org8456f58">Backslashes on Windows and Forward Slash on OS X and Linus</h3>
+<div class="outline-text-3" id="text-org8456f58">
 <div class="org-center">
 <p>
 In Python os module, there is a <code>os.sep</code> variable that is set to the correct folder-seperating slash for the OS running the program.<br />
@@ -7603,11 +7620,11 @@ Running this same line on Windows would have yielded <code>usr\\bin\\spam</code>
 </div>
 </div>
 
-<div id="outline-container-org0313702" class="outline-3">
-<h3 id="org0313702">Current working directory (cwd)</h3>
-<div class="outline-text-3" id="text-org0313702">
+<div id="outline-container-org2d99bfd" class="outline-3">
+<h3 id="org2d99bfd">Current working directory (cwd)</h3>
+<div class="outline-text-3" id="text-org2d99bfd">
 <p>
-<a id="org34fdc4f"></a> <br />
+<a id="orgfc799a6"></a> <br />
 </p>
 
 <p>
@@ -7635,9 +7652,9 @@ os.chdir(<span style="color: #ffd866;">'..'</span>)  <span style="color: #727072
 </div>
 </div>
 
-<div id="outline-container-org4164b74" class="outline-3">
-<h3 id="org4164b74">Absolute vs Relative path</h3>
-<div class="outline-text-3" id="text-org4164b74">
+<div id="outline-container-org48f60b4" class="outline-3">
+<h3 id="org48f60b4">Absolute vs Relative path</h3>
+<div class="outline-text-3" id="text-org48f60b4">
 <div class="org-center">
 <ul class="org-ul">
 <li>An <b>absolute</b> path always begins with the root folder.<br /></li>
@@ -7656,9 +7673,9 @@ os.chdir(<span style="color: #ffd866;">'..'</span>)  <span style="color: #727072
 </div>
 </div>
 
-<div id="outline-container-org40fb075" class="outline-3">
-<h3 id="org40fb075">Create new folder with <code>os.makedirs()</code></h3>
-<div class="outline-text-3" id="text-org40fb075">
+<div id="outline-container-org9c25f6b" class="outline-3">
+<h3 id="org9c25f6b">Create new folder with <code>os.makedirs()</code></h3>
+<div class="outline-text-3" id="text-org9c25f6b">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">import</span> os
 <span style="color: #ff6188;">print</span>(os.getcwd())
@@ -7672,9 +7689,9 @@ os.makedirs(<span style="color: #ffd866;">'test_folder'</span>)
 </div>
 </div>
 
-<div id="outline-container-org7e1f102" class="outline-3">
-<h3 id="org7e1f102">The <code>os.path</code> module</h3>
-<div class="outline-text-3" id="text-org7e1f102">
+<div id="outline-container-org09d362d" class="outline-3">
+<h3 id="org09d362d">The <code>os.path</code> module</h3>
+<div class="outline-text-3" id="text-org09d362d">
 <p>
 The <code>os.path</code> module contains many helpful functions related to file names and file paths, one of which being the <code>os.path~join()</code> method to build paths in a way that will work in any OS.<br />
 </p>
@@ -7723,9 +7740,9 @@ Using the split method to split on the string in the slash seperator to get a li
 </div>
 </div>
 
-<div id="outline-container-org6262f75" class="outline-3">
-<h3 id="org6262f75">Finding File Sizes and Folder content</h3>
-<div class="outline-text-3" id="text-org6262f75">
+<div id="outline-container-org395051a" class="outline-3">
+<h3 id="org395051a">Finding File Sizes and Folder content</h3>
+<div class="outline-text-3" id="text-org395051a">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">import</span> os 
 
@@ -7768,9 +7785,9 @@ Total Size: 240554
 </pre>
 </div>
 </div>
-<div id="outline-container-org882ba60" class="outline-3">
-<h3 id="org882ba60">Checking path validity</h3>
-<div class="outline-text-3" id="text-org882ba60">
+<div id="outline-container-orgf870048" class="outline-3">
+<h3 id="orgf870048">Checking path validity</h3>
+<div class="outline-text-3" id="text-orgf870048">
 <p>
 Many Python functions crash with an error if the non-existent path is supplied.<br />
 </p>
@@ -7787,9 +7804,9 @@ We can use <code>os.path.exists(path)</code> to check.<br />
 </div>
 </div>
 
-<div id="outline-container-orgf471cad" class="outline-3">
-<h3 id="orgf471cad">File Reading and Writing Process</h3>
-<div class="outline-text-3" id="text-orgf471cad">
+<div id="outline-container-org0d1db2b" class="outline-3">
+<h3 id="org0d1db2b">File Reading and Writing Process</h3>
+<div class="outline-text-3" id="text-org0d1db2b">
 <p>
 There are three steps to reading or writing a file in Python<br />
 </p>
@@ -7877,13 +7894,13 @@ My name is Kenny.
 </div>
 </div>
 </div>
-<div id="outline-container-orgc7b5d41" class="outline-2">
-<h2 id="orgc7b5d41">Chapter 10 - Organizing files</h2>
-<div class="outline-text-2" id="text-orgc7b5d41">
+<div id="outline-container-org871d52a" class="outline-2">
+<h2 id="org871d52a">Chapter 10 - Organizing files</h2>
+<div class="outline-text-2" id="text-org871d52a">
 </div>
-<div id="outline-container-orgf94f2f7" class="outline-3">
-<h3 id="orgf94f2f7">The <code>shutil</code> module</h3>
-<div class="outline-text-3" id="text-orgf94f2f7">
+<div id="outline-container-org71b024e" class="outline-3">
+<h3 id="org71b024e">The <code>shutil</code> module</h3>
+<div class="outline-text-3" id="text-org71b024e">
 <p>
 The <code>shutil</code> module stands for <b>shell utilities</b>. It has functions to let us copy, move, rename and delete files in our Python programs. To use this module do:<br />
 </p>
@@ -7894,9 +7911,9 @@ The <code>shutil</code> module stands for <b>shell utilities</b>. It has functio
 </div>
 </div>
 
-<div id="outline-container-orga7f545f" class="outline-3">
-<h3 id="orga7f545f">Copying Files and Folders</h3>
-<div class="outline-text-3" id="text-orga7f545f">
+<div id="outline-container-orgee00caa" class="outline-3">
+<h3 id="orgee00caa">Copying Files and Folders</h3>
+<div class="outline-text-3" id="text-orgee00caa">
 <p>
 The <code>shutil</code> module provides function for copying files as well as entire folders.<br />
 </p>
@@ -7940,9 +7957,9 @@ The second call copies the file but also give it a new name.<br />
 </p>
 </div>
 
-<div id="outline-container-org121f4c8" class="outline-4">
-<h4 id="org121f4c8"><code>shutil.copytree()</code></h4>
-<div class="outline-text-4" id="text-org121f4c8">
+<div id="outline-container-orgc2a8c4b" class="outline-4">
+<h4 id="orgc2a8c4b"><code>shutil.copytree()</code></h4>
+<div class="outline-text-4" id="text-orgc2a8c4b">
 <p>
 While <code>shutil.copy()</code> copies a single file, <code>shutil.copytree()</code> copy an <b>entire folder</b> and every folder and file contained within it.<br />
 </p>
@@ -7950,9 +7967,9 @@ While <code>shutil.copy()</code> copies a single file, <code>shutil.copytree()</
 </div>
 </div>
 
-<div id="outline-container-org0f2adf7" class="outline-3">
-<h3 id="org0f2adf7">Moving and renaming files and folders</h3>
-<div class="outline-text-3" id="text-org0f2adf7">
+<div id="outline-container-orgc374fca" class="outline-3">
+<h3 id="orgc374fca">Moving and renaming files and folders</h3>
+<div class="outline-text-3" id="text-orgc374fca">
 <p>
 Calling <code>shutil.move(source, dest)</code> will move the file or folder at <code>source</code> to the path <code>dest</code> and will return a string of the absolute path of the new location.<br />
 </p>
@@ -7975,9 +7992,9 @@ If a folder with the specified name does not exist, the <code>source</code> file
 </div>
 </div>
 
-<div id="outline-container-org8832d39" class="outline-3">
-<h3 id="org8832d39">Permanent delete</h3>
-<div class="outline-text-3" id="text-org8832d39">
+<div id="outline-container-org0d85959" class="outline-3">
+<h3 id="org0d85959">Permanent delete</h3>
+<div class="outline-text-3" id="text-org0d85959">
 <p>
 We can delete a single file or a single empty folder with functions in the <code>os</code> module, where as to delete a folder and all of its contents, we use the <code>shutil</code> module.<br />
 </p>
@@ -8035,9 +8052,9 @@ For example: Instead of..<br />
 </div>
 </div>
 
-<div id="outline-container-org8ff3764" class="outline-3">
-<h3 id="org8ff3764">Safe Delete</h3>
-<div class="outline-text-3" id="text-org8ff3764">
+<div id="outline-container-orgef85d1c" class="outline-3">
+<h3 id="orgef85d1c">Safe Delete</h3>
+<div class="outline-text-3" id="text-orgef85d1c">
 <p>
 We can do safe delete with third party <code>send2trash</code> module. Since it's a third party we need to do <code>pip install</code> first.<br />
 </p>
@@ -8062,9 +8079,9 @@ Things to note:<br />
 </div>
 </div>
 
-<div id="outline-container-org249d0f0" class="outline-3">
-<h3 id="org249d0f0">Walking a dir tree</h3>
-<div class="outline-text-3" id="text-org249d0f0">
+<div id="outline-container-orgf8d6edc" class="outline-3">
+<h3 id="orgf8d6edc">Walking a dir tree</h3>
+<div class="outline-text-3" id="text-orgf8d6edc">
 <p>
 We can use <code>os.walk()</code> to rename every file in some folder and also every file in every subfolder of that folder, meaning that we'd want to walk through the directory tree, touching files as we go.<br />
 </p>
@@ -8098,9 +8115,9 @@ By current folder, it is the folder of the current iteration of the for loop. Th
 </div>
 
 
-<div id="outline-container-org2a6325d" class="outline-3">
-<h3 id="org2a6325d">Compressing Files with <code>zipfile</code> module</h3>
-<div class="outline-text-3" id="text-org2a6325d">
+<div id="outline-container-org3ef0da7" class="outline-3">
+<h3 id="org3ef0da7">Compressing Files with <code>zipfile</code> module</h3>
+<div class="outline-text-3" id="text-org3ef0da7">
 <p>
 Compressing a file reduces its size, which is useful when transfering it over the Internet, especially when working with multiple files and folders.<br />
 </p>
@@ -8114,9 +8131,9 @@ A zipped file that contains multiple folders is called and archive file.<br />
 </p>
 </div>
 
-<div id="outline-container-org0037a81" class="outline-4">
-<h4 id="org0037a81">Reading ZIP file</h4>
-<div class="outline-text-4" id="text-org0037a81">
+<div id="outline-container-org5aada79" class="outline-4">
+<h4 id="org5aada79">Reading ZIP file</h4>
+<div class="outline-text-4" id="text-org5aada79">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">import</span> zipfile
 
@@ -8139,9 +8156,9 @@ While a <code>ZipFile</code> object represents an entire archive file, a <code>Z
 </div>
 </div>
 
-<div id="outline-container-org4df046d" class="outline-4">
-<h4 id="org4df046d">Extracting from ZIP files</h4>
-<div class="outline-text-4" id="text-org4df046d">
+<div id="outline-container-orgf289e61" class="outline-4">
+<h4 id="orgf289e61">Extracting from ZIP files</h4>
+<div class="outline-text-4" id="text-orgf289e61">
 <p>
 The <code>extractall()</code> method for <code>ZipFile</code> objects extracts all the files and folder from a ZIP file int other current working directory (<code>os.getcwd()</code>)<br />
 </p>
@@ -8175,9 +8192,9 @@ The argument we pass to <code>extract()</code> must match one of the string in t
 </div>
 </div>
 
-<div id="outline-container-org8abd5d0" class="outline-4">
-<h4 id="org8abd5d0">Creating and Adding to ZIP files</h4>
-<div class="outline-text-4" id="text-org8abd5d0">
+<div id="outline-container-org8feb579" class="outline-4">
+<h4 id="org8feb579">Creating and Adding to ZIP files</h4>
+<div class="outline-text-4" id="text-org8feb579">
 <p>
 To create a ZIP file, we must open the <code>ZipFile</code> object in <i>write</i> mode by passing 'w' as the second argument. This is similar to opening a text file in write mode using <code>open()</code>.<br />
 </p>
@@ -8193,14 +8210,14 @@ When we pass a path to <code>write()</code> method of the <code>ZipFile</code> o
 </div>
 </div>
 
-<div id="outline-container-org7d84f3c" class="outline-4">
-<h4 id="org7d84f3c">Project: Renaming files with Ameri</h4>
+<div id="outline-container-org443d843" class="outline-4">
+<h4 id="org443d843">Project: Renaming files with Ameri</h4>
 </div>
 </div>
 </div>
-<div id="outline-container-orge4ea7fd" class="outline-2">
-<h2 id="orge4ea7fd">Chapter 11- Debugging</h2>
-<div class="outline-text-2" id="text-orge4ea7fd">
+<div id="outline-container-orgd3a503d" class="outline-2">
+<h2 id="orgd3a503d">Chapter 11- Debugging</h2>
+<div class="outline-text-2" id="text-orgd3a503d">
 <p>
 The more complicated the more programs we write, the more likely we'll start finding not-so-simple bugs in them. It is important that we know how to use the right tools to find the root cause of bugs in our program to help us fix bugs faster and with less effort.<br />
 </p>
@@ -8214,9 +8231,9 @@ In general, the earlier we catch bugs, the easier they will be easier to fix.<br
 </p>
 </div>
 
-<div id="outline-container-org01435af" class="outline-3">
-<h3 id="org01435af">Raising Exceptions</h3>
-<div class="outline-text-3" id="text-org01435af">
+<div id="outline-container-org0015fc3" class="outline-3">
+<h3 id="org0015fc3">Raising Exceptions</h3>
+<div class="outline-text-3" id="text-org0015fc3">
 <p>
 An exception is raised when Python encounters a bug in our code, or when it tries to execute invalid code. We can handle Python's exception with <code>try</code> and <code>except</code> statements so that our program can recover from the anticipated excpetion. However we can also <b>raise our own exception</b> in our code. Raising an exception is a way of saying 'Stop running the code in this fucntion and move the program execution to the <code>except</code> statement/ block.<br />
 </p>
@@ -8298,9 +8315,9 @@ Later when we call the <code>boxPrint()</code> function, our <code>try/except</c
 </div>
 </div>
 
-<div id="outline-container-org6c0acb9" class="outline-3">
-<h3 id="org6c0acb9">Getting the Traceback as a string</h3>
-<div class="outline-text-3" id="text-org6c0acb9">
+<div id="outline-container-org9ccc6e7" class="outline-3">
+<h3 id="org9ccc6e7">Getting the Traceback as a string</h3>
+<div class="outline-text-3" id="text-org9ccc6e7">
 <p>
 When Python encounters an error, it produces a treasure information called <b>Traceback</b>. The traceback includes the error message, the line number of the line that causes the error and the sequence of the function call that led to the error. This sequence of calls is called the <i>call stack</i>.<br />
 </p>
@@ -8375,9 +8392,9 @@ Later in this chapter we'll learn how use the <code>logging</code> module which 
 </div>
 </div>
 
-<div id="outline-container-orga6f81c6" class="outline-3">
-<h3 id="orga6f81c6">Assertions</h3>
-<div class="outline-text-3" id="text-orga6f81c6">
+<div id="outline-container-org8bd07c1" class="outline-3">
+<h3 id="org8bd07c1">Assertions</h3>
+<div class="outline-text-3" id="text-org8bd07c1">
 <p>
 An assertion is a sanity check to make sure our code isn't doing something obviously wrong. These sanity checks are performed by <code>asset</code> statements. If this fails then an <code>AssertionError</code> exception is raised.<br />
 </p>
@@ -8442,9 +8459,9 @@ AssertionError: This isn't sorted!
 </pre>
 </div>
 
-<div id="outline-container-org334fe15" class="outline-4">
-<h4 id="org334fe15">Assertion versus error handling</h4>
-<div class="outline-text-4" id="text-org334fe15">
+<div id="outline-container-orgb6efc7c" class="outline-4">
+<h4 id="orgb6efc7c">Assertion versus error handling</h4>
+<div class="outline-text-4" id="text-orgb6efc7c">
 <p>
 Unlike exceptions, our code should <b>not</b> handle <code>assert</code> statements with <code>try</code> and <code>except</code>. If an <code>assert</code> fails, our program <b>should crash</b> because an impossible scenario has happened.  This effectively shortent the time between the original cause of the bug and when we first notice the bug. Remember, a bug should always be caught as earlier as possible. The later we notice the bug, the more amount of code we'd have to dig through.<br />
 </p>
@@ -8463,9 +8480,9 @@ Assertions are also <b>not</b> a replacement for comprehensive testing.<br />
 </div>
 </div>
 
-<div id="outline-container-org5d7da46" class="outline-4">
-<h4 id="org5d7da46">Assertion - A Traffic Light simulation</h4>
-<div class="outline-text-4" id="text-org5d7da46">
+<div id="outline-container-org63c166a" class="outline-4">
+<h4 id="org63c166a">Assertion - A Traffic Light simulation</h4>
+<div class="outline-text-4" id="text-org63c166a">
 <p>
 Let's say we have a traffic light simulation program, the data that represents the stoplight at an intersection is a dictionary with key <code>ns</code> and <code>ew</code> for the stoplights facing north-south and east-west respectively.<br />
 </p>
@@ -8584,9 +8601,9 @@ This way, our program would crash right there and then. It's not ideal to have o
 </div>
 </div>
 
-<div id="outline-container-orgf1b5b2d" class="outline-3">
-<h3 id="orgf1b5b2d">Logging</h3>
-<div class="outline-text-3" id="text-orgf1b5b2d">
+<div id="outline-container-org90a05a8" class="outline-3">
+<h3 id="org90a05a8">Logging</h3>
+<div class="outline-text-3" id="text-org90a05a8">
 <p>
 Although we have not use logging in our code, we use a lot of <code>print()</code> to output some variable's value while our program is running. The <code>print()</code> itself is a form of logging to debug our code.<br />
 </p>
@@ -8604,9 +8621,9 @@ On the other hand, a missing log message indicates that a part of our code was s
 </p>
 </div>
 
-<div id="outline-container-orgc538686" class="outline-4">
-<h4 id="orgc538686">Using the logging module</h4>
-<div class="outline-text-4" id="text-orgc538686">
+<div id="outline-container-org3dcbcb6" class="outline-4">
+<h4 id="org3dcbcb6">Using the logging module</h4>
+<div class="outline-text-4" id="text-org3dcbcb6">
 <p>
 To enable the logging module to display log messages on our screen as our program runs, we need to copy the following to the top of our program:<br />
 </p>
@@ -8710,9 +8727,9 @@ logging.debug(<span style="color: #ffd866;">'End of program'</span>)
 </div>
 </div>
 
-<div id="outline-container-orgcf218ef" class="outline-4">
-<h4 id="orgcf218ef">Use debug instead of <code>print()</code></h4>
-<div class="outline-text-4" id="text-orgcf218ef">
+<div id="outline-container-orgd9ad12b" class="outline-4">
+<h4 id="orgd9ad12b">Use debug instead of <code>print()</code></h4>
+<div class="outline-text-4" id="text-orgd9ad12b">
 <p>
 Importing logging and setting up the config is somewhat tedious. We may want to use <code>print()</code> instead, however we should not give in to this temptation!<br />
 </p>
@@ -8731,9 +8748,9 @@ Log messages are intended for the programmer, not the user. For message that we 
 </div>
 </div>
 
-<div id="outline-container-orgf12af46" class="outline-4">
-<h4 id="orgf12af46">Logging Levels</h4>
-<div class="outline-text-4" id="text-orgf12af46">
+<div id="outline-container-org47ead8a" class="outline-4">
+<h4 id="org47ead8a">Logging Levels</h4>
+<div class="outline-text-4" id="text-org47ead8a">
 <p>
 There are five logging levels:<br />
 </p>
@@ -8854,9 +8871,9 @@ The benefit of logging levels is that we can change what priority of logging mes
 </div>
 </div>
 
-<div id="outline-container-org58fabe5" class="outline-4">
-<h4 id="org58fabe5">Disabling logging</h4>
-<div class="outline-text-4" id="text-org58fabe5">
+<div id="outline-container-org31fbf1f" class="outline-4">
+<h4 id="org31fbf1f">Disabling logging</h4>
+<div class="outline-text-4" id="text-org31fbf1f">
 <p>
 Disabling logging is easy. After we have finished debugging our program, we'd probably don't want all these log messages cluttering the screen. The logging.disable() function disables these so that we don't have to go into our program and remove all logging calls by hand.<br />
 </p>
@@ -8882,9 +8899,9 @@ logging.debug(<span style="color: #ffd866;">'Hello world'</span>)
 </div>
 </div>
 
-<div id="outline-container-org1f754ce" class="outline-4">
-<h4 id="org1f754ce">Logging to a file</h4>
-<div class="outline-text-4" id="text-org1f754ce">
+<div id="outline-container-org8e61e1d" class="outline-4">
+<h4 id="org8e61e1d">Logging to a file</h4>
+<div class="outline-text-4" id="text-org8e61e1d">
 <p>
 Instead of displaying the log messages to the screen, we can write them to a text file.<br />
 </p>
@@ -8904,9 +8921,9 @@ The log messages will be saved to <b>myProgramLog.log</b>. Writing logs to a fil
 </div>
 </div>
 
-<div id="outline-container-org70f96b0" class="outline-3">
-<h3 id="org70f96b0">The Debugger</h3>
-<div class="outline-text-3" id="text-org70f96b0">
+<div id="outline-container-orgba309b4" class="outline-3">
+<h3 id="orgba309b4">The Debugger</h3>
+<div class="outline-text-3" id="text-orgba309b4">
 <p>
 Debugger is a feature of Mu editor, IDLE and other editor software that allows us to execute our programe <b>one line at a time</b>. The debugger will run a single line of code and wait for us to tell it to continue. By running programe "under the debugger" like this, we can take as much tiem as we want to examine the values in the variables at any givent point during the program's lifetime. This is a valuable tools in tracking down bugs.<br />
 </p>
@@ -8923,9 +8940,9 @@ A debugger typically has a few buttons:<br />
 </ul>
 </div>
 
-<div id="outline-container-org95fb1ad" class="outline-4">
-<h4 id="org95fb1ad">Breakpoints</h4>
-<div class="outline-text-4" id="text-org95fb1ad">
+<div id="outline-container-org4869e71" class="outline-4">
+<h4 id="org4869e71">Breakpoints</h4>
+<div class="outline-text-4" id="text-org4869e71">
 <p>
 A <b>breakpoint</b> can be set on a specific line of code and forces the debugger to pause whenever the program execution reaches that line.<br />
 </p>
@@ -8934,9 +8951,9 @@ A <b>breakpoint</b> can be set on a specific line of code and forces the debugge
 </div>
 </div>
 
-<div id="outline-container-orgc8d0773" class="outline-2">
-<h2 id="orgc8d0773">Chapter 12 - Web Scraping</h2>
-<div class="outline-text-2" id="text-orgc8d0773">
+<div id="outline-container-orge4642fe" class="outline-2">
+<h2 id="orge4642fe">Chapter 12 - Web Scraping</h2>
+<div class="outline-text-2" id="text-orge4642fe">
 <p>
 Web scraping is the term for using a program to download and<br />
 </p>
@@ -8956,9 +8973,9 @@ There are several modules that makes it easy to scrape web pages in Python:<br /
 </ul>
 </div>
 
-<div id="outline-container-orgfd54a54" class="outline-3">
-<h3 id="orgfd54a54">Project - <b>mapit.py</b> with <b>webbrowser</b> module</h3>
-<div class="outline-text-3" id="text-orgfd54a54">
+<div id="outline-container-org797a7f0" class="outline-3">
+<h3 id="org797a7f0">Project - <b>mapit.py</b> with <b>webbrowser</b> module</h3>
+<div class="outline-text-3" id="text-org797a7f0">
 <p>
 The <b>webbrowser</b> module can only do one thing, which is to open an URL on a web browser.<br />
 </p>
@@ -8993,9 +9010,9 @@ This is what our program should do:<br />
 </ol>
 </div>
 
-<div id="outline-container-orgf3c2e44" class="outline-4">
-<h4 id="orgf3c2e44">Handling command line argument</h4>
-<div class="outline-text-4" id="text-orgf3c2e44">
+<div id="outline-container-orga681824" class="outline-4">
+<h4 id="orga681824">Handling command line argument</h4>
+<div class="outline-text-4" id="text-orga681824">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">import</span> sys
 <span style="color: #ff6188;">import</span> webbrowser
@@ -9014,9 +9031,9 @@ webbrowser.<span style="color: #ab9df2;">open</span>(url)
 </div>
 </div>
 
-<div id="outline-container-orgb37cad9" class="outline-3">
-<h3 id="orgb37cad9">Downloading files from the web with the Requests Module</h3>
-<div class="outline-text-3" id="text-orgb37cad9">
+<div id="outline-container-org4e39401" class="outline-3">
+<h3 id="org4e39401">Downloading files from the web with the Requests Module</h3>
+<div class="outline-text-3" id="text-org4e39401">
 <p>
 The <b>requests</b> module lets us download file easily from the internet without having to worry about complicated issues such as network errors, connection problems and data compression.<br />
 </p>
@@ -9111,9 +9128,9 @@ There was an error with r2 - response: &lt;Response [404]&gt;
 </pre>
 </div>
 
-<div id="outline-container-orgf410738" class="outline-4">
-<h4 id="orgf410738">Saving downloaded file to hard drive with <code>iter_content()</code> method</h4>
-<div class="outline-text-4" id="text-orgf410738">
+<div id="outline-container-orgf88139c" class="outline-4">
+<h4 id="orgf88139c">Saving downloaded file to hard drive with <code>iter_content()</code> method</h4>
+<div class="outline-text-4" id="text-orgf88139c">
 <p>
 To write the web page to a file, we can also use a for loop with the <code>Response</code> object's <code>iter_content()</code> method. This returns "chunks" of the content on each iteration through the loop. Each chunk is of the <b>bytes</b> data type and we can specify how many butes each chunk will contain. One hundred thousand bytes is generally a good size, so we can pass 100000 as the argument.<br />
 </p>
@@ -9141,9 +9158,9 @@ We also need to open the file in <b>write binary mode</b> by passing the string 
 </div>
 </div>
 
-<div id="outline-container-org8c49648" class="outline-3">
-<h3 id="org8c49648">Parsing HTML with <b>bs4</b> module</h3>
-<div class="outline-text-3" id="text-org8c49648">
+<div id="outline-container-orgfe19a88" class="outline-3">
+<h3 id="orgfe19a88">Parsing HTML with <b>bs4</b> module</h3>
+<div class="outline-text-3" id="text-orgfe19a88">
 <p>
 <b>BeautifulSoup</b> is a module that can be used for extracting information from an HTML (or xml) page. This is the preferred method over regular expression. The BeautifulSoup module's name is <b>bs4</b> which stands for Beautiful Soup version 4.<br />
 </p>
@@ -9172,9 +9189,9 @@ The <b>html.parser</b> parser used above comes with Python. We can also use othe
 </p>
 </div>
 
-<div id="outline-container-orgbb70e85" class="outline-4">
-<h4 id="orgbb70e85">Finding an Element with the <code>select()</code> method</h4>
-<div class="outline-text-4" id="text-orgbb70e85">
+<div id="outline-container-org73e374b" class="outline-4">
+<h4 id="org73e374b">Finding an Element with the <code>select()</code> method</h4>
+<div class="outline-text-4" id="text-org73e374b">
 <p>
 We can retrive a web page element from a BeautifulSoup obejct by calling the <code>select()</code> method and passing a string of CSS selector for the element we are looking for. This is similar to using regex however instead of just a general string, we are using a pattern to look for things in the HTML pages instead of just general text.<br />
 </p>
@@ -10678,9 +10695,9 @@ The <code>get()</code> method for <b>Tag</b> objects makes it simple to access a
 </div>
 </div>
 
-<div id="outline-container-org84856cf" class="outline-3">
-<h3 id="org84856cf">Controlling the browser with <b>selenium</b></h3>
-<div class="outline-text-3" id="text-org84856cf">
+<div id="outline-container-org5c402d2" class="outline-3">
+<h3 id="org5c402d2">Controlling the browser with <b>selenium</b></h3>
+<div class="outline-text-3" id="text-org5c402d2">
 <p>
 The <b>selenium</b> module lets Python directly control the browser by programmatically clicking links and filling in login information, mimicking the human user interaction with the page. Using this module we can interact with web pages in a much more advanced way than with <b>requests</b> and <b>bs4</b>. However because this launches a web browser, it's a bit slower and hard to run in the background. Therefore we need to consider our use cases. It's probably not a good idea to write a script using Selenium just to download a text file.<br />
 </p>
@@ -10727,9 +10744,9 @@ We can also browse to a page with:<br />
 </div>
 </div>
 
-<div id="outline-container-org9687b3d" class="outline-4">
-<h4 id="org9687b3d">Finding Elements on the Page</h4>
-<div class="outline-text-4" id="text-org9687b3d">
+<div id="outline-container-org1636dfc" class="outline-4">
+<h4 id="org1636dfc">Finding Elements on the Page</h4>
+<div class="outline-text-4" id="text-org1636dfc">
 <p>
 <b>WebDriver</b> objects have a few methods for finding elements on a page. They are divided into <code>find_element_*</code> and <code>find_elements_*</code> methods. The <code>find_element_*</code> methods return a single WebElement object, representing the <b>first</b> element on the page that matches the query. The <code>find_elements_*</code> returns a list of WebElement objects for every matching element on the page.<br />
 </p>
@@ -14037,8 +14054,8 @@ Found &lt;img&gt; element with that class name!
 </div>
 
 <ul class="org-ul">
-<li><a id="orgb6cec8c"></a>Note about elements with multiple class names<br />
-<div class="outline-text-5" id="text-orgb6cec8c">
+<li><a id="orgb226f10"></a>Note about elements with multiple class names<br />
+<div class="outline-text-5" id="text-orgb226f10">
 <p>
 In the above example, this is a snippet of the HTML on <a href="https://inventwithpython.com">https://inventwithpython.com</a>:<br />
 </p>
@@ -14111,24 +14128,24 @@ Found &lt;img&gt; element with that class name!
 </div>
 </li>
 
-<li><a id="org72f8ae2"></a>Clicking the Page<br />
-<div class="outline-text-5" id="text-org72f8ae2">
+<li><a id="orgd4acabe"></a>Clicking the Page<br />
+<div class="outline-text-5" id="text-orgd4acabe">
 <p>
 The WebElement objects returned from <b>find_element</b> and <b>find_elements</b> methods have a <code>click()</code> method that simulates a mouse click on that element. This method can be used to follow a link, make a selection on a radio button, clicking the Submit button or trigger whatever else might happen when the element is clicked by the mouse.<br />
 </p>
 </div>
 </li>
 
-<li><a id="org1e67c40"></a>Filling Out and Submitting Forms<br />
-<div class="outline-text-5" id="text-org1e67c40">
+<li><a id="org6ac82b4"></a>Filling Out and Submitting Forms<br />
+<div class="outline-text-5" id="text-org6ac82b4">
 <p>
 Sending keystrokes to text fields on a web page is a amtter of finding the <code>&lt;input&gt;</code> or <code>&lt;textarea&gt;</code> element for that text field and then calling the <code>send_keys()</code> method.<br />
 </p>
 </div>
 </li>
 
-<li><a id="org38c209b"></a>Sending Special Keys<br />
-<div class="outline-text-5" id="text-org38c209b">
+<li><a id="org364a9fd"></a>Sending Special Keys<br />
+<div class="outline-text-5" id="text-org364a9fd">
 <p>
 The <b>selenium</b> module has a module for keyboard keys that are impossible to type into a string value. These values are stored in attributes in the <code>selenium.webdriver.common.keys</code> module.<br />
 </p>
@@ -14143,8 +14160,8 @@ That's quite a long module name so we should use something like this:<br />
 </div>
 </li>
 
-<li><a id="org58fd656"></a>Clicking Browser buttons<br />
-<div class="outline-text-5" id="text-org58fd656">
+<li><a id="orgb86e992"></a>Clicking Browser buttons<br />
+<div class="outline-text-5" id="text-orgb86e992">
 <p>
 The <b>selenium</b> module can simulate clicks on various browser buttons as well:<br />
 </p>
@@ -14162,9 +14179,9 @@ The <b>selenium</b> module can simulate clicks on various browser buttons as wel
 </div>
 </div>
 
-<div id="outline-container-org978f93d" class="outline-2">
-<h2 id="org978f93d">Chapter 13 - Working with Excel Spreadsheets</h2>
-<div class="outline-text-2" id="text-org978f93d">
+<div id="outline-container-org79db393" class="outline-2">
+<h2 id="org79db393">Chapter 13 - Working with Excel Spreadsheets</h2>
+<div class="outline-text-2" id="text-org79db393">
 <p>
 An Excel spreadsheet document is called a workbook. A single workbook is saved in a file with the <b>.xlsx</b> extension. Each workbook can contain multiple <i>sheets</i>, also called <i>worksheets</i>. The sheet the user is currently viewing or last viewed below closing Excel is the <i>active sheet</i>.<br />
 </p>
@@ -14179,9 +14196,9 @@ In this chapter we will be learning about the <b>openpyxl</b> module.<br />
 </div>
 </div>
 
-<div id="outline-container-org5510ea6" class="outline-3">
-<h3 id="org5510ea6">Open a workbook</h3>
-<div class="outline-text-3" id="text-org5510ea6">
+<div id="outline-container-org825109e" class="outline-3">
+<h3 id="org825109e">Open a workbook</h3>
+<div class="outline-text-3" id="text-org825109e">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">import</span> openpyxl
 
@@ -14197,9 +14214,9 @@ In this chapter we will be learning about the <b>openpyxl</b> module.<br />
 </div>
 </div>
 
-<div id="outline-container-org02a805a" class="outline-3">
-<h3 id="org02a805a">Getting sheets from the workbook</h3>
-<div class="outline-text-3" id="text-org02a805a">
+<div id="outline-container-orga3d822b" class="outline-3">
+<h3 id="orga3d822b">Getting sheets from the workbook</h3>
+<div class="outline-text-3" id="text-orga3d822b">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">import</span> openpyxl
 
@@ -14226,9 +14243,9 @@ Sheet1
 </div>
 </div>
 
-<div id="outline-container-orga1b07a7" class="outline-3">
-<h3 id="orga1b07a7">Getting Cells from Sheets</h3>
-<div class="outline-text-3" id="text-orga1b07a7">
+<div id="outline-container-orgb6cbd2a" class="outline-3">
+<h3 id="orgb6cbd2a">Getting Cells from Sheets</h3>
+<div class="outline-text-3" id="text-orgb6cbd2a">
 <p>
 Once we have a <b>Worksheet</b> object, we can access a <b>Cell</b> object by its name.<br />
 </p>
@@ -14331,9 +14348,9 @@ Going through every other row..
 </div>
 </div>
 
-<div id="outline-container-org0c7e6f9" class="outline-3">
-<h3 id="org0c7e6f9">Converting between Column Letters and Numbers</h3>
-<div class="outline-text-3" id="text-org0c7e6f9">
+<div id="outline-container-org10adcbf" class="outline-3">
+<h3 id="org10adcbf">Converting between Column Letters and Numbers</h3>
+<div class="outline-text-3" id="text-org10adcbf">
 <p>
 We can get the maximum number of columns in our sheet like this:<br />
 </p>
@@ -14415,9 +14432,9 @@ We can also get column number from string using <code>column_index_from_string()
 </div>
 </div>
 
-<div id="outline-container-orgd61b8d6" class="outline-3">
-<h3 id="orgd61b8d6">Getting Rows and Columns from the Sheets</h3>
-<div class="outline-text-3" id="text-orgd61b8d6">
+<div id="outline-container-orgd8ee980" class="outline-3">
+<h3 id="orgd8ee980">Getting Rows and Columns from the Sheets</h3>
+<div class="outline-text-3" id="text-orgd8ee980">
 <p>
 We can slice <b>Worksheet</b> object to get all the Cells objects in a row, column or rectangular area of the spreadsheet. Then we can also loop over all the cells in the slice.<br />
 </p>
@@ -14531,18 +14548,18 @@ In the below example, there are 7 rows.<br />
 </div>
 </div>
 
-<div id="outline-container-org6b333fd" class="outline-3">
-<h3 id="org6b333fd">Writing Excel Documents</h3>
-<div class="outline-text-3" id="text-org6b333fd">
+<div id="outline-container-org9fa466a" class="outline-3">
+<h3 id="org9fa466a">Writing Excel Documents</h3>
+<div class="outline-text-3" id="text-org9fa466a">
 <p>
 With OpenPyXL, we can also write data i.e create and edit spreadsheet files.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org81db613" class="outline-3">
-<h3 id="org81db613">Create and saving Excel Document</h3>
-<div class="outline-text-3" id="text-org81db613">
+<div id="outline-container-org34ae577" class="outline-3">
+<h3 id="org34ae577">Create and saving Excel Document</h3>
+<div class="outline-text-3" id="text-org34ae577">
 <p>
 To create a new blank Workbook object, we can do:<br />
 </p>
@@ -14662,9 +14679,9 @@ Hello world
 </div>
 </div>
 
-<div id="outline-container-org1fbce0e" class="outline-3">
-<h3 id="org1fbce0e">Setting Font Style of Cells</h3>
-<div class="outline-text-3" id="text-org1fbce0e">
+<div id="outline-container-orgad973a9" class="outline-3">
+<h3 id="orgad973a9">Setting Font Style of Cells</h3>
+<div class="outline-text-3" id="text-orgad973a9">
 <p>
 We can also emphasize important areas in our spreadsheet by styling the cells/ rows/ columns.<br />
 </p>
@@ -15203,26 +15220,26 @@ A5lWma4dYF26AAAAAElFTkSuQmCC"openpyxlstyling.png /><br />
 </div>
 </div>
 
-<div id="outline-container-org968453e" class="outline-3">
-<h3 id="org968453e">Other stuff</h3>
-<div class="outline-text-3" id="text-org968453e">
+<div id="outline-container-orgf6c28fc" class="outline-3">
+<h3 id="orgf6c28fc">Other stuff</h3>
+<div class="outline-text-3" id="text-orgf6c28fc">
 <p>
 We can also do other sorts of stuff like entering a cell value with formulas, adjusting rows and columns size, freeze them.etc..<br />
 </p>
 </div>
 </div>
 </div>
-<div id="outline-container-orgfdadb02" class="outline-2">
-<h2 id="orgfdadb02">Chapter 16 - Working with CSV Files</h2>
-<div class="outline-text-2" id="text-orgfdadb02">
+<div id="outline-container-orga163ee3" class="outline-2">
+<h2 id="orga163ee3">Chapter 16 - Working with CSV Files</h2>
+<div class="outline-text-2" id="text-orga163ee3">
 <p>
 Unlike PDF and Word documents that are in binary format which calls for special Python modules to access the data, CSV and JSON filese are just plain-text files. Therefore we can view them from a basic text editor. These files are also easily accessible with some special csv and json modules.<br />
 </p>
 </div>
 
-<div id="outline-container-org628f164" class="outline-3">
-<h3 id="org628f164">CSV</h3>
-<div class="outline-text-3" id="text-org628f164">
+<div id="outline-container-org9a2297a" class="outline-3">
+<h3 id="org9a2297a">CSV</h3>
+<div class="outline-text-3" id="text-org9a2297a">
 <p>
 CSV files are simple and lack many features of an Excel spreadsheet. For example, CSV Files:<br />
 </p>
@@ -15248,9 +15265,9 @@ CSV files also have their own set of escape characters to allow commas and other
 </p>
 </div>
 
-<div id="outline-container-org1e02acf" class="outline-4">
-<h4 id="org1e02acf">reader objects</h4>
-<div class="outline-text-4" id="text-org1e02acf">
+<div id="outline-container-org3363c97" class="outline-4">
+<h4 id="org3363c97">reader objects</h4>
+<div class="outline-text-4" id="text-org3363c97">
 <p>
 To read data from a CSV file with <b>csv</b> module we need to create a reader object. A reader object lets us iterate over lines in a CSV file.<br />
 </p>
@@ -15323,9 +15340,9 @@ Note: A reader object can only be looped over <b>only once</b>. to re-read the C
 </div>
 </div>
 
-<div id="outline-container-org60a4825" class="outline-4">
-<h4 id="org60a4825">writer object</h4>
-<div class="outline-text-4" id="text-org60a4825">
+<div id="outline-container-orge6e1245" class="outline-4">
+<h4 id="orge6e1245">writer object</h4>
+<div class="outline-text-4" id="text-orge6e1245">
 <p>
 A writer obejct lets us write data to a CSV file. To create a writer object we use the <code>csv.writer()</code> function.<br />
 </p>
@@ -15346,9 +15363,9 @@ fileWriter.writerow([<span style="color: #ffd866;">'Hello'</span>, <span style="
 </div>
 </div>
 
-<div id="outline-container-orgc0b5fb2" class="outline-4">
-<h4 id="orgc0b5fb2">The delimiter and lineterminator keyword argument</h4>
-<div class="outline-text-4" id="text-orgc0b5fb2">
+<div id="outline-container-orga350cb2" class="outline-4">
+<h4 id="orga350cb2">The delimiter and lineterminator keyword argument</h4>
+<div class="outline-text-4" id="text-orga350cb2">
 <p>
 CSV file are separated by commas. Say we want to separate cells with a tab character instead of a comma, we also want the rows to be double-spaced.<br />
 </p>
@@ -15388,9 +15405,9 @@ Hello	World	Hello	World	Hello	World	Hello	World	Hello	World
 </div>
 </div>
 
-<div id="outline-container-org1d270b3" class="outline-4">
-<h4 id="org1d270b3">DictReader and DictWriter CSV Object</h4>
-<div class="outline-text-4" id="text-org1d270b3">
+<div id="outline-container-orgf76ece8" class="outline-4">
+<h4 id="orgf76ece8">DictReader and DictWriter CSV Object</h4>
+<div class="outline-text-4" id="text-orgf76ece8">
 <p>
 For CSV Files that contain header rows, it's more convenient to work with the <b>DictReader</b> and <b>DictWriter</b> objects rather than the reader and writer object.<br />
 </p>
@@ -15462,9 +15479,9 @@ If we open a DictReader object with a csv file that does not have column headers
 </div>
 </div>
 
-<div id="outline-container-orgc233524" class="outline-3">
-<h3 id="orgc233524">JSON</h3>
-<div class="outline-text-3" id="text-orgc233524">
+<div id="outline-container-orgd5b35f9" class="outline-3">
+<h3 id="orgd5b35f9">JSON</h3>
+<div class="outline-text-3" id="text-orgd5b35f9">
 <p>
 JavaScript Object Notation, a.k.a JSON, is a popular way to format data as a single human-readable string. JSON is the native way that JavaScript programs write their data structure and usually resembles what Python's pprint() function would produce.<br />
 </p>
@@ -15474,9 +15491,9 @@ JSON is useful to know because many websites offer JSOn content as a way for ext
 </p>
 </div>
 
-<div id="outline-container-orgb35162a" class="outline-4">
-<h4 id="orgb35162a">The json module</h4>
-<div class="outline-text-4" id="text-orgb35162a">
+<div id="outline-container-org3b823a5" class="outline-4">
+<h4 id="org3b823a5">The json module</h4>
+<div class="outline-text-4" id="text-org3b823a5">
 <p>
 The Python's json module handles all the details of translating between a string with Python data and Python values for the json.loads() and json.dumps() functions.<br />
 </p>
@@ -15545,12 +15562,427 @@ These are the useful functions of the json module:<br />
 </div>
 </div>
 </div>
+
+<div id="outline-container-org6ab689c" class="outline-2">
+<h2 id="org6ab689c">Chapter 17 - Keeping Time, Scheduling Tasks and Launching Programs</h2>
+<div class="outline-text-2" id="text-org6ab689c">
+<p>
+Running programs while we are sitting at the computer is fine however it would also be useful to have programs run without our supervision. We can use our computer's clock to run code at some specified time and date or at regular interval. One example is that we can schedule for a website to be scraped every hour to check for changes.<br />
+</p>
+
+<p>
+We can also write programs that launch other programs on a schedule by using <code>subprocess</code> and <code>threading</code> modules.<br />
+</p>
+
+<blockquote>
+<p>
+Often, the fastest way to program is to take advantage of applications that other people have written.<br />
+</p>
+</blockquote>
+</div>
+
+<div id="outline-container-org9ac22d5" class="outline-3">
+<h3 id="org9ac22d5">The <code>time</code> module</h3>
+<div class="outline-text-3" id="text-org9ac22d5">
+<p>
+The built-in <code>time</code> module allows our Python programs to read the system clock for the current time. The two most useful functions are <code>time.time()</code> and <code>time.sleep()</code> in the time module.<br />
+</p>
+</div>
+
+<div id="outline-container-org5854950" class="outline-4">
+<h4 id="org5854950">The <code>time.time()</code> function</h4>
+<div class="outline-text-4" id="text-org5854950">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+
+<span style="color: #ff6188;">print</span>(time.time())
+</pre>
+</div>
+
+<pre class="example">
+1591106587.4600317
+</pre>
+
+
+<p>
+The <code>time.time()</code> function returns the number of seconds since <b>the Unix epoch</b> as a float value. The Unix epoch is a time reference commonly used in programming: 12 AM on January 01, 1970.<br />
+</p>
+
+<p>
+Epoch timestamps can be used to profile code, that is to measure how long a piece of code takes to run.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">calcProd</span>():
+        <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Calculatea the product of the first 100,000 number</span>
+        <span style="color: #fcfcfa;">product</span> = 1
+        <span style="color: #ff6188;">for</span> i <span style="color: #ff6188;">in</span> <span style="color: #ab9df2;">range</span>(1, 100000):
+                <span style="color: #fcfcfa;">product</span> = product * i
+        <span style="color: #ff6188;">return</span> product
+
+<span style="color: #fcfcfa;">startTime</span> = time.time()
+<span style="color: #fcfcfa;">prod</span> = calcProd()
+<span style="color: #fcfcfa;">endTime</span> = time.time()
+
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'The result is %s digits long.'</span> % (<span style="color: #ab9df2;">len</span>(<span style="color: #ab9df2;">str</span>(prod))))
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Execution of calcProd took %s seconds'</span> % (endTime - startTime))
+
+</pre>
+</div>
+
+<pre class="example">
+The result is 456569 digits long.
+Execution of calcProd took 2.228208065032959 seconds
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org506c1a6" class="outline-4">
+<h4 id="org506c1a6">The <code>time.ctime()</code> function</h4>
+<div class="outline-text-4" id="text-org506c1a6">
+<p>
+The return value from <code>time.time()</code> is useful but not human-understandable. Instead we can use <code>time.ctime()</code> which returns a string description of the current time. It can also take a return value from <code>time.time()</code>.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+
+<span style="color: #fcfcfa;">time1</span> = time.time()
+
+<span style="color: #fcfcfa;">time2</span> = time.ctime()
+
+<span style="color: #ff6188;">print</span>(time1)
+<span style="color: #ff6188;">print</span>(time2)
+<span style="color: #ff6188;">print</span>(time.ctime(time1))
+</pre>
+</div>
+
+<pre class="example">
+1591107070.4035943
+Wed Jun  3 00:11:10 2020
+Wed Jun  3 00:11:10 2020
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0a7fc34" class="outline-4">
+<h4 id="org0a7fc34">The <code>time.sleep()</code> function</h4>
+<div class="outline-text-4" id="text-org0a7fc34">
+<p>
+This function is useful if we need to pause our programe for a while. We can pass the number of seconds we want our program to stay paused.<br />
+</p>
+
+<p>
+The function will block i.e it will not return and release our program to execute other code until the number of seconds we passed has elapsed.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org3367e58" class="outline-4">
+<h4 id="org3367e58">Rounding number</h4>
+<div class="outline-text-4" id="text-org3367e58">
+<p>
+When working with times, we'll be working with float values with many decimal points. To make these easier to work with we should use the built-in <code>round()</code> function.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+
+<span style="color: #fcfcfa;">now</span> = time.time()
+
+<span style="color: #ff6188;">print</span>(now)
+<span style="color: #ff6188;">print</span>(<span style="color: #ab9df2;">round</span>(now,2))
+<span style="color: #ff6188;">print</span>(<span style="color: #ab9df2;">round</span>(now))
+</pre>
+</div>
+
+<pre class="example">
+1591107292.9855552
+1591107292.99
+1591107293
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge3a8a83" class="outline-3">
+<h3 id="orge3a8a83">The <code>datetime</code> module</h3>
+<div class="outline-text-3" id="text-orge3a8a83">
+<p>
+The time module is useful for getting Unix epoch timestamp to work with, however the datetime module is more useful if we want to display date in a more convenient format, or if we want to do arithmetic with dates.<br />
+</p>
+
+<p>
+The <code>datetime</code> has its own <code>datetime</code> data type which represent a specific moment in time.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> datetime
+
+<span style="color: #fcfcfa;">now</span> = datetime.datetime.now()
+
+<span style="color: #ff6188;">print</span>(<span style="color: #ab9df2;">type</span>(now))
+<span style="color: #ff6188;">print</span>(now)
+
+<span style="color: #fcfcfa;">then</span> = datetime.datetime(2020, 6, 3)
+<span style="color: #ff6188;">print</span>(then)
+</pre>
+</div>
+
+<pre class="example">
+&lt;class 'datetime.datetime'&gt;
+2020-06-03 00:22:10.621285
+2020-06-03 00:00:00
+</pre>
+
+
+<p>
+We can also convert a Unix epoch timestamp to a <code>datetime</code> object with the <code>datetime.datetime.fromtimestamp</code> function:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> datetime, time
+
+<span style="color: #fcfcfa;">now</span> = time.time()
+
+<span style="color: #ff6188;">print</span>(now)
+<span style="color: #ff6188;">print</span>(datetime.datetime.fromtimestamp(now))
+<span style="color: #ff6188;">print</span>(datetime.datetime.fromtimestamp(1000000000))
+</pre>
+</div>
+
+<pre class="example">
+1591107903.512297
+2020-06-03 00:25:03.512297
+2001-09-09 11:46:40
+</pre>
+
+
+<p>
+We can also compare <code>datetime</code> objects with each other using comparison operator to find out which one precedes the other.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> datetime
+
+<span style="color: #fcfcfa;">now</span> = datetime.datetime.now()
+<span style="color: #fcfcfa;">then</span> = datetime.datetime.fromtimestamp(100000000)
+
+<span style="color: #ff6188;">print</span>(now)
+<span style="color: #ff6188;">print</span>(then)
+
+<span style="color: #ff6188;">print</span>(now &gt; then)
+</pre>
+</div>
+
+<pre class="example">
+2020-06-03 00:28:16.007089
+1973-03-03 20:46:40
+True
+</pre>
+</div>
+</div>
+<div id="outline-container-org477ad0f" class="outline-3">
+<h3 id="org477ad0f">The <code>timedelta</code> data type</h3>
+<div class="outline-text-3" id="text-org477ad0f">
+<p>
+The <code>datetime</code> module also provides a <code>timedelta</code> data type which represents a <b>duration</b> of time rather than a <b>moment</b> of time.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> datetime
+
+<span style="color: #fcfcfa;">delta</span> = datetime.timedelta(days=11, hours=12, minutes=9, seconds=10)
+<span style="color: #ff6188;">print</span>(<span style="color: #ab9df2;">type</span>(delta))
+<span style="color: #ff6188;">print</span>(delta)
+<span style="color: #ff6188;">print</span>(delta.days)
+<span style="color: #ff6188;">print</span>(delta.total_seconds())
+</pre>
+</div>
+
+<pre class="example">
+&lt;class 'datetime.timedelta'&gt;
+11 days, 12:09:10
+11
+994150.0
+</pre>
+
+
+<p>
+To create a <code>timedelta</code> object we simply use the <code>datetime.timedelta()</code> function which takes keyword arguments <code>weeks</code>, <code>days</code>, <code>hours</code>, <code>minutes</code>. <code>seconds</code>, <code>milliseconds</code> and <code>microseconds</code>. There is no month or year keyword argument because a month or a year is a variable amount of time that is dependent on the particular month or year.<br />
+</p>
+
+<p>
+Arithmetic operations can also be used to perform date arithmetics on <code>datetime</code> value.<br />
+</p>
+
+<p>
+In the below example, we calculate the date that is 1000 days from today:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> datetime
+
+<span style="color: #fcfcfa;">now</span> = datetime.datetime.now()
+<span style="color: #fcfcfa;">then</span> = now + datetime.timedelta(days=1000)
+
+<span style="color: #ff6188;">print</span>(then)
+</pre>
+</div>
+
+<pre class="example">
+2023-02-28 00:34:08.559678
+</pre>
+</div>
+</div>
+<div id="outline-container-org7b00bf0" class="outline-3">
+<h3 id="org7b00bf0">Pausing until a specific date</h3>
+<div class="outline-text-3" id="text-org7b00bf0">
+<p>
+The <code>time.sleep()</code> method can be used in conjuction with the <code>datetime</code> module.<br />
+</p>
+
+<p>
+For example, we can use a <code>while</code> loop to let the program sit for until a specific point in time.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> datetime, time
+
+<span style="color: #fcfcfa;">now</span> = datetime.datetime.now()
+
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Now is %s'</span> % (now))
+
+<span style="color: #fcfcfa;">then</span> = datetime.datetime(2020, 6, 3, 00, 46, 00)
+
+<span style="color: #ff6188;">while</span> datetime.datetime.now() &lt; then:
+        time.sleep(1)
+
+<span style="color: #ff6188;">print</span>(datetime.datetime.now())
+</pre>
+</div>
+
+<pre class="example">
+Now is 2020-06-03 00:45:53.589940
+2020-06-03 00:46:00.597140
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org5f3037c" class="outline-3">
+<h3 id="org5f3037c">Converting <code>datetime</code> object into and from strings</h3>
+<div class="outline-text-3" id="text-org5f3037c">
+<p>
+Epoch timestamps and datetime object aren't very friendly to the human eyes. We can use the <code>strftime()</code> method to display a <code>datetime</code> object as a string. The <b>f</b> in <code>strftime</code> function stands for format. It takes a format string argument that contains the formatting directives.<br />
+</p>
+
+<p>
+The full strftime directives can be found here: <a href="https://strftime.org/">https://strftime.org/</a><br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> datetime
+
+<span style="color: #fcfcfa;">now</span> = datetime.datetime.now()
+
+<span style="color: #ff6188;">print</span>(now.strftime(<span style="color: #ffd866;">'%Y %m %d'</span>))
+<span style="color: #ff6188;">print</span>(now.strftime(<span style="color: #ffd866;">'%y, %B, %d %A'</span>))
+</pre>
+</div>
+
+<pre class="example">
+2020 06 03
+20, June, 03 Wednesday
+</pre>
+
+
+<p>
+Conversely, if we have a string of datetime information and need to convert it to a <code>datetime</code> object, we can also use the <code>datetime.datetime.strptime()</code> function which is the inverse of <code>strftime()</code> method. This function also takes a custom format string that uses the same directives as the <code>strftime()</code> method, along with the string of course. The <b>p</b> stands for parse.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> datetime
+
+<span style="color: #fcfcfa;">a_string</span> = <span style="color: #ffd866;">'01 Jan 2020 12:34:56'</span>
+
+<span style="color: #fcfcfa;">a_datetime</span> = datetime.datetime.strptime(a_string, <span style="color: #ffd866;">'%d %b %Y %H:%M:%S'</span>)
+
+<span style="color: #ff6188;">print</span>(a_datetime)
+
+
+</pre>
+</div>
+
+<pre class="example">
+2020-01-01 12:34:56
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgac47749" class="outline-3">
+<h3 id="orgac47749">Launching other programs from Python</h3>
+<div class="outline-text-3" id="text-orgac47749">
+<p>
+Our Python program can start other pgorams on our computer with the <code>Popen()</code> function in the built-in <code>subprocess</code> module. The P in the name of <code>Popen()</code> function stands for process.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> subprocess
+
+<span style="color: #fcfcfa;">test</span> = subprocess.Popen(<span style="color: #ffd866;">'/usr/bin/code'</span>)
+
+<span style="color: #ff6188;">print</span>(<span style="color: #ab9df2;">type</span>(test))
+<span style="color: #ff6188;">print</span>(test)
+</pre>
+</div>
+
+<pre class="example">
+&lt;class 'subprocess.Popen'&gt;
+&lt;subprocess.Popen object at 0x7faa6e7a2d90&gt;
+</pre>
+
+
+<p>
+The return value is Popen object which has two useful methods: <code>poll()</code> and <code>wait()</code>.<br />
+</p>
+
+<p>
+The <code>poll()</code> method can be thought of asking our driver "Are we there yet?" over and over until we arrive at the destination. It will return <code>None</code> if the process is still running at the time <code>poll()</code> is called. If the programe has terminated, it will return the process's integer exit code.<br />
+</p>
+
+<p>
+An exit code of 0 means the process terminated without errors and an exit code of nonzero, most notably being 1 but may vary depending on the programe, means that the process terminater with error.<br />
+</p>
+
+<p>
+With the <code>Popen()</code> function, we can also pass command line arguments to processes we create. To do this we pass <b>a list</b> as the sole argument to <code>Popen()</code>. The first string in the list will be the executable filename of the program we want to launch; all the subsequent strings will be the command line arguments to pass to the program when it starts. These subsequent strings are the values of <code>sys.argv</code> of the launched program.<br />
+</p>
+
+<p>
+We can also open files with default applications. Each operating system has a programe that performs the equivalent of double-clicking on a document file to open it. On Windows, this is the <b>start</b> program. On Mac OS, this is the <b>open</b> program. On Ubuntu, this is the <b>see</b> program.<br />
+</p>
+
+<p>
+On Windows, this will open the 'text.txt' file with the default application that is associated with the .txt file extension:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python">subprocess.Popen([<span style="color: #ffd866;">'start'</span>, <span style="color: #ffd866;">'text.txt'</span>], shell=<span style="color: #ab9df2;">True</span>)
+</pre>
+</div>
+
+<p>
+(The <code>shell=True</code> keyword argument is needed only on Windows.)<br />
+</p>
+</div>
+</div>
+</div>
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
                           <p>Created: 2019-05-15 Wed 00:00</p>
-                          <p class="date">Updated: 2020-06-02 Tue 01:03</p>
+                          <p class="date">Updated: 2020-06-03 Wed 01:44</p>
 </div>
 </body>
 </html>

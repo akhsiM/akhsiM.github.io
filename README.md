@@ -15,9 +15,9 @@
 - Page Launch
 
 # To-dos
-[x] Image in posts
-[ ] Workflow for publishing markdown to posts and move image files
-[ ] Stop Jekyll from changing case for capitalization in titles
+- [x] Image in posts
+- [ ] Workflow for publishing markdown to posts and move image files
+- [ ] Stop Jekyll from changing case for capitalization in titles
 
 
 

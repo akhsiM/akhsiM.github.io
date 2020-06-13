@@ -1,4 +1,3 @@
-
 // base16 - dark
 $base00: #181818;
 $base01: #282828;
@@ -16,83 +15,66 @@ $base0C: #86c1b9;
 $base0D: #7cafc2;
 $base0E: #ba8baf;
 $base0F: #a16946;
-
 // Variables
-
-$base-font-family: 'Open Sans', sans-serif;
-
+$base-font-family: 'Open Sans',
+sans-serif;
 $main-text-colour: $base05;
 $main-background-colour: $base00;
-$alt-text-colour:  $base04;
+$alt-text-colour: $base04;
 $alt-background-colour: $base01;
-
 $base-font-size: 1.1em;
 $mobile-font-size: 1em;
 $nav-font-size: 1.25em;
-
 $line-height: 1.5;
-
 $link-colour: $base09;
+
 /* $accent-colour: $base0C; */
+
 $accent-colour: $base0B;
-
 // Width of the content area
-$content-width:    900px;
+$content-width: 900px;
 $content-width-small: 550px;
-
-$on-palm:          575px;
-$on-laptop:        800px;
-
-
+$on-palm: 575px;
+$on-laptop: 800px;
 .header {
     margin: 1em 0;
     display: flex;
     align-content: center;
     align-items: center;
     justify-content: space-between;
-
     .logo-link {
         display: block;
         text-align: center;
     }
-
     .logo {
         border: 2px solid $accent-colour;
         border-radius: 50%;
         text-align: center;
         margin: 20px 0 10px;
     }
-
     .nav {
         font-size: $nav-font-size;
-
         list-style: none;
         padding-left: 0;
-
         display: flex;
-
         a {
             padding: 0.25em 0.25em;
             text-transform: uppercase;
         }
-
         li {
             margin: 1em;
         }
     }
-
     @media (min-width: $on-laptop) {
         .nav {
             flex-direction: row;
             justify-content: center;
-
             li {
                 display: inline-block;
                 padding-right: 15px;
             }
         }
     }
-
 }
 
 footer {
@@ -103,19 +85,16 @@ footer {
 
 .main {
     padding: 40px 20px;
-
     @media (min-width: $on-palm) {
         width: $content-width-small;
         margin-left: auto;
         margin-right: auto;
     }
-
     @media (min-width: $on-laptop) {
         width: $content-width;
         padding: 0 20px;
     }
 }
-
 
 .content {
     line-height: $line-height;
@@ -125,23 +104,16 @@ footer {
     .blog-header {
         margin-bottom: 2px;
     }
-
     .blog-meta {
         font-size: small;
     }
-
     /* thanks to https://css-tricks.com/examples/hrs/ for the hr style */
     .blog-list-sep {
         margin-top: 20px;
         border: 0;
         height: 1px;
-        background-image: linear-gradient(to right,
-                                          rgba(0, 0, 0, 0),
-                                          rgba($accent-colour, 0.75),
-                                          rgba(0, 0, 0, 0)
-                                         );
+        background-image: linear-gradient(to right, rgba(0, 0, 0, 0), rgba($accent-colour, 0.75), rgba(0, 0, 0, 0));
     }
-
     .rss-subscribe {
         text-align: center;
         padding: 20px 0;
@@ -149,23 +121,22 @@ footer {
 }
 
 .post {
-
-    .post-imgheader{
+    img {
+        width: 100%;
+    }
+    .post-imgheader {
         width: 100%;
         border: 1px solid $accent-colour;
     }
     .post-header {
         text-align: right;
         font-style: strong;
-       
     }
-
     .post-date {
         color: $alt-text-colour;
         margin-bottom: 0;
         font-style: italic;
     }
-
     .old-post-warning {
         color: $alt-text-colour;
         background-color: $alt-background-colour;
@@ -173,11 +144,9 @@ footer {
         border-radius: 5px;
         font-style: italic;
     }
-
     .comments {
         display: flex;
     }
-
     .comments button {
         margin: 0 auto;
         position: relative;
@@ -186,7 +155,6 @@ footer {
         background-color: $main-background-colour;
         border: 1px solid purple;
         padding: 1rem;
-
         &:hover {
             background-color: darken($main-background-colour, 30%);
             cursor: pointer;
@@ -196,16 +164,13 @@ footer {
 
 .resume {
     font-size: 1em;
-
     p {
         margin: 0.5em 0;
     }
-
     .resume-header {
         display: flex;
         flex-direction: column;
         text-align: center;
-
         @media(min-width: $on-laptop) {
             flex-direction: row;
             justify-content: space-between;
@@ -213,17 +178,14 @@ footer {
             text-align: left;
         }
     }
-
     .name {
         font-size: 4em;
         margin: 0.25em 0;
     }
-
     .meta ul {
         list-style: none;
         padding-left: 0;
     }
-
     /* basic method taken from https://jsfiddle.net/crs8yenu/ & tweaked */
     .section-title {
         width: 100%;
@@ -231,58 +193,46 @@ footer {
         border-bottom: 1px solid $accent-colour;
         text-align: center;
         margin-bottom: 2em;
-
         span {
             font-size: 30px;
             background-color: $main-background-colour;
             padding: 0 10px;
         }
     }
-
     .experience {
-        .experience-item  {
+        .experience-item {
             margin-bottom: 2em;
         }
-
         .experience-header {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
-
             @media (min-width: $on-laptop) {
                 flex-wrap: wrap;
                 flex-direction: row;
             }
         }
-
         .position {
             order: 2;
-
             @media (min-width: $on-laptop) {
                 width: 50%;
             }
         }
-
         .location {
             order: 3;
-
             @media (min-width: $on-laptop) {
                 width: 50%;
                 text-align: right;
             }
         }
-
         .employer {
             order: 1;
-
             @media (min-width: $on-laptop) {
                 width: 50%;
             }
         }
-
         .duration {
             order: 4;
-
             @media (min-width: $on-laptop) {
                 width: 50%;
                 text-align: right;
@@ -291,22 +241,18 @@ footer {
             }
         }
     }
-
     .skills {
         margin-bottom: 2em;
-
         .skill-list {
             display: flex;
             flex-direction: column;
             margin-bottom: 1em;
-
             @media (min-width: $on-laptop) {
                 flex-direction: row;
                 margin-bottom: 0.5em;
             }
         }
     }
-
 }
 
 .print {
@@ -321,20 +267,23 @@ code[class*="highlighter-rouge"] {
 }
 
 @media print {
-    body, a {
+    body,
+    a {
         color: black;
         background-color: white;
     }
-
     .experience {
-        a:after{content:" (" attr(href) ") ";font-size:0.8em;font-weight:normal;}
+        a:after {
+            content: " (" attr(href) ") ";
+            font-size: 0.8em;
+            font-weight: normal;
+        }
     }
-
-
-    .header, .footer, .print {
+    .header,
+    .footer,
+    .print {
         display: none;
     }
-
     .resume {
         .section-title {
             border-bottom: 1px solid black;
@@ -343,12 +292,10 @@ code[class*="highlighter-rouge"] {
             }
         }
     }
-
     strong {
         font-weight: normal;
         font-style: italic;
     }
-
     @page {
         margin: 2cm;
     }

@@ -3,11 +3,6 @@ layout: posts
 title: Publishing Md Notes
 ---
 
----
-title: Publishing Markdown Notes
-layout: posts
----
-
 # Pre-face 
 
 On my blog I have two tabs 'Random' and 'Learning' which are quite different. 

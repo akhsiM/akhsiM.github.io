@@ -1,6 +1,6 @@
 ---
 layout: posts
-title: Publishing Md Notes
+title: Publishing Markdown Notes
 ---
 
 # Pre-face 
@@ -41,3 +41,13 @@ I intended this to be a quick solution so the setup will be simple. There are tw
 The steps are detail in the following flowchart:
 
 ![](/static/img/Publishing Md Notes/mdpub.png)
+
+The source files for this can be found here: https://github.com/akhsiM/mdpub.
+
+If anyone would like to re-use these scripts, they would need to update the first three lines of the `mdpub.sh` file to suit their own page. And that's pretty much it, I'm 90% sure.
+
+```bash
+gitUrl='ssh://git@github.com/akhsiM/akhsiM.github.io.git'
+gitpostdir='/Random/_posts/'
+gitimgdir='/static/img/'
+```

@@ -92,7 +92,7 @@ You can include this function in `org-font-lock-set-keywords-hook'."
 
 ```
 
-This hides internal target `<<targer>>`. In Org-Mode, hide the emphasis markers. In exports, hide the whole target. These are basically internal anchors in my page.
+This hides internal target `<<target>>`. In Org-Mode, hide the emphasis markers. In exports, hide the whole target. These are basically internal anchors in my page.
 
 ```elisp
 (defun replace-in-string (what with in)				  

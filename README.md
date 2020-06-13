@@ -16,7 +16,8 @@
 
 # To-dos
 - [x] Image in posts
-- [ ] Workflow for publishing markdown to posts and move image files
+- [x] Workflow for publishing markdown to posts and move image files
+  - [ ] Add functionality to Markdown Publish workflow to update existing Posts.
 - [ ] Stop Jekyll from changing case for capitalization in titles
 
 

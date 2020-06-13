@@ -42,7 +42,7 @@ The steps are detail in the following flowchart:
 
 ![](/static/img/Publishing Md Notes/mdpub.png)
 
-The source files for this can be found here: https://github.com/akhsiM/mdpub
+The source files for this can be found here: <https://github.com/akhsiM/mdpub>.
 
 If anyone would like to re-use these scripts, they would need to update the first three lines of the `mdpub.sh` file to suit their own page. And that's pretty much it, I'm 90% sure.
 

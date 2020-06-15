@@ -5,7 +5,7 @@ title: Mishka's Home
 
 # Hi, I'm Mishka.
 
-I am an Application Support Analyst by day. As an individual, I am a technically inclined person who is aiming towards becoming a Fullstack Developer.
+By day, I work as an Application Support Analyst. By night, I spend my time learning Full Stack Development. As a technically inclined person, I enjoy learning about these so for me, it's also one of the more productive hobbies that I have committed myself to.
 
 This page was created in August 2019. It is the result of my "mini project" with the following intentions:
 - I have always wanted to learn a bit about front-end web development.

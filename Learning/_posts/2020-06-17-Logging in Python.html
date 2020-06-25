@@ -1,0 +1,1364 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-06-26 Fri 00:27 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Logging in Python</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mishka Nguyen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2019 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Logging in Python</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org7d264f5">Logging Basic</a>
+<ul>
+<li><a href="#org9fd1b70">Logging versus print()</a></li>
+<li><a href="#orgc4e7e03">Basic Example - with <code>print()</code></a></li>
+<li><a href="#org1aa88ae">Logging Level</a></li>
+<li><a href="#org372f78e">Basic Example with Logging</a></li>
+<li><a href="#org0191979">Export to file and and format</a>
+<ul>
+<li><a href="#org07787a4">First example</a></li>
+<li><a href="#orgfd950e9">Second example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#orgf22ea06">Logging Advanced</a>
+<ul>
+<li><a href="#org4153168">Logger Introduction</a></li>
+<li><a href="#org7dfd756">Root Logger</a></li>
+<li><a href="#orgfefa524">Why we should <b>not</b> use the root logger</a></li>
+<li><a href="#orgfe72123">Seperate logger</a></li>
+<li><a href="#orgdc1b6fa">Logging level and Handlers</a></li>
+<li><a href="#org1300574"><code>logging.exception</code></a></li>
+<li><a href="#org7353b4c">The benefit of FileHandler</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org7d264f5" class="outline-2">
+<h2 id="org7d264f5">Logging Basic</h2>
+<div class="outline-text-2" id="text-org7d264f5">
+<p>
+Python comes with a logging module built-in so this is very handy.<br />
+</p>
+
+<p>
+Logging is a great way to understand what is happening in our program and in what order it's happening.<br />
+</p>
+
+<p>
+Python's logging module makes it easy to create a record of custom messages that we write. The log messages will describe when the program execution has reached the logging function call and list any variables we have specified at that point in time.<br />
+</p>
+
+<p>
+On the other hand, a missing log message indicates that a part of our code was skipped and never executed.<br />
+</p>
+
+<p>
+Logging is definitely more handy than printing, especially when our projects are larger than basic small projects.<br />
+</p>
+</div>
+
+<div id="outline-container-org9fd1b70" class="outline-3">
+<h3 id="org9fd1b70">Logging versus print()</h3>
+<div class="outline-text-3" id="text-org9fd1b70">
+<p>
+Importing logging and setting up the config is somewhat tedious. We may want to use <code>print()</code> instead, however we should not give in to this temptation!<br />
+</p>
+
+<p>
+Once we have done with debugging, we'll end up spending a lot of time removing <code>print()</code> calls from our code after each log message. We might accidentally remove a <code>print()</code> call that is legitimately intended for non-log messages.<br />
+</p>
+
+<p>
+The nice thing about log messages is that we can fill our program with as many as we like, and we can always disable them all later by adding a single <code>logging.disable(logging.CRITICAL)</code> call. Unlike <code>print()</code>, the <code>logging</code> module makes it easy to switch between showing and hiding log messages.<br />
+</p>
+
+<p>
+Log messages are intended for the programmer, not the user. For message that we want the user to see, we should use <code>print()</code>. However, stuff like the contents of some dictionary value or how long it takes to run a function, the users don't really care.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgc4e7e03" class="outline-3">
+<h3 id="orgc4e7e03">Basic Example - with <code>print()</code></h3>
+<div class="outline-text-3" id="text-orgc4e7e03">
+<p>
+Let' start with some examples. Below, we have some very basic mathematical functions.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">add</span>(x,y):
+        <span style="color: #ff6188;">return</span> x + y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">substract</span>(x,y):
+        <span style="color: #ff6188;">return</span> x - y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">multiply</span>(x,y):
+        <span style="color: #ff6188;">return</span> x * y
+
+ 
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">divide</span>(x,y):
+        <span style="color: #ff6188;">return</span> x/y
+
+<span style="color: #fcfcfa;">num_1</span> = 10
+<span style="color: #fcfcfa;">num_2</span> = 5
+
+<span style="color: #fcfcfa;">add_result</span> = add(num_1, num_2)
+
+
+<span style="color: #fcfcfa;">sub_result</span> = substract(num_1, num_2)
+
+
+<span style="color: #fcfcfa;">mul_result</span> = multiply(num_1, num_2)
+
+
+<span style="color: #fcfcfa;">div_result</span> = divide(num_1, num_2)
+</pre>
+</div>
+
+<p>
+If run this code, it gets executed fine but we can't really see anything.<br />
+</p>
+
+<p>
+OK, so now we add some print statements:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">add</span>(x,y):
+        <span style="color: #ff6188;">return</span> x + y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">substract</span>(x,y):
+        <span style="color: #ff6188;">return</span> x - y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">multiply</span>(x,y):
+        <span style="color: #ff6188;">return</span> x * y
+
+ 
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">divide</span>(x,y):
+        <span style="color: #ff6188;">return</span> x/y
+
+<span style="color: #fcfcfa;">num_1</span> = 10
+<span style="color: #fcfcfa;">num_2</span> = 5
+
+<span style="color: #fcfcfa;">add_result</span> = add(num_1, num_2)
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Add: {} + {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, add_result)) 
+
+<span style="color: #fcfcfa;">sub_result</span> = substract(num_1, num_2)
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sub: {} - {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, sub_result)) 
+
+<span style="color: #fcfcfa;">mul_result</span> = multiply(num_1, num_2)
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Mul: {} x {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, mul_result)) 
+
+<span style="color: #fcfcfa;">div_result</span> = divide(num_1, num_2)
+<span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Div: {} / {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, div_result)) 
+</pre>
+</div>
+
+<pre class="example">
+Add: 10 + 5 = 15
+Sub: 10 - 5 = 5
+Mul: 10 x 5 = 50
+Div: 10 / 5 = 2.0
+</pre>
+
+
+<p>
+Now we can see the values that are printed out. These are the results of our functions.<br />
+</p>
+
+<p>
+Let's incorporate logging and use it instead of <code>print()</code>. But first, let's talk about logging level.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org1aa88ae" class="outline-3">
+<h3 id="org1aa88ae">Logging Level</h3>
+<div class="outline-text-3" id="text-org1aa88ae">
+<p>
+There are five logging levels:<br />
+</p>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<thead>
+<tr>
+<th scope="col" class="org-left">Level</th>
+<th scope="col" class="org-left">Logging Function</th>
+<th scope="col" class="org-left">Description &amp; When it's used</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td class="org-left">DEBUG</td>
+<td class="org-left">logging.debug()</td>
+<td class="org-left">This is the lowest level, it is used for small details. It is typically</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">of interest when dianosing problem.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">INFO</td>
+<td class="org-left">logging.info()</td>
+<td class="org-left">Used to record information on general events in our programs or confirm</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">that things are working at their point in the program.</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">These are confirmations that things are working as expected.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">WARNING</td>
+<td class="org-left">logging.warning()</td>
+<td class="org-left">Used to indicate a potential problem that doesn't prevent the program</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">from working but might do so in the future. The software is still working</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">as expected.*This is the default level of logging*.</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">Example: "Disk Space low"</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">ERROR</td>
+<td class="org-left">logging.error()</td>
+<td class="org-left">Used to record an error that caused the program to fail to do something.</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">The software has not been able to perform some function.</td>
+</tr>
+</tbody>
+<tbody>
+<tr>
+<td class="org-left">CRITICAL</td>
+<td class="org-left">logging.critical()</td>
+<td class="org-left">The highest level. It is used to indicate a fatal errr that has caused or</td>
+</tr>
+
+<tr>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">&#xa0;</td>
+<td class="org-left">is about to cause the programe to stop running entirely.</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+Our logging message is passed as a string to these functions.<br />
+</p>
+
+<p>
+The logging levels are suggestions. <b>Ultimately, it is up to us to decide which category our log message faills into.</b><br />
+</p>
+
+<p>
+The benefit of logging levels is that we can change what priority of logging message we want to see. Passing <code>logging.DEBUG</code> to the <code>basicConfig()</code> function's <code>level</code> keyword argument will show messages from ALL levels (DEBUG is the lowest level). After we develop our program some more, we may be interested only in errors. In that case, we can set the <code>basicConfig()</code> level argument to <code>logging.ERROR</code>. This will show only ERROR and CRITICAL logging message.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org372f78e" class="outline-3">
+<h3 id="org372f78e">Basic Example with Logging</h3>
+<div class="outline-text-3" id="text-org372f78e">
+<p>
+Back to our example, we'll replace <code>print()</code> with logging instead.<br />
+</p>
+
+<p>
+The default level of blogging is WARNING, i.e Python will ignore DEBUG and INFO logs.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">add</span>(x,y):
+        <span style="color: #ff6188;">return</span> x + y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">substract</span>(x,y):
+        <span style="color: #ff6188;">return</span> x - y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">multiply</span>(x,y):
+        <span style="color: #ff6188;">return</span> x * y
+
+ 
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">divide</span>(x,y):
+        <span style="color: #ff6188;">return</span> x/y
+
+<span style="color: #fcfcfa;">num_1</span> = 10
+<span style="color: #fcfcfa;">num_2</span> = 5
+
+<span style="color: #fcfcfa;">add_result</span> = add(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Add: {} + {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, add_result)) 
+
+<span style="color: #fcfcfa;">sub_result</span> = substract(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Sub: {} - {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, sub_result)) 
+
+<span style="color: #fcfcfa;">mul_result</span> = multiply(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Mul: {} x {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, mul_result)) 
+
+<span style="color: #fcfcfa;">div_result</span> = divide(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Div: {} / {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, div_result)) 
+</pre>
+</div>
+
+<p>
+Because the default level is warning, debug statements will not be displayed on the console. Therefore we need to change the logging level.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+
+logging.basicConfig(level=logging.DEBUG)  <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">DEBUG is all cap. It's just an interval in the background.</span>
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">add</span>(x,y):
+        <span style="color: #ff6188;">return</span> x + y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">substract</span>(x,y):
+        <span style="color: #ff6188;">return</span> x - y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">multiply</span>(x,y):
+        <span style="color: #ff6188;">return</span> x * y
+
+ 
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">divide</span>(x,y):
+        <span style="color: #ff6188;">return</span> x/y
+
+<span style="color: #fcfcfa;">num_1</span> = 10
+<span style="color: #fcfcfa;">num_2</span> = 5
+
+<span style="color: #fcfcfa;">add_result</span> = add(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Add: {} + {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, add_result)) 
+
+<span style="color: #fcfcfa;">sub_result</span> = substract(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Sub: {} - {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, sub_result)) 
+
+<span style="color: #fcfcfa;">mul_result</span> = multiply(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Mul: {} x {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, mul_result)) 
+
+<span style="color: #fcfcfa;">div_result</span> = divide(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Div: {} / {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, div_result)) 
+</pre>
+</div>
+
+
+<div class="figure">
+<p><img src="data:image/png;base64,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
+W7xt/h+k4wkRS01p5gAAAABJRU5ErkJggg=="Logging.png /><br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org0191979" class="outline-3">
+<h3 id="org0191979">Export to file and and format</h3>
+<div class="outline-text-3" id="text-org0191979">
+</div>
+<div id="outline-container-org07787a4" class="outline-4">
+<h4 id="org07787a4">First example</h4>
+<div class="outline-text-4" id="text-org07787a4">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+
+logging.basicConfig(filename=<span style="color: #ffd866;">'sample.log'</span>,level=logging.DEBUG,                                          <span style="color: #ab9df2;">format</span>=<span style="color: #ffd866;">'%(asctime)s:%(name)s:%(message)s'</span>)
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">add</span>(x,y):
+        <span style="color: #ff6188;">return</span> x + y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">substract</span>(x,y):
+        <span style="color: #ff6188;">return</span> x - y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">multiply</span>(x,y):
+        <span style="color: #ff6188;">return</span> x * y
+
+ 
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">divide</span>(x,y):
+        <span style="color: #ff6188;">return</span> x/y
+
+<span style="color: #fcfcfa;">num_1</span> = 10
+<span style="color: #fcfcfa;">num_2</span> = 5
+
+<span style="color: #fcfcfa;">add_result</span> = add(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Add: {} + {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, add_result)) 
+
+<span style="color: #fcfcfa;">sub_result</span> = substract(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Sub: {} - {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, sub_result)) 
+
+<span style="color: #fcfcfa;">mul_result</span> = multiply(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Mul: {} x {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, mul_result)) 
+
+<span style="color: #fcfcfa;">div_result</span> = divide(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Div: {} / {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, div_result)) 
+</pre>
+</div>
+
+<p>
+Result: <b>sample.log</b>:<br />
+</p>
+<blockquote>
+<p>
+2020-05-28 22:52:32,489:root:Add: 10 + 5 = 15<br />
+2020-05-28 22:52:32,489:root:Sub: 10 - 5 = 5<br />
+2020-05-28 22:52:32,489:root:Mul: 10 x 5 = 50<br />
+2020-05-28 22:52:32,489:root:Div: 10 / 5 = 2.0<br />
+2020-05-28 22:53:41,941:root:Add: 10 + 5 = 15<br />
+2020-05-28 22:53:41,947:root:Sub: 10 - 5 = 5<br />
+2020-05-28 22:53:41,947:root:Mul: 10 x 5 = 50<br />
+2020-05-28 22:53:41,948:root:Div: 10 / 5 = 2.0<br />
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-orgfd950e9" class="outline-4">
+<h4 id="orgfd950e9">Second example</h4>
+<div class="outline-text-4" id="text-orgfd950e9">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+logging.basicConfig(
+    filename=<span style="color: #ffd866;">'employee.log'</span>,
+    level=logging.INFO,
+    <span style="color: #ab9df2;">format</span>=<span style="color: #ffd866;">'%(levelname)s:%(name)s:%(message)s'</span>
+)
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first, last):
+        <span style="color: #ff6188;">self</span>.first = first
+        <span style="color: #ff6188;">self</span>.last = last
+
+        logging.info(<span style="color: #ffd866;">'Created Employee {} - {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.fullname, <span style="color: #ff6188;">self</span>.email))
+
+    <span style="color: #78dce8;">@property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+    <span style="color: #78dce8;">@property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+
+<span style="color: #fcfcfa;">emp1</span> = Employee(<span style="color: #ffd866;">'John'</span>, <span style="color: #ffd866;">'Smith'</span>)
+
+</pre>
+</div>
+
+<p>
+<b>employee.log</b>:<br />
+</p>
+
+<pre class="example">
+INFO:root:Created Employee John Smith - John.Smith@email.com
+</pre>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-orgf22ea06" class="outline-2">
+<h2 id="orgf22ea06">Logging Advanced</h2>
+<div class="outline-text-2" id="text-orgf22ea06">
+</div>
+<div id="outline-container-org4153168" class="outline-3">
+<h3 id="org4153168">Logger Introduction</h3>
+<div class="outline-text-3" id="text-org4153168">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+logging.basicConfig(
+    filename=<span style="color: #ffd866;">'employee.log'</span>,
+    level=logging.INFO,
+    <span style="color: #ab9df2;">format</span>=<span style="color: #ffd866;">'%(levelname)s:%(name)s:%(message)s'</span>
+)
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first, last):
+        <span style="color: #ff6188;">self</span>.first = first
+        <span style="color: #ff6188;">self</span>.last = last
+
+        logging.info(<span style="color: #ffd866;">'Created Employee {} - {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.fullname, <span style="color: #ff6188;">self</span>.email))
+
+    <span style="color: #78dce8;">@property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+    <span style="color: #78dce8;">@property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+
+<span style="color: #fcfcfa;">emp1</span> = Employee(<span style="color: #ffd866;">'John'</span>, <span style="color: #ffd866;">'Smith'</span>)
+</pre>
+</div>
+
+<p>
+<b>employee.log</b>:<br />
+</p>
+<pre class="example">
+INFO:root:Created Employee John Smith - John.Smith@email.com
+</pre>
+
+<p>
+What does the <b>root</b> mean?<br />
+</p>
+
+<p>
+Because we have not specified a specific logger. The <b>root</b> logger is used. However, it's best to get into the habit of using specific loggers with different configurations.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org7dfd756" class="outline-3">
+<h3 id="org7dfd756">Root Logger</h3>
+<div class="outline-text-3" id="text-org7dfd756">
+<p>
+The <code>logging</code> module has a hierachy, of which the <b>Root Logger</b> sits at the top.<br />
+</p>
+
+<p>
+When we are using the <code>basicConfig()</code> method, we are effectively initializing the root loger. By default, the <b>root</b> logger has a default level of <b>WARNING</b>.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+logging.basicConfig()
+
+logging.debug(<span style="color: #ffd866;">'Hello this is debug'</span>)
+logging.info(<span style="color: #ffd866;">'Hello this is info'</span>)
+logging.warning(<span style="color: #ffd866;">'Hello this is warning'</span>)
+</pre>
+</div>
+
+<pre class="example">
+WARNING:root:Hello this is warning
+</pre>
+
+
+<p>
+This is also the case when we call a Logger, without specifying the name. Here's how:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+<span style="color: #fcfcfa;">logger</span> = logging.getLogger()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'My name is {logger.name} and my level is {logger.level}.'</span>)
+</pre>
+</div>
+
+<pre class="example">
+My name is root and my level is 30.
+</pre>
+
+
+<p>
+Once the root logger is initialized, we cannot add any other logging method to our module.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgfefa524" class="outline-3">
+<h3 id="orgfefa524">Why we should <b>not</b> use the root logger</h3>
+<div class="outline-text-3" id="text-orgfefa524">
+<p>
+It is not a good idea to directly log against the Root logger. Instead we should create and configure logging entities that serve the logging requriements for each specific module. This is done by <code>logging.getLogger(name)</code>.<br />
+</p>
+
+<p>
+Let's say we have two Python modules in the same directory:<br />
+</p>
+
+<p>
+<b>employee.py</b>:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+logging.basicConfig(
+    filename=<span style="color: #ffd866;">'employee.log'</span>,
+    level=logging.INFO,
+    <span style="color: #ab9df2;">format</span>=<span style="color: #ffd866;">'%(levelname)s:%(name)s:%(message)s'</span>
+)
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first, last):
+        <span style="color: #ff6188;">self</span>.first = first
+        <span style="color: #ff6188;">self</span>.last = last
+
+        logging.info(<span style="color: #ffd866;">'Created Employee {} - {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.fullname, <span style="color: #ff6188;">self</span>.email))
+
+    <span style="color: #78dce8;">@property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+    <span style="color: #78dce8;">@property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+
+<span style="color: #fcfcfa;">emp1</span> = Employee(<span style="color: #ffd866;">'John'</span>, <span style="color: #ffd866;">'Smith'</span>)
+</pre>
+</div>
+
+<p>
+and then we have <b>logbasic.py</b>, which has an <code>import</code> statement:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+<span style="color: #ff6188;">import</span> employee
+
+logging.basicConfig(filename=<span style="color: #ffd866;">'sample.log'</span>,level=logging.DEBUG,                                          <span style="color: #ab9df2;">format</span>=<span style="color: #ffd866;">'%(asctime)s:%(name)s: %(message)s'</span>)
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">add</span>(x,y):
+        <span style="color: #ff6188;">return</span> x + y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">substract</span>(x,y):
+        <span style="color: #ff6188;">return</span> x - y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">multiply</span>(x,y):
+        <span style="color: #ff6188;">return</span> x * y
+
+ 
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">divide</span>(x,y):
+        <span style="color: #ff6188;">return</span> x/y
+
+<span style="color: #fcfcfa;">num_1</span> = 10
+<span style="color: #fcfcfa;">num_2</span> = 5
+
+<span style="color: #fcfcfa;">add_result</span> = add(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Add: {} + {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, add_result)) 
+
+<span style="color: #fcfcfa;">sub_result</span> = substract(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Sub: {} - {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, sub_result)) 
+
+<span style="color: #fcfcfa;">mul_result</span> = multiply(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Mul: {} x {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, mul_result)) 
+
+<span style="color: #fcfcfa;">div_result</span> = divide(num_1, num_2)
+logging.debug(<span style="color: #ffd866;">'Div: {} / {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, div_result)) 
+</pre>
+</div>
+
+<p>
+When we run <b>logbasic.py</b>, Python will run the script in <b>employee.py</b>.<br />
+</p>
+
+<p>
+After <b>logbasic.py</b> is executed, we would realise that there is only one log file: <b>employee.log</b>. This is the log file that was configured in <b>employee.py</b>:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+logging.basicConfig(
+    filename=<span style="color: #ffd866;">'employee.log'</span>,
+    level=logging.INFO,
+    <span style="color: #ab9df2;">format</span>=<span style="color: #ffd866;">'%(levelname)s:%(name)s:%(message)s'</span>
+)
+</pre>
+</div>
+
+<p>
+This <b>root logger</b> was configured here. When it gets to the following line in <b>logbasic.py</b>, the root logger <b>remains unchanged</b>.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python">logging.basicConfig(filename=<span style="color: #ffd866;">'sample.log'</span>,level=logging.DEBUG,                                          <span style="color: #ab9df2;">format</span>=<span style="color: #ffd866;">'%(asctime)s:%(name)s: %(message)s'</span>)
+</pre>
+</div>
+
+<p>
+So why does the logging from <b>logbasic.py</b> not get printed? Because the logging statements in this file was set at the DEBUG level, where as the root logger has <code>level=logging.INFO</code>.<br />
+</p>
+
+<p>
+From this, we can see how sharing a root logger between different modules is bad and confusing.<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgfe72123" class="outline-3">
+<h3 id="orgfe72123">Seperate logger</h3>
+<div class="outline-text-3" id="text-orgfe72123">
+<p>
+Let's do two logger:<br />
+</p>
+
+<p>
+Note:<br />
+</p>
+<ul class="org-ul">
+<li>The formatting is created using a <b>Formatter</b> object, which is of type <code>logging.Formatter</code>. It is then configured with the <b>FileHandler</b> object, which is of type <code>logging.FileHandler</code>.<br /></li>
+<li>The logging level, however is set at the logger.<br /></li>
+</ul>
+
+<p>
+Two files, same directory:<br />
+</p>
+
+<p>
+<b>logbasic.py</b><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+<span style="color: #ff6188;">import</span> employee
+
+<span style="color: #fcfcfa;">logger</span> = logging.getLogger(<span style="color: #ab9df2;">__name__</span>)
+logger.setLevel(logging.DEBUG)
+
+<span style="color: #fcfcfa;">formatter</span> = logging.Formatter(<span style="color: #ffd866;">'%(asctime)s:%(name)s: %(message)s'</span>)
+
+<span style="color: #fcfcfa;">file_handler</span> = logging.FileHandler(<span style="color: #ffd866;">'logbasic.log'</span>)
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">add</span>(x,y):
+        <span style="color: #ff6188;">return</span> x + y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">substract</span>(x,y):
+        <span style="color: #ff6188;">return</span> x - y
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">multiply</span>(x,y):
+        <span style="color: #ff6188;">return</span> x * y
+
+ 
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">divide</span>(x,y):
+        <span style="color: #ff6188;">return</span> x/y
+
+<span style="color: #fcfcfa;">num_1</span> = 10
+<span style="color: #fcfcfa;">num_2</span> = 5
+
+<span style="color: #fcfcfa;">add_result</span> = add(num_1, num_2)
+logger.debug(<span style="color: #ffd866;">'Add: {} + {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, add_result)) 
+
+<span style="color: #fcfcfa;">sub_result</span> = substract(num_1, num_2)
+logger.debug(<span style="color: #ffd866;">'Sub: {} - {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, sub_result)) 
+
+<span style="color: #fcfcfa;">mul_result</span> = multiply(num_1, num_2)
+logger.debug(<span style="color: #ffd866;">'Mul: {} x {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, mul_result)) 
+
+<span style="color: #fcfcfa;">div_result</span> = divide(num_1, num_2)
+logger.debug(<span style="color: #ffd866;">'Div: {} / {} = {}'</span>.<span style="color: #ab9df2;">format</span>(num_1, num_2, div_result)) 
+</pre>
+</div>
+
+<p>
+<b>employee.py</b><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+<span style="color: #fcfcfa;">logger</span> = logging.getLogger(<span style="color: #ab9df2;">__name__</span>)
+logger.setLevel(logging.INFO)
+
+<span style="color: #fcfcfa;">formatter</span> = logging.Formatter(<span style="color: #ffd866;">'%(asctime)s:%(name)s: %(message)s'</span>)
+
+<span style="color: #fcfcfa;">file_handler</span> = logging.FileHandler(<span style="color: #ffd866;">'employee.log'</span>)
+file_handler.setFormatter(formatter)
+
+logger.addHandler(file_handler)
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first, last):
+        <span style="color: #ff6188;">self</span>.first = first
+        <span style="color: #ff6188;">self</span>.last = last
+
+        logger.info(<span style="color: #ffd866;">'Created Employee {} - {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.fullname, <span style="color: #ff6188;">self</span>.email))
+
+    <span style="color: #78dce8;">@property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+    <span style="color: #78dce8;">@property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+
+<span style="color: #fcfcfa;">emp1</span> = Employee(<span style="color: #ffd866;">'John'</span>, <span style="color: #ffd866;">'Smith'</span>)
+</pre>
+</div>
+
+<p>
+<b>logbasic.log</b> - because the <b>logbasic.py</b> was run as main, the logger name which is variable <code>__name__</code> would be <code>'__main__'</code>.<br />
+</p>
+<blockquote>
+<p>
+2020-05-28 23:45:13,249:__main__: Add: 10 + 5 = 15<br />
+2020-05-28 23:45:13,249:__main__: Sub: 10 - 5 = 5<br />
+2020-05-28 23:45:13,249:__main__: Mul: 10 x 5 = 50<br />
+2020-05-28 23:45:13,249:__main__: Div: 10 / 5 = 2.0<br />
+</p>
+</blockquote>
+
+<p>
+<b>employee.log</b><br />
+</p>
+<blockquote>
+<p>
+2020-05-28 23:45:13,248:employee: Created Employee John Smith - John.Smith@email.com<br />
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-orgdc1b6fa" class="outline-3">
+<h3 id="orgdc1b6fa">Logging level and Handlers</h3>
+<div class="outline-text-3" id="text-orgdc1b6fa">
+<p>
+Like loggers, we can also set the logging level at the Handler level. This is useful if we want to set multiple handlers for the same logger, but different severity levels for each of them.<br />
+</p>
+
+<p>
+If there are two different levels set at the logger as well as a handler that is added to that logger, the one at the handler will take precedence because it handles the actualy writing of the log.<br />
+</p>
+
+<p>
+Example:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+<span style="color: #fcfcfa;">logger</span> = logging.getLogger(<span style="color: #ab9df2;">__name__</span>)
+logger.setLevel(logging.INFO)
+
+<span style="color: #fcfcfa;">formatter</span> = logging.Formatter(<span style="color: #ffd866;">'%(asctime)s:%(name)s: %(message)s'</span>)
+
+<span style="color: #fcfcfa;">file_handler</span> = logging.FileHandler(<span style="color: #ffd866;">'test.log'</span>)
+file_handler.setFormatter(formatter)
+file_handler.setLevel(logging.ERROR)
+
+logger.addHandler(file_handler)
+
+
+logger.info(<span style="color: #ffd866;">"Hello World"</span>)
+</pre>
+</div>
+
+<p>
+The <b>test.log</b> file would be empty because the <code>FileHandler</code> set log level at <code>logging.ERROR</code> where as the logger message was at the <code>logging.INFO</code> level.<br />
+</p>
+
+<p>
+Let's try again..<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+<span style="color: #fcfcfa;">logger</span> = logging.getLogger(<span style="color: #ab9df2;">__name__</span>)
+logger.setLevel(logging.INFO)
+
+<span style="color: #fcfcfa;">formatter</span> = logging.Formatter(<span style="color: #ffd866;">'%(asctime)s:%(name)s: %(message)s'</span>)
+
+<span style="color: #fcfcfa;">file_handler</span> = logging.FileHandler(<span style="color: #ffd866;">'test.log'</span>)
+file_handler.setFormatter(formatter)
+file_handler.setLevel(logging.ERROR)
+
+logger.addHandler(file_handler)
+
+
+logger.info(<span style="color: #ffd866;">"Hello World - This is Info"</span>)
+logger.critical(<span style="color: #ffd866;">"Oh God!"</span>)
+</pre>
+</div>
+
+<p>
+<b>test.log</b><br />
+</p>
+<blockquote>
+<p>
+2020-05-28 23:53:14,305:__main__: Oh God!<br />
+</p>
+</blockquote>
+</div>
+</div>
+
+<div id="outline-container-org1300574" class="outline-3">
+<h3 id="org1300574"><code>logging.exception</code></h3>
+<div class="outline-text-3" id="text-org1300574">
+<p>
+We can also log an exception, which would parse the traceback into the our log file.<br />
+</p>
+
+<p>
+Example:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+<span style="color: #fcfcfa;">logger</span> = logging.getLogger(<span style="color: #ab9df2;">__name__</span>)
+logger.setLevel(logging.INFO)
+
+<span style="color: #fcfcfa;">formatter</span> = logging.Formatter(<span style="color: #ffd866;">'%(asctime)s:%(name)s: %(message)s'</span>)
+
+<span style="color: #fcfcfa;">file_handler</span> = logging.FileHandler(<span style="color: #ffd866;">'test.log'</span>)
+file_handler.setFormatter(formatter)
+file_handler.setLevel(logging.ERROR)
+
+logger.addHandler(file_handler)
+
+
+logger.info(<span style="color: #ffd866;">"Hello World - This is Info"</span>)
+logger.critical(<span style="color: #ffd866;">"Oh God!"</span>)
+
+<span style="color: #ff6188;">try</span>:
+    <span style="color: #fcfcfa;">test</span> = 10 / 0 
+<span style="color: #ff6188;">except</span>:
+    logger.exception(<span style="color: #ffd866;">"This is an error."</span>)
+</pre>
+</div>
+
+<p>
+<b>test.log</b>:<br />
+</p>
+<blockquote>
+<p>
+2020-05-28 23:55:36,597:__main__: Oh God!<br />
+2020-05-28 23:55:36,597:__main__: This is an error.<br />
+Traceback (most recent call last):<br />
+  File "path/to/file/test.py", line 19, in &lt;module&gt;<br />
+    test = 10 / 0<br />
+ZeroDivisionError: division by zero<br />
+</p>
+</blockquote>
+</div>
+</div>
+<div id="outline-container-org7353b4c" class="outline-3">
+<h3 id="org7353b4c">The benefit of FileHandler</h3>
+<div class="outline-text-3" id="text-org7353b4c">
+<p>
+We can also configure <b>multiple handlers</b> with a logger.<br />
+</p>
+
+<p>
+Let's try a new handler: <code>StreamHandler</code>.<br />
+</p>
+
+<ul class="org-ul">
+<li>We'll keep our code the same, just with a new handler that is added to the logger.<br /></li>
+<li>We are not going to add the file name.<br /></li>
+<li>We are not going to set a logging level, the new handler will just take the logger level.<br /></li>
+</ul>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> logging
+
+<span style="color: #fcfcfa;">logger</span> = logging.getLogger(<span style="color: #ab9df2;">__name__</span>)
+logger.setLevel(logging.INFO)
+
+<span style="color: #fcfcfa;">formatter</span> = logging.Formatter(<span style="color: #ffd866;">'%(asctime)s:%(name)s: %(message)s'</span>)
+
+<span style="color: #fcfcfa;">file_handler</span> = logging.FileHandler(<span style="color: #ffd866;">'test.log'</span>)
+file_handler.setFormatter(formatter)
+file_handler.setLevel(logging.ERROR)
+
+<span style="color: #fcfcfa;">stream_handler</span> = logging.StreamHandler()
+
+logger.addHandler(file_handler)
+logger.addHandler(stream_handler)
+
+logger.info(<span style="color: #ffd866;">"Hello World - This is Info"</span>)
+logger.critical(<span style="color: #ffd866;">"Oh God!"</span>)
+
+<span style="color: #ff6188;">try</span>:
+    <span style="color: #fcfcfa;">test</span> = 10 / 0 
+<span style="color: #ff6188;">except</span>:
+    logger.exception(<span style="color: #ffd866;">"This is an error."</span>)
+</pre>
+</div>
+
+<p>
+Apart from the log file, we'll also see the console response:<br />
+</p>
+
+<pre class="example">
+Hello World - This is Info
+Oh God!
+This is an error.
+Traceback (most recent call last):
+  File "/home/kkennynguyen/pCloudDrive/Documents/Python/Corey Schafer/Logging/test.py", line 21, in &lt;module&gt;
+    test = 10 / 0
+ZeroDivisionError: division by zero
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
+                          <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
+                          <p>Created: </p>
+                          <p class="date">Updated: 2020-06-26 Fri 00:27</p>
+</div>
+</body>
+</html>

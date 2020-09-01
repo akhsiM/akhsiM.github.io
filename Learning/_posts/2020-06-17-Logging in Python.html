@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-07-29 Wed 23:47 -->
+<!-- 2020-09-02 Wed 00:44 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Logging in Python</title>
@@ -204,7 +204,7 @@
 @licstart  The following is the entire license notice for the
 JavaScript code in this tag.
 
-Copyright (C) 2012-2019 Free Software Foundation, Inc.
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
 
 The JavaScript code in this tag is free software: you can
 redistribute it and/or modify it under the terms of the GNU
@@ -793,11 +793,11 @@ logging.basicConfig(
 
         logging.info(<span style="color: #ffd866;">'Created Employee {} - {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.fullname, <span style="color: #ff6188;">self</span>.email))
 
-    <span style="color: #78dce8;">@property</span>
+    @<span style="color: #ab9df2;">property</span>
     <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
         <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
 
-    <span style="color: #78dce8;">@property</span>
+    @<span style="color: #ab9df2;">property</span>
     <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
         <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
 
@@ -843,11 +843,11 @@ logging.basicConfig(
 
         logging.info(<span style="color: #ffd866;">'Created Employee {} - {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.fullname, <span style="color: #ff6188;">self</span>.email))
 
-    <span style="color: #78dce8;">@property</span>
+    @<span style="color: #ab9df2;">property</span>
     <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
         <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
 
-    <span style="color: #78dce8;">@property</span>
+    @<span style="color: #ab9df2;">property</span>
     <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
         <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
 
@@ -955,11 +955,11 @@ logging.basicConfig(
 
         logging.info(<span style="color: #ffd866;">'Created Employee {} - {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.fullname, <span style="color: #ff6188;">self</span>.email))
 
-    <span style="color: #78dce8;">@property</span>
+    @<span style="color: #ab9df2;">property</span>
     <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
         <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
 
-    <span style="color: #78dce8;">@property</span>
+    @<span style="color: #ab9df2;">property</span>
     <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
         <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
 
@@ -1136,11 +1136,11 @@ logger.addHandler(file_handler)
 
         logger.info(<span style="color: #ffd866;">'Created Employee {} - {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.fullname, <span style="color: #ff6188;">self</span>.email))
 
-    <span style="color: #78dce8;">@property</span>
+    @<span style="color: #ab9df2;">property</span>
     <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
         <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
 
-    <span style="color: #78dce8;">@property</span>
+    @<span style="color: #ab9df2;">property</span>
     <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
         <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
 
@@ -1356,9 +1356,9 @@ ZeroDivisionError: division by zero
 </div>
 <div id="postamble" class="status">
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
-                          <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 26.3 (<a href="https://orgmode.org">Org</a> mode 9.2.3)</p>
+                          <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
                           <p>Created: </p>
-                          <p class="date">Updated: 2020-07-29 Wed 23:47</p>
+                          <p class="date">Updated: 2020-09-02 Wed 00:44</p>
 </div>
 </body>
 </html>

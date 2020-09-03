@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-02 Wed 00:44 -->
+<!-- 2020-09-04 Fri 00:31 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Notes about Docker</title>
@@ -253,16 +253,23 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org3a2cc2f">Learn Docker in 12 Minutes</a>
+<li><a href="#orge000180">Learn Docker in 12 Minutes</a>
 <ul>
-<li><a href="#org81bdabb">General</a></li>
-<li><a href="#org6f40cec">The image</a></li>
-<li><a href="#org904c60d">Playing around</a></li>
-<li><a href="#orgffdb857">Volume</a>
+<li><a href="#org52920a5">General</a></li>
+<li><a href="#orgd702bf6">The image</a></li>
+<li><a href="#orgd0b80aa">Playing around</a>
 <ul>
-<li><a href="#orgf02754b">Different Type of Volumes</a></li>
-<li><a href="#org6c90fd8">Using the Volume for our small project</a></li>
-<li><a href="#org2d3f0e1">IMPORTANT NOTE</a></li>
+<li><a href="#orgf32572b">Dockerfile</a></li>
+<li><a href="#org09113cc">Docker <code>build</code></a></li>
+<li><a href="#orge26a77e">Docker <code>run</code></a></li>
+<li><a href="#org12dac16">Docker image</a></li>
+</ul>
+</li>
+<li><a href="#orgb1c8694">Volume</a>
+<ul>
+<li><a href="#org890b55e">Different Type of Volumes</a></li>
+<li><a href="#org816a660">Using the Volume for our small project</a></li>
+<li><a href="#org839dbf6">IMPORTANT NOTE</a></li>
 </ul>
 </li>
 </ul>
@@ -271,13 +278,13 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-org3a2cc2f" class="outline-2">
-<h2 id="org3a2cc2f">Learn Docker in 12 Minutes</h2>
-<div class="outline-text-2" id="text-org3a2cc2f">
+<div id="outline-container-orge000180" class="outline-2">
+<h2 id="orge000180">Learn Docker in 12 Minutes</h2>
+<div class="outline-text-2" id="text-orge000180">
 </div>
-<div id="outline-container-org81bdabb" class="outline-3">
-<h3 id="org81bdabb">General</h3>
-<div class="outline-text-3" id="text-org81bdabb">
+<div id="outline-container-org52920a5" class="outline-3">
+<h3 id="org52920a5">General</h3>
+<div class="outline-text-3" id="text-org52920a5">
 <p>
 <a href="https://www.youtube.com/watch?v=YFl2mCHdv24">https://www.youtube.com/watch?v=YFl2mCHdv24</a><br />
 </p>
@@ -1130,9 +1137,9 @@ To do this, Docker use  special features of the UNIX filesystem to create the is
 </div>
 </div>
 
-<div id="outline-container-org6f40cec" class="outline-3">
-<h3 id="org6f40cec">The image</h3>
-<div class="outline-text-3" id="text-org6f40cec">
+<div id="outline-container-orgd702bf6" class="outline-3">
+<h3 id="orgd702bf6">The image</h3>
+<div class="outline-text-3" id="text-orgd702bf6">
 <p>
 A container runs an instance of an image which is a template to create the environment we want. It's like a snapshot of the environment at any particular time.<br />
 </p>
@@ -2816,9 +2823,13 @@ IjLHduP/HxJZh4eGTqzHAAAAAElFTkSuQmCC"Docker.org_20200727_133602_BYmv1B.png /><br
 </div>
 </div>
 
-<div id="outline-container-org904c60d" class="outline-3">
-<h3 id="org904c60d">Playing around</h3>
-<div class="outline-text-3" id="text-org904c60d">
+<div id="outline-container-orgd0b80aa" class="outline-3">
+<h3 id="orgd0b80aa">Playing around</h3>
+<div class="outline-text-3" id="text-orgd0b80aa">
+</div>
+<div id="outline-container-orgf32572b" class="outline-4">
+<h4 id="orgf32572b">Dockerfile</h4>
+<div class="outline-text-4" id="text-orgf32572b">
 <p>
 Let's make a simple php page.<br />
 </p>
@@ -4488,7 +4499,12 @@ COPY src/ /var/www/html/
 EXPOSE 80
 </pre>
 </div>
+</div>
+</div>
 
+<div id="outline-container-org09113cc" class="outline-4">
+<h4 id="org09113cc">Docker <code>build</code></h4>
+<div class="outline-text-4" id="text-org09113cc">
 <p>
 Then I did this:<br />
 </p>
@@ -4516,6 +4532,27 @@ Successfully built 4c43c7ebf2e4
 Successfully tagged hello-world:latest
 </pre>
 
+<p>
+Docker <code>build</code> creates a Docker images from Dockerfiles. An image is basically a snapshot blue-print for an environment to run an application in. This blue-print is used by docker to create completely an isolated instance, so called "container" or "jail" of the application the image represents.<br />
+</p>
+
+<p>
+The blue-print includes:<br />
+</p>
+<ul class="org-ul">
+<li>A full root filesystem including dependencies needed to run the application<br /></li>
+<li>metadata to tell docker runtime on how to launch the application including: environment variables, exposed network ports, exposed volumes, what parameter to pass by default (<code>CMD</code>)..<br /></li>
+</ul>
+
+<p>
+All Docker images have an image identified (a generated 12-character alphanumeric string). They may also be given a name and a tag. If only a name is provided, a default tag of "latest" is used. Image names and tags helps to readily and unambiguously reference specific images.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orge26a77e" class="outline-4">
+<h4 id="orge26a77e">Docker <code>run</code></h4>
+<div class="outline-text-4" id="text-orge26a77e">
 <p>
 Seems like we are done. Then we can run the application by:<br />
 </p>
@@ -4643,12 +4680,43 @@ GIIcAABAxBDkAAAAIoYgBwAAEDEEOQAAgIghyAEAAEQMQQ4AACBiCHIAAAARQ5ADAACIGIIcAABA
 xBDkAAAAIoYgBwAAEDEEOQAAgIghyAEAAEQMQQ4AACBiCHIAAAARQ5ADAACIGIIcAABAxBDkAAAA
 IoYgBwAAEDEEOQAAgIj9H/RQwlXjANFKAAAAAElFTkSuQmCC"Docker.org_20200727_140814_wULG4S.png /><br />
 </p>
+
+<p>
+Docker <code>run</code> is used for creating containers. It is important to differentiate <code>run</code> from <code>exec</code> which is used to interact with containers that are already running.<br />
+</p>
+
+<p>
+We can also start a container to poke around and discard it afterwards. The following command will start a new container, drop into a shell and destroy after exit:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-sh">docker run -it --rm someimage:latest bash
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The <code>-it</code> runs Docker interactively, so that we get a pseudo-TTY with STDIN. It is short for <code>--interactive --tty</code>.<br /></li>
+<li>The <code>--rm</code> causes Docker to automatically remove the container when it exits.<br /></li>
+</ul>
 </div>
 </div>
 
-<div id="outline-container-orgffdb857" class="outline-3">
-<h3 id="orgffdb857">Volume</h3>
-<div class="outline-text-3" id="text-orgffdb857">
+
+
+<div id="outline-container-org12dac16" class="outline-4">
+<h4 id="org12dac16">Docker image</h4>
+<div class="outline-text-4" id="text-org12dac16">
+<p>
+If we need to find Docker images available locally, we can run <code>docker images</code> or <code>docker image ls</code>.<br />
+</p>
+</div>
+</div>
+</div>
+
+
+<div id="outline-container-orgb1c8694" class="outline-3">
+<h3 id="orgb1c8694">Volume</h3>
+<div class="outline-text-3" id="text-orgb1c8694">
 <p>
 When we update the content of our php page, we'd need to rebuild our docker image. This is where <b>volumes</b> come in.<br />
 </p>
@@ -5018,17 +5086,17 @@ When do we need Volumes? When we have <b>Databases or stateful applications</b>.
 </p>
 </div>
 
-<div id="outline-container-orgf02754b" class="outline-4">
-<h4 id="orgf02754b">Different Type of Volumes</h4>
-<div class="outline-text-4" id="text-orgf02754b">
+<div id="outline-container-org890b55e" class="outline-4">
+<h4 id="org890b55e">Different Type of Volumes</h4>
+<div class="outline-text-4" id="text-org890b55e">
 <p>
 There are three. Usually we create the volume by:<br />
 </p>
 </div>
 
 <ul class="org-ul">
-<li><a id="orgb63dff8"></a>Host Volumes <code>docker run -v [host dir]:[container dir]</code><br />
-<div class="outline-text-5" id="text-orgb63dff8">
+<li><a id="orgbf49ca7"></a>Host Volumes <code>docker run -v [host dir]:[container dir]</code><br />
+<div class="outline-text-5" id="text-orgbf49ca7">
 <p>
 Example:<br />
 </p>
@@ -5039,8 +5107,8 @@ Example:<br />
 </div>
 </li>
 
-<li><a id="org91a51af"></a>Anonymous Container Volume <code>docker run -v [container dir]</code><br />
-<div class="outline-text-5" id="text-org91a51af">
+<li><a id="orgc849ce5"></a>Anonymous Container Volume <code>docker run -v [container dir]</code><br />
+<div class="outline-text-5" id="text-orgc849ce5">
 <p>
 Just referencing the directory within the contaiener without specifying the host. What happens is the directory is automatically created and mounted by directory. These are called "anonymous" volumes<br />
 </p>
@@ -5055,8 +5123,8 @@ Example:<br />
 </div>
 </li>
 
-<li><a id="orgbbceda9"></a>Named Container Volume <code>docker run -v [name]:[container dir]</code><br />
-<div class="outline-text-5" id="text-orgbbceda9">
+<li><a id="orgbf60cfb"></a>Named Container Volume <code>docker run -v [name]:[container dir]</code><br />
+<div class="outline-text-5" id="text-orgbf60cfb">
 <p>
 This is an improvement on the anonymous container dir method which you can use to assign a name to the container directory. This lets us reference the directory easily with just the name.<br />
 Example:<br />
@@ -5070,9 +5138,9 @@ Example:<br />
 </ul>
 </div>
 
-<div id="outline-container-org6c90fd8" class="outline-4">
-<h4 id="org6c90fd8">Using the Volume for our small project</h4>
-<div class="outline-text-4" id="text-org6c90fd8">
+<div id="outline-container-org816a660" class="outline-4">
+<h4 id="org816a660">Using the Volume for our small project</h4>
+<div class="outline-text-4" id="text-org816a660">
 <div class="org-src-container">
 <pre class="src src-sh">docker run -p 80:80 -v /home/kkennynguyen/Documents/Tech<span style="color: #ffd866;">\ </span>Notes/Playing<span style="color: #ffd866;">\ </span>around<span style="color: #ffd866;">\ </span>with<span style="color: #ffd866;">\ </span>Docker/src:/var/www/html/ hello-world 
 </pre>
@@ -5359,9 +5427,9 @@ YbwhhBByQhhvCCGEnBDGG0IIISeE8YYQQsgJ/T+mjJLkph08VAAAAABJRU5ErkJggg=="Docker.org_
 </div>
 </div>
 
-<div id="outline-container-org2d3f0e1" class="outline-4">
-<h4 id="org2d3f0e1">IMPORTANT NOTE</h4>
-<div class="outline-text-4" id="text-org2d3f0e1">
+<div id="outline-container-org839dbf6" class="outline-4">
+<h4 id="org839dbf6">IMPORTANT NOTE</h4>
+<div class="outline-text-4" id="text-org839dbf6">
 <p>
 Volumes is very useful for developments, however we'll need to re-build our app once we need to ship it to production. Volumes are just a way to access our file on the filesystem, it <b>does not change the image</b>.<br />
 </p>
@@ -5639,7 +5707,7 @@ IxFCCCF6/x8XySfW2xMeNwAAAABJRU5ErkJggg=="Docker.org_20200727_143457_hMFWnN.png /
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
                           <p>Created: </p>
-                          <p class="date">Updated: 2020-09-02 Wed 00:44</p>
+                          <p class="date">Updated: 2020-09-04 Fri 00:31</p>
 </div>
 </body>
 </html>

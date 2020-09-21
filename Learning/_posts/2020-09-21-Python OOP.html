@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2020-09-21 Mon 00:55 -->
+<!-- 2020-09-21 Mon 12:23 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Classes in Python | Python Object Oriented Programming</title>
@@ -253,68 +253,69 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#org758e2a1">Introduction</a>
+<li><a href="#org672e734">Introduction</a>
 <ul>
-<li><a href="#org2163fa5">What is OOP?</a></li>
-<li><a href="#org70a184e">Syntax</a></li>
-<li><a href="#org2f2e862">Why should we use Classes?</a></li>
-<li><a href="#org069d04a">Difference between a Class and an instance of a class</a></li>
+<li><a href="#orgffa20dd">What is OOP?</a></li>
+<li><a href="#org2483338">Syntax</a></li>
+<li><a href="#orgee512e5">Why should we use Classes?</a></li>
+<li><a href="#org2609015">Difference between a Class and an instance of a class</a></li>
 </ul>
 </li>
-<li><a href="#orgaf7e37a">The <code>init</code> method</a></li>
-<li><a href="#orgd99b840">The docstring</a></li>
-<li><a href="#orga5e2a32">Calling a method</a>
+<li><a href="#org6654f65">The <code>init</code> method</a></li>
+<li><a href="#orgfb419b5">The docstring</a></li>
+<li><a href="#org76cf89a">Calling a method</a>
 <ul>
-<li><a href="#org1ad8473">Syntax</a></li>
-<li><a href="#org1f65b12">Calling the class method directly</a></li>
-<li><a href="#org1b8d575">The <code>self</code> argument</a></li>
+<li><a href="#org5e32def">Syntax</a></li>
+<li><a href="#orgba920a8">Calling the class method directly</a></li>
+<li><a href="#orga985487">The <code>self</code> argument</a></li>
 </ul>
 </li>
-<li><a href="#orgd2e0fed">Methods</a>
+<li><a href="#orge31d34f">Methods</a>
 <ul>
-<li><a href="#org6f6945d">Class Methods</a>
+<li><a href="#org26d325d">Class Methods</a>
 <ul>
-<li><a href="#orge54e6e9">Example 1 - Set new Pay Raise amount</a></li>
-<li><a href="#org6723b38">Example 2 - Alternative constructor</a></li>
+<li><a href="#org347b510">Example 1 - Set new Pay Raise amount</a></li>
+<li><a href="#org6791b6c">Example 2 - Alternative constructor</a></li>
 </ul>
 </li>
-<li><a href="#org75f8f07">Static Method</a></li>
+<li><a href="#org5fa7626">Static Method</a></li>
+<li><a href="#org9421075">Difference between <code>@classmethod</code> and <code>@staticmethod</code></a></li>
 </ul>
 </li>
-<li><a href="#org6f07679">Special (Magic | Dunder) Methods</a>
+<li><a href="#orgb7c72d6">Special (Magic | Dunder) Methods</a>
 <ul>
-<li><a href="#orgd69b2cf">Introduction</a></li>
-<li><a href="#org77c68e4">Using the Dunder repr method</a>
+<li><a href="#orgac4be14">Introduction</a></li>
+<li><a href="#orgd6a6721">Using the Dunder repr method</a>
 <ul>
-<li><a href="#org333f4be">More about repr method</a></li>
+<li><a href="#orgfc07727">More about repr method</a></li>
 </ul>
 </li>
-<li><a href="#org4fd9f6c">Using the Dunder add method</a></li>
+<li><a href="#org1a39545">Using the Dunder add method</a></li>
 </ul>
 </li>
-<li><a href="#org4723e85">Class Variables</a>
+<li><a href="#orgaa6648a">Class Variables</a>
 <ul>
-<li><a href="#orgf49c526">Class Variable vs Instance Variable in method definition</a></li>
+<li><a href="#orgec6cbd4">Class Variable vs Instance Variable in method definition</a></li>
 </ul>
 </li>
-<li><a href="#org49e318c">Class inheritance</a>
+<li><a href="#org899fdb5">Class inheritance</a>
 <ul>
-<li><a href="#org5d62f08">Modifying the subclass</a>
+<li><a href="#orgb77b169">Modifying the subclass</a>
 <ul>
-<li><a href="#orgb1b6b5b">Example 1: Simple change by invoking a method</a></li>
-<li><a href="#org6189fab">Example 2: More complicated change</a></li>
-<li><a href="#org41243e7">Example 3: The Manager class</a></li>
+<li><a href="#orgf5d09f0">Example 1: Simple change by invoking a method</a></li>
+<li><a href="#orgb45754c">Example 2: More complicated change</a></li>
+<li><a href="#org06296a3">Example 3: The Manager class</a></li>
 </ul>
 </li>
-<li><a href="#orga831714">Checking subclass and instance</a></li>
+<li><a href="#orga7ccbf0">Checking subclass and instance</a></li>
 </ul>
 </li>
-<li><a href="#orgffeb976">Miscelanous</a>
+<li><a href="#orgca6a1a1">Miscelanous</a>
 <ul>
-<li><a href="#org6133e83"><code>dir</code></a></li>
-<li><a href="#orgf428b74"><code>__dict__</code></a></li>
-<li><a href="#org196fec9"><code>help()</code></a></li>
-<li><a href="#org8d30459"><code>super()</code></a></li>
+<li><a href="#org5ef07ff"><code>dir</code></a></li>
+<li><a href="#orge5f8946"><code>__dict__</code></a></li>
+<li><a href="#orgaf84636"><code>help()</code></a></li>
+<li><a href="#org4baf714"><code>super()</code></a></li>
 </ul>
 </li>
 </ul>
@@ -322,13 +323,13 @@ for the JavaScript code in this tag.
 </div>
 
 
-<div id="outline-container-org758e2a1" class="outline-2">
-<h2 id="org758e2a1">Introduction</h2>
-<div class="outline-text-2" id="text-org758e2a1">
+<div id="outline-container-org672e734" class="outline-2">
+<h2 id="org672e734">Introduction</h2>
+<div class="outline-text-2" id="text-org672e734">
 </div>
-<div id="outline-container-org2163fa5" class="outline-3">
-<h3 id="org2163fa5">What is OOP?</h3>
-<div class="outline-text-3" id="text-org2163fa5">
+<div id="outline-container-orgffa20dd" class="outline-3">
+<h3 id="orgffa20dd">What is OOP?</h3>
+<div class="outline-text-3" id="text-orgffa20dd">
 <p>
 Object-oriented Programming (OOP) is a programming paradigm which provides a means of structuring programs so that properties and behaviours are bundled into individual <b>objects</b>.<br />
 </p>
@@ -346,9 +347,9 @@ Python is a multi-paradigm programming language. OOP is one of the paradigms tha
 </p>
 </div>
 </div>
-<div id="outline-container-org70a184e" class="outline-3">
-<h3 id="org70a184e">Syntax</h3>
-<div class="outline-text-3" id="text-org70a184e">
+<div id="outline-container-org2483338" class="outline-3">
+<h3 id="org2483338">Syntax</h3>
+<div class="outline-text-3" id="text-org2483338">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">User</span>:
         <span style="color: #ff6188;">pass</span>
@@ -401,18 +402,18 @@ Clark Kent
 </div>
 </div>
 
-<div id="outline-container-org2f2e862" class="outline-3">
-<h3 id="org2f2e862">Why should we use Classes?</h3>
-<div class="outline-text-3" id="text-org2f2e862">
+<div id="outline-container-orgee512e5" class="outline-3">
+<h3 id="orgee512e5">Why should we use Classes?</h3>
+<div class="outline-text-3" id="text-orgee512e5">
 <p>
 Classes allow us to logically group our data and functions in a way that's easily to reuse and to build upon (if need be).<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-org069d04a" class="outline-3">
-<h3 id="org069d04a">Difference between a Class and an instance of a class</h3>
-<div class="outline-text-3" id="text-org069d04a">
+<div id="outline-container-org2609015" class="outline-3">
+<h3 id="org2609015">Difference between a Class and an instance of a class</h3>
+<div class="outline-text-3" id="text-org2609015">
 <p>
 A Class is like a blueprint of objects of a similar type.<br />
 </p>
@@ -424,9 +425,9 @@ An instance of a Class is an object with the blueprint that is the Class. Any in
 </div>
 </div>
 
-<div id="outline-container-orgaf7e37a" class="outline-2">
-<h2 id="orgaf7e37a">The <code>init</code> method</h2>
-<div class="outline-text-2" id="text-orgaf7e37a">
+<div id="outline-container-org6654f65" class="outline-2">
+<h2 id="org6654f65">The <code>init</code> method</h2>
+<div class="outline-text-2" id="text-org6654f65">
 <p>
 A method is a function inside a class.<br />
 </p>
@@ -467,9 +468,9 @@ Lee Bruce
 </p>
 </div>
 </div>
-<div id="outline-container-orgd99b840" class="outline-2">
-<h2 id="orgd99b840">The docstring</h2>
-<div class="outline-text-2" id="text-orgd99b840">
+<div id="outline-container-orgfb419b5" class="outline-2">
+<h2 id="orgfb419b5">The docstring</h2>
+<div class="outline-text-2" id="text-orgfb419b5">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">User</span>:
         <span style="color: #727072;">""" This is a docstring, They are pretty useful.</span>
@@ -485,13 +486,13 @@ The docstring is displayed when running help(<code>class</code>) command.<br />
 </p>
 </div>
 </div>
-<div id="outline-container-orga5e2a32" class="outline-2">
-<h2 id="orga5e2a32">Calling a method</h2>
-<div class="outline-text-2" id="text-orga5e2a32">
+<div id="outline-container-org76cf89a" class="outline-2">
+<h2 id="org76cf89a">Calling a method</h2>
+<div class="outline-text-2" id="text-org76cf89a">
 </div>
-<div id="outline-container-org1ad8473" class="outline-3">
-<h3 id="org1ad8473">Syntax</h3>
-<div class="outline-text-3" id="text-org1ad8473">
+<div id="outline-container-org5e32def" class="outline-3">
+<h3 id="org5e32def">Syntax</h3>
+<div class="outline-text-3" id="text-org5e32def">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
         <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first_name, last_name, pay):
@@ -524,9 +525,9 @@ Calling a method is different from calling an attribute. It requires a pair of <
 </div>
 </div>
 
-<div id="outline-container-org1f65b12" class="outline-3">
-<h3 id="org1f65b12">Calling the class method directly</h3>
-<div class="outline-text-3" id="text-org1f65b12">
+<div id="outline-container-orgba920a8" class="outline-3">
+<h3 id="orgba920a8">Calling the class method directly</h3>
+<div class="outline-text-3" id="text-orgba920a8">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
         <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first_name, last_name, pay):
@@ -561,11 +562,11 @@ This explains the <code>self</code> argument, which is automatically placed as a
 </p>
 </div>
 </div>
-<div id="outline-container-org1b8d575" class="outline-3">
-<h3 id="org1b8d575">The <code>self</code> argument</h3>
-<div class="outline-text-3" id="text-org1b8d575">
+<div id="outline-container-orga985487" class="outline-3">
+<h3 id="orga985487">The <code>self</code> argument</h3>
+<div class="outline-text-3" id="text-orga985487">
 <p>
-<a id="org1f5ad61"></a><br />
+<a id="org02136ae"></a><br />
 Don't forget to use the <code>self</code> argument. Without this, althougth the class creation would have no problem, when we call the actual method, there would be an error message. Although it looks like no argument is passed, the instance argument is passed <b>automatically</b> when the method is called.<br />
 </p>
 
@@ -597,26 +598,30 @@ TypeError: fullname() takes 0 positional arguments but 1 was given
 </div>
 </div>
 </div>
-<div id="outline-container-orgd2e0fed" class="outline-2">
-<h2 id="orgd2e0fed">Methods</h2>
-<div class="outline-text-2" id="text-orgd2e0fed">
+<div id="outline-container-orge31d34f" class="outline-2">
+<h2 id="orge31d34f">Methods</h2>
+<div class="outline-text-2" id="text-orge31d34f">
 <p>
-Regular methods in a class automatically takes the instance as the first argument in the method call. (See <a href="#org1f5ad61">self</a>)<br />
+Regular methods in a class automatically takes the instance as the first argument in the method call. (See <a href="#org02136ae">self</a>)<br />
 </p>
 </div>
 
-<div id="outline-container-org6f6945d" class="outline-3">
-<h3 id="org6f6945d">Class Methods</h3>
-<div class="outline-text-3" id="text-org6f6945d">
+<div id="outline-container-org26d325d" class="outline-3">
+<h3 id="org26d325d">Class Methods</h3>
+<div class="outline-text-3" id="text-org26d325d">
 <ul class="org-ul">
 <li>Class method definition is preceded by the <code>@classmethod</code> decorator.<br /></li>
 <li>Instead of <code>self</code>, we can specify the class variable by using <code>cls</code>.<br /></li>
 </ul>
+
+<p>
+Class methods are similar to other instance methods (e.g <code>__init__</code>) in a class. However instead of having the <code>self</code> instance passed as the first argument to it, class methods' first argument is the actual <b>uninstantiated</b> class itself (<code>cls</code>).<br />
+</p>
 </div>
 
-<div id="outline-container-orge54e6e9" class="outline-4">
-<h4 id="orge54e6e9">Example 1 - Set new Pay Raise amount</h4>
-<div class="outline-text-4" id="text-orge54e6e9">
+<div id="outline-container-org347b510" class="outline-4">
+<h4 id="org347b510">Example 1 - Set new Pay Raise amount</h4>
+<div class="outline-text-4" id="text-org347b510">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
         <span style="color: #fcfcfa;">pay_raise_amt</span> = 1.04
@@ -650,9 +655,9 @@ Employee.set_new_raise_amt(1.05)
 </div>
 </div>
 
-<div id="outline-container-org6723b38" class="outline-4">
-<h4 id="org6723b38">Example 2 - Alternative constructor</h4>
-<div class="outline-text-4" id="text-org6723b38">
+<div id="outline-container-org6791b6c" class="outline-4">
+<h4 id="org6791b6c">Example 2 - Alternative constructor</h4>
+<div class="outline-text-4" id="text-org6791b6c">
 <p>
 &lt;&lt; alternative constructor&gt;&gt;<br />
 This is an example of <b>alternative constructor</b>.<br />
@@ -690,19 +695,19 @@ Bruce.Lee@company.com
 </div>
 </div>
 
-<div id="outline-container-org75f8f07" class="outline-3">
-<h3 id="org75f8f07">Static Method</h3>
-<div class="outline-text-3" id="text-org75f8f07">
+<div id="outline-container-org5fa7626" class="outline-3">
+<h3 id="org5fa7626">Static Method</h3>
+<div class="outline-text-3" id="text-org5fa7626">
 <p>
 Instead of passing the instance (<code>self</code>) or the class (<code>cls</code>) as an argument to the method, a static method does not pass anything on default.<br />
 </p>
 
 <p>
-They behave just like regular function however they are organised in the class because they have a logical connection to the class.<br />
+They behave just like regular function however they are organised in the class because they have a logical connection to the class. They essentially know nothing about the class.<br />
 </p>
 
 <p>
-Static methods definition is preceded by the <code>@staticmethod</code> decorator<br />
+Static methods definition is preceded by the <code>@staticmethod</code> decorator:<br />
 </p>
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">import</span> datetime
@@ -732,15 +737,38 @@ True
 </pre>
 </div>
 </div>
+
+<div id="outline-container-org9421075" class="outline-3">
+<h3 id="org9421075">Difference between <code>@classmethod</code> and <code>@staticmethod</code></h3>
+<div class="outline-text-3" id="text-org9421075">
+<p>
+<b>Similarities</b>:<br />
+</p>
+<ul class="org-ul">
+<li>Both are callable functions that are defined inside a class.<br /></li>
+<li>Both do not require a class object to be instanstiated. <i>(Unlike instance methods, which operate on an object)</i><br /></li>
+</ul>
+
+<p>
+<b>Differences</b>:<br />
+</p>
+<ul class="org-ul">
+<li>Class methods work with the class and has access to class variables. Its first parameter must always be the (uninstantiated) class.<br /></li>
+
+<li>Static methods do not work with the class and knows nothing about the class. It only has some logical connection to the class, like a helper method, but do not interact with any specific instance.<br /></li>
+<li>Static method definition is immutable via inheritance.<br /></li>
+</ul>
+</div>
+</div>
 </div>
 
-<div id="outline-container-org6f07679" class="outline-2">
-<h2 id="org6f07679">Special (Magic | Dunder) Methods</h2>
-<div class="outline-text-2" id="text-org6f07679">
+<div id="outline-container-orgb7c72d6" class="outline-2">
+<h2 id="orgb7c72d6">Special (Magic | Dunder) Methods</h2>
+<div class="outline-text-2" id="text-orgb7c72d6">
 </div>
-<div id="outline-container-orgd69b2cf" class="outline-3">
-<h3 id="orgd69b2cf">Introduction</h3>
-<div class="outline-text-3" id="text-orgd69b2cf">
+<div id="outline-container-orgac4be14" class="outline-3">
+<h3 id="orgac4be14">Introduction</h3>
+<div class="outline-text-3" id="text-orgac4be14">
 <p>
 Magic methods in Python are special methods that are not invoked by us howver the invocation happens internally from the class on a certain action.<br />
 </p>
@@ -785,15 +813,15 @@ The three most common methods are <code>__repr__</code>, <code>__str__</code> an
 </div>
 </div>
 
-<div id="outline-container-org77c68e4" class="outline-3">
-<h3 id="org77c68e4">Using the Dunder repr method</h3>
-<div class="outline-text-3" id="text-org77c68e4">
+<div id="outline-container-orgd6a6721" class="outline-3">
+<h3 id="orgd6a6721">Using the Dunder repr method</h3>
+<div class="outline-text-3" id="text-orgd6a6721">
 <p>
 According to the official Python documentation, <code>_repr__</code> is a built-in function used to compute the "official" string reputation of an object, while <code>__str__</code> is a built-in function that computes the "informal" string representations of an object.<br />
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="org7e3c4b1"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+<pre class="src src-python" id="orgb716f15"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
         <span style="color: #fcfcfa;">pay_raise_amt</span> = 1.04
 
         <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first_name, last_name, pay):
@@ -814,7 +842,7 @@ According to the official Python documentation, <code>_repr__</code> is a built-
 
 
 <div class="org-src-container">
-<pre class="src src-python" id="orged74b9b"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+<pre class="src src-python" id="orgac9903d"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
         <span style="color: #fcfcfa;">pay_raise_amt</span> = 1.04
 
         <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first_name, last_name, pay):
@@ -838,7 +866,7 @@ Employee('Bruce', 'Lee', 50000)
 
 
 <div class="org-src-container">
-<pre class="src src-python" id="org547d6ce"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+<pre class="src src-python" id="org535b090"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
         <span style="color: #fcfcfa;">pay_raise_amt</span> = 1.04
 
         <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first_name, last_name, pay):
@@ -872,9 +900,9 @@ Bruce Lee - Bruce.Lee@company.com
 
 
 
-<div id="outline-container-org333f4be" class="outline-4">
-<h4 id="org333f4be">More about repr method</h4>
-<div class="outline-text-4" id="text-org333f4be">
+<div id="outline-container-orgfc07727" class="outline-4">
+<h4 id="orgfc07727">More about repr method</h4>
+<div class="outline-text-4" id="text-orgfc07727">
 <p>
 The <code>repr</code> method takes a single parameter <code>Obj</code> whose printable representation is to be returned.<br />
 </p>
@@ -904,9 +932,9 @@ What is the difference between <code>repr()</code> and <code>str()?</code><br />
 </div>
 </div>
 
-<div id="outline-container-org4fd9f6c" class="outline-3">
-<h3 id="org4fd9f6c">Using the Dunder add method</h3>
-<div class="outline-text-3" id="text-org4fd9f6c">
+<div id="outline-container-org1a39545" class="outline-3">
+<h3 id="org1a39545">Using the Dunder add method</h3>
+<div class="outline-text-3" id="text-org1a39545">
 <div class="org-src-container">
 <pre class="src src-python"><span style="color: #ff6188;">print</span>(1 + 2)
 <span style="color: #ff6188;">print</span>(<span style="color: #ab9df2;">int</span>.__add__(1, 2))
@@ -926,7 +954,7 @@ We can customize how the operator <code>+</code> works by the use of Dunder add 
 </p>
 
 <div class="org-src-container">
-<pre class="src src-python" id="orgf607806"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+<pre class="src src-python" id="org263157b"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
         <span style="color: #fcfcfa;">pay_raise_amt</span> = 1.04
 
         <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first_name, last_name, pay):
@@ -956,9 +984,9 @@ More on this: <a href="https://docs.python.org/3.7/reference/datamodel.html?high
 </div>
 </div>
 </div>
-<div id="outline-container-org4723e85" class="outline-2">
-<h2 id="org4723e85">Class Variables</h2>
-<div class="outline-text-2" id="text-org4723e85">
+<div id="outline-container-orgaa6648a" class="outline-2">
+<h2 id="orgaa6648a">Class Variables</h2>
+<div class="outline-text-2" id="text-orgaa6648a">
 <p>
 Class variables are variables that are <b>shared</b> amongst all instances of the same class.<br />
 </p>
@@ -1021,9 +1049,9 @@ Class variables can be accessed via both the Class (<code>Employee.pay_raise_amt
 Note how there is no <code>pay_raise_amt</code> in the <code>__dict()__</code> method call of the instance before the change to the variable. This is because after the change, <code>pay_raise_amt</code> was turned into an Instance Variable that exists in <code>employee1</code> which is seperate from the default Class Variable.<br />
 </p>
 </div>
-<div id="outline-container-orgf49c526" class="outline-3">
-<h3 id="orgf49c526">Class Variable vs Instance Variable in method definition</h3>
-<div class="outline-text-3" id="text-orgf49c526">
+<div id="outline-container-orgec6cbd4" class="outline-3">
+<h3 id="orgec6cbd4">Class Variable vs Instance Variable in method definition</h3>
+<div class="outline-text-3" id="text-orgec6cbd4">
 <p>
 Note in the above snippet, there was this part:<br />
 </p>
@@ -1054,9 +1082,9 @@ It depends on the nature and use case of the variable of the class and the class
 </div>
 </div>
 
-<div id="outline-container-org49e318c" class="outline-2">
-<h2 id="org49e318c">Class inheritance</h2>
-<div class="outline-text-2" id="text-org49e318c">
+<div id="outline-container-org899fdb5" class="outline-2">
+<h2 id="org899fdb5">Class inheritance</h2>
+<div class="outline-text-2" id="text-org899fdb5">
 <p>
 Inheritance allows us to inherit class attributes from parent class. It is useful so that we can create <b>subclasses</b> that inherits from parent classes then we can also modify the subclasses without touching the parent classes.<br />
 </p>
@@ -1089,13 +1117,13 @@ Bruce.Lee@company.com
 </pre>
 </div>
 
-<div id="outline-container-org5d62f08" class="outline-3">
-<h3 id="org5d62f08">Modifying the subclass</h3>
-<div class="outline-text-3" id="text-org5d62f08">
+<div id="outline-container-orgb77b169" class="outline-3">
+<h3 id="orgb77b169">Modifying the subclass</h3>
+<div class="outline-text-3" id="text-orgb77b169">
 </div>
-<div id="outline-container-orgb1b6b5b" class="outline-4">
-<h4 id="orgb1b6b5b">Example 1: Simple change by invoking a method</h4>
-<div class="outline-text-4" id="text-orgb1b6b5b">
+<div id="outline-container-orgf5d09f0" class="outline-4">
+<h4 id="orgf5d09f0">Example 1: Simple change by invoking a method</h4>
+<div class="outline-text-4" id="text-orgf5d09f0">
 <p>
 Aim: Change the pay raise amount of Developer to 1.05 instead of 1.04.<br />
 </p>
@@ -1132,9 +1160,9 @@ Developer.set_new_raise_amt(1.05)  <span style="color: #727072;">## </span><span
 </div>
 </div>
 
-<div id="outline-container-org6189fab" class="outline-4">
-<h4 id="org6189fab">Example 2: More complicated change</h4>
-<div class="outline-text-4" id="text-org6189fab">
+<div id="outline-container-orgb45754c" class="outline-4">
+<h4 id="orgb45754c">Example 2: More complicated change</h4>
+<div class="outline-text-4" id="text-orgb45754c">
 <p>
 Aim: Developer to have an init value for Programming Language.<br />
 </p>
@@ -1176,13 +1204,13 @@ C++
 
 
 <p>
-See more about <code>super()</code> <a href="#orgb71bbe7">here</a>.<br />
+See more about <code>super()</code> <a href="#orga7300eb">here</a>.<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org41243e7" class="outline-4">
-<h4 id="org41243e7">Example 3: The Manager class</h4>
-<div class="outline-text-4" id="text-org41243e7">
+<div id="outline-container-org06296a3" class="outline-4">
+<h4 id="org06296a3">Example 3: The Manager class</h4>
+<div class="outline-text-4" id="text-org06296a3">
 <p>
 Aim: Create a class for Manager that also contains information about employees that he supervises.<br />
 </p>
@@ -1250,9 +1278,9 @@ Created new Manager Jonathan Pickle
 </div>
 </div>
 
-<div id="outline-container-orga831714" class="outline-3">
-<h3 id="orga831714">Checking subclass and instance</h3>
-<div class="outline-text-3" id="text-orga831714">
+<div id="outline-container-orga7ccbf0" class="outline-3">
+<h3 id="orga7ccbf0">Checking subclass and instance</h3>
+<div class="outline-text-3" id="text-orga7ccbf0">
 <p>
 Python has 2 built-in functions for this.<br />
 </p>
@@ -1295,13 +1323,13 @@ True
 </div>
 
 
-<div id="outline-container-orgffeb976" class="outline-2">
-<h2 id="orgffeb976">Miscelanous</h2>
-<div class="outline-text-2" id="text-orgffeb976">
+<div id="outline-container-orgca6a1a1" class="outline-2">
+<h2 id="orgca6a1a1">Miscelanous</h2>
+<div class="outline-text-2" id="text-orgca6a1a1">
 </div>
-<div id="outline-container-org6133e83" class="outline-3">
-<h3 id="org6133e83"><code>dir</code></h3>
-<div class="outline-text-3" id="text-org6133e83">
+<div id="outline-container-org5ef07ff" class="outline-3">
+<h3 id="org5ef07ff"><code>dir</code></h3>
+<div class="outline-text-3" id="text-org5ef07ff">
 <p>
 <code>dir</code> is a powerful in-built function of Python 3. It returns all properties and attributes of a class. These includes class attributes, methods, .etc.<br />
 </p>
@@ -1313,18 +1341,18 @@ True
 </div>
 </div>
 </div>
-<div id="outline-container-orgf428b74" class="outline-3">
-<h3 id="orgf428b74"><code>__dict__</code></h3>
-<div class="outline-text-3" id="text-orgf428b74">
+<div id="outline-container-orge5f8946" class="outline-3">
+<h3 id="orge5f8946"><code>__dict__</code></h3>
+<div class="outline-text-3" id="text-orge5f8946">
 <p>
 Every class has a <code>__dict__</code> method. It returns all variables of an instance.<br />
 Note that it does not return the default class variables.<br />
 </p>
 </div>
 </div>
-<div id="outline-container-org196fec9" class="outline-3">
-<h3 id="org196fec9"><code>help()</code></h3>
-<div class="outline-text-3" id="text-org196fec9">
+<div id="outline-container-orgaf84636" class="outline-3">
+<h3 id="orgaf84636"><code>help()</code></h3>
+<div class="outline-text-3" id="text-orgaf84636">
 <p>
 Useful for reading docstring and properties. This can also be used to see inherited attributes.<br />
 </p>
@@ -1336,11 +1364,11 @@ Useful for reading docstring and properties. This can also be used to see inheri
 </div>
 </div>
 </div>
-<div id="outline-container-org8d30459" class="outline-3">
-<h3 id="org8d30459"><code>super()</code></h3>
-<div class="outline-text-3" id="text-org8d30459">
+<div id="outline-container-org4baf714" class="outline-3">
+<h3 id="org4baf714"><code>super()</code></h3>
+<div class="outline-text-3" id="text-org4baf714">
 <p>
-<a id="orgb71bbe7"></a><br />
+<a id="orga7300eb"></a><br />
 <code>super()</code> alone returns a temporary object of the superclass. A super class is also known as a parent class. This allows us to invoke methods of the parent class, when working with a subclass.<br />
 </p>
 
@@ -1355,7 +1383,7 @@ A common use case for this is building classes that access/ extends to functiona
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
                           <p>Created: 2019-09-02 Mon 22:30</p>
-                          <p class="date">Updated: 2020-09-21 Mon 00:55</p>
+                          <p class="date">Updated: 2020-09-21 Mon 12:23</p>
 </div>
 </body>
 </html>

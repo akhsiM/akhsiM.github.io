@@ -1,0 +1,2955 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-10-19 Mon 01:21 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Python - Concurrency and Multiprocessing</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mishka Nguyen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Python - Concurrency and Multiprocessing</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org2248a12">Concurrency</a>
+<ul>
+<li><a href="#org4c9e5b7">General</a></li>
+<li><a href="#org60cb5a9">Concurrency in Python</a>
+<ul>
+<li><a href="#org9343672">Without concurrency</a></li>
+<li><a href="#orgd86321e">With concurrency - the manual way</a></li>
+<li><a href="#orgd836555">With concurrency - the easier way</a></li>
+<li><a href="#orgdb03d3b">A real world example</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org6c5e276">Multiprocessing</a>
+<ul>
+<li><a href="#org5c26663">Multiprocessing in Python - the old way</a></li>
+<li><a href="#org30a660f">Multiprocessing in Python - the newer way</a>
+<ul>
+<li><a href="#org98e833a">with "checking in" the result</a></li>
+<li><a href="#orgc35994b">without checking in the result</a></li>
+<li><a href="#org3fded0b">Passing in a list of arguments</a></li>
+<li><a href="#orgb761a90">Using mapping for arguments</a></li>
+<li><a href="#orgb4e8d8b">Playing with CPU cores</a></li>
+</ul>
+</li>
+<li><a href="#orge1f0556">Real life example</a>
+<ul>
+<li><a href="#org2c4b312">without multiprocessing</a></li>
+<li><a href="#org3712e84">with multiprocessing</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org2248a12" class="outline-2">
+<h2 id="org2248a12">Concurrency</h2>
+<div class="outline-text-2" id="text-org2248a12">
+</div>
+<div id="outline-container-org4c9e5b7" class="outline-3">
+<h3 id="org4c9e5b7">General</h3>
+<div class="outline-text-3" id="text-org4c9e5b7">
+<p>
+<i>Concurrency</i> is when the execution of two or more pieces of code act as if they run at the same time. This is different to <i>Parallelism</i>, which is when they actually run at the same time.<br />
+</p>
+
+<p>
+To have concurrency, the code needs to run in an environment that can switch execution between different parts of the code when it's running. This is often implemented using things such as fibers, threads, and processes.<br />
+</p>
+
+<p>
+Concurrency is about software whereas parallelism is more about hardware. To have parallelism we need actual hardware that can do two things at once. This might be multiple cores in a CPU, multiple CPUs in a computer or multiple computers connected together.<br />
+</p>
+
+<p>
+Concurrency is a requirement if we want our application to be practical in the real world, where almost everything happens asynchronously. If the whole of our process is serial with one thing happening before moving on to the next, our system would feel sluggish and we wouldnt be taking full advantage of the hardware our program runs on.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org60cb5a9" class="outline-3">
+<h3 id="org60cb5a9">Concurrency in Python</h3>
+<div class="outline-text-3" id="text-org60cb5a9">
+</div>
+<div id="outline-container-org9343672" class="outline-4">
+<h4 id="org9343672">Without concurrency</h4>
+<div class="outline-text-4" id="text-org9343672">
+<p>
+In Python, code can be run concurrently using the threading module.<br />
+</p>
+
+<p>
+In the below program we run the <code>do_something()</code> function once. All this does is sleep for one second.<br />
+</p>
+
+<p>
+We time this function. As expected, the script takes one second to run. We run the function once, and it takes one second.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping for 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done Sleeping..'</span>)
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+do_something()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 1 second...
+Done Sleeping..
+Finished in 1.0 second(s)
+</pre>
+
+
+<p>
+If we run the function twice, it would take exactly two seconds, this is expected.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping for 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done Sleeping..'</span>)
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+do_something()
+do_something()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 1 second...
+Done Sleeping..
+Sleeping for 1 second...
+Done Sleeping..
+Finished in 2.0 second(s)
+</pre>
+
+
+<p>
+As above the processing of the functions happen in serial, or synchronously. Our script basically does not do anything but sit around waiting for the first processing to be done, before starting the next. If we keep running our program like this, the script would take <code>x</code> seconds where <code>x</code> = number of times the function is run.<br />
+</p>
+
+<p>
+e.g: 10 times:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping for 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done Sleeping..'</span>)
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+do_something()
+do_something()
+do_something()
+do_something()
+do_something()
+do_something()
+do_something()
+do_something()
+do_something()
+do_something()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 1 second...
+Done Sleeping..
+Sleeping for 1 second...
+Done Sleeping..
+Sleeping for 1 second...
+Done Sleeping..
+Sleeping for 1 second...
+Done Sleeping..
+Sleeping for 1 second...
+Done Sleeping..
+Sleeping for 1 second...
+Done Sleeping..
+Sleeping for 1 second...
+Done Sleeping..
+Sleeping for 1 second...
+Done Sleeping..
+Sleeping for 1 second...
+Done Sleeping..
+Sleeping for 1 second...
+Done Sleeping..
+Finished in 10.01 second(s)
+</pre>
+
+<p>
+This is how the program is running right now:<br />
+<img src="data:image/png;base64,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
+nrpq02V8gPoaRkTYtt96460ehT02btz44dIP//7oU9Xl1QhgR+03X3tLBL9ev/k/H61cuXLlY489
+9uGSjwxbCCG0afF7y2b8/cn3FrzLcV65bOX2r3f85JJLTTgUDplp90+b+dQzdsRBblhgqF1JEPEK
+qmHkUAQkpI1fbVrywdL8Tp23bN4SrYosXbwM0QDjlg2bV3y0goSWLPwguq/m1Zdem/nkrGhlDBzb
+OFhZUvHqi6/MfPqZr9att21+/qlZZ5357REjjgCUYcNGnH7W6Y/+9RES06BKEKMbS1etIh0TBDDk
+gMR/f+ddD9z/4IwZs0aPPvPyS34cj1SEEMr27Hru2aeeffrv2zdvQMeO1UTf+vfcbVs3zZr51Nx/
+vRKLRxBAxPnisxXTH/3ry7NnxSPlSCApB/8obd3JNjQyxOKx9evWbdu2raK84uuNm9avXxepqrbA
+xKP2b264iaPxN1+fN+UX1/zhzj9s3rD5+muuW7H8E4jz7b+99YH//lOksvpvf334zTfeeO2110aN
+Or1372IAEJHi4uKePXsuWrTI9RFQ2gtp3PYEAUvLyspKSjdv3vyfFSvefe+9hx78i23bIvLOgkVP
+PfEkCkz7433f+97331/0/jtvLbz8sstRrC0bN1/wgx8sfv+DHVu3XXf11PKyvUs+WDJu3DjLstzD
+f6695pr33nuvvHxf42PGDjeQVFJxC50o7Ijp3KXbDdfftKdk14vPz9qyed3FF/3w81Urt2zaePGP
+f/jl56v3le248VfX/vyKSZ+u+OjeP9z59JOPokRfe2X21Ouuze0UXrzk/UmTLmV2g/srCdp2Gb+B
+eQoR8zrljRs3ftumLZdddtl99923fv0mABJB4yBHhchCMIOHDnl65lMA4MT5nXfeiQsv/WDZM8/P
+7F3c8+qrr95XUT7j8advvPm/EhG1ER2As88ZM//1eWefMzr9QEI7jkDS8Eg+ARb+xtFHDx48+Nxx
+3/n+Bee/9o9XHds2gCiADhsgEoxGav503/3HH3/87pLdZ48+q6bGfugvD5922ml33HU7i1xzzdWb
+Nm4mwOHDh7GI673as1ev/Ly8Xbt2DSkckvy22i/GtjjeW/ELd5gr5Lr8YLhT7ohhhy//aElZybbh
+hx9x1113EUF+55y/PfyX39x6e9gKP/ro4/3793/u2RmvvvrKpEuvmHbPvc/MemHgwIGX/PiSs846
+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
+1twkgrMAAAAASUVORK5CYII="serial_running.png /><br />
+</p>
+
+<p>
+Any time a program runs synchronously, it actually does not do much on the CPU and is just waiting around like the above. These are good opportunities to implement threading and concurrencies.<br />
+</p>
+
+<p>
+There are two different concepts: <b>CPU-bound and IO-bound tasks</b>. CPU-bound tasks are programs that are compute-heavy and use a lot of CPU. IO-Bound tasks are tasks that are not using the CPU that much but are simply waiting for input/ output. Example include read/ write from file system, network operation, downloading..etc..<br />
+</p>
+
+<div class="org-center">
+<p>
+Threading is most suited for IO-bound tasks. These are when our programs do a lot of waiting around for input/ output operation.<br />
+</p>
+</div>
+
+<p>
+If a task is CPU-bound, we need to use parallelism and not threading. As a matter of fact, CPU-bound tasks would actually degrade in performance if we implement threading due to the overhead addition of starting and killing a thread.<br />
+</p>
+
+<p>
+Running codes concurrently doesn't mean that they are run at the same time. Concurrency gives the <b>illusion</b> of running the code at the same time because instead of waiting for i/o, our program would simply move on to the next function.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-orgd86321e" class="outline-4">
+<h4 id="orgd86321e">With concurrency - the manual way</h4>
+<div class="outline-text-4" id="text-orgd86321e">
+<p>
+Essentially we are doing this:<br />
+<i>(not scaled)</i><br />
+</p>
+
+
+<div class="figure">
+<p><img src="data:image/png;base64,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"concurrent_running.png /><br />
+</p>
+</div>
+
+<p>
+Let's try threading with Python. We don't have to run <code>pip install</code> because threading comes with Python.<br />
+</p>
+
+<p>
+Instead of running the <code>do_something()</code> functions synchronously, we'll turn them both into threads. In the <code>target=</code> bit, we are not going to be inserting the <code>()</code> bit because we aren't executing the function but only to pass it in un-executed.<br />
+</p>
+
+<p>
+Passing the function as a target of a thread does not actually run it:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> threading
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping for 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done Sleeping..'</span>)
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #fcfcfa;">t1</span> = threading.Thread(target=do_something)
+<span style="color: #fcfcfa;">t2</span> = threading.Thread(target=do_something)
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Finished in 0.0 second(s)
+</pre>
+
+
+<p>
+Instead, we'll need to run the threads as well. We need to use the <code>start</code> method on each thread.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> threading
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping for 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done Sleeping..'</span>)
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #fcfcfa;">t1</span> = threading.Thread(target=do_something)
+<span style="color: #fcfcfa;">t2</span> = threading.Thread(target=do_something)
+
+t1.start()
+t2.start()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 1 second...
+Sleeping for 1 second...Finished in 0.0 second(s)
+</pre>
+
+
+<p>
+In the above example, we are missing the <code>Done Sleeping..</code> bit. Why? It's because our script continued on and  finished while the threads were still sleeping.<br />
+</p>
+
+<p>
+We need to wait for our threads to finish before finishing the script. This can be done with the <code>join</code> method.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> threading
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping for 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done Sleeping..'</span>)
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #fcfcfa;">t1</span> = threading.Thread(target=do_something)
+<span style="color: #fcfcfa;">t2</span> = threading.Thread(target=do_something)
+
+t1.start()
+t2.start()
+
+t1.join()
+t2.join()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 1 second...
+Sleeping for 1 second...
+Done Sleeping..
+Done Sleeping..
+Finished in 1.0 second(s)
+</pre>
+
+
+<p>
+This is good now. Our script actually waited for the two threads to re-join before finishing. As above, our code runs the <code>do_something()</code> function twice and finishes in one second. Without concurrency it took us two seconds.<br />
+</p>
+
+<p>
+What if we run this ten times? Without concurrency, it took us 10 seconds. Let's try with concurrency:<br />
+</p>
+
+<p>
+We'll be using a for loop for our threads.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> threading
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping for 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done Sleeping..'</span>)
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #fcfcfa;">list_of_threads</span> = []
+
+<span style="color: #ff6188;">for</span> _ <span style="color: #ff6188;">in</span> <span style="color: #ab9df2;">range</span>(10): <span style="color: #727072;">## </span><span style="color: #727072; font-style: italic;">use underscore in a for loop when it's a *throw-away* variable.)</span>
+        <span style="color: #fcfcfa;">t</span> = threading.Thread(target=do_something)
+        t.start()
+        list_of_threads.append(t)
+
+<span style="color: #ff6188;">for</span> thread <span style="color: #ff6188;">in</span> list_of_threads:
+        thread.join()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 1 second...
+Sleeping for 1 second...
+Sleeping for 1 second...
+Sleeping for 1 second...
+Sleeping for 1 second...
+Sleeping for 1 second...
+Sleeping for 1 second...
+Sleeping for 1 second...
+Sleeping for 1 second...
+Sleeping for 1 second...
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Finished in 1.01 second(s)
+</pre>
+
+<p>
+..only takes us 1.01 seconds.<br />
+</p>
+
+<p>
+Let's modify our program abit. Instead of always sleeping for one second, we can specify this by adding an argument. This is how we pass in our argument (1.5 seconds) into a thread. We pass it in as a <b>list</b>.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> threading
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping for {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done Sleeping..'</span>)
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #fcfcfa;">list_of_threads</span> = []
+
+<span style="color: #ff6188;">for</span> _ <span style="color: #ff6188;">in</span> <span style="color: #ab9df2;">range</span>(10): <span style="color: #727072;">## </span><span style="color: #727072; font-style: italic;">use underscore in a for loop when it's a *throw-away* variable.)</span>
+        <span style="color: #fcfcfa;">t</span> = threading.Thread(target=do_something, args = [1.5])
+        t.start()
+        list_of_threads.append(t)
+
+<span style="color: #ff6188;">for</span> thread <span style="color: #ff6188;">in</span> list_of_threads:
+        thread.join()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 1.5 second(s)...
+Sleeping for 1.5 second(s)...
+Sleeping for 1.5 second(s)...
+Sleeping for 1.5 second(s)...
+Sleeping for 1.5 second(s)...
+Sleeping for 1.5 second(s)...
+Sleeping for 1.5 second(s)...
+Sleeping for 1.5 second(s)...
+Sleeping for 1.5 second(s)...
+Sleeping for 1.5 second(s)...
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Finished in 1.5 second(s)
+</pre>
+<p>
+(normally this would take 15 seconds without concurrency)<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgd836555" class="outline-4">
+<h4 id="orgd836555">With concurrency - the easier way</h4>
+<div class="outline-text-4" id="text-orgd836555">
+<p>
+Let's replace the manual way of implementing concurrency with a different, easier and more efficient way.<br />
+</p>
+
+<p>
+This is actually not in the <code>threading</code> module but in the <code>concurrent.futures</code> module. When we use this, we should also be using a <b>context manager</b>.<br />
+</p>
+
+<p>
+Below, we'll submit the schedule for the execution of <code>do_something</code> to be run. We can also pass in an argument to the submit method. After we run the <code>submit</code> method, the <code>f1</code> object is a "future" object which encapsulates the execution of function <code>do_something()</code>.<br />
+</p>
+
+<p>
+We can also "check-in" on the result of the future object, assuming the it "returns" something. This is achievable with the <code>result()</code> method. For this we need to change <code>print('Done Sleeping..')</code> to <code>return 'Done Sleeping..'</code>.<br />
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org3bfa162"></a>with the <code>result()</code> method:<br />
+<div class="outline-text-5" id="text-org3bfa162">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> concurrent.futures
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping for {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+
+        <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">In order to allow us to check in on the function, we'll return the result instead of printing it.</span>
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'Done Sleeping..'</span>
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ThreadPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">f1</span> = executor.submit(do_something, 1.5) 
+        <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">The result method waits around until the function completes.</span>
+        <span style="color: #ff6188;">print</span>(f1.result())
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 1.5 second(s)...
+Done Sleeping..
+Finished in 1.5 second(s)
+</pre>
+</div>
+</li>
+
+<li><a id="org6e316f8"></a>without the <code>result()</code> method:<br />
+<div class="outline-text-5" id="text-org6e316f8">
+<p>
+without checking-in, the <code>return</code> statement is not printed.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> concurrent.futures
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping for {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+
+        <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">In order to allow us to check in on the function, we'll return the result instead of printing it.</span>
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'Done Sleeping..'</span>
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ThreadPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">f1</span> = executor.submit(do_something, 1.5) 
+        <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">The result method waits around until the function completes.</span>
+        <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">print(f1.result())</span>
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 1.5 second(s)...
+Finished in 1.5 second(s)
+</pre>
+</div>
+</li>
+
+<li><a id="org86b1d53"></a>running 10 times<br />
+<div class="outline-text-5" id="text-org86b1d53">
+<p>
+In order to check-in on the future objects i.e to get the return statement of the passed-in functions, we'll need to use an iterator function that comes with the <code>concurrent.futures</code> module. This is the <code>as_completed</code> module. The argument will be the list of thread, or the thread pool.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> concurrent.futures
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping for {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+
+        <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">In order to allow us to check in on the function, we'll return the result instead of printing it.</span>
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'Done Sleeping..'</span>
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ThreadPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">results</span> = [executor.submit(do_something, 1) <span style="color: #ff6188;">for</span> _ <span style="color: #ff6188;">in</span> <span style="color: #ab9df2;">range</span>(10)]
+        
+        <span style="color: #ff6188;">for</span> f <span style="color: #ff6188;">in</span> concurrent.futures.as_completed(results):
+                <span style="color: #ff6188;">print</span>(f.result())       
+
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 1 second(s)...
+Sleeping for 1 second(s)...
+Sleeping for 1 second(s)...
+Sleeping for 1 second(s)...Sleeping for 1 second(s)...
+
+Sleeping for 1 second(s)...Sleeping for 1 second(s)...Sleeping for 1 second(s)...
+
+Sleeping for 1 second(s)...
+
+Sleeping for 1 second(s)...
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Done Sleeping..
+Finished in 1.0 second(s)
+</pre>
+</div>
+</li>
+
+<li><a id="org52a7c05"></a>running with a list of argument<br />
+<div class="outline-text-5" id="text-org52a7c05">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> concurrent.futures
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping for {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+
+        <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">In order to allow us to check in on the function, we'll return the result instead of printing it.</span>
+        <span style="color: #ff6188;">return</span> f<span style="color: #ffd866;">'Done Sleeping for {seconds} seconds..'</span>
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ThreadPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">secs</span> = [5, 4, 3, 2, 1]
+        <span style="color: #fcfcfa;">results</span> = [executor.submit(do_something, sec) <span style="color: #ff6188;">for</span> sec <span style="color: #ff6188;">in</span> secs]
+        
+        <span style="color: #ff6188;">for</span> f <span style="color: #ff6188;">in</span> concurrent.futures.as_completed(results):
+                <span style="color: #ff6188;">print</span>(f.result())       
+
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 5 second(s)...
+Sleeping for 4 second(s)...
+Sleeping for 3 second(s)...
+Sleeping for 2 second(s)...
+Sleeping for 1 second(s)...
+Done Sleeping for 1 seconds..
+Done Sleeping for 2 seconds..
+Done Sleeping for 3 seconds..
+Done Sleeping for 4 seconds..
+Done Sleeping for 5 seconds..
+Finished in 5.01 second(s)
+</pre>
+
+<p>
+The above result confirms that the threads are actually finished in the right order! Although we submit the 5-second function first, it's returned the last. This is expected.<br />
+</p>
+</div>
+</li>
+
+<li><a id="org1d50727"></a>Using the map method<br />
+<div class="outline-text-5" id="text-org1d50727">
+<p>
+Unlike the list of argument way when the executor returns to us a list of future object, when we use <code>map</code>, it returns to us the list of results<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> concurrent.futures
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping for {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+
+        <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">In order to allow us to check in on the function, we'll return the result instead of printing it.</span>
+        <span style="color: #ff6188;">return</span> f<span style="color: #ffd866;">'Done Sleeping for {seconds} seconds..'</span>
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ThreadPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">secs</span> = [5, 4, 3, 2, 1]
+        <span style="color: #fcfcfa;">results</span> = executor.<span style="color: #ab9df2;">map</span>(do_something, secs)
+
+        <span style="color: #ff6188;">for</span> result <span style="color: #ff6188;">in</span> results:
+                <span style="color: #ff6188;">print</span>(result)
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping for 5 second(s)...
+Sleeping for 4 second(s)...
+Sleeping for 3 second(s)...Sleeping for 2 second(s)...Sleeping for 1 second(s)...
+
+
+Done Sleeping for 5 seconds..
+Done Sleeping for 4 seconds..
+Done Sleeping for 3 seconds..
+Done Sleeping for 2 seconds..
+Done Sleeping for 1 seconds..
+Finished in 5.01 second(s)
+</pre>
+
+<p>
+The order of the results look to be reversed. In the above example, the results were returned at the same time, in the order that they were started. Since we slept for 5s first, this is returned first. However we weren't slow down at all.<br />
+</p>
+</div>
+</li>
+
+<li><a id="org4d0d800"></a>Note about Exception<br />
+<div class="outline-text-5" id="text-org4d0d800">
+<p>
+If our function raises an Exception, it won't be raised while running the thread. The Exception will be raised when the result is iterated.<br />
+</p>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgdb03d3b" class="outline-4">
+<h4 id="orgdb03d3b">A real world example</h4>
+<div class="outline-text-4" id="text-orgdb03d3b">
+<p>
+Let's take a look at a real-world example. In the below script we are going to download a few high-resolution photos from <a href="https://images.unsplash.com/">https://images.unsplash.com/</a>:<br />
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org71970e5"></a>with concurrency<br />
+<div class="outline-text-5" id="text-org71970e5">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> requests
+<span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> concurrent.futures
+
+<span style="color: #fcfcfa;">img_urls</span> = [
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1516117172878-fd2c41f4a759'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1532009324734-20a7a5813719'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1524429656589-6633a470097c'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1530224264768-7ff8c1789d79'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1564135624576-c5c88640f235'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1541698444083-023c97d3f4b6'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1522364723953-452d3431c267'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1513938709626-033611b8cc03'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1507143550189-fed454f93097'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1504198453319-5ce911bafcde'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1516972810927-80185027ca84'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1550439062-609e1531270e'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1549692520-acc6669e2f0c'</span>
+ ]
+
+<span style="color: #fcfcfa;">t1</span> = time.perf_counter()
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">download_image</span>(img_url):
+     <span style="color: #fcfcfa;">img_bytes</span> = requests.get(img_url).content
+     <span style="color: #fcfcfa;">img_name</span> = img_url.split(<span style="color: #ffd866;">'/'</span>)[3]
+     <span style="color: #fcfcfa;">img_name</span> = f<span style="color: #ffd866;">'{img_name}.jpg'</span>
+     <span style="color: #ff6188;">with</span> <span style="color: #ab9df2;">open</span>(img_name, <span style="color: #ffd866;">'wb'</span>) <span style="color: #ff6188;">as</span> img_file:
+         img_file.write(img_bytes)
+         <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'{img_name} was downloaded...'</span>)
+
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ThreadPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+     executor.<span style="color: #ab9df2;">map</span>(download_image, img_urls)
+
+
+<span style="color: #fcfcfa;">t2</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {t2-t1} seconds'</span>)
+</pre>
+</div>
+
+<pre class="example">
+photo-1516117172878-fd2c41f4a759.jpg was downloaded...
+photo-1549692520-acc6669e2f0c.jpg was downloaded...
+photo-1513938709626-033611b8cc03.jpg was downloaded...
+photo-1524429656589-6633a470097c.jpg was downloaded...
+photo-1507143550189-fed454f93097.jpg was downloaded...
+photo-1564135624576-c5c88640f235.jpg was downloaded...
+photo-1532009324734-20a7a5813719.jpg was downloaded...
+photo-1493976040374-85c8e12f0c0e.jpg was downloaded...
+photo-1516972810927-80185027ca84.jpg was downloaded...
+photo-1550439062-609e1531270e.jpg was downloaded...
+photo-1530224264768-7ff8c1789d79.jpg was downloaded...
+photo-1504198453319-5ce911bafcde.jpg was downloaded...
+photo-1541698444083-023c97d3f4b6.jpg was downloaded...
+photo-1530122037265-a5f1f91d3b99.jpg was downloaded...
+photo-1522364723953-452d3431c267.jpg was downloaded...
+Finished in 16.198835125998812 seconds
+</pre>
+</div>
+</li>
+
+<li><a id="org8600db2"></a>without concurrency<br />
+<div class="outline-text-5" id="text-org8600db2">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> requests
+<span style="color: #ff6188;">import</span> time
+
+<span style="color: #fcfcfa;">img_urls</span> = [
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1516117172878-fd2c41f4a759'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1532009324734-20a7a5813719'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1524429656589-6633a470097c'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1530224264768-7ff8c1789d79'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1564135624576-c5c88640f235'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1541698444083-023c97d3f4b6'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1522364723953-452d3431c267'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1513938709626-033611b8cc03'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1507143550189-fed454f93097'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1493976040374-85c8e12f0c0e'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1504198453319-5ce911bafcde'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1530122037265-a5f1f91d3b99'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1516972810927-80185027ca84'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1550439062-609e1531270e'</span>,
+     <span style="color: #ffd866;">'https://images.unsplash.com/photo-1549692520-acc6669e2f0c'</span>
+ ]
+
+<span style="color: #fcfcfa;">t1</span> = time.perf_counter()
+
+
+<span style="color: #ff6188;">for</span> img_url <span style="color: #ff6188;">in</span> img_urls:
+    <span style="color: #fcfcfa;">img_bytes</span> = requests.get(img_url).content
+    <span style="color: #fcfcfa;">img_name</span> = img_url.split(<span style="color: #ffd866;">'/'</span>)[3]
+    <span style="color: #fcfcfa;">img_name</span> = f<span style="color: #ffd866;">'{img_name}.jpg'</span>
+    <span style="color: #ff6188;">with</span> <span style="color: #ab9df2;">open</span>(img_name, <span style="color: #ffd866;">'wb'</span>) <span style="color: #ff6188;">as</span> img_file:
+        img_file.write(img_bytes)
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'{img_name} was downloaded...'</span>)
+
+<span style="color: #fcfcfa;">t2</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {t2-t1} seconds'</span>)
+</pre>
+</div>
+
+<pre class="example">
+photo-1516117172878-fd2c41f4a759.jpg was downloaded...
+photo-1532009324734-20a7a5813719.jpg was downloaded...
+photo-1524429656589-6633a470097c.jpg was downloaded...
+photo-1530224264768-7ff8c1789d79.jpg was downloaded...
+photo-1564135624576-c5c88640f235.jpg was downloaded...
+photo-1541698444083-023c97d3f4b6.jpg was downloaded...
+photo-1522364723953-452d3431c267.jpg was downloaded...
+photo-1513938709626-033611b8cc03.jpg was downloaded...
+photo-1507143550189-fed454f93097.jpg was downloaded...
+photo-1493976040374-85c8e12f0c0e.jpg was downloaded...
+photo-1504198453319-5ce911bafcde.jpg was downloaded...
+photo-1530122037265-a5f1f91d3b99.jpg was downloaded...
+photo-1516972810927-80185027ca84.jpg was downloaded...
+photo-1550439062-609e1531270e.jpg was downloaded...
+photo-1549692520-acc6669e2f0c.jpg was downloaded...
+Finished in 18.722891703999267 seconds
+</pre>
+</div>
+</li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org6c5e276" class="outline-2">
+<h2 id="org6c5e276">Multiprocessing</h2>
+<div class="outline-text-2" id="text-org6c5e276">
+<p>
+Multiprocessing is about running codes in parallel.<br />
+</p>
+
+<p>
+Why would we want to use multiprocessing? We would use multiprocessing to speed up our program. The speeding-up comes from different tasks running in parallel.<br />
+</p>
+
+<p>
+Let's take an example with a function that simply takes a one-second sleep.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done sleeping..'</span>)
+
+do_something()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 1 second...
+Done sleeping..
+Finished in 1.0 second(s)
+</pre>
+
+
+<p>
+If we instead run this function twice, it would expectedly take 2 second for the program to finish.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done sleeping..'</span>)
+
+do_something()
+do_something()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 1 second...
+Done sleeping..
+Sleeping 1 second...
+Done sleeping..
+Finished in 2.0 second(s)
+</pre>
+
+
+<p>
+What we were doing is running the tasks synchronously or in serial like this:<br />
+</p>
+
+
+<div class="figure">
+<p><img src="data:image/png;base64,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
+nrpq02V8gPoaRkTYtt96460ehT02btz44dIP//7oU9Xl1QhgR+03X3tLBL9ev/k/H61cuXLlY489
+9uGSjwxbCCG0afF7y2b8/cn3FrzLcV65bOX2r3f85JJLTTgUDplp90+b+dQzdsRBblhgqF1JEPEK
+qmHkUAQkpI1fbVrywdL8Tp23bN4SrYosXbwM0QDjlg2bV3y0goSWLPwguq/m1Zdem/nkrGhlDBzb
+OFhZUvHqi6/MfPqZr9att21+/qlZZ5357REjjgCUYcNGnH7W6Y/+9RES06BKEKMbS1etIh0TBDDk
+gMR/f+ddD9z/4IwZs0aPPvPyS34cj1SEEMr27Hru2aeeffrv2zdvQMeO1UTf+vfcbVs3zZr51Nx/
+vRKLRxBAxPnisxXTH/3ry7NnxSPlSCApB/8obd3JNjQyxOKx9evWbdu2raK84uuNm9avXxepqrbA
+xKP2b264iaPxN1+fN+UX1/zhzj9s3rD5+muuW7H8E4jz7b+99YH//lOksvpvf334zTfeeO2110aN
+Or1372IAEJHi4uKePXsuWrTI9RFQ2gtp3PYEAUvLyspKSjdv3vyfFSvefe+9hx78i23bIvLOgkVP
+PfEkCkz7433f+97331/0/jtvLbz8sstRrC0bN1/wgx8sfv+DHVu3XXf11PKyvUs+WDJu3DjLstzD
+f6695pr33nuvvHxf42PGDjeQVFJxC50o7Ijp3KXbDdfftKdk14vPz9qyed3FF/3w81Urt2zaePGP
+f/jl56v3le248VfX/vyKSZ+u+OjeP9z59JOPokRfe2X21Ouuze0UXrzk/UmTLmV2g/srCdp2Gb+B
+eQoR8zrljRs3ftumLZdddtl99923fv0mABJB4yBHhchCMIOHDnl65lMA4MT5nXfeiQsv/WDZM8/P
+7F3c8+qrr95XUT7j8advvPm/EhG1ER2As88ZM//1eWefMzr9QEI7jkDS8Eg+ARb+xtFHDx48+Nxx
+3/n+Bee/9o9XHds2gCiADhsgEoxGav503/3HH3/87pLdZ48+q6bGfugvD5922ml33HU7i1xzzdWb
+Nm4mwOHDh7GI673as1ev/Ly8Xbt2DSkckvy22i/GtjjeW/ELd5gr5Lr8YLhT7ohhhy//aElZybbh
+hx9x1113EUF+55y/PfyX39x6e9gKP/ro4/3793/u2RmvvvrKpEuvmHbPvc/MemHgwIGX/PiSs846
+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
+1twkgrMAAAAASUVORK5CYII="serial_running.png /><br />
+</p>
+</div>
+
+<p>
+In concurrency, tasks that are sped up are IO-bound tasks like opening a resource, downloading a file, ..etc..<br />
+</p>
+
+<p>
+In multiprocessing, we can speed things up by spreading work out to multiple processors on our machine and run the tasks at the same time. This is applicable to both IO-bound and CPU-bound tasks.<br />
+</p>
+
+<p>
+Multiprocessing looks like this:<br />
+</p>
+
+
+<div class="figure">
+<p><img src="data:image/png;base64,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"parallel_running.png /><br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org5c26663" class="outline-3">
+<h3 id="org5c26663">Multiprocessing in Python - the old way</h3>
+<div class="outline-text-3" id="text-org5c26663">
+<p>
+To do this in our previous script:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> multiprocessing
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done sleeping..'</span>)
+
+<span style="color: #fcfcfa;">p1</span> = multiprocessing.Process(target=do_something)
+<span style="color: #fcfcfa;">p2</span> = multiprocessing.Process(target=do_something)
+
+p1.start()
+p2.start()
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Make sure the process is finished and not asleep.</span>
+p1.join()
+p2.join()
+
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 1 second...
+Sleeping 1 second...
+Done sleeping..
+Done sleeping..
+Finished in 1.01 second(s)
+</pre>
+
+
+<p>
+Note:<br />
+</p>
+<ul class="org-ul">
+<li>We want to pass in the our function un-executed as the target for the process. Therefore we should not include the brackets.<br /></li>
+</ul>
+
+<p>
+Let's run the function 10 times:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time, multiprocessing
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>():
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Sleeping 1 second...'</span>)
+        time.sleep(1)
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'Done sleeping..'</span>)
+
+<span style="color: #fcfcfa;">processes</span> = []
+<span style="color: #ff6188;">for</span> _ <span style="color: #ff6188;">in</span> <span style="color: #ab9df2;">range</span>(10):
+        <span style="color: #fcfcfa;">p</span> = multiprocessing.Process(target=do_something)
+        p.start()
+        processes.append(p)
+
+<span style="color: #ff6188;">for</span> process <span style="color: #ff6188;">in</span> processes:
+        process.join()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 1 second...
+Sleeping 1 second...
+Sleeping 1 second...
+Sleeping 1 second...
+Sleeping 1 second...
+Sleeping 1 second...
+Sleeping 1 second...
+Sleeping 1 second...
+Sleeping 1 second...
+Sleeping 1 second...
+Done sleeping..
+Done sleeping..
+Done sleeping..
+Done sleeping..
+Done sleeping..
+Done sleeping..
+Done sleeping..
+Done sleeping..
+Done sleeping..
+Done sleeping..
+Finished in 1.02 second(s)
+</pre>
+
+<p>
+We can try changing our function to sleep for <code>x</code> seconds where x is an argument. Then we can pass a list of argument in.<br />
+</p>
+
+<p>
+Let's try changing the sleep function to 3 seconds and run it 10 times.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time, multiprocessing
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Done sleeping for {seconds}s..'</span>)
+
+<span style="color: #fcfcfa;">processes</span> = []
+<span style="color: #ff6188;">for</span> _ <span style="color: #ff6188;">in</span> <span style="color: #ab9df2;">range</span>(10):
+        <span style="color: #fcfcfa;">p</span> = multiprocessing.Process(target=do_something, args=[3])
+        p.start()
+        processes.append(p)
+
+<span style="color: #ff6188;">for</span> process <span style="color: #ff6188;">in</span> processes:
+        process.join()
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Finished in 3.02 second(s)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org30a660f" class="outline-3">
+<h3 id="org30a660f">Multiprocessing in Python - the newer way</h3>
+<div class="outline-text-3" id="text-org30a660f">
+<p>
+We can implement multiprocessing using a new tools. This is a process pool executor.<br />
+</p>
+
+<p>
+Similarly to concurrency, the library that we need to import is <code>concurrent.futures</code>. It's best to use this library within a <b>context manager</b>.<br />
+</p>
+
+<p>
+In the example below, the f1 variable is turned into a "future" object that encapsulates the scheduled processing of the function in the future.<br />
+</p>
+
+<p>
+We can also check-in on the result of the function.<br />
+</p>
+</div>
+
+<div id="outline-container-org98e833a" class="outline-4">
+<h4 id="org98e833a">with "checking in" the result</h4>
+<div class="outline-text-4" id="text-org98e833a">
+</div>
+<ul class="org-ul">
+<li><a id="orgfa1a401"></a>first way<br />
+<div class="outline-text-5" id="text-orgfa1a401">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time, concurrent
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+        <span style="color: #ff6188;">return</span> f<span style="color: #ffd866;">'Done sleeping for {seconds}s..'</span>
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ProcessPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">processes</span> = [executor.submit(do_something, 3) <span style="color: #ff6188;">for</span> _ <span style="color: #ff6188;">in</span> <span style="color: #ab9df2;">range</span>(10)] <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">list comprehension</span>
+                
+        <span style="color: #727072;">#</span><span style="color: #727072; font-style: italic;">for process in processes:</span>
+                <span style="color: #727072;">#</span><span style="color: #727072; font-style: italic;">print(process.result())</span>
+
+        <span style="color: #ff6188;">for</span> f <span style="color: #ff6188;">in</span> concurrent.futures.as_completed(processes):
+                <span style="color: #ff6188;">print</span>(f.result())
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Finished in 3.02 second(s)
+</pre>
+</div>
+</li>
+
+<li><a id="orge604eff"></a>second way<br />
+<div class="outline-text-5" id="text-orge604eff">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time, concurrent
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+        <span style="color: #ff6188;">return</span> f<span style="color: #ffd866;">'Done sleeping for {seconds}s..'</span>
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ProcessPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">processes</span> = [executor.submit(do_something, 3) <span style="color: #ff6188;">for</span> _ <span style="color: #ff6188;">in</span> <span style="color: #ab9df2;">range</span>(10)] <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">list comprehension</span>
+        
+        <span style="color: #ff6188;">for</span> process <span style="color: #ff6188;">in</span> processes:
+                <span style="color: #ff6188;">print</span>(process.result())
+
+        <span style="color: #727072;">#</span><span style="color: #727072; font-style: italic;">for f in concurrent.futures.as_completed(processes):</span>
+                <span style="color: #727072;">#</span><span style="color: #727072; font-style: italic;">print(f.result())</span>
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Done sleeping for 3s..
+Finished in 3.02 second(s)
+</pre>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgc35994b" class="outline-4">
+<h4 id="orgc35994b">without checking in the result</h4>
+<div class="outline-text-4" id="text-orgc35994b">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time, concurrent
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+        <span style="color: #ff6188;">return</span> f<span style="color: #ffd866;">'Done sleeping for {seconds}s..'</span>
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ProcessPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">processes</span> = [executor.submit(do_something, 3) <span style="color: #ff6188;">for</span> _ <span style="color: #ff6188;">in</span> <span style="color: #ab9df2;">range</span>(10)] <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">list comprehension</span>
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Sleeping 3 second(s)...
+Finished in 3.04 second(s)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org3fded0b" class="outline-4">
+<h4 id="org3fded0b">Passing in a list of arguments</h4>
+<div class="outline-text-4" id="text-org3fded0b">
+<p>
+To dive into how these process are run, we can pass in a list of argument, starting with the biggest number (5) i.e the longest sleep.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time, concurrent
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+        <span style="color: #ff6188;">return</span> f<span style="color: #ffd866;">'Done sleeping for {seconds}s..'</span>
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ProcessPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">secs</span> = [5, 4, 3, 2, 1]
+        <span style="color: #fcfcfa;">processes</span> = [executor.submit(do_something, sec) <span style="color: #ff6188;">for</span> sec <span style="color: #ff6188;">in</span> secs]
+
+        <span style="color: #ff6188;">for</span> f <span style="color: #ff6188;">in</span> concurrent.futures.as_completed(processes):
+                <span style="color: #ff6188;">print</span>(f.result())
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 5 second(s)...
+Sleeping 4 second(s)...
+Sleeping 3 second(s)...
+Sleeping 2 second(s)...
+Sleeping 1 second(s)...
+Done sleeping for 1s..
+Done sleeping for 2s..
+Done sleeping for 3s..
+Done sleeping for 4s..
+Done sleeping for 5s..
+Finished in 5.04 second(s)
+</pre>
+
+<p>
+Even though the 5s sleep was sent first,<br />
+</p>
+</div>
+</div>
+<div id="outline-container-orgb761a90" class="outline-4">
+<h4 id="orgb761a90">Using mapping for arguments</h4>
+<div class="outline-text-4" id="text-orgb761a90">
+<p>
+What <code>map</code> does is run the function with every item in the list <code>secs</code>. When use the list of argument, the executor returns a list of future object. <b>When we use <code>map</code>, Python returns just the results</b>.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time, concurrent
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+        <span style="color: #ff6188;">return</span> f<span style="color: #ffd866;">'Done sleeping for {seconds}s..'</span>
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ProcessPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">secs</span> = [5, 4, 3, 2, 1]
+        <span style="color: #fcfcfa;">processes</span> = executor.<span style="color: #ab9df2;">map</span>(do_something, secs)
+        
+        <span style="color: #ff6188;">for</span> result <span style="color: #ff6188;">in</span> processes:
+                <span style="color: #ff6188;">print</span>(result)
+
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 5 second(s)...
+Sleeping 4 second(s)...
+Sleeping 3 second(s)...
+Sleeping 2 second(s)...
+Sleeping 1 second(s)...
+Done sleeping for 5s..
+Done sleeping for 4s..
+Done sleeping for 3s..
+Done sleeping for 2s..
+Done sleeping for 1s..
+Finished in 5.04 second(s)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orgb4e8d8b" class="outline-4">
+<h4 id="orgb4e8d8b">Playing with CPU cores</h4>
+<div class="outline-text-4" id="text-orgb4e8d8b">
+<p>
+At this stage I decided to have some fun.<br />
+</p>
+
+<p>
+My computer has 6 CPU cores with 12 different threads. This means I can only use up 12 different threads for multi-processing. If I use more, the later tasks will likely have to wait.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-bash">inxi -c
+</pre>
+</div>
+
+<table border="2" cellspacing="0" cellpadding="6" rules="groups" frame="hsides">
+
+
+<colgroup>
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+
+<col  class="org-left" />
+</colgroup>
+<tbody>
+<tr>
+<td class="org-left">CPU:</td>
+<td class="org-left">6-Core</td>
+<td class="org-left">Intel</td>
+<td class="org-left">Core</td>
+<td class="org-left">i7-9750H</td>
+<td class="org-left">(-MT</td>
+<td class="org-left">MCP-)</td>
+<td class="org-left">speed/min/max:</td>
+<td class="org-left">2639/800/4500</td>
+<td class="org-left">MHz</td>
+</tr>
+
+<tr>
+<td class="org-left">Kernel:</td>
+<td class="org-left">5.4.31-1-MANJARO</td>
+<td class="org-left">x86_64</td>
+<td class="org-left">Up:</td>
+<td class="org-left">4h</td>
+<td class="org-left">09m</td>
+<td class="org-left">Mem:</td>
+<td class="org-left">7671.0/31761.0</td>
+<td class="org-left">MiB</td>
+<td class="org-left">(24.2%)</td>
+</tr>
+</tbody>
+</table>
+
+<p>
+If I run 12 tasks, there is no issue with the ordering of these tasks:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time, concurrent
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+        <span style="color: #ff6188;">return</span> f<span style="color: #ffd866;">'Done sleeping for {seconds}s..'</span>
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ProcessPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">secs</span> = [12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        <span style="color: #fcfcfa;">processes</span> = [executor.submit(do_something, sec) <span style="color: #ff6188;">for</span> sec <span style="color: #ff6188;">in</span> secs]
+
+        <span style="color: #ff6188;">for</span> f <span style="color: #ff6188;">in</span> concurrent.futures.as_completed(processes):
+                <span style="color: #ff6188;">print</span>(f.result())
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 12 second(s)...
+Sleeping 11 second(s)...
+Sleeping 10 second(s)...
+Sleeping 9 second(s)...
+Sleeping 8 second(s)...
+Sleeping 7 second(s)...
+Sleeping 6 second(s)...
+Sleeping 5 second(s)...
+Sleeping 4 second(s)...
+Sleeping 3 second(s)...
+Sleeping 2 second(s)...
+Sleeping 1 second(s)...
+Done sleeping for 1s..
+Done sleeping for 2s..
+Done sleeping for 3s..
+Done sleeping for 4s..
+Done sleeping for 5s..
+Done sleeping for 6s..
+Done sleeping for 7s..
+Done sleeping for 8s..
+Done sleeping for 9s..
+Done sleeping for 10s..
+Done sleeping for 11s..
+Done sleeping for 12s..
+Finished in 12.05 second(s)
+</pre>
+
+<p>
+If I however run 15 tasks, after the 4 second sleep, the subsequent tasks will have to wait for a thread to be freed up. This messes up the ordering of the task execution:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time, concurrent
+
+<span style="color: #fcfcfa;">start</span> = time.perf_counter()
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">do_something</span>(seconds):
+        <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Sleeping {seconds} second(s)...'</span>)
+        time.sleep(seconds)
+        <span style="color: #ff6188;">return</span> f<span style="color: #ffd866;">'Done sleeping for {seconds}s..'</span>
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ProcessPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+        <span style="color: #fcfcfa;">secs</span> = [15, 14, 13, 12, 11, 10, 9, 8, 7, 6, 5, 4, 3, 2, 1]
+        <span style="color: #fcfcfa;">processes</span> = [executor.submit(do_something, sec) <span style="color: #ff6188;">for</span> sec <span style="color: #ff6188;">in</span> secs]
+
+        <span style="color: #ff6188;">for</span> f <span style="color: #ff6188;">in</span> concurrent.futures.as_completed(processes):
+                <span style="color: #ff6188;">print</span>(f.result())
+
+<span style="color: #fcfcfa;">finish</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {round(finish-start,2)} second(s)'</span>)
+</pre>
+</div>
+
+<pre class="example">
+Sleeping 15 second(s)...
+Sleeping 14 second(s)...
+Sleeping 13 second(s)...
+Sleeping 12 second(s)...
+Sleeping 11 second(s)...
+Sleeping 10 second(s)...
+Sleeping 9 second(s)...
+Sleeping 8 second(s)...
+Sleeping 7 second(s)...
+Sleeping 6 second(s)...
+Sleeping 5 second(s)...
+Sleeping 4 second(s)...
+Sleeping 3 second(s)...
+Done sleeping for 4s..
+Sleeping 2 second(s)...
+Done sleeping for 5s..
+Sleeping 1 second(s)...
+Done sleeping for 6s..
+Done sleeping for 3s..
+Done sleeping for 7s..
+Done sleeping for 1s..
+Done sleeping for 2s..
+Done sleeping for 8s..
+Done sleeping for 9s..
+Done sleeping for 10s..
+Done sleeping for 11s..
+Done sleeping for 12s..
+Done sleeping for 13s..
+Done sleeping for 14s..
+Done sleeping for 15s..
+Finished in 15.04 second(s)
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orge1f0556" class="outline-3">
+<h3 id="orge1f0556">Real life example</h3>
+<div class="outline-text-3" id="text-orge1f0556">
+<p>
+We are going to be downloading a lot of images, similarly to the concurrency IRL example. However since multiprocessing benefits much more from CPU-bound tasks, we are going to do some processing on the image that we already have.<br />
+</p>
+</div>
+
+<div id="outline-container-org2c4b312" class="outline-4">
+<h4 id="org2c4b312">without multiprocessing</h4>
+<div class="outline-text-4" id="text-org2c4b312">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> concurrent.futures
+<span style="color: #ff6188;">from</span> PIL <span style="color: #ff6188;">import</span> Image, ImageFilter
+
+<span style="color: #fcfcfa;">img_names</span> = [
+    <span style="color: #ffd866;">'photo-1532009324734-20a7a5813719.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1524429656589-6633a470097c.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1530224264768-7ff8c1789d79.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1564135624576-c5c88640f235.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1541698444083-023c97d3f4b6.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1522364723953-452d3431c267.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1513938709626-033611b8cc03.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1507143550189-fed454f93097.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1493976040374-85c8e12f0c0e.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1504198453319-5ce911bafcde.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1530122037265-a5f1f91d3b99.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1516972810927-80185027ca84.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1550439062-609e1531270e.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1549692520-acc6669e2f0c.jpg'</span>
+]
+
+<span style="color: #fcfcfa;">t1</span> = time.perf_counter()
+
+<span style="color: #fcfcfa;">size</span> = (1200, 1200)
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">process_image</span>(img_name):
+    <span style="color: #fcfcfa;">img</span> = Image.<span style="color: #ab9df2;">open</span>(img_name)
+
+    <span style="color: #fcfcfa;">img</span> = img.<span style="color: #ab9df2;">filter</span>(ImageFilter.GaussianBlur(15))
+
+    img.thumbnail(size)
+    img.save(f<span style="color: #ffd866;">'processed/{img_name}'</span>)
+    <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'{img_name} was processed...'</span>)
+
+
+<span style="color: #ff6188;">for</span> img <span style="color: #ff6188;">in</span> img_names:
+        process_image(img)
+
+
+<span style="color: #fcfcfa;">t2</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {t2-t1} seconds'</span>)
+</pre>
+</div>
+
+<pre class="example">
+photo-1532009324734-20a7a5813719.jpg was processed...
+photo-1524429656589-6633a470097c.jpg was processed...
+photo-1530224264768-7ff8c1789d79.jpg was processed...
+photo-1564135624576-c5c88640f235.jpg was processed...
+photo-1541698444083-023c97d3f4b6.jpg was processed...
+photo-1522364723953-452d3431c267.jpg was processed...
+photo-1513938709626-033611b8cc03.jpg was processed...
+photo-1507143550189-fed454f93097.jpg was processed...
+photo-1493976040374-85c8e12f0c0e.jpg was processed...
+photo-1504198453319-5ce911bafcde.jpg was processed...
+photo-1530122037265-a5f1f91d3b99.jpg was processed...
+photo-1516972810927-80185027ca84.jpg was processed...
+photo-1550439062-609e1531270e.jpg was processed...
+photo-1549692520-acc6669e2f0c.jpg was processed...
+Finished in 14.539079678001144 seconds
+</pre>
+</div>
+</div>
+
+
+
+<div id="outline-container-org3712e84" class="outline-4">
+<h4 id="org3712e84">with multiprocessing</h4>
+<div class="outline-text-4" id="text-org3712e84">
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> time
+<span style="color: #ff6188;">import</span> concurrent.futures
+<span style="color: #ff6188;">from</span> PIL <span style="color: #ff6188;">import</span> Image, ImageFilter
+
+<span style="color: #fcfcfa;">img_names</span> = [
+    <span style="color: #ffd866;">'photo-1516117172878-fd2c41f4a759.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1532009324734-20a7a5813719.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1524429656589-6633a470097c.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1530224264768-7ff8c1789d79.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1564135624576-c5c88640f235.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1541698444083-023c97d3f4b6.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1522364723953-452d3431c267.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1513938709626-033611b8cc03.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1507143550189-fed454f93097.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1493976040374-85c8e12f0c0e.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1504198453319-5ce911bafcde.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1530122037265-a5f1f91d3b99.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1516972810927-80185027ca84.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1550439062-609e1531270e.jpg'</span>,
+    <span style="color: #ffd866;">'photo-1549692520-acc6669e2f0c.jpg'</span>
+]
+
+<span style="color: #fcfcfa;">t1</span> = time.perf_counter()
+
+<span style="color: #fcfcfa;">size</span> = (1200, 1200)
+
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">process_image</span>(img_name):
+    <span style="color: #fcfcfa;">img</span> = Image.<span style="color: #ab9df2;">open</span>(img_name)
+
+    <span style="color: #fcfcfa;">img</span> = img.<span style="color: #ab9df2;">filter</span>(ImageFilter.GaussianBlur(15))
+
+    img.thumbnail(size)
+    img.save(f<span style="color: #ffd866;">'processed/{img_name}'</span>)
+    <span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'{img_name} was processed...'</span>)
+
+
+<span style="color: #ff6188;">with</span> concurrent.futures.ProcessPoolExecutor() <span style="color: #ff6188;">as</span> executor:
+    executor.<span style="color: #ab9df2;">map</span>(process_image, img_names)
+
+
+<span style="color: #fcfcfa;">t2</span> = time.perf_counter()
+
+<span style="color: #ff6188;">print</span>(f<span style="color: #ffd866;">'Finished in {t2-t1} seconds'</span>)
+</pre>
+</div>
+
+<pre class="example">
+photo-1516117172878-fd2c41f4a759.jpg was processed...
+photo-1507143550189-fed454f93097.jpg was processed...
+photo-1524429656589-6633a470097c.jpg was processed...
+photo-1522364723953-452d3431c267.jpg was processed...
+photo-1516972810927-80185027ca84.jpg was processed...
+photo-1530122037265-a5f1f91d3b99.jpg was processed...
+photo-1530224264768-7ff8c1789d79.jpg was processed...
+photo-1532009324734-20a7a5813719.jpg was processed...
+photo-1513938709626-033611b8cc03.jpg was processed...
+photo-1564135624576-c5c88640f235.jpg was processed...
+photo-1541698444083-023c97d3f4b6.jpg was processed...
+photo-1504198453319-5ce911bafcde.jpg was processed...
+photo-1550439062-609e1531270e.jpg was processed...
+photo-1493976040374-85c8e12f0c0e.jpg was processed...
+photo-1549692520-acc6669e2f0c.jpg was processed...
+Finished in 3.299748498000554 seconds
+</pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
+                          <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
+                          <p>Created: 2020-04-15 Wed 00:00</p>
+                          <p class="date">Updated: 2020-10-19 Mon 01:20</p>
+</div>
+</body>
+</html>

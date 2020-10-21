@@ -1,0 +1,1454 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2020-10-22 Thu 00:52 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Python Unit Testing with unittest</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mishka Nguyen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Python Unit Testing with unittest</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#org49dc3d4">Testing for simple calculation</a>
+<ul>
+<li><a href="#org0c3f76c">Basics</a></li>
+<li><a href="#org24c1eba">Running test module directly</a></li>
+<li><a href="#orge3fba24">Failed Test</a></li>
+<li><a href="#orge0b4565">Multiple tests in one test method</a></li>
+<li><a href="#org11b306a">Testing for different functions</a></li>
+<li><a href="#orgf928256">Testing for edge case - Division</a></li>
+<li><a href="#orgadb5e2d">Testing for Exception</a></li>
+<li><a href="#org2f54be0">Testing for Exception using <b>Context Manager</b></a></li>
+</ul>
+</li>
+<li><a href="#org4a066f7">Slightly more complicated testing: Employee</a>
+<ul>
+<li><a href="#org8011804">Basics</a></li>
+<li><a href="#org67bc550"><code>setUp()</code> and <code>tearDown()</code> to get reusable objects</a></li>
+<li><a href="#org139e95d">Use case for <code>tearDown()</code></a></li>
+<li><a href="#org2b4988a">Running <code>setUp()</code> and <code>tearDown()</code> at the very beginning, and very ending of test file</a></li>
+</ul>
+</li>
+<li><a href="#org5e2c9f5">Testing for things that we have no control over with <b>Mocking</b></a>
+<ul>
+<li><a href="#orgb124e02">Final code - include a failed response</a></li>
+</ul>
+</li>
+<li><a href="#orgc5b52a1">Best Practices</a></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org49dc3d4" class="outline-2">
+<h2 id="org49dc3d4">Testing for simple calculation</h2>
+<div class="outline-text-2" id="text-org49dc3d4">
+<p>
+Suppose we have the following files with 4 functions to be tested:<br />
+</p>
+
+<p>
+<b>calc.py</b><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">add</span>(x, y):
+    <span style="color: #727072;">'''Addition Function'''</span>
+    <span style="color: #ff6188;">return</span> x + y
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">substract</span>(x, y):
+    <span style="color: #727072;">'''Substraction Function'''</span>
+    <span style="color: #ff6188;">return</span> x - y
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">multiply</span>(x, y):
+    <span style="color: #727072;">'''Multiplication Function'''</span>
+    <span style="color: #ff6188;">return</span> x * y
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">divide</span>(x, y):
+    <span style="color: #727072;">'''Division Function'''</span>
+    <span style="color: #ff6188;">if</span> y == 0:
+        <span style="color: #ff6188;">raise</span> <span style="color: #78dce8;">ValueError</span>(<span style="color: #ffd866;">'Cannot divide by zero!'</span>)
+    <span style="color: #ff6188;">return</span> x / y
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org0c3f76c" class="outline-3">
+<h3 id="org0c3f76c">Basics</h3>
+<div class="outline-text-3" id="text-org0c3f76c">
+<p>
+We would need to create a test file:<br />
+</p>
+
+<p>
+<b>test_calc.py</b><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">import</span> calc
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestCalc</span>(unittest.TestCase):
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_add</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #fcfcfa;">result</span> = calc.add(10, 5)
+        <span style="color: #ff6188;">self</span>.assertEqual(result, 15)
+</pre>
+</div>
+
+
+<p>
+Test files should start with <code>test_</code>. This is the naming convention.<br />
+</p>
+
+<p>
+First we need to create a Test Class that inherits from <code>unittest.TestCase</code>. This allows us to access to a lot of different testing functionalities that come with that class.<br />
+</p>
+
+<p>
+Within our Test Class, the testing methods also need to be named <code>test_*</code>. This is another naming convention that we need to follow in order to use <code>unittest</code>. When we run the tests later on, <code>unittest</code> will <b>only run the methods that starts with</b> <code>test_</code><br />
+</p>
+
+<p>
+With the above <code>test_calc.py</code> module, in the same directory with <code>calc.py</code>, we can run the test file like so:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-sh">python -m unittest test_calc.py
+</pre>
+</div>
+<pre class="example">
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org24c1eba" class="outline-3">
+<h3 id="org24c1eba">Running test module directly</h3>
+<div class="outline-text-3" id="text-org24c1eba">
+<p>
+Instead of running the test module with <code>python -m unittest</code>, we can just run the test module directly if we write it like so:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">import</span> calc
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestCalc</span>(unittest.TestCase):
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_add</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #fcfcfa;">result</span> = calc.add(10, 5)
+        <span style="color: #ff6188;">self</span>.assertEqual(result, 15)
+
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<div class="org-src-container">
+<pre class="src src-sh">python test_calc.py
+</pre>
+</div>
+<pre class="example">
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orge3fba24" class="outline-3">
+<h3 id="orge3fba24">Failed Test</h3>
+<div class="outline-text-3" id="text-orge3fba24">
+<p>
+If we edit the code like so, our test would fail:<br />
+</p>
+
+<p>
+<b>test_calc.py</b><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">import</span> calc
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestCalc</span>(unittest.TestCase):
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_add</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #fcfcfa;">result</span> = calc.add(10, 5)
+        <span style="color: #ff6188;">self</span>.assertEqual(result, 14)
+
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<pre class="example">
+&gt; python test_calc.py
+F
+======================================================================
+FAIL: test_add (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "test_calc.py", line 8, in test_add
+    self.assertEqual(result, 14)
+AssertionError: 15 != 14
+
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+FAILED (failures=1)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-orge0b4565" class="outline-3">
+<h3 id="orge0b4565">Multiple tests in one test method</h3>
+<div class="outline-text-3" id="text-orge0b4565">
+<p>
+Generally not only that we want to test more than one case, we'd also want to test for edge cases. In our case, for the addition function, that would be the inclusion of negative numbers:<br />
+</p>
+
+<p>
+<b>test_calc.py</b><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">import</span> calc
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestCalc</span>(unittest.TestCase):
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_add</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.add(10, 5), 15)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.add(-1, 1), 0)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.add(-1, -1), -2)
+
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<pre class="example">
+&gt; python test_calc.py
+.
+----------------------------------------------------------------------
+Ran 1 test in 0.000s
+
+OK
+</pre>
+
+<p>
+When we run the module however, only 1 test was run even though we wrote three different assert statements. This is normaly behaviour. Even though the <code>unittest</code> result only shows that one test was run, <b>three</b> different checks were performed.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org11b306a" class="outline-3">
+<h3 id="org11b306a">Testing for different functions</h3>
+<div class="outline-text-3" id="text-org11b306a">
+<p>
+We can then move on to test our other calc functions:<br />
+</p>
+
+<p>
+<b>test_calc.py</b><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">import</span> calc
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestCalc</span>(unittest.TestCase):
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_add</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.add(10, 5), 15)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.add(-1, 1), 0)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.add(-1, -1), -2)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_substract</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.substract(10, 5), 5)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.substract(-1, 1), -2)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.substract(-1, -1), 0)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_multiply</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.multiply(10, 5), 50)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.multiply(-1, 1), -1)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.multiply(-1, -1), 1)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_divide</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(10, 5), 2)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(-1, 1), -1)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(-1, -1), 1)
+
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<pre class="example">
+&gt; python test_calc.py
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
+</pre>
+
+<p>
+Supposedly, we made a typo in our <code>multiply</code> function, instead of:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">multiply</span>(x, y):
+    <span style="color: #727072;">'''Multiplication Function'''</span>
+    <span style="color: #ff6188;">return</span> x * y
+</pre>
+</div>
+
+<p>
+.. we wrote:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">multiply</span>(x, y):
+    <span style="color: #727072;">'''Multiplication Function'''</span>
+    <span style="color: #ff6188;">return</span> x ** y
+</pre>
+</div>
+
+<p>
+The test module would catch that. As per below, the line <code>..F.</code> indicates that one out of four of our tests failed. We could also see where the <code>AssertError</code> is.<br />
+</p>
+<pre class="example">
+&gt; python test_calc.py
+..F.
+======================================================================
+FAIL: test_multiply (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "test_calc.py", line 17, in test_multiply
+    self.assertEqual(calc.multiply(10, 5), 50)
+AssertionError: 100000 != 50
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+FAILED (failures=1)
+</pre>
+</div>
+</div>
+<div id="outline-container-orgf928256" class="outline-3">
+<h3 id="orgf928256">Testing for edge case - Division</h3>
+<div class="outline-text-3" id="text-orgf928256">
+<p>
+Supposedly, we had written our <code>divide()</code> function like the below. With this code, the function would perform a floor division instead of a normal division.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">divide</span>(x, y):
+    <span style="color: #727072;">'''Division Function'''</span>
+    <span style="color: #ff6188;">if</span> y == 0:
+        <span style="color: #ff6188;">raise</span> <span style="color: #78dce8;">ValueError</span>(<span style="color: #ffd866;">'Cannot divide by zero!'</span>)
+    <span style="color: #ff6188;">return</span> x // y
+</pre>
+</div>
+
+<p>
+Our current test would not distinguish between the two type of divisions:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_divide</span>(<span style="color: #ff6188;">self</span>):
+    <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(10, 5), 2)
+    <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(-1, 1), -1)
+    <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(-1, -1), 1)
+</pre>
+</div>
+
+<p>
+However, if this has broken our program somewhere down the track, that would be a good time to add new test cases to the unit test to cover for this.<br />
+</p>
+
+<p>
+If we had included this test case in our test module, the testing would have failed:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_divide</span>(<span style="color: #ff6188;">self</span>):
+    <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(10, 5), 2)
+    <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(-1, 1), -1)
+    <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(-1, -1), 1)
+    <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(5,2), 2.5)
+</pre>
+</div>
+
+<pre class="example">
+&gt; python test_calc.py
+.F..
+======================================================================
+FAIL: test_divide (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "test_calc.py", line 25, in test_divide
+    self.assertEqual(calc.divide(5,2), 2.5)
+AssertionError: 2 != 2.5
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+FAILED (failures=1)
+
+</pre>
+</div>
+</div>
+<div id="outline-container-orgadb5e2d" class="outline-3">
+<h3 id="orgadb5e2d">Testing for Exception</h3>
+<div class="outline-text-3" id="text-orgadb5e2d">
+<p>
+We can also test that our expectation of the <code>divide()</code> function is working as expected.<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">divide</span>(x, y):
+    <span style="color: #727072;">'''Division Function'''</span>
+    <span style="color: #ff6188;">if</span> y == 0:
+        <span style="color: #ff6188;">raise</span> <span style="color: #78dce8;">ValueError</span>(<span style="color: #ffd866;">'Cannot divide by zero!'</span>)
+    <span style="color: #ff6188;">return</span> x / y
+</pre>
+</div>
+
+<p>
+With the above code, if the second argument equals 0, Python should raise an Exception.<br />
+</p>
+
+<p>
+There are different ways that we can write the test for this, the first is:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">import</span> calc
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestCalc</span>(unittest.TestCase):
+
+...
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_divide</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(10, 5), 2)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(-1, 1), -1)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(-1, -1), 1)
+        <span style="color: #ff6188;">self</span>.assertEqual(calc.divide(5,2), 2.5)
+
+        <span style="color: #ff6188;">self</span>.assertRaises(<span style="color: #78dce8;">ValueError</span>, calc.divide, 10, 0)
+
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<p>
+The Exception that we expect is passed to <code>assertRaises()</code> as the first argument. The second argument is the function that we are testing, however we are not invoking it by <b>not</b> including the <code>()</code> pair. Instead, the arguments that would otherwise be passed to the function being tested are passed in the later positions, next to the function it self.<br />
+</p>
+
+<pre class="example">
+&gt; python test_calc.py
+....
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+OK
+</pre>
+
+<p>
+If we change the second argument to something not <code>0</code>, the test would fail, because the function would throw Exception.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">self</span>.assertRaises(<span style="color: #78dce8;">ValueError</span>, calc.divide, 10, 0
+</pre>
+</div>
+
+<pre class="example">
+&gt; python test_calc.py
+.F..
+======================================================================
+FAIL: test_divide (__main__.TestCalc)
+----------------------------------------------------------------------
+Traceback (most recent call last):
+  File "test_calc.py", line 27, in test_divide
+    self.assertRaises(ValueError, calc.divide, 10, 2)
+AssertionError: ValueError not raised by divide
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.000s
+
+FAILED (failures=1)
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org2f54be0" class="outline-3">
+<h3 id="org2f54be0">Testing for Exception using <b>Context Manager</b></h3>
+<div class="outline-text-3" id="text-org2f54be0">
+<p>
+Using a Context Manager, we will be able to call our functions and handle exceptions normally without using the special syntax like above.<br />
+</p>
+
+<p>
+Instead of:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python">...
+<span style="color: #ff6188;">self</span>.assertRaises(<span style="color: #78dce8;">ValueError</span>, calc.divide, 10, 0)
+...
+</pre>
+</div>
+
+<p>
+We can instead fo:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">with</span> <span style="color: #ff6188;">self</span>.assertRaises(<span style="color: #78dce8;">ValueError</span>):
+    calc.divide(10, 0)
+</pre>
+</div>
+</div>
+</div>
+</div>
+<div id="outline-container-org4a066f7" class="outline-2">
+<h2 id="org4a066f7">Slightly more complicated testing: Employee</h2>
+<div class="outline-text-2" id="text-org4a066f7">
+</div>
+<div id="outline-container-org8011804" class="outline-3">
+<h3 id="org8011804">Basics</h3>
+<div class="outline-text-3" id="text-org8011804">
+<p>
+<b>employee.py</b><br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+
+    <span style="color: #fcfcfa;">raise_amt</span> = 1.05
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first, last, pay):
+        <span style="color: #ff6188;">self</span>.first = first
+        <span style="color: #ff6188;">self</span>.last = last
+        <span style="color: #ff6188;">self</span>.pay = pay
+
+    @<span style="color: #ab9df2;">property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+    @<span style="color: #ab9df2;">property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">apply_raise</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">self</span>.pay = <span style="color: #ab9df2;">int</span>(<span style="color: #ff6188;">self</span>.pay * <span style="color: #ff6188;">self</span>.raise_amt)
+</pre>
+</div>
+
+<p>
+Our simple test module <b>test_employee</b> would look like so:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">from</span> employee <span style="color: #ff6188;">import</span> Employee
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestEmployee</span>(unittest.TestCase):
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for email getter and setter.'''</span>
+
+        <span style="color: #fcfcfa;">emp_1</span> = Employee(<span style="color: #ffd866;">'Kenny'</span>, <span style="color: #ffd866;">'Nguyen'</span>, 50000)
+        <span style="color: #fcfcfa;">emp_2</span> = Employee(<span style="color: #ffd866;">'Corey'</span>, <span style="color: #ffd866;">'Schafer'</span>, 60000)
+
+        <span style="color: #ff6188;">self</span>.assertEqual(emp_1.email, <span style="color: #ffd866;">'Kenny.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(emp_2.email, <span style="color: #ffd866;">'Corey.Schafer@email.com'</span>)
+
+        <span style="color: #fcfcfa;">emp_1.first</span> = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #fcfcfa;">emp_2.first</span> = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(emp_1.email, <span style="color: #ffd866;">'John.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(emp_2.email, <span style="color: #ffd866;">'Jane.Schafer@email.com'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for fullname getter and setter.'''</span>
+
+        <span style="color: #fcfcfa;">emp_1</span> = Employee(<span style="color: #ffd866;">'Kenny'</span>, <span style="color: #ffd866;">'Nguyen'</span>, 50000)
+        <span style="color: #fcfcfa;">emp_2</span> = Employee(<span style="color: #ffd866;">'Corey'</span>, <span style="color: #ffd866;">'Schafer'</span>, 60000)
+
+        <span style="color: #ff6188;">self</span>.assertEqual(emp_1.fullname, <span style="color: #ffd866;">'Kenny Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(emp_2.fullname, <span style="color: #ffd866;">'Corey Schafer'</span>)
+
+        <span style="color: #fcfcfa;">emp_1.first</span> = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #fcfcfa;">emp_2.first</span> = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(emp_1.fullname, <span style="color: #ffd866;">'John Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(emp_2.fullname, <span style="color: #ffd866;">'Jane Schafer'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_apply_raise</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for raise apply function.'''</span>
+        <span style="color: #fcfcfa;">emp_1</span> = Employee(<span style="color: #ffd866;">'Kenny'</span>, <span style="color: #ffd866;">'Nguyen'</span>, 50000)
+        <span style="color: #fcfcfa;">emp_2</span> = Employee(<span style="color: #ffd866;">'Corey'</span>, <span style="color: #ffd866;">'Schafer'</span>, 60000)
+
+        emp_1.apply_raise()
+        emp_2.apply_raise()
+        
+        <span style="color: #ff6188;">self</span>.assertEqual(emp_1.pay, 52500)
+        <span style="color: #ff6188;">self</span>.assertEqual(emp_2.pay, 63000)
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<pre class="example">
+&gt; python test_employee.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org67bc550" class="outline-3">
+<h3 id="org67bc550"><code>setUp()</code> and <code>tearDown()</code> to get reusable objects</h3>
+<div class="outline-text-3" id="text-org67bc550">
+<p>
+In the above code, we had to repeat the two lines to initialise the <code>emp_1</code> and <code>emp_2</code> objects multiple times. This is inefficient. There is a way for us to create these two once, and reuse them for multiple test cases. We do this by using the <code>setUp()</code> and <code>tearDown()</code> methods.<br />
+</p>
+
+<p>
+The <code>setUp()</code> method runs before every single test. The <code>tearDown()</code> method runs after every single test.<br />
+</p>
+
+<p>
+In our example, we want to create two <code>Employee</code> objects for our tests. For this, we'd put them in <code>setUp()</code>. We also want to set them as <b>instance attribute</b> so we can access them in our test methods.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">from</span> employee <span style="color: #ff6188;">import</span> Employee
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestEmployee</span>(unittest.TestCase):
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">setUp</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">self</span>.emp_1 = Employee(<span style="color: #ffd866;">'Kenny'</span>, <span style="color: #ffd866;">'Nguyen'</span>, 50000)
+        <span style="color: #ff6188;">self</span>.emp_2 = Employee(<span style="color: #ffd866;">'Corey'</span>, <span style="color: #ffd866;">'Schafer'</span>, 60000)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">tearDown</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">pass</span> 
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for email getter and setter.'''</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.email, <span style="color: #ffd866;">'Kenny.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.email, <span style="color: #ffd866;">'Corey.Schafer@email.com'</span>)
+
+        <span style="color: #ff6188;">self</span>.emp_1.first = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #ff6188;">self</span>.emp_2.first = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.email, <span style="color: #ffd866;">'John.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.email, <span style="color: #ffd866;">'Jane.Schafer@email.com'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for fullname getter and setter.'''</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.fullname, <span style="color: #ffd866;">'Kenny Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.fullname, <span style="color: #ffd866;">'Corey Schafer'</span>)
+
+        <span style="color: #ff6188;">self</span>.emp_1.first = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #ff6188;">self</span>.emp_2.first = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.fullname, <span style="color: #ffd866;">'John Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.fullname, <span style="color: #ffd866;">'Jane Schafer'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_apply_raise</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for raise apply function.'''</span>
+
+        <span style="color: #ff6188;">self</span>.emp_1.apply_raise()
+        <span style="color: #ff6188;">self</span>.emp_2.apply_raise()
+        
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.pay, 52500)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.pay, 63000)
+        
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<pre class="example">
+&gt; python test_employee.py
+...
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+</pre>
+
+<p>
+We can also observe the behaviours of these two functions by including some <code>print()</code> statement:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">from</span> employee <span style="color: #ff6188;">import</span> Employee
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestEmployee</span>(unittest.TestCase):
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">setUp</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'setUp'</span>)
+        <span style="color: #ff6188;">self</span>.emp_1 = Employee(<span style="color: #ffd866;">'Kenny'</span>, <span style="color: #ffd866;">'Nguyen'</span>, 50000)
+        <span style="color: #ff6188;">self</span>.emp_2 = Employee(<span style="color: #ffd866;">'Corey'</span>, <span style="color: #ffd866;">'Schafer'</span>, 60000)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">tearDown</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'tearDown\n'</span>)
+        <span style="color: #ff6188;">pass</span> 
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for email getter and setter.'''</span>
+
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'test_email'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.email, <span style="color: #ffd866;">'Kenny.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.email, <span style="color: #ffd866;">'Corey.Schafer@email.com'</span>)
+
+        <span style="color: #ff6188;">self</span>.emp_1.first = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #ff6188;">self</span>.emp_2.first = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.email, <span style="color: #ffd866;">'John.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.email, <span style="color: #ffd866;">'Jane.Schafer@email.com'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for fullname getter and setter.'''</span>
+
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'test_fullname'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.fullname, <span style="color: #ffd866;">'Kenny Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.fullname, <span style="color: #ffd866;">'Corey Schafer'</span>)
+
+        <span style="color: #ff6188;">self</span>.emp_1.first = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #ff6188;">self</span>.emp_2.first = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.fullname, <span style="color: #ffd866;">'John Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.fullname, <span style="color: #ffd866;">'Jane Schafer'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_apply_raise</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for raise apply function.'''</span>
+        
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'test_fullname'</span>)
+        <span style="color: #ff6188;">self</span>.emp_1.apply_raise()
+        <span style="color: #ff6188;">self</span>.emp_2.apply_raise()
+        
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.pay, 52500)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.pay, 63000)
+
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<pre class="example">
+&gt; python test_employee.py
+setUp
+test_fullname
+tearDown
+
+.setUp
+test_email
+tearDown
+
+.setUp
+test_fullname
+tearDown
+
+.
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+</pre>
+
+<p>
+One thing we notice is that the tests are <b>not run in order</b>. Therefore, all our test cases should be isolate from one another and that we should not expect test cases are run top-down.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org139e95d" class="outline-3">
+<h3 id="org139e95d">Use case for <code>tearDown()</code></h3>
+<div class="outline-text-3" id="text-org139e95d">
+<p>
+The <code>tearDown()</code> method can be useful for some scenarios.<br />
+</p>
+
+<p>
+Suppose we have a program that downloads and stores certain files into a directory or a test database. In our <code>tearDown()</code> method, we could write code to delete these files from the test directory or database to have a "clean slate".<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org2b4988a" class="outline-3">
+<h3 id="org2b4988a">Running <code>setUp()</code> and <code>tearDown()</code> at the very beginning, and very ending of test file</h3>
+<div class="outline-text-3" id="text-org2b4988a">
+<p>
+It is sometimes use fule to run some setup function at <b>the very beginning</b> of our test file before anything, as well as <b>the very end</b>, after everything. This is different to the <code>setUp()</code> and <code>tearDown()</code> which runs before and after everything.<br />
+</p>
+
+<p>
+This can be done using the native class methods:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">from</span> employee <span style="color: #ff6188;">import</span> Employee
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestEmployee</span>(unittest.TestCase):
+
+    @<span style="color: #ab9df2;">classmethod</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">setUpClass</span>(cls):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'setupClass'</span>)
+    
+    @<span style="color: #ab9df2;">classmethod</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">tearDownClass</span>(cls):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'teardownClass'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">setUp</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'setUp'</span>)
+        <span style="color: #ff6188;">self</span>.emp_1 = Employee(<span style="color: #ffd866;">'Kenny'</span>, <span style="color: #ffd866;">'Nguyen'</span>, 50000)
+        <span style="color: #ff6188;">self</span>.emp_2 = Employee(<span style="color: #ffd866;">'Corey'</span>, <span style="color: #ffd866;">'Schafer'</span>, 60000)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">tearDown</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'tearDown\n'</span>)
+        <span style="color: #ff6188;">pass</span> 
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for email getter and setter.'''</span>
+
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'test_email'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.email, <span style="color: #ffd866;">'Kenny.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.email, <span style="color: #ffd866;">'Corey.Schafer@email.com'</span>)
+
+        <span style="color: #ff6188;">self</span>.emp_1.first = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #ff6188;">self</span>.emp_2.first = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.email, <span style="color: #ffd866;">'John.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.email, <span style="color: #ffd866;">'Jane.Schafer@email.com'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for fullname getter and setter.'''</span>
+
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'test_fullname'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.fullname, <span style="color: #ffd866;">'Kenny Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.fullname, <span style="color: #ffd866;">'Corey Schafer'</span>)
+
+        <span style="color: #ff6188;">self</span>.emp_1.first = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #ff6188;">self</span>.emp_2.first = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.fullname, <span style="color: #ffd866;">'John Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.fullname, <span style="color: #ffd866;">'Jane Schafer'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_apply_raise</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for raise apply function.'''</span>
+
+        <span style="color: #ff6188;">self</span>.emp_1.apply_raise()
+        <span style="color: #ff6188;">self</span>.emp_2.apply_raise()
+        
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.pay, 52500)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.pay, 63000)
+
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<p>
+We can then see the order of execution:<br />
+</p>
+<pre class="example">
+                                                  
+&gt; python test_employee.py
+setupClass
+setUp
+tearDown
+
+.setUp
+test_email
+tearDown
+
+.setUp
+test_fullname
+tearDown
+
+.teardownClass
+
+----------------------------------------------------------------------
+Ran 3 tests in 0.000s
+
+OK
+</pre>
+
+<p>
+The <code>setUpClass</code> runs before any test and <code>tearDownClass</code> runs after all tests. These are useful for things that we want to set up before our test but might be too costly to do for every single test.<br />
+</p>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org5e2c9f5" class="outline-2">
+<h2 id="org5e2c9f5">Testing for things that we have no control over with <b>Mocking</b></h2>
+<div class="outline-text-2" id="text-org5e2c9f5">
+<p>
+In a lot of scenarios we deal with things that we don't have complete control over, for example pulling some data from a third party website.<br />
+</p>
+
+<p>
+If the third party website is down, our test would fail as well.<br />
+</p>
+
+<p>
+However this is <b>not</b> what we want, as we would only want our tests to fail if our code actually fails. There is nothing that we can do to address a third party website going down.<br />
+</p>
+
+<p>
+This is where <b>Mocking</b> comes in.<br />
+</p>
+
+<p>
+Suppose our <code>Employee</code> class has a new method that can be used to look at an employee's schedule. This method goes to a company website to pull down an employee's chedule for a given month<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> requests
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">Employee</span>:
+
+    <span style="color: #fcfcfa;">raise_amt</span> = 1.05
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">__init__</span>(<span style="color: #ff6188;">self</span>, first, last, pay):
+        <span style="color: #ff6188;">self</span>.first = first
+        <span style="color: #ff6188;">self</span>.last = last
+        <span style="color: #ff6188;">self</span>.pay = pay
+
+    @<span style="color: #ab9df2;">property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{}.{}@email.com'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+    @<span style="color: #ab9df2;">property</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'{} {}'</span>.<span style="color: #ab9df2;">format</span>(<span style="color: #ff6188;">self</span>.first, <span style="color: #ff6188;">self</span>.last)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">apply_raise</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">self</span>.pay = <span style="color: #ab9df2;">int</span>(<span style="color: #ff6188;">self</span>.pay * <span style="color: #ff6188;">self</span>.raise_amt)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">monthly_schedule</span>(<span style="color: #ff6188;">self</span>, month):
+        <span style="color: #fcfcfa;">response</span> = requests.get(f<span style="color: #ffd866;">'http://company.com/{self.last}/{month}'</span>)
+        <span style="color: #ff6188;">if</span> response.ok:
+            <span style="color: #ff6188;">return</span> response.text
+        <span style="color: #ff6188;">else</span>:
+            <span style="color: #ff6188;">return</span> <span style="color: #ffd866;">'Bad Response!'</span>
+</pre>
+</div>
+
+<p>
+For this, the data that we get from the website is something that we would want to Mock, because we don't want our test to depend on the website being online. We only care that the get method was called with the correct URL and that our code would behave correctly.<br />
+</p>
+
+<p>
+First, we need to:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> unittest.mock <span style="color: #ff6188;">import</span> patch
+</pre>
+</div>
+
+<p>
+There are two ways that we can use <code>patch</code>. We can use it either as a decorator or as a context manager. It will allow us to mock an object during a test. That object will be automatically stored after the test is run.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">from</span> unittest.mock <span style="color: #ff6188;">import</span> patch
+<span style="color: #ff6188;">from</span> employee <span style="color: #ff6188;">import</span> Employee
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestEmployee</span>(unittest.TestCase):
+
+    @<span style="color: #ab9df2;">classmethod</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">setUpClass</span>(cls):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'setupClass'</span>)
+    
+    @<span style="color: #ab9df2;">classmethod</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">tearDownClass</span>(cls):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'teardownClass'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">setUp</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'setUp'</span>)
+        <span style="color: #ff6188;">self</span>.emp_1 = Employee(<span style="color: #ffd866;">'Kenny'</span>, <span style="color: #ffd866;">'Nguyen'</span>, 50000)
+        <span style="color: #ff6188;">self</span>.emp_2 = Employee(<span style="color: #ffd866;">'Corey'</span>, <span style="color: #ffd866;">'Schafer'</span>, 60000)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">tearDown</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'tearDown\n'</span>)
+        <span style="color: #ff6188;">pass</span> 
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for email getter and setter.'''</span>
+
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'test_email'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.email, <span style="color: #ffd866;">'Kenny.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.email, <span style="color: #ffd866;">'Corey.Schafer@email.com'</span>)
+
+        <span style="color: #ff6188;">self</span>.emp_1.first = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #ff6188;">self</span>.emp_2.first = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.email, <span style="color: #ffd866;">'John.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.email, <span style="color: #ffd866;">'Jane.Schafer@email.com'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for fullname getter and setter.'''</span>
+
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'test_fullname'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.fullname, <span style="color: #ffd866;">'Kenny Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.fullname, <span style="color: #ffd866;">'Corey Schafer'</span>)
+
+        <span style="color: #ff6188;">self</span>.emp_1.first = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #ff6188;">self</span>.emp_2.first = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.fullname, <span style="color: #ffd866;">'John Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.fullname, <span style="color: #ffd866;">'Jane Schafer'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_apply_raise</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for raise apply function.'''</span>
+
+        <span style="color: #ff6188;">self</span>.emp_1.apply_raise()
+        <span style="color: #ff6188;">self</span>.emp_2.apply_raise()
+        
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.pay, 52500)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.pay, 63000)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_monthly_schedule</span>(<span style="color: #ff6188;">self</span>):
+
+        <span style="color: #ff6188;">with</span> patch(<span style="color: #ffd866;">'employee.requests.get'</span>) <span style="color: #ff6188;">as</span> mocked_get:
+            <span style="color: #fcfcfa;">mocked_get.return_value.ok</span> = <span style="color: #ab9df2;">True</span>
+            <span style="color: #fcfcfa;">mocked_get.return_value.text</span> = <span style="color: #ffd866;">'Success'</span>
+
+            <span style="color: #fcfcfa;">schedule</span> = <span style="color: #ff6188;">self</span>.emp_1.monthly_schedule(<span style="color: #ffd866;">'May'</span>)
+            mocked_get.assert_called_with(f<span style="color: #ffd866;">'http://company.com/Nguyen/May'</span>)
+            <span style="color: #ff6188;">self</span>.assertEqual(schedule, <span style="color: #ffd866;">'Success'</span>)
+
+
+
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<p>
+<b>Note</b> that we didn't import the <code>requests</code> library into our test module but instead choose to mock the object where it's actually used, which is in the <code>employee.py</code> module. What happens here is that the <code>requests.get()</code> call within our <code>employee.py</code> file will be replaced with the mock variable <code>mocked_get</code>.<br />
+</p>
+
+<p>
+Then, instead of going out to the website we can just assign the return value to imitate  a successful call. With these fake, or mock values, we can then test the behaviour of our code.<br />
+</p>
+
+<p>
+One of the good thing about the mock object is that they actually record when they are call and with what value. Therefore we can test if they were called with the right URL, with the correct parameter that is passed onto the URL. For our example, we want to make sure that the <code>lastname</code> of <code>emp_1</code> was correctly passed to the URL.<br />
+</p>
+
+<pre class="example">
+&gt; python test_employee.py
+setupClass
+setUp
+tearDown
+
+.setUp
+test_email
+tearDown
+
+.setUp
+test_fullname
+tearDown
+
+.setUp
+tearDown
+
+.teardownClass
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK
+</pre>
+</div>
+
+<div id="outline-container-orgb124e02" class="outline-3">
+<h3 id="orgb124e02">Final code - include a failed response</h3>
+<div class="outline-text-3" id="text-orgb124e02">
+<p>
+We can also test a failed response:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">import</span> unittest
+<span style="color: #ff6188;">from</span> unittest.mock <span style="color: #ff6188;">import</span> patch
+<span style="color: #ff6188;">from</span> employee <span style="color: #ff6188;">import</span> Employee
+
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">TestEmployee</span>(unittest.TestCase):
+
+    @<span style="color: #ab9df2;">classmethod</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">setUpClass</span>(cls):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'setupClass'</span>)
+    
+    @<span style="color: #ab9df2;">classmethod</span>
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">tearDownClass</span>(cls):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'teardownClass'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">setUp</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'setUp'</span>)
+        <span style="color: #ff6188;">self</span>.emp_1 = Employee(<span style="color: #ffd866;">'Kenny'</span>, <span style="color: #ffd866;">'Nguyen'</span>, 50000)
+        <span style="color: #ff6188;">self</span>.emp_2 = Employee(<span style="color: #ffd866;">'Corey'</span>, <span style="color: #ffd866;">'Schafer'</span>, 60000)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">tearDown</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'tearDown\n'</span>)
+        <span style="color: #ff6188;">pass</span> 
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_email</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for email getter and setter.'''</span>
+
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'test_email'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.email, <span style="color: #ffd866;">'Kenny.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.email, <span style="color: #ffd866;">'Corey.Schafer@email.com'</span>)
+
+        <span style="color: #ff6188;">self</span>.emp_1.first = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #ff6188;">self</span>.emp_2.first = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.email, <span style="color: #ffd866;">'John.Nguyen@email.com'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.email, <span style="color: #ffd866;">'Jane.Schafer@email.com'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_fullname</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for fullname getter and setter.'''</span>
+
+        <span style="color: #ff6188;">print</span>(<span style="color: #ffd866;">'test_fullname'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.fullname, <span style="color: #ffd866;">'Kenny Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.fullname, <span style="color: #ffd866;">'Corey Schafer'</span>)
+
+        <span style="color: #ff6188;">self</span>.emp_1.first = <span style="color: #ffd866;">'John'</span>
+        <span style="color: #ff6188;">self</span>.emp_2.first = <span style="color: #ffd866;">'Jane'</span>
+
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.fullname, <span style="color: #ffd866;">'John Nguyen'</span>)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.fullname, <span style="color: #ffd866;">'Jane Schafer'</span>)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_apply_raise</span>(<span style="color: #ff6188;">self</span>):
+        <span style="color: #727072;">'''Testing for raise apply function.'''</span>
+
+        <span style="color: #ff6188;">self</span>.emp_1.apply_raise()
+        <span style="color: #ff6188;">self</span>.emp_2.apply_raise()
+        
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_1.pay, 52500)
+        <span style="color: #ff6188;">self</span>.assertEqual(<span style="color: #ff6188;">self</span>.emp_2.pay, 63000)
+
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">test_monthly_schedule</span>(<span style="color: #ff6188;">self</span>):
+
+        <span style="color: #ff6188;">with</span> patch(<span style="color: #ffd866;">'employee.requests.get'</span>) <span style="color: #ff6188;">as</span> mocked_get:
+            <span style="color: #fcfcfa;">mocked_get.return_value.ok</span> = <span style="color: #ab9df2;">True</span>
+            <span style="color: #fcfcfa;">mocked_get.return_value.text</span> = <span style="color: #ffd866;">'Success'</span>
+
+            <span style="color: #fcfcfa;">schedule</span> = <span style="color: #ff6188;">self</span>.emp_1.monthly_schedule(<span style="color: #ffd866;">'May'</span>)
+            mocked_get.assert_called_with(f<span style="color: #ffd866;">'http://company.com/Nguyen/May'</span>)
+            <span style="color: #ff6188;">self</span>.assertEqual(schedule, <span style="color: #ffd866;">'Success'</span>)
+        
+        <span style="color: #ff6188;">with</span> patch(<span style="color: #ffd866;">'employee.requests.get'</span>) <span style="color: #ff6188;">as</span> mocked_get:
+            <span style="color: #fcfcfa;">mocked_get.return_value.ok</span> = <span style="color: #ab9df2;">False</span>
+            <span style="color: #fcfcfa;">mocked_get.return_value.text</span> = <span style="color: #ffd866;">'Bad Response!'</span>
+
+            <span style="color: #fcfcfa;">schedule</span> = <span style="color: #ff6188;">self</span>.emp_2.monthly_schedule(<span style="color: #ffd866;">'June'</span>)
+            mocked_get.assert_called_with(f<span style="color: #ffd866;">'http://company.com/Schafer/June'</span>)
+            <span style="color: #ff6188;">self</span>.assertEqual(schedule, <span style="color: #ffd866;">'Bad Response!'</span>)
+
+<span style="color: #ff6188;">if</span> <span style="color: #ab9df2;">__name__</span> == <span style="color: #ffd866;">'__main__'</span>:
+    unittest.main()
+</pre>
+</div>
+
+<pre class="example">
+&gt; python test_employee.py
+setupClass
+setUp
+tearDown
+
+.setUp
+test_email
+tearDown
+
+.setUp
+test_fullname
+tearDown
+
+.setUp
+tearDown
+
+.teardownClass
+
+----------------------------------------------------------------------
+Ran 4 tests in 0.001s
+
+OK
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-orgc5b52a1" class="outline-2">
+<h2 id="orgc5b52a1">Best Practices</h2>
+<div class="outline-text-2" id="text-orgc5b52a1">
+<ul class="org-ul">
+<li>Tests should be isolate and can run independently.<br /></li>
+<li>In <b>Test-Driven Development</b>, we write the tests before the code. This practice can be very useful.<br /></li>
+</ul>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
+                          <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
+                          <p>Created: 2020-10-21 Wed 00:00</p>
+                          <p class="date">Updated: 2020-10-22 Thu 00:52</p>
+</div>
+</body>
+</html>

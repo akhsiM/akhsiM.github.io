@@ -1,0 +1,781 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+"http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
+<head>
+<!-- 2021-02-08 Mon 11:48 -->
+<meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Django User Management</title>
+<meta name="generator" content="Org mode" />
+<meta name="author" content="Mishka Nguyen" />
+<style type="text/css">
+ <!--/*--><![CDATA[/*><!--*/
+  .title  { text-align: center;
+             margin-bottom: .2em; }
+  .subtitle { text-align: center;
+              font-size: medium;
+              font-weight: bold;
+              margin-top:0; }
+  .todo   { font-family: monospace; color: red; }
+  .done   { font-family: monospace; color: green; }
+  .priority { font-family: monospace; color: orange; }
+  .tag    { background-color: #eee; font-family: monospace;
+            padding: 2px; font-size: 80%; font-weight: normal; }
+  .timestamp { color: #bebebe; }
+  .timestamp-kwd { color: #5f9ea0; }
+  .org-right  { margin-left: auto; margin-right: 0px;  text-align: right; }
+  .org-left   { margin-left: 0px;  margin-right: auto; text-align: left; }
+  .org-center { margin-left: auto; margin-right: auto; text-align: center; }
+  .underline { text-decoration: underline; }
+  #postamble p, #preamble p { font-size: 90%; margin: .2em; }
+  p.verse { margin-left: 3%; }
+  pre {
+    border: 1px solid #ccc;
+    box-shadow: 3px 3px 3px #eee;
+    padding: 8pt;
+    font-family: monospace;
+    overflow: auto;
+    margin: 1.2em;
+  }
+  pre.src {
+    position: relative;
+    overflow: visible;
+    padding-top: 1.2em;
+  }
+  pre.src:before {
+    display: none;
+    position: absolute;
+    background-color: white;
+    top: -10px;
+    right: 10px;
+    padding: 3px;
+    border: 1px solid black;
+  }
+  pre.src:hover:before { display: inline;}
+  /* Languages per Org manual */
+  pre.src-asymptote:before { content: 'Asymptote'; }
+  pre.src-awk:before { content: 'Awk'; }
+  pre.src-C:before { content: 'C'; }
+  /* pre.src-C++ doesn't work in CSS */
+  pre.src-clojure:before { content: 'Clojure'; }
+  pre.src-css:before { content: 'CSS'; }
+  pre.src-D:before { content: 'D'; }
+  pre.src-ditaa:before { content: 'ditaa'; }
+  pre.src-dot:before { content: 'Graphviz'; }
+  pre.src-calc:before { content: 'Emacs Calc'; }
+  pre.src-emacs-lisp:before { content: 'Emacs Lisp'; }
+  pre.src-fortran:before { content: 'Fortran'; }
+  pre.src-gnuplot:before { content: 'gnuplot'; }
+  pre.src-haskell:before { content: 'Haskell'; }
+  pre.src-hledger:before { content: 'hledger'; }
+  pre.src-java:before { content: 'Java'; }
+  pre.src-js:before { content: 'Javascript'; }
+  pre.src-latex:before { content: 'LaTeX'; }
+  pre.src-ledger:before { content: 'Ledger'; }
+  pre.src-lisp:before { content: 'Lisp'; }
+  pre.src-lilypond:before { content: 'Lilypond'; }
+  pre.src-lua:before { content: 'Lua'; }
+  pre.src-matlab:before { content: 'MATLAB'; }
+  pre.src-mscgen:before { content: 'Mscgen'; }
+  pre.src-ocaml:before { content: 'Objective Caml'; }
+  pre.src-octave:before { content: 'Octave'; }
+  pre.src-org:before { content: 'Org mode'; }
+  pre.src-oz:before { content: 'OZ'; }
+  pre.src-plantuml:before { content: 'Plantuml'; }
+  pre.src-processing:before { content: 'Processing.js'; }
+  pre.src-python:before { content: 'Python'; }
+  pre.src-R:before { content: 'R'; }
+  pre.src-ruby:before { content: 'Ruby'; }
+  pre.src-sass:before { content: 'Sass'; }
+  pre.src-scheme:before { content: 'Scheme'; }
+  pre.src-screen:before { content: 'Gnu Screen'; }
+  pre.src-sed:before { content: 'Sed'; }
+  pre.src-sh:before { content: 'shell'; }
+  pre.src-sql:before { content: 'SQL'; }
+  pre.src-sqlite:before { content: 'SQLite'; }
+  /* additional languages in org.el's org-babel-load-languages alist */
+  pre.src-forth:before { content: 'Forth'; }
+  pre.src-io:before { content: 'IO'; }
+  pre.src-J:before { content: 'J'; }
+  pre.src-makefile:before { content: 'Makefile'; }
+  pre.src-maxima:before { content: 'Maxima'; }
+  pre.src-perl:before { content: 'Perl'; }
+  pre.src-picolisp:before { content: 'Pico Lisp'; }
+  pre.src-scala:before { content: 'Scala'; }
+  pre.src-shell:before { content: 'Shell Script'; }
+  pre.src-ebnf2ps:before { content: 'ebfn2ps'; }
+  /* additional language identifiers per "defun org-babel-execute"
+       in ob-*.el */
+  pre.src-cpp:before  { content: 'C++'; }
+  pre.src-abc:before  { content: 'ABC'; }
+  pre.src-coq:before  { content: 'Coq'; }
+  pre.src-groovy:before  { content: 'Groovy'; }
+  /* additional language identifiers from org-babel-shell-names in
+     ob-shell.el: ob-shell is the only babel language using a lambda to put
+     the execution function name together. */
+  pre.src-bash:before  { content: 'bash'; }
+  pre.src-csh:before  { content: 'csh'; }
+  pre.src-ash:before  { content: 'ash'; }
+  pre.src-dash:before  { content: 'dash'; }
+  pre.src-ksh:before  { content: 'ksh'; }
+  pre.src-mksh:before  { content: 'mksh'; }
+  pre.src-posh:before  { content: 'posh'; }
+  /* Additional Emacs modes also supported by the LaTeX listings package */
+  pre.src-ada:before { content: 'Ada'; }
+  pre.src-asm:before { content: 'Assembler'; }
+  pre.src-caml:before { content: 'Caml'; }
+  pre.src-delphi:before { content: 'Delphi'; }
+  pre.src-html:before { content: 'HTML'; }
+  pre.src-idl:before { content: 'IDL'; }
+  pre.src-mercury:before { content: 'Mercury'; }
+  pre.src-metapost:before { content: 'MetaPost'; }
+  pre.src-modula-2:before { content: 'Modula-2'; }
+  pre.src-pascal:before { content: 'Pascal'; }
+  pre.src-ps:before { content: 'PostScript'; }
+  pre.src-prolog:before { content: 'Prolog'; }
+  pre.src-simula:before { content: 'Simula'; }
+  pre.src-tcl:before { content: 'tcl'; }
+  pre.src-tex:before { content: 'TeX'; }
+  pre.src-plain-tex:before { content: 'Plain TeX'; }
+  pre.src-verilog:before { content: 'Verilog'; }
+  pre.src-vhdl:before { content: 'VHDL'; }
+  pre.src-xml:before { content: 'XML'; }
+  pre.src-nxml:before { content: 'XML'; }
+  /* add a generic configuration mode; LaTeX export needs an additional
+     (add-to-list 'org-latex-listings-langs '(conf " ")) in .emacs */
+  pre.src-conf:before { content: 'Configuration File'; }
+
+  table { border-collapse:collapse; }
+  caption.t-above { caption-side: top; }
+  caption.t-bottom { caption-side: bottom; }
+  td, th { vertical-align:top;  }
+  th.org-right  { text-align: center;  }
+  th.org-left   { text-align: center;   }
+  th.org-center { text-align: center; }
+  td.org-right  { text-align: right;  }
+  td.org-left   { text-align: left;   }
+  td.org-center { text-align: center; }
+  dt { font-weight: bold; }
+  .footpara { display: inline; }
+  .footdef  { margin-bottom: 1em; }
+  .figure { padding: 1em; }
+  .figure p { text-align: center; }
+  .equation-container {
+    display: table;
+    text-align: center;
+    width: 100%;
+  }
+  .equation {
+    vertical-align: middle;
+  }
+  .equation-label {
+    display: table-cell;
+    text-align: right;
+    vertical-align: middle;
+  }
+  .inlinetask {
+    padding: 10px;
+    border: 2px solid gray;
+    margin: 10px;
+    background: #ffffcc;
+  }
+  #org-div-home-and-up
+   { text-align: right; font-size: 70%; white-space: nowrap; }
+  textarea { overflow-x: auto; }
+  .linenr { font-size: smaller }
+  .code-highlighted { background-color: #ffff00; }
+  .org-info-js_info-navigation { border-style: none; }
+  #org-info-js_console-label
+    { font-size: 10px; font-weight: bold; white-space: nowrap; }
+  .org-info-js_search-highlight
+    { background-color: #ffff00; color: #000000; font-weight: bold; }
+  .org-svg { width: 90%; }
+  /*]]>*/-->
+</style>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/htmlize.css"/>
+<link rel="stylesheet" type="text/css" href="https://akhsim.github.io/read-akhsiM-orgs/styles/css/readtheorg.css"/>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/lib/js/jquery.stickytableheaders.min.js"></script>
+<script type="text/javascript" src="https://akhsim.github.io/read-akhsiM-orgs/styles/js/readtheorg.js"></script>
+<script type="text/javascript">
+/*
+@licstart  The following is the entire license notice for the
+JavaScript code in this tag.
+
+Copyright (C) 2012-2020 Free Software Foundation, Inc.
+
+The JavaScript code in this tag is free software: you can
+redistribute it and/or modify it under the terms of the GNU
+General Public License (GNU GPL) as published by the Free Software
+Foundation, either version 3 of the License, or (at your option)
+any later version.  The code is distributed WITHOUT ANY WARRANTY;
+without even the implied warranty of MERCHANTABILITY or FITNESS
+FOR A PARTICULAR PURPOSE.  See the GNU GPL for more details.
+
+As additional permission under GNU GPL version 3 section 7, you
+may distribute non-source (e.g., minimized or compacted) forms of
+that code without the copy of the GNU GPL normally required by
+section 4, provided you include this license notice and a URL
+through which recipients can access the Corresponding Source.
+
+
+@licend  The above is the entire license notice
+for the JavaScript code in this tag.
+*/
+<!--/*--><![CDATA[/*><!--*/
+ function CodeHighlightOn(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(null != target) {
+     elem.cacheClassElem = elem.className;
+     elem.cacheClassTarget = target.className;
+     target.className = "code-highlighted";
+     elem.className   = "code-highlighted";
+   }
+ }
+ function CodeHighlightOff(elem, id)
+ {
+   var target = document.getElementById(id);
+   if(elem.cacheClassElem)
+     elem.className = elem.cacheClassElem;
+   if(elem.cacheClassTarget)
+     target.className = elem.cacheClassTarget;
+ }
+/*]]>*///-->
+</script>
+</head>
+<body>
+<div id="content">
+<h1 class="title">Django User Management</h1>
+<div id="table-of-contents">
+<h2>Table of Contents</h2>
+<div id="text-table-of-contents">
+<ul>
+<li><a href="#orgeccaca5">Model Permissions</a>
+<ul>
+<li><a href="#org3a2b2dc">Checking Model Permissions</a></li>
+<li><a href="#org638a708">Enforce Permissions</a>
+<ul>
+<li><a href="#org5a78fc8">at the View layer</a></li>
+<li><a href="#orgdc88cf1">at the Template layer</a></li>
+<li><a href="#org1af137d">in Django Admin</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#org894d6e0">Implement Custom Business Roles in Django-Admin</a>
+<ul>
+<li><a href="#org2c7a975">A Custom User Admin</a></li>
+<li><a href="#org545bd2c">Prevent Update of Fields</a>
+<ul>
+<li><a href="#org07f848a">..conditionally</a></li>
+</ul>
+</li>
+<li><a href="#org7ac9991">Prevent Non-Superusers from granting superuser rights</a>
+<ul>
+<li><a href="#org0342bf5">Django User Admin Two-Step Form</a></li>
+</ul>
+</li>
+<li><a href="#org7d9269a">Grant Permissions Only Using Groups</a></li>
+<li><a href="#org706f4a8">Prevent Non-Super-Users from editing their own permissions</a></li>
+<li><a href="#org78c5f9d">Override Permissions</a></li>
+<li><a href="#org9cadeab">Restrict Access to Custom Actions</a></li>
+</ul>
+</li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-orgeccaca5" class="outline-2">
+<h2 id="orgeccaca5">Model Permissions</h2>
+<div class="outline-text-2" id="text-orgeccaca5">
+<p>
+When a model is created, Django automatically creates four default permissions for four actions:<br />
+</p>
+<ul class="org-ul">
+<li><code>add</code>: To add an instance of the model.<br /></li>
+<li><code>delete</code>: To delete an instance of the model.<br /></li>
+<li><code>change</code>: To update an instance of the model.<br /></li>
+<li><code>view</code>: To view instances of the model.<br /></li>
+</ul>
+
+<p>
+Permission names follow this naming convention: <code>&lt;app&gt;.&lt;action&gt;_&lt;modelname&gt;</code>.<br />
+</p>
+
+<p>
+For example, the name of the permission to change a user is <code>auth.change_user</code>.<br />
+</p>
+</div>
+
+<div id="outline-container-org3a2b2dc" class="outline-3">
+<h3 id="org3a2b2dc">Checking Model Permissions</h3>
+<div class="outline-text-3" id="text-org3a2b2dc">
+<p>
+Model Permissions are granted to users or groups. To check if a user has a certain permission, we can do:<br />
+</p>
+
+<pre class="example">
+&gt;&gt;&gt; from django.contrib.auth.models import User
+&gt;&gt;&gt; u = User.objects.create_user(username='kenny')
+&gt;&gt;&gt; u.has_perm('auth.change_user')
+False
+</pre>
+
+<p>
+<code>.has_perm()</code> will always return <code>True</code> for active superuser even if the permission doesn't really exist. What this means is when we are checking permissions for a superuser, the permissions are not really being checked.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org638a708" class="outline-3">
+<h3 id="org638a708">Enforce Permissions</h3>
+<div class="outline-text-3" id="text-org638a708">
+<p>
+Django models don't enforce permissions themselves. The only place where permissions are enforced out of the box is Django Admin.<br />
+</p>
+
+<p>
+In Django apps, the user is normally obtained from the request. Therefore most of the times, if permissions are needed, they would be enforced at <b>view layer</b>.<br />
+</p>
+</div>
+
+<div id="outline-container-org5a78fc8" class="outline-4">
+<h4 id="org5a78fc8">at the View layer</h4>
+<div class="outline-text-4" id="text-org5a78fc8">
+<p>
+For example, we can prevent a user without view permission to access a view that shows other user information by:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.core.exceptions <span style="color: #ff6188;">import</span> PermissionDenied
+
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">users_list_view</span>(request):
+        <span style="color: #ff6188;">if</span> <span style="color: #ff6188;">not</span> request.user.has_perm(<span style="color: #ffd866;">'auth_view_user'</span>):
+                <span style="color: #ff6188;">raise</span> PermissionDenied()
+</pre>
+</div>
+
+<p>
+If the user has not logged in, <code>request.user</code> would be an instance of <code>AnonymousUser</code>, which is a Django special object. Using <code>has_perm()</code> on <code>AnonymousUser</code> will always return <code>False</code>.<br />
+</p>
+
+<p>
+If the user making the request doesn't have the <code>view_user</code> permission, the <code>PermissionDenied</code> exception would be raised and a response 403 is returned to the client.<br />
+</p>
+</div>
+
+<ul class="org-ul">
+<li><a id="org0f0ce80"></a>using decorator<br />
+<div class="outline-text-5" id="text-org0f0ce80">
+<p>
+There is a shortcut decorator that we can use for the same thing:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.contrib.auth.decorators <span style="color: #ff6188;">import</span> permission_required
+
+<span style="color: #78dce8;">@permission_required</span>(<span style="color: #ffd866;">'auth.view_user'</span>)
+<span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">users_list_view</span>(request):
+        <span style="color: #ff6188;">pass</span>
+</pre>
+</div>
+</div>
+</li>
+</ul>
+</div>
+
+<div id="outline-container-orgdc88cf1" class="outline-4">
+<h4 id="orgdc88cf1">at the Template layer</h4>
+<div class="outline-text-4" id="text-orgdc88cf1">
+<p>
+We can also enforce permissions in templates through a special template variable called <b>perms</b>. For example, if we want to show the delete button only to users with delete permission:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-html">{% if perms.auth.delete_user %}
+&lt;<span style="color: #a9dc76;">button</span>&gt;Delete User&lt;/<span style="color: #a9dc76;">button</span>&gt;
+{% endif %}
+</pre>
+</div>
+</div>
+</div>
+<div id="outline-container-org1af137d" class="outline-4">
+<h4 id="org1af137d">in Django Admin</h4>
+<div class="outline-text-4" id="text-org1af137d">
+<p>
+Django-admin has a very tight integration with the built-in authentication system and model permissions. On default Django-admin enforces model permissions:<br />
+</p>
+<ul class="org-ul">
+<li>If the user has no permission on a model, they wouldn't be able to see or access it in the admin.<br /></li>
+<li>If the user has view and change permission on a model, they will be able to view and update instances but won't be able to add new or delete existing ones.<br /></li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org894d6e0" class="outline-2">
+<h2 id="org894d6e0">Implement Custom Business Roles in Django-Admin</h2>
+<div class="outline-text-2" id="text-org894d6e0">
+<p>
+One of the most vulnerable places in every app is the authentication system. This is the <code>User</code> model in a Django app. Therefore, to protect our app, we need to start with the <code>User</code> model.<br />
+</p>
+
+<p>
+First, we need to take control over the <code>User</code> model admin page by extending the built-in <code>User</code> admin model and make your own Custom User Admin.<br />
+</p>
+</div>
+
+<div id="outline-container-org2c7a975" class="outline-3">
+<h3 id="org2c7a975">A Custom User Admin</h3>
+<div class="outline-text-3" id="text-org2c7a975">
+<p>
+We first need to unregister the existing model admin provided by Django, and then register our own:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
+<span style="color: #ff6188;">from</span> django.contrib.auth.models <span style="color: #ff6188;">import</span> User
+<span style="color: #ff6188;">from</span> django.contrib.auth.admin <span style="color: #ff6188;">import</span> UserAdmin
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Unregister the OOTB modeladmin</span>
+admin.site.unregister(User)
+
+<span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Register our own modeladmin, based on the default UserADmin</span>
+<span style="color: #78dce8;">@admin.register</span>(User)
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">CustomUserAdmin</span>(UserAdmin):
+        <span style="color: #ff6188;">pass</span>
+</pre>
+</div>
+
+<p>
+By extending Django's <code>UserAdmin</code> we take advantage of all the work already done by the Django developer.<br />
+</p>
+</div>
+</div>
+
+<div id="outline-container-org545bd2c" class="outline-3">
+<h3 id="org545bd2c">Prevent Update of Fields</h3>
+<div class="outline-text-3" id="text-org545bd2c">
+<p>
+We can prevent admin users from modifying certain fields in the model.<br />
+</p>
+
+<p>
+If we want to prevent any users, including superusers from updating a field, we can mark the field as read-only.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
+<span style="color: #ff6188;">from</span> django.contrib.auth.models <span style="color: #ff6188;">import</span> User
+<span style="color: #ff6188;">from</span> django.contrib.auth.admin <span style="color: #ff6188;">import</span> UserAdmin
+
+<span style="color: #78dce8;">@admin.register</span>(User):
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">CustomUserAdmin</span>(UserAdmin):
+        <span style="color: #fcfcfa;">readonly_fields</span> = [
+                <span style="color: #ffd866;">'date_joined'</span>,
+        ]
+</pre>
+</div>
+</div>
+
+<div id="outline-container-org07f848a" class="outline-4">
+<h4 id="org07f848a">..conditionally</h4>
+<div class="outline-text-4" id="text-org07f848a">
+<p>
+We can also <b>conditionally</b> prevent update of fields.<br />
+</p>
+
+<p>
+Let's say we want to prevent non-superusers from being able to changing a user's username.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
+<span style="color: #ff6188;">from</span> django.contrib.auth.models <span style="color: #ff6188;">import</span> User
+<span style="color: #ff6188;">from</span> django.contrib.auth.admin <span style="color: #ff6188;">import</span> UserAdmin
+
+<span style="color: #78dce8;">@admin.register</span>(User)
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">CustomUserAdmin</span>(UserAdmin):
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">get_form</span>(<span style="color: #ff6188;">self</span>, request, obj=<span style="color: #ab9df2;">None</span>, **kwargs):
+        <span style="color: #fcfcfa;">form</span> = <span style="color: #ab9df2;">super</span>().get_form(request, obj, **kwargs)
+        <span style="color: #fcfcfa;">is_superuser</span> = request.user.is_superuser
+
+        <span style="color: #ff6188;">if</span> <span style="color: #ff6188;">not</span> is_superuser:
+            form.base_fields[<span style="color: #ffd866;">'username'</span>]<span style="color: #fcfcfa;">.disabled</span> = <span style="color: #ab9df2;">True</span>
+
+        <span style="color: #ff6188;">return</span> form
+
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>We override the <code>get_form()</code> method. This function is used by Django to generate a default change form for a model.<br /></li>
+<li>In order to conditionally disabled the field, we first fetch the default form generated by Django, then apply the condition, disabling the <code>username</code> field.<br /></li>
+</ul>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org7ac9991" class="outline-3">
+<h3 id="org7ac9991">Prevent Non-Superusers from granting superuser rights</h3>
+<div class="outline-text-3" id="text-org7ac9991">
+<p>
+Superuser is a very strong permission that should not be granted lightly. However on default <b>any user with a change permission on the <code>User</code> model can make any user a superuser, including themselves</b>. Therefore we want to close this hole.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> typing <span style="color: #ff6188;">import</span> Set
+
+<span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
+<span style="color: #ff6188;">from</span> django.contrib.auth.models <span style="color: #ff6188;">import</span> User
+<span style="color: #ff6188;">from</span> django.contrib.auth.admin <span style="color: #ff6188;">import</span> UserAdmin
+
+<span style="color: #78dce8;">@admin.site.register</span>(User)
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">CustomUserAdmin</span>(UserAdmin):
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">get_form</span>(<span style="color: #ff6188;">self</span>, request, obj=<span style="color: #ab9df2;">None</span>, **kwargs):
+                <span style="color: #fcfcfa;">form</span> = <span style="color: #ab9df2;">super</span>.get_form(request, obj, **kwargs):
+                <span style="color: #fcfcfa;">is_superuser</span> = request.user.is_superuser
+                <span style="color: #fcfcfa;">disabled_fields</span> = <span style="color: #ab9df2;">set</span>()
+
+                <span style="color: #ff6188;">if</span> <span style="color: #ff6188;">not</span> is_superuser:
+                        <span style="color: #fcfcfa;">disabled_fields</span> |= {
+                                <span style="color: #ffd866;">'username'</span>,
+                                <span style="color: #ffd866;">'is_superuser'</span>,
+                        }
+
+                <span style="color: #ff6188;">for</span> f <span style="color: #ff6188;">in</span> disabled_fields:
+                        <span style="color: #ff6188;">if</span> f <span style="color: #ff6188;">in</span> form.base_fields:
+                                form.base_fields[f]<span style="color: #fcfcfa;">.disabled</span> = <span style="color: #ab9df2;">True</span>
+
+                <span style="color: #ff6188;">return</span> form
+                                
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>We intialized an empty set <code>disabled_fields</code> that will hold the fields to disable. <code>set</code> is a data structure that holds <b>unique values</b>. It makes sense to use a set in this case because we only need to disable a field once.<br /></li>
+<li>The operator <code>|=</code> is used to perform an in-place <b>or</b> update.<br /></li>
+<li>Then we apply the condition. If ther user is not superuser, we add two fields to the set.<br /></li>
+<li>Lastly we iterate over the fields in the set and mark all of them as disabled, then return the form.<br /></li>
+</ul>
+</div>
+<div id="outline-container-org0342bf5" class="outline-4">
+<h4 id="org0342bf5">Django User Admin Two-Step Form</h4>
+<div class="outline-text-4" id="text-org0342bf5">
+<p>
+When we create a new user in Django-admin, we go through a two-step form. In the first form we fill in the username and password. In the second form, we update the rest of the fields.<br />
+</p>
+
+<p>
+This two-step process is unique to the <code>User</code> model. In order to accomodate this unique process, we need to verify that the field exists before we disable it. Otherwise we would get a <code>KeyError</code>.<br />
+</p>
+</div>
+</div>
+</div>
+<div id="outline-container-org7d9269a" class="outline-3">
+<h3 id="org7d9269a">Grant Permissions Only Using Groups</h3>
+<div class="outline-text-3" id="text-org7d9269a">
+<p>
+The way permissions are managed is specific to each team/ organization. However it's easier to manage permissions in groups. Grouping permissions together makes life easier rather than trying to manage them at individual user level.<br />
+</p>
+
+<p>
+To manage permissions only using groups, we need to <b>prevent users from granting permissions to specific users</b>. Instead we <b>only</b> want to allow associating useres to groups. To do that we have to disable the field <code>user_permissions</code> for all non-superusers.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> typing <span style="color: #ff6188;">import</span> Set
+
+<span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
+<span style="color: #ff6188;">from</span> django.contrib.auth.models <span style="color: #ff6188;">import</span> User
+<span style="color: #ff6188;">from</span> django.contrib.auth.admin <span style="color: #ff6188;">import</span> UserAdmin
+
+<span style="color: #78dce8;">@admin.register</span>(User)
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">CustomUserAdmin</span>(UserAdmin):
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">get_form</span>(<span style="color: #ff6188;">self</span>, request, obj=<span style="color: #ab9df2;">None</span>, **kwargs):
+        <span style="color: #fcfcfa;">form</span> = <span style="color: #ab9df2;">super</span>().get_form(request, obj, **kwargs)
+        <span style="color: #fcfcfa;">is_superuser</span> = request.user.is_superuser
+        <span style="color: #fcfcfa;">disabled_fields</span> = <span style="color: #ab9df2;">set</span>()  <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">type: Set[str]</span>
+
+        <span style="color: #ff6188;">if</span> <span style="color: #ff6188;">not</span> is_superuser:
+            <span style="color: #fcfcfa;">disabled_fields</span> |= {
+                <span style="color: #ffd866;">'username'</span>,
+                <span style="color: #ffd866;">'is_superuser'</span>,
+                <span style="color: #ffd866;">'user_permissions'</span>,
+            }
+
+        <span style="color: #ff6188;">for</span> f <span style="color: #ff6188;">in</span> disabled_fields:
+            <span style="color: #ff6188;">if</span> f <span style="color: #ff6188;">in</span> form.base_fields:
+                form.base_fields[f]<span style="color: #fcfcfa;">.disabled</span> = <span style="color: #ab9df2;">True</span>
+
+        <span style="color: #ff6188;">return</span> form
+
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org706f4a8" class="outline-3">
+<h3 id="org706f4a8">Prevent Non-Super-Users from editing their own permissions</h3>
+<div class="outline-text-3" id="text-org706f4a8">
+<p>
+Strong users are often a weak spot of the system. Users who possess strong permissions have the potential to cause significant damage. To prevent this, we can prevent users from editing their own permissions:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> typing <span style="color: #ff6188;">import</span> Set
+
+<span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
+<span style="color: #ff6188;">from</span> django.contrib.auth.models <span style="color: #ff6188;">import</span> User
+<span style="color: #ff6188;">from</span> django.contrib.auth.admin <span style="color: #ff6188;">import</span> UserAdmin
+
+<span style="color: #78dce8;">@admin.register</span>(User)
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">CustomUserAdmin</span>(UserAdmin):
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">get_form</span>(<span style="color: #ff6188;">self</span>, request, obj=<span style="color: #ab9df2;">None</span>, **kwargs):
+        <span style="color: #fcfcfa;">form</span> = <span style="color: #ab9df2;">super</span>().get_form(request, obj, **kwargs)
+        <span style="color: #fcfcfa;">is_superuser</span> = request.user.is_superuser
+        <span style="color: #fcfcfa;">disabled_fields</span> = <span style="color: #ab9df2;">set</span>()  <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">type: Set[str]</span>
+
+        <span style="color: #ff6188;">if</span> <span style="color: #ff6188;">not</span> is_superuser:
+            <span style="color: #fcfcfa;">disabled_fields</span> |= {
+                <span style="color: #ffd866;">'username'</span>,
+                <span style="color: #ffd866;">'is_superuser'</span>,
+                <span style="color: #ffd866;">'user_permissions'</span>,
+            }
+
+        <span style="color: #727072;"># </span><span style="color: #727072; font-style: italic;">Prevent non-superusers from editing their own permissions</span>
+        <span style="color: #ff6188;">if</span> (
+            <span style="color: #ff6188;">not</span> is_superuser
+            <span style="color: #ff6188;">and</span> obj <span style="color: #ff6188;">is</span> <span style="color: #ff6188;">not</span> <span style="color: #ab9df2;">None</span>
+            <span style="color: #ff6188;">and</span> obj == request.user
+        ):
+            <span style="color: #fcfcfa;">disabled_fields</span> |= {
+                <span style="color: #ffd866;">'is_staff'</span>,
+                <span style="color: #ffd866;">'is_superuser'</span>,
+                <span style="color: #ffd866;">'groups'</span>,
+                <span style="color: #ffd866;">'user_permissions'</span>,
+            }
+
+        <span style="color: #ff6188;">for</span> f <span style="color: #ff6188;">in</span> disabled_fields:
+            <span style="color: #ff6188;">if</span> f <span style="color: #ff6188;">in</span> form.base_fields:
+                form.base_fields[f]<span style="color: #fcfcfa;">.disabled</span> = <span style="color: #ab9df2;">True</span>
+
+        <span style="color: #ff6188;">return</span> form
+
+</pre>
+</div>
+
+<ul class="org-ul">
+<li>The argument <code>obj</code> is the instance of the object that is currently being edited:<br />
+<ul class="org-ul">
+<li>When <code>obj is None</code>, the form is being used to create a new user.<br /></li>
+<li>When <code>obj is not None</code>, the form is being used to edit an existing user.<br /></li>
+</ul></li>
+
+<li>To check if the user making the request is operating on themselves, we can compare <code>request.user</code> with <code>obj</code>.<br /></li>
+<li>The ability to customize the form based on the <code>obj</code> is very useful. We can use this to implement elaborate business roles.<br /></li>
+</ul>
+</div>
+</div>
+
+<div id="outline-container-org78c5f9d" class="outline-3">
+<h3 id="org78c5f9d">Override Permissions</h3>
+<div class="outline-text-3" id="text-org78c5f9d">
+<p>
+Sometimes it can be useful to completely override the permissions in Django admin. A common scenario is when you use permissions in other place and you don't want staff users to make changes in the admin.<br />
+</p>
+
+<p>
+In order to implement the four built-in permissions, Django uses <b>hooks</b>. Internally, these hooks use the current user's permissions to make a decision. However we can override these hooks and provide a different decision.<br />
+</p>
+
+<p>
+To prevent staff users from deleting a model instance, regardless of their permissions, we can do the following:<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
+<span style="color: #ff6188;">from</span> django.contrib.auth.models <span style="color: #ff6188;">import</span> User
+<span style="color: #ff6188;">from</span> django.contrib.auth.admin <span style="color: #ff6188;">import</span> UserAdmin
+
+<span style="color: #78dce8;">@admin.register</span>(User)
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">CustomUserAdmin</span>(UserAdmin):
+    <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">has_delete_permission</span>(<span style="color: #ff6188;">self</span>, request, obj=<span style="color: #ab9df2;">None</span>):
+        <span style="color: #ff6188;">return</span> <span style="color: #ab9df2;">False</span>
+</pre>
+</div>
+</div>
+</div>
+
+<div id="outline-container-org9cadeab" class="outline-3">
+<h3 id="org9cadeab">Restrict Access to Custom Actions</h3>
+<div class="outline-text-3" id="text-org9cadeab">
+<p>
+<b>Custom Admin Actions</b> requires special attention. As Django is not familiar with them, it cannot restrict them by default. Out of the box, a custom action will be accessible to any admin user with any permission on the model.<br />
+</p>
+
+<p>
+For example, let's say we have a custom admin action to mark multiple userse as active:<br />
+</p>
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
+<span style="color: #ff6188;">from</span> django.contrib.auth.models <span style="color: #ff6188;">import</span> User
+<span style="color: #ff6188;">from</span> django.contrib.auth.admin <span style="color: #ff6188;">import</span> UserAdmin
+
+<span style="color: #78dce8;">@admin.register</span>(User)
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">CustomUserAdmin</span>(UserAdmin):
+        <span style="color: #fcfcfa;">actions</span> = [
+                <span style="color: #ffd866;">'activate_users'</span>,
+        ]
+
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">activate_users</span>(<span style="color: #ff6188;">self</span>, request, queryset):
+                <span style="color: #fcfcfa;">cnt</span> = queryset.<span style="color: #ab9df2;">filter</span>(is_active=<span style="color: #ab9df2;">False</span>).update(is_active=<span style="color: #ab9df2;">True</span>)
+                <span style="color: #ff6188;">self</span>.message_user(request, <span style="color: #ffd866;">'Activated {} users.'</span>.<span style="color: #ab9df2;">format</span>(cnt))
+        <span style="color: #fcfcfa;">activate_users.short_description</span> = <span style="color: #ffd866;">'Activate users'</span>
+</pre>
+</div>
+
+<p>
+This custom action updates user information, so we only want users with change permissions to be able to use it. Because it's a custom user action though, any person with access to django-admin and useradmin interface can use it. Therefore we need to hide <code>activate_users()</code> from users without user change permission by overriding <code>get_actions()</code>.<br />
+</p>
+
+<div class="org-src-container">
+<pre class="src src-python"><span style="color: #ff6188;">from</span> django.contrib <span style="color: #ff6188;">import</span> admin
+<span style="color: #ff6188;">from</span> django.contrib.auth.models <span style="color: #ff6188;">import</span> User
+<span style="color: #ff6188;">from</span> django.contrib.auth.admin <span style="color: #ff6188;">import</span> UserAdmin
+
+<span style="color: #78dce8;">@admin.register</span>(User)
+<span style="color: #ff6188;">class</span> <span style="color: #78dce8;">CustomUserAdmin</span>(UserAdmin):
+        <span style="color: #fcfcfa;">actions</span> = [
+                <span style="color: #ffd866;">'activate_users'</span>,
+        ]
+
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">activate_users</span>(<span style="color: #ff6188;">self</span>, request, queryset):
+                <span style="color: #fcfcfa;">cnt</span> = queryset.<span style="color: #ab9df2;">filter</span>(is_active=<span style="color: #ab9df2;">False</span>).update(is_active=<span style="color: #ab9df2;">True</span>)
+                <span style="color: #ff6188;">self</span>.message_user(request, <span style="color: #ffd866;">'Activated {} users.'</span>.<span style="color: #ab9df2;">format</span>(cnt))
+        <span style="color: #fcfcfa;">activate_users.short_description</span> = <span style="color: #ffd866;">'Activate users'</span>
+
+        <span style="color: #ff6188;">def</span> <span style="color: #a9dc76;">get_actions</span>(<span style="color: #ff6188;">self</span>, request):
+                <span style="color: #fcfcfa;">actions</span> = <span style="color: #ab9df2;">super</span>().get_actions(request)
+                <span style="color: #ff6188;">if</span> <span style="color: #ff6188;">not</span> request.user.has_perm(<span style="color: #ffd866;">'auth.change_user'</span>):
+                        <span style="color: #ff6188;">del</span> actions[<span style="color: #ffd866;">'activate_users'</span>]
+                <span style="color: #ff6188;">return</span> actions
+</pre>
+</div>
+
+<p>
+<code>get_actions()</code> is the default Django function that returns an <code>OrderedDict</code>. Within this dict, each object has a key which is just the name of the action, as well as the value being the actual function being called. In order to adjust the return value, we override the function, fetch the original dict with <code>super()</code>, and conditionally remove the custom action <code>activate_users</code> from the dict.<br />
+</p>
+</div>
+</div>
+</div>
+</div>
+<div id="postamble" class="status">
+<p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
+                          <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
+                          <p>Created: 2021-02-05 Fri 00:00</p>
+                          <p class="date">Updated: 2021-02-08 Mon 11:47</p>
+</div>
+</body>
+</html>

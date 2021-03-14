@@ -3,7 +3,7 @@
 "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en">
 <head>
-<!-- 2021-02-08 Mon 12:11 -->
+<!-- 2021-03-14 Sun 23:53 -->
 <meta http-equiv="Content-Type" content="text/html;charset=utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>Flexbox CSS</title>
@@ -253,26 +253,26 @@ for the JavaScript code in this tag.
 <h2>Table of Contents</h2>
 <div id="text-table-of-contents">
 <ul>
-<li><a href="#orgbb1128c">General</a></li>
-<li><a href="#org7b66c01">Learning</a>
+<li><a href="#org8f11ced">General</a></li>
+<li><a href="#org9c69651">Learning</a>
 <ul>
-<li><a href="#org079af90">What is Flexbox?</a></li>
-<li><a href="#orgb1e42b2">Flexbox Box Model Concept</a></li>
-<li><a href="#org9c8f338">General Idea</a></li>
-<li><a href="#org3d8c496">Flex Properties</a></li>
-<li><a href="#org5821edf">Some Practice</a>
+<li><a href="#org6fbf9fc">What is Flexbox?</a></li>
+<li><a href="#org933786c">Flexbox Box Model Concept</a></li>
+<li><a href="#orge41284d">General Idea</a></li>
+<li><a href="#org99258fa">Flex Properties</a></li>
+<li><a href="#orgef4f944">Some Practice</a>
 <ul>
-<li><a href="#org541c453">Starting Out</a></li>
-<li><a href="#org4f5db1f">Make elements appear side by side</a></li>
-<li><a href="#org56d998b">Give all elements the same size with <code>flex</code></a></li>
-<li><a href="#org8ba9bf7">Ordering elements with <code>order</code></a></li>
-<li><a href="#org3e2cf41"><code>align-items</code></a></li>
-<li><a href="#org540e0bb"><code>flex-direction</code></a></li>
-<li><a href="#orgfca48ff">Adding a new container section</a></li>
-<li><a href="#orgdc668e2">Changing width</a></li>
-<li><a href="#orgdcb76b4"><code>justify-content</code></a></li>
-<li><a href="#orgfdc01d7"><code>flex-basis</code></a></li>
-<li><a href="#orgbb6d071">Using media query</a></li>
+<li><a href="#orga57b326">Starting Out</a></li>
+<li><a href="#orgb3e2371">Make elements appear side by side</a></li>
+<li><a href="#orgd09d27e">Give all elements the same size with <code>flex</code></a></li>
+<li><a href="#org04d8282">Ordering elements with <code>order</code></a></li>
+<li><a href="#org903a0d4"><code>align-items</code></a></li>
+<li><a href="#org6e21bb1"><code>flex-direction</code></a></li>
+<li><a href="#org22b6f7c">Adding a new container section</a></li>
+<li><a href="#orge3f3b2d">Changing width</a></li>
+<li><a href="#org578be1f"><code>justify-content</code></a></li>
+<li><a href="#org0ed6003"><code>flex-basis</code></a></li>
+<li><a href="#org78ab1fc">Using media query</a></li>
 </ul>
 </li>
 </ul>
@@ -281,9 +281,9 @@ for the JavaScript code in this tag.
 </div>
 </div>
 
-<div id="outline-container-orgbb1128c" class="outline-2">
-<h2 id="orgbb1128c">General</h2>
-<div class="outline-text-2" id="text-orgbb1128c">
+<div id="outline-container-org8f11ced" class="outline-2">
+<h2 id="org8f11ced">General</h2>
+<div class="outline-text-2" id="text-org8f11ced">
 <p>
 Recently I was working on a Django auction site as part of my CS50W course and found myself spending half an hour on adjusting a small CSS element. Although this may seem normal in the webdev world, especially for someone who knows so little about CSS, I thought I should be learning a bit of CSS Flexbox to understand the general concepts first.<br />
 </p>
@@ -294,13 +294,13 @@ This is the video I'm taking notes from: <a href="https://www.youtube.com/watch?
 </div>
 </div>
 
-<div id="outline-container-org7b66c01" class="outline-2">
-<h2 id="org7b66c01">Learning</h2>
-<div class="outline-text-2" id="text-org7b66c01">
+<div id="outline-container-org9c69651" class="outline-2">
+<h2 id="org9c69651">Learning</h2>
+<div class="outline-text-2" id="text-org9c69651">
 </div>
-<div id="outline-container-org079af90" class="outline-3">
-<h3 id="org079af90">What is Flexbox?</h3>
-<div class="outline-text-3" id="text-org079af90">
+<div id="outline-container-org6fbf9fc" class="outline-3">
+<h3 id="org6fbf9fc">What is Flexbox?</h3>
+<div class="outline-text-3" id="text-org6fbf9fc">
 <p>
 CSS Flexbos is a layout mode that provides an easy and clean way to arrange items within a container. Since Flexbox, a newer CSS layout mode has come out, Grid, however they are different. Flexbox is essentially used for laying out items in a single dimensions (row OR column) however Grid is for layout of items in two dimentions (row AND column).<br />
 </p>
@@ -319,9 +319,9 @@ If we want to change the order of our column, we don't have to change the HTML b
 </div>
 </div>
 
-<div id="outline-container-orgb1e42b2" class="outline-3">
-<h3 id="orgb1e42b2">Flexbox Box Model Concept</h3>
-<div class="outline-text-3" id="text-orgb1e42b2">
+<div id="outline-container-org933786c" class="outline-3">
+<h3 id="org933786c">Flexbox Box Model Concept</h3>
+<div class="outline-text-3" id="text-org933786c">
 <p>
 The general concept of flexbox model is the ability to alter item width and height to best fit in its containers available free space. Flexbox is also direction-agnostic i.e it works well for both vertical and horizontal direction.<br />
 </p>
@@ -332,9 +332,9 @@ Flexbox was created for small-scale layout while Grid is more for large scale<br
 </div>
 </div>
 
-<div id="outline-container-org9c8f338" class="outline-3">
-<h3 id="org9c8f338">General Idea</h3>
-<div class="outline-text-3" id="text-org9c8f338">
+<div id="outline-container-orge41284d" class="outline-3">
+<h3 id="orge41284d">General Idea</h3>
+<div class="outline-text-3" id="text-orge41284d">
 <p>
 Basically we have a main flex container wrapper with the <code>display: flex</code> property.<br />
 </p>
@@ -1221,9 +1221,9 @@ dUVRFEXZPqiuK4qiKMr2QXVdURRFUbYP6jenKIqiKNsHXa8riqIoyvZBdV1RFEVRtg9qh1cURVGU
 </div>
 </div>
 
-<div id="outline-container-org3d8c496" class="outline-3">
-<h3 id="org3d8c496">Flex Properties</h3>
-<div class="outline-text-3" id="text-org3d8c496">
+<div id="outline-container-org99258fa" class="outline-3">
+<h3 id="org99258fa">Flex Properties</h3>
+<div class="outline-text-3" id="text-org99258fa">
 <ul class="org-ul">
 <li><code>display: flex | inline-flex;</code><br /></li>
 </ul>
@@ -1242,25 +1242,25 @@ This is pretty much the same as width which can be used to assign a width to our
 <li><code>justify-content: flex-start | flex-end | center</code><br /></li>
 </ul>
 <p>
-This is used to align item to left (flex-start), right (flex-end) or center.<br />
+This is used to align item to left (flex-start), right (flex-end) or center along the <b>main axis</b>.<br />
 </p>
 <ul class="org-ul">
 <li><code>align-self: flex-start | flex-end | center</code>.<br /></li>
 </ul>
 <p>
-This allows us to overwrite default alignment for individual flex items. This is used to specify the alignment for selected flex items inside a flex container. It overrides the <code>align-items</code> property.<br />
+This allows us to overwrite default alignment for <b>individual flex items</b>. This is used to specify the alignment for selected flex items inside a flex container. It overrides the <code>align-items</code> property.<br />
 </p>
 <ul class="org-ul">
 <li><code>align-items</code><br /></li>
 </ul>
 <p>
-This property is used to set the default behaviour for how flex items are laid out across main axis.<br />
+This property is used to set the default behaviour for how <b>all flex items</b> are laid out along the crossaxis. This is similar behaviour to how <code>justify-content</code> does along the main axis.<br />
 </p>
 <ul class="org-ul">
 <li><code>align-content</code><br /></li>
 </ul>
 <p>
-Similar to <code>align-tems</code> but for cross axis.<br />
+Similar to <code>align-items</code>, i.e for cross axis, however it is only used for multiline flex boxes within a container. It has no effect when all items are in a signle line. It control the <b>spacing between the lines</b>, instead of all flex items.<br />
 </p>
 <ul class="org-ul">
 <li><code>flex-grow: &lt;number&gt;</code><br /></li>
@@ -1276,13 +1276,13 @@ These are used to make different elements in the row different sizes, for exampl
 </div>
 </div>
 
-<div id="outline-container-org5821edf" class="outline-3">
-<h3 id="org5821edf">Some Practice</h3>
-<div class="outline-text-3" id="text-org5821edf">
+<div id="outline-container-orgef4f944" class="outline-3">
+<h3 id="orgef4f944">Some Practice</h3>
+<div class="outline-text-3" id="text-orgef4f944">
 </div>
-<div id="outline-container-org541c453" class="outline-4">
-<h4 id="org541c453">Starting Out</h4>
-<div class="outline-text-4" id="text-org541c453">
+<div id="outline-container-orga57b326" class="outline-4">
+<h4 id="orga57b326">Starting Out</h4>
+<div class="outline-text-4" id="text-orga57b326">
 <p>
 Suppose we start out with this:<br />
 </p>
@@ -1506,9 +1506,9 @@ EAAAAADqfL+8cnx8TIsAAAAAeDmRyWRCKwAAAABQ4/8DbRtmXZTtWkUAAAAASUVORK5CYII="CSS Fle
 </div>
 </div>
 
-<div id="outline-container-org4f5db1f" class="outline-4">
-<h4 id="org4f5db1f">Make elements appear side by side</h4>
-<div class="outline-text-4" id="text-org4f5db1f">
+<div id="outline-container-orgb3e2371" class="outline-4">
+<h4 id="orgb3e2371">Make elements appear side by side</h4>
+<div class="outline-text-4" id="text-orgb3e2371">
 <p>
 By simply declaring <code>display: flex</code> in the container element, i.e:<br />
 </p>
@@ -1674,9 +1674,9 @@ AFiHtAYAAGAd0hoAAIB1SGsAAADWIa0BAABYh7QGAABg3f8D5Bp6fl4ZbeUAAAAASUVORK5CYII="CSS
 </div>
 </div>
 
-<div id="outline-container-org56d998b" class="outline-4">
-<h4 id="org56d998b">Give all elements the same size with <code>flex</code></h4>
-<div class="outline-text-4" id="text-org56d998b">
+<div id="outline-container-orgd09d27e" class="outline-4">
+<h4 id="orgd09d27e">Give all elements the same size with <code>flex</code></h4>
+<div class="outline-text-4" id="text-orgd09d27e">
 <p>
 We can then add <code>flex: 1</code> to all our flex items to give them the same size:<br />
 </p>
@@ -2057,9 +2057,9 @@ EZYAAAAA8BhhCQAAAACP/X97LNHqRmRF0gAAAABJRU5ErkJggg=="CSS Flexbox.org_20200902_00
 </div>
 </div>
 
-<div id="outline-container-org8ba9bf7" class="outline-4">
-<h4 id="org8ba9bf7">Ordering elements with <code>order</code></h4>
-<div class="outline-text-4" id="text-org8ba9bf7">
+<div id="outline-container-org04d8282" class="outline-4">
+<h4 id="org04d8282">Ordering elements with <code>order</code></h4>
+<div class="outline-text-4" id="text-org04d8282">
 <p>
 We can also reorder the elements by giving them the <code>order</code> property:<br />
 </p>
@@ -2254,9 +2254,9 @@ P5vBxfhhpzU6AAAAAElFTkSuQmCC"CSS Flexbox.org_20200902_002041_acg5BD.png /><br />
 </div>
 </div>
 
-<div id="outline-container-org3e2cf41" class="outline-4">
-<h4 id="org3e2cf41"><code>align-items</code></h4>
-<div class="outline-text-4" id="text-org3e2cf41">
+<div id="outline-container-org903a0d4" class="outline-4">
+<h4 id="org903a0d4"><code>align-items</code></h4>
+<div class="outline-text-4" id="text-org903a0d4">
 <p>
 By default, flex items within a container are stretched to the same size.<br />
 </p>
@@ -2630,9 +2630,9 @@ AAAAAECwIEsBAAAAAIBgQZYCAAAAAADBgiwFAAAAAACC5f8DarxmDPxSZckAAAAASUVORK5CYII="CSS
 </div>
 </div>
 
-<div id="outline-container-org540e0bb" class="outline-4">
-<h4 id="org540e0bb"><code>flex-direction</code></h4>
-<div class="outline-text-4" id="text-org540e0bb">
+<div id="outline-container-org6e21bb1" class="outline-4">
+<h4 id="org6e21bb1"><code>flex-direction</code></h4>
+<div class="outline-text-4" id="text-org6e21bb1">
 <p>
 If we want our flex items to appear in a column, we can add <code>flex-direction: col</code>:<br />
 </p>
@@ -2880,9 +2880,9 @@ AAAAUIM0AgAAAECN/w/AqflrMWFpIwAAAABJRU5ErkJggg=="CSS Flexbox.org_20200902_002752
 </div>
 </div>
 
-<div id="outline-container-orgfca48ff" class="outline-4">
-<h4 id="orgfca48ff">Adding a new container section</h4>
-<div class="outline-text-4" id="text-orgfca48ff">
+<div id="outline-container-org22b6f7c" class="outline-4">
+<h4 id="org22b6f7c">Adding a new container section</h4>
+<div class="outline-text-4" id="text-org22b6f7c">
 <div class="org-src-container">
 <pre class="src src-html">&lt;<span style="color: #a9dc76;">style</span>&gt;
   .container-1 {
@@ -3277,9 +3277,9 @@ zUzyttshAAAAAElFTkSuQmCC"CSS Flexbox.org_20200902_002951_Kmkapj.png /><br />
 </div>
 </div>
 
-<div id="outline-container-orgdc668e2" class="outline-4">
-<h4 id="orgdc668e2">Changing width</h4>
-<div class="outline-text-4" id="text-orgdc668e2">
+<div id="outline-container-orge3f3b2d" class="outline-4">
+<h4 id="orge3f3b2d">Changing width</h4>
+<div class="outline-text-4" id="text-orge3f3b2d">
 <p>
 We can also adjust the width of container 2 items by adding <code>width</code> property:<br />
 </p>
@@ -4051,9 +4051,9 @@ Due to the 30% width, container-2 is a bit smaller than container-1.<br />
 </div>
 </div>
 
-<div id="outline-container-orgdcb76b4" class="outline-4">
-<h4 id="orgdcb76b4"><code>justify-content</code></h4>
-<div class="outline-text-4" id="text-orgdcb76b4">
+<div id="outline-container-org578be1f" class="outline-4">
+<h4 id="org578be1f"><code>justify-content</code></h4>
+<div class="outline-text-4" id="text-org578be1f">
 <p>
 With the specified <code>width</code> in container-2, we notice a gap on the right hand side of it. Let's add a margin in.<br />
 </p>
@@ -5019,18 +5019,18 @@ AAAEBeITAAAAAAAIiv8P1sP6d+2AutUAAAAASUVORK5CYII="CSS Flexbox.org_20200902_003805
 </div>
 </div>
 
-<div id="outline-container-orgfdc01d7" class="outline-4">
-<h4 id="orgfdc01d7"><code>flex-basis</code></h4>
-<div class="outline-text-4" id="text-orgfdc01d7">
+<div id="outline-container-org0ed6003" class="outline-4">
+<h4 id="org0ed6003"><code>flex-basis</code></h4>
+<div class="outline-text-4" id="text-org0ed6003">
 <p>
 We can certainly keep using <code>width</code> however the more flex way to do thing is to use <code>flex-basis</code>. This shouldnt change anything in our existing example.<br />
 </p>
 </div>
 </div>
 
-<div id="outline-container-orgbb6d071" class="outline-4">
-<h4 id="orgbb6d071">Using media query</h4>
-<div class="outline-text-4" id="text-orgbb6d071">
+<div id="outline-container-org78ab1fc" class="outline-4">
+<h4 id="org78ab1fc">Using media query</h4>
+<div class="outline-text-4" id="text-org78ab1fc">
 <p>
 To make our page more responsive, we can put container-1 and container-2 within a media query like this:<br />
 </p>
@@ -5422,7 +5422,7 @@ l/9/3epTsZd6mdEAAAAASUVORK5CYII="CSS Flexbox.org_20200902_004230_j8KZzT.png /><b
 <p class="author">Author: <a href="https://akhsim.github.io/">Mishka Nguyen</a> </p>
                           <p><a href="https://www.gnu.org/software/emacs/">Emacs</a> 27.1 (<a href="https://orgmode.org">Org</a> mode 9.3)</p>
                           <p>Created: 2020-09-01 Tue 00:00</p>
-                          <p class="date">Updated: 2021-02-08 Mon 12:11</p>
+                          <p class="date">Updated: 2021-03-14 Sun 23:53</p>
 </div>
 </body>
 </html>
